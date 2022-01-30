@@ -1,8 +1,8 @@
 # Software Engineering Methods
 
-![Master Buid Status](https://img.shields.io/github/workflow/status/GregEwens/sem/A%20workflow%20for%20my%20Hello%20World%20App/master?style=flat-square)
+Master Build Status ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/GregEwens/sem/A%20workflow%20for%20my%20Hello%20World%20App/master?style=flat-square)
 
-![Develop Buid Status](https://img.shields.io/github/workflow/status/GregEwens/sem/A%20workflow%20for%20my%20Hello%20World%20App/develop?style=flat-square)
+Develop Build Status ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/GregEwens/sem/A%20workflow%20for%20my%20Hello%20World%20App/develop?style=flat-square)
 
 ![workflow](https://github.com/GregEwens/sem/actions/workflows/main.yml/badge.svg)
 
