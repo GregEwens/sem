@@ -19,7 +19,7 @@ public class App
         Document doc = new Document("name", "Kevin Sim")
                 .append("class", "Software Engineering Methods")
                 .append("year", "2021")
-                .append("result", new Document("CW", 95).append("EX", 85));
+                .append(""result", new Document("CW", 95).append("EX", 85));
         // Add document to collection
         collection.insertOne(doc);
 
