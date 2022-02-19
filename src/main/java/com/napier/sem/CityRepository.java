@@ -68,6 +68,11 @@ public class CityRepository {
         return getCity(strSelect);
     }
 
+    /**
+     * Gets a collection of cities found in the specified country
+     * @param countryCode The countryCode to search, casing is unimportant
+     * @return Returns a sorted collection of Cities
+     */
     public ArrayList<City> getAllCitiesByCountryOrderedByPopulation(String countryCode){
         var cities = getAllCitiesOrderedByPopulation();
 
@@ -80,6 +85,25 @@ public class CityRepository {
         }
 
         return citiesInCountry;
+    }
+
+    /**
+     * Gets a collection of cities found in a given region
+     * @param districtName The region name to search, casing is unimportant
+     * @return Returns a sorted collection of Cities
+     */
+    public ArrayList<City> getAllCitiesByDistrictOrderedByPopulation(String districtName){
+        var cities = getAllCitiesOrderedByPopulation();
+
+        var citiesInDistrict = new ArrayList<City>();
+
+        for (var city:cities) {
+            if (city.district.equalsIgnoreCase(districtName)){
+                citiesInDistrict.add(city);
+            }
+        }
+
+        return citiesInDistrict;
     }
 
     /**
