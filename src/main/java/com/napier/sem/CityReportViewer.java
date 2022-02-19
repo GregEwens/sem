@@ -56,6 +56,18 @@ public class CityReportViewer {
     }
 
     /**
+     * Displays all cities in a given district, ordered by population
+     * @param districtName The district name
+     */
+    public void ShowCitiesInDistrictByPopulation(String districtName){
+        var cities = cityRepository.getAllCitiesByCountryOrderedByPopulation(districtName);
+
+        System.out.println("Report showing all cities in " + districtName + " ordered by population ascending");
+
+        displayCities(cities);
+    }
+
+    /**
      * Prints the details of a collection of cities
      * @param cities The collection of cities to display
      */
