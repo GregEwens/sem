@@ -24,22 +24,48 @@ public class CityRepository {
     }
 
     /**
-     * Gets all the current employees and salaries.
-     * @return A list of all employees and salaries, or null if there is an error.
+     * Gets all cities.
+     * @return A list of all cities, the collection may be empty should no cities be found.
      */
     public ArrayList<City> getAllCities()
     {
+        // Create string for SQL statement
+        String strSelect =
+                "SELECT ID, Name, CountryCode, District, Population "
+                        + "FROM city ";
+
+        return getCityCollection(strSelect);
+    }
+
+    /**
+     * Gets all cities ordered by population ascending.
+     * @return A list of all cities ordered by population ascending, the collection may be empty should no cities be
+     * found.
+     */
+    public ArrayList<City> getAllCitiesOrderedByPopulation()
+    {
+        // Create string for SQL statement
+        String strSelect =
+                "SELECT ID, Name, CountryCode, District, Population "
+                        + "FROM city ORDER BY Population ASC";
+
+        return getCityCollection(strSelect);
+    }
+
+    /**
+     * Queries the city table using the supplied SQL statement. This input is not validated and must be sanitised
+     * before calling this method.
+     * @param SQLStatement An SQL statement which must return one or more complete City entities
+     * @return A collection of Cities
+     */
+    private ArrayList<City> getCityCollection(String SQLStatement){
         try
         {
             // Create an SQL statement
             Statement statement = con.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT ID, Name, CountryCode, District, Population "
-                            + "FROM city ";
 
             // Execute SQL statement
-            ResultSet resultSet = statement.executeQuery(strSelect);
+            ResultSet resultSet = statement.executeQuery(SQLStatement);
 
             // create our collection
             ArrayList<City> cities = new ArrayList<>();
@@ -69,6 +95,4 @@ public class CityRepository {
             return null;
         }
     }
-
-
 }
