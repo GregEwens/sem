@@ -47,9 +47,39 @@ public class CityRepository {
         // Create string for SQL statement
         String strSelect =
                 "SELECT ID, Name, CountryCode, District, Population "
-                        + "FROM city ORDER BY Population ASC";
+                        + "FROM city ORDER BY Population DESC";
 
         return getCityCollection(strSelect);
+    }
+
+    /**
+     * Returns a single instance of City from the city ID
+     * @param ID The city ID
+     * @return The instance of city found or null
+     */
+    public City getCityById(int ID)
+    {
+        // Create string for SQL statement
+        String strSelect =
+                "SELECT ID, Name, CountryCode, District, Population "
+                        + "FROM city "
+                        + "WHERE ID = " + ID;
+
+        return getCity(strSelect);
+    }
+
+    public ArrayList<City> getAllCitiesByCountryOrderedByPopulation(String countryCode){
+        var cities = getAllCitiesOrderedByPopulation();
+
+        var citiesInCountry = new ArrayList<City>();
+
+        for (var city:cities) {
+            if (city.countryCode.equalsIgnoreCase(countryCode)){
+                citiesInCountry.add(city);
+            }
+        }
+
+        return citiesInCountry;
     }
 
     /**
@@ -96,20 +126,21 @@ public class CityRepository {
         }
     }
 
-    public City getCityById(int ID)
-    {
+    /**
+     * Queries the city table using the supplied SQL statement. This input is not validated and must be sanitised
+     * before calling this method.
+     * @param SQLStatement An SQL statement which must return one or more complete City entities
+     * @return An instance of City or null
+     */
+    private City getCity(String SQLStatement){
         try
         {
             // Create an SQL statement
             Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT ID, Name, CountryCode, District, Population "
-                            + "FROM city "
-                            + "WHERE ID = " + ID;
             // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
+            ResultSet rset = stmt.executeQuery(SQLStatement);
             // Return new city if valid.
+
             // Check one is returned
             if (rset.next())
             {
@@ -130,6 +161,8 @@ public class CityRepository {
             System.out.println("Failed to get city details");
             return null;
         }
+
     }
+
 
 }
