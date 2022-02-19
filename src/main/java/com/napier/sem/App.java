@@ -9,6 +9,10 @@ public class App
      */
     private Connection con = null;
 
+    public CityRepository cityRepo;
+
+    public CityReportViewer cityReports;
+
     public static void main(String[] args)
     {
         // Create new Application
@@ -17,11 +21,17 @@ public class App
         // Connect to database
         a.connect();
 
-        // Get Employee
-        City city = a.getCity(5);
+        // construct the CityRepository
+        a.cityRepo = new CityRepository(a.con);
 
-        // Display results
-        a.displayCity(city);
+        // contruct the cityReports
+        a.cityReports = new CityReportViewer(a.cityRepo);
+
+        // show an example city
+        a.cityReports.ShowCityDetails(5);
+
+        // show the cities by population report
+        a.cityReports.ShowCitiesByPopulation();
 
         // Disconnect from database
         a.disconnect();
@@ -87,52 +97,7 @@ public class App
         }
     }
 
-    public City getCity(int ID)
-    {
-        try
-        {
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT ID, Name, CountryCode, District, Population "
-                            + "FROM city "
-                            + "WHERE ID = " + ID;
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new city if valid.
-            // Check one is returned
-            if (rset.next())
-            {
-                City cty = new City();
-                cty.id = rset.getInt("ID");
-                cty.name = rset.getString("Name");
-                cty.countryCode = rset.getString("CountryCode");
-                cty.district = rset.getString("district");
-                cty.population = rset.getInt("population");
-                return cty;
-            }
-            else
-                return null;
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get city details");
-            return null;
-        }
-    }
 
-    public void displayCity(City cty)
-    {
-        if (cty != null)
-        {
-            System.out.println(
-                    cty.id + " "
-                            + cty.name + " "
-                            + cty.countryCode + "\n"
-                            + cty.district + "\n"
-                            + "Population:" + cty.population + "\n");
-        }
-    }
+
+
 }
