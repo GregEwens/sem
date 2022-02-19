@@ -21,6 +21,21 @@ public class CountryRepository {
     }
 
     /**
+     * Gets all cities.
+     * @return A list of all cities, the collection may be empty should no cities be found.
+     */
+    public ArrayList<Country> getAllCountries()
+    {
+        // Create string for SQL statement
+        String strSelect =
+                "SELECT Code, Name, Continent, Region, SurfaceArea, IndepYear, Population, LifeExpectancy, GNP, " +
+                        " GNPOld, LocalName, GovernmentForm, HeadOfState, Capital, Code2 "
+                        + "FROM country ";
+
+        return getCountryCollection(strSelect);
+    }
+
+    /**
      * Queries the city table using the supplied SQL statement. This input is not validated and must be sanitised
      * before calling this method.
      * @param SQLStatement An SQL statement which must return one or more complete City entities
