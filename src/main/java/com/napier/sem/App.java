@@ -9,10 +9,20 @@ public class App
      */
     private Connection con = null;
 
+    /**
+     * The CityRepository, must be instantiated before use
+     */
     public CityRepository cityRepo;
 
+    /**
+     * The CityReportViewer, must be instantiated before use
+     */
     public CityReportViewer cityReports;
 
+    /**
+     * The entry point for the app
+     * @param args No arguments accepted
+     */
     public static void main(String[] args)
     {
         // Create new Application
@@ -32,6 +42,9 @@ public class App
 
         // show the cities by population report
         a.cityReports.ShowCitiesByPopulation();
+
+        // show cities in country by population
+        a.cityReports.ShowCitiesInCountryByPopulation("DEU");
 
         // Disconnect from database
         a.disconnect();

@@ -50,7 +50,7 @@ public class CityReportViewer {
     public void ShowCitiesInCountryByPopulation(String countryCode){
         var cities = cityRepository.getAllCitiesByCountryOrderedByPopulation(countryCode);
 
-        System.out.println("Report showing all cities in a given country ordered by population ascending");
+        System.out.println("Report showing all cities in " + countryCode + " ordered by population ascending");
 
         displayCities(cities);
     }
