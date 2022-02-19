@@ -46,6 +46,9 @@ public class App
         // show cities in country by population
         a.cityReports.ShowCitiesInCountryByPopulation("DEU");
 
+        // show cities in district by population
+        a.cityReports.ShowCitiesInDistrictByPopulation("California");
+
         // Disconnect from database
         a.disconnect();
     }

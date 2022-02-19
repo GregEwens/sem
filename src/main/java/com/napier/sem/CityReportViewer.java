@@ -60,7 +60,7 @@ public class CityReportViewer {
      * @param districtName The district name
      */
     public void ShowCitiesInDistrictByPopulation(String districtName){
-        var cities = cityRepository.getAllCitiesByCountryOrderedByPopulation(districtName);
+        var cities = cityRepository.getAllCitiesByDistrictOrderedByPopulation(districtName);
 
         System.out.println("Report showing all cities in " + districtName + " ordered by population ascending");
 
