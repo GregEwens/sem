@@ -37,7 +37,7 @@ public class CountryReportViewer {
     public void ShowCountriesInARegionByPopulation(String regionName){
         var countries = countryRepository.getAllCountriesInRegionOrderedByPopulation(regionName);
 
-        System.out.println("Report showing all countries in region" + regionName + "ordered by population ascending");
+        System.out.println("Report showing all countries in region " + regionName + " ordered by population ascending");
 
         displayCountries(countries);
     }
