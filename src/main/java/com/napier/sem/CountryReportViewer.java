@@ -43,6 +43,18 @@ public class CountryReportViewer {
     }
 
     /**
+     * Displays all countries in a continent ordered by population
+     * @param continentName The continent name
+     */
+    public void ShowCountriesInAContinentByPopulation(String continentName){
+        var countries = countryRepository.getAllCountriesInContinentOrderedByPopulation(continentName);
+
+        System.out.println("Report showing all countries in continent " + continentName + " ordered by population ascending");
+
+        displayCountries(countries);
+    }
+
+    /**
      * Prints the details of a collection of countries
      * @param countries The collection of countries to display
      */
