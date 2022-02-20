@@ -41,7 +41,7 @@ public class CountryRepository {
      * Gets all countries in a region, ordered by population high to low.
      * @return A list of all countries, the collection may be empty should no countries be found.
      */
-    public ArrayList<Country> getAllCountriesInRegionOrderedBuPopulation(String regionName)
+    public ArrayList<Country> getAllCountriesInRegionOrderedByPopulation(String regionName)
     {
 
         var countries = getAllCountriesOrderByPopulation();
