@@ -68,6 +68,9 @@ public class App
         //show countries by population high to low
         a.countryReports.ShowCountriesByPopulation();
 
+        //show countries in region by population high to low
+        a.countryReports.ShowCountriesInARegionByPopulation("Southern Europe");
+
         // Disconnect from database
         a.disconnect();
     }
