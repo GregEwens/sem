@@ -20,7 +20,7 @@ public class Country {
     public String LocalName;
     public String GovernmentForm;
     public String HeadOfState;
-    public int Capital;
+    public String Capital;
     public String Code2;
 
 }

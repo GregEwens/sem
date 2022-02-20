@@ -28,9 +28,11 @@ public class CountryRepository {
     {
         // Create string for SQL statement
         String strSelect =
-                "SELECT Code, Name, Continent, Region, SurfaceArea, IndepYear, Population, LifeExpectancy, GNP, " +
-                        " GNPOld, LocalName, GovernmentForm, HeadOfState, Capital, Code2 "
-                        + "FROM country ";
+                "SELECT Code, country.Name, Continent, Region, SurfaceArea, IndepYear, country.Population, LifeExpectancy, GNP, " +
+                        " GNPOld, LocalName, GovernmentForm, HeadOfState, city.name as Capital, Code2 "
+                        + "FROM country " +
+                        "LEFT JOIN city ON country.capital = city.id " +
+                        "ORDER BY country.population DESC";
 
         return getCountryCollection(strSelect);
     }
@@ -71,7 +73,7 @@ public class CountryRepository {
                 country.LocalName = resultSet.getString("LocalName");
                 country.GovernmentForm = resultSet.getString("GovernmentForm");
                 country.HeadOfState = resultSet.getString("HeadOfState");
-                country.Capital = resultSet.getInt("Capital");
+                country.Capital = resultSet.getString("Capital");
                 country.Code2 = resultSet.getString("Code2");
 
                 countries.add(country);

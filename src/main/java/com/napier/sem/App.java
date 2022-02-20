@@ -20,6 +20,16 @@ public class App
     public CityReportViewer cityReports;
 
     /**
+     * The CountryRepository, must be instantiated before use
+     */
+    public CountryRepository countryRepo;
+
+    /**
+     * The CountryReportViewer, must be instantiated before use
+     */
+    public CountryReportViewer countryReports;
+
+    /**
      * The entry point for the app
      * @param args No arguments accepted
      */
@@ -37,6 +47,12 @@ public class App
         // contruct the cityReports
         a.cityReports = new CityReportViewer(a.cityRepo);
 
+        //contruct the CountryRepository
+        a.countryRepo = new CountryRepository(a.con);
+
+        //construct the country Reports
+        a.countryReports = new CountryReportViewer(a.countryRepo);
+
         // show an example city
         a.cityReports.ShowCityDetails(5);
 
@@ -48,6 +64,9 @@ public class App
 
         // show cities in district by population
         a.cityReports.ShowCitiesInDistrictByPopulation("California");
+
+        //show countries by population high to low
+        a.countryReports.ShowCountriesByPopulation();
 
         // Disconnect from database
         a.disconnect();

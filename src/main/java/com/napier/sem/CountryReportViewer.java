@@ -54,7 +54,7 @@ public class CountryReportViewer {
                             + ctry.Continent + "\n"
                             + ctry.Region + "\n"
                             + "Population:" + ctry.Population + "\n" +
-                            ctry.Capital);
+                            ctry.Capital + "\n");
         }
     }
 
