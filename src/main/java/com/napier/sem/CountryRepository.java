@@ -13,7 +13,7 @@ public class CountryRepository {
     private final Connection con;
 
     /**
-     * Creates a new instance of the CityRepository.
+     * Creates a new instance of the CountryRepository.
      * @param connection The database we will query
      */
     public CountryRepository (Connection connection){
@@ -21,10 +21,10 @@ public class CountryRepository {
     }
 
     /**
-     * Gets all cities.
-     * @return A list of all cities, the collection may be empty should no cities be found.
+     * Gets all countries.
+     * @return A list of all countries, the collection may be empty should no countries be found.
      */
-    public ArrayList<Country> getAllCountries()
+    public ArrayList<Country> getAllCountriesOrderByPopulation()
     {
         // Create string for SQL statement
         String strSelect =
@@ -38,10 +38,30 @@ public class CountryRepository {
     }
 
     /**
-     * Queries the city table using the supplied SQL statement. This input is not validated and must be sanitised
+     * Gets all countries in a region, ordered by population high to low.
+     * @return A list of all countries, the collection may be empty should no countries be found.
+     */
+    public ArrayList<Country> getAllCountriesInRegionOrderedBuPopulation(String regionName)
+    {
+
+        var countries = getAllCountriesOrderByPopulation();
+
+        var countriesInRegion = new ArrayList<Country>();
+
+        for (var country:countries) {
+            if (country.Region.equalsIgnoreCase(regionName)){
+                countriesInRegion.add(country);
+            }
+        }
+
+        return countriesInRegion;
+    }
+
+    /**
+     * Queries the country table using the supplied SQL statement. This input is not validated and must be sanitised
      * before calling this method.
-     * @param SQLStatement An SQL statement which must return one or more complete City entities
-     * @return A collection of Cities
+     * @param SQLStatement An SQL statement which must return one or more complete Countries entities
+     * @return A collection of Countries
      */
     private ArrayList<Country> getCountryCollection(String SQLStatement){
         try

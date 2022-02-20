@@ -23,7 +23,7 @@ public class CountryReportViewer {
      * Displays all country ordered by population
      */
     public void ShowCountriesByPopulation(){
-        var countries = countryRepository.getAllCountries();
+        var countries = countryRepository.getAllCountriesOrderByPopulation();
 
         System.out.println("Report showing all countries ordered by population ascending");
 
