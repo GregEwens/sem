@@ -71,6 +71,9 @@ public class App
         //show countries in region by population high to low
         a.countryReports.ShowCountriesInARegionByPopulation("Southern Europe");
 
+        //show countries in continent by population high to low
+        a.countryReports.ShowCountriesInAContinentByPopulation("Antartica");
+        
         // Disconnect from database
         a.disconnect();
     }
