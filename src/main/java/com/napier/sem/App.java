@@ -72,7 +72,7 @@ public class App
         a.countryReports.ShowCountriesInARegionByPopulation("Southern Europe");
 
         //show countries in continent by population high to low
-        a.countryReports.ShowCountriesInAContinentByPopulation("Antarctica");
+        a.countryReports.ShowCountriesInAContinentByPopulation("Western Europe");
 
         // Disconnect from database
         a.disconnect();
