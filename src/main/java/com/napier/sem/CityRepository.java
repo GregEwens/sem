@@ -91,6 +91,24 @@ public class CityRepository {
     }
 
     /**
+     * Gets a collection of cities found in the specified region
+     * @param region The region to search, casing is unimportant
+     * @param sortOrder The sort order.
+     * @return Returns a sorted collection of Cities
+     */
+    public ArrayList<City> getAllCitiesByRegionOrderedByPopulation(String region, SortOrder sortOrder)
+    {
+        //TODO: the string parameter should be encapsulated to prevent SQL injection.
+
+        // Create string for SQL statement
+        String strSelect =
+                "SELECT ID, ci.Name, CountryCode, District, ci.Population "
+                        + "FROM city ci JOIN country c ON c.Code = ci.CountryCode WHERE c.Region = '" + region  + "' ORDER BY Population " + buildOrderByStatement(sortOrder);
+
+        return getCityCollection(strSelect);
+    }
+
+    /**
      * Gets a collection of cities found in the specified country
      * @param countryCode The countryCode to search, casing is unimportant
      * @return Returns a sorted collection of Cities
