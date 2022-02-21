@@ -1,5 +1,9 @@
 /**
- * Placeholder for file header...
+ * Project Name: seMethods
+ * Package: com.napier.sem
+ * User: Greg Ewens
+ * Date Created: 09/02/2022 14:42
+ * File Purpose: The entry point of the application
  */
 
 package com.napier.sem;

@@ -1,6 +1,11 @@
 /**
- * Placeholder for file header...
+ * Project Name: seMethods
+ * Package: com.napier.sem
+ * User: Greg Ewens
+ * Date Created: 19/02/2022 15:59
+ * File Purpose: This class provides methods for viewing City reports
  */
+
 
 package com.napier.sem;
 

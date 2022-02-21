@@ -1,5 +1,9 @@
 /**
- * Placeholder for file header...
+ * Project Name: seMethods
+ * Package: com.napier.sem
+ * User: Greg Ewens
+ * Date Created: 19/02/2022 14:48
+ * File Purpose: This class provides methods for accessing City data
  */
 
 package com.napier.sem;
