@@ -1,3 +1,7 @@
+/**
+ * Placeholder for file header...
+ */
+
 package com.napier.sem;
 
 import java.util.ArrayList;
@@ -63,6 +67,14 @@ public class CityReportViewer {
         var cities = cityRepository.getAllCitiesByDistrictOrderedByPopulation(districtName);
 
         System.out.println("Report showing all cities in " + districtName + " ordered by population ascending");
+
+        displayCities(cities);
+    }
+
+    public void ShowCitiesInContinentByPopulation(String continent, SortOrder sortOrder) {
+        var cities = cityRepository.getAllCitiesByContinentOrderedByPopulation(continent, sortOrder);
+
+        System.out.println("Report showing all cities in " + continent + " ordered by population sort order " + sortOrder);
 
         displayCities(cities);
     }

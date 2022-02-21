@@ -1,3 +1,7 @@
+/**
+ * Placeholder for file header...
+ */
+
 package com.napier.sem;
 
 import java.sql.*;
@@ -44,10 +48,10 @@ public class App
         // construct the CityRepository
         a.cityRepo = new CityRepository(a.con);
 
-        // contruct the cityReports
+        // construct the cityReports
         a.cityReports = new CityReportViewer(a.cityRepo);
 
-        //contruct the CountryRepository
+        //construct the CountryRepository
         a.countryRepo = new CountryRepository(a.con);
 
         //construct the country Reports
@@ -64,6 +68,9 @@ public class App
 
         // show cities in district by population
         a.cityReports.ShowCitiesInDistrictByPopulation("California");
+
+        //show cities in a continent organised by largest population to smallest.
+        a.cityReports.ShowCitiesInContinentByPopulation("Asia", SortOrder.Descending);
 
         //show countries by population high to low
         a.countryReports.ShowCountriesByPopulation();

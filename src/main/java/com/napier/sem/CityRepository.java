@@ -1,3 +1,7 @@
+/**
+ * Placeholder for file header...
+ */
+
 package com.napier.sem;
 
 import java.sql.Connection;
@@ -66,6 +70,24 @@ public class CityRepository {
                         + "WHERE ID = " + ID;
 
         return getCity(strSelect);
+    }
+
+    /**
+     * Gets a collection of cities found in the specified continent
+     * @param continent The continent to search, casing is unimportant
+     * @param sortOrder The sort order.
+     * @return Returns a sorted collection of Cities
+     */
+    public ArrayList<City> getAllCitiesByContinentOrderedByPopulation(String continent, SortOrder sortOrder)
+    {
+        //TODO: the string parameter should be encapsulated to prevent SQL injection.
+
+        // Create string for SQL statement
+        String strSelect =
+                "SELECT ID, ci.Name, CountryCode, District, ci.Population "
+                        + "FROM city ci JOIN country c ON c.Code = ci.CountryCode WHERE c.Continent = '" + continent  + "' ORDER BY Population " + buildOrderByStatement(sortOrder);
+
+        return getCityCollection(strSelect);
     }
 
     /**
@@ -188,5 +210,16 @@ public class CityRepository {
 
     }
 
+    /**
+     * Returns the sort order statement based on provided sort order enum.
+     * @param sortOrder The sort order enum.
+     * @return the sort order as a string statement.
+     */
+    private String buildOrderByStatement(SortOrder sortOrder){
+        if (sortOrder == SortOrder.Ascending){
+            return "ASC";
+        }
 
+        return "DESC";
+    }
 }
