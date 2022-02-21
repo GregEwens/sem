@@ -8,6 +8,8 @@
 
 package com.napier.sem;
 
+
+
 import java.sql.*;
 
 public class App
@@ -75,6 +77,9 @@ public class App
 
         //show cities in a continent organised by largest population to smallest.
         a.cityReports.ShowCitiesInContinentByPopulation("Asia", SortOrder.Descending);
+
+        //show cities in a region organised by largest population to smallest.
+        a.cityReports.ShowCitiesInRegionByPopulation("Southern Europe", SortOrder.Descending);
 
         //show countries by population high to low
         a.countryReports.ShowCountriesByPopulation();

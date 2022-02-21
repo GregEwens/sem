@@ -84,6 +84,14 @@ public class CityReportViewer {
         displayCities(cities);
     }
 
+    public void ShowCitiesInRegionByPopulation(String region, SortOrder sortOrder) {
+        var cities = cityRepository.getAllCitiesByRegionOrderedByPopulation(region, sortOrder);
+
+        System.out.println("Report showing all cities in " + region + " ordered by population sort order " + sortOrder);
+
+        displayCities(cities);
+    }
+
     /**
      * Prints the details of a collection of cities
      * @param cities The collection of cities to display
