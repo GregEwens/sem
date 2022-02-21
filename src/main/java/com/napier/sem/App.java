@@ -86,6 +86,9 @@ public class App
         //show countries in continent by population high to low
         a.countryReports.ShowCountriesInAContinentByPopulation("Asia");
 
+        //show capital cities in a continent organised by largest population to smallest.
+        a.cityReports.ShowCapitalCitiesInContinentByPopulation("Europe", SortOrder.Descending);
+
         // Disconnect from database
         a.disconnect();
     }

@@ -48,6 +48,19 @@ public class CityReportViewer {
     }
 
     /**
+     * Displays all cities in a given continent, ordered by population
+     * @param continent The continent
+     * @param sortOrder The sort order.
+     */
+    public void ShowCapitalCitiesInContinentByPopulation(String continent, SortOrder sortOrder){
+        var cities = cityRepository.getAllCapitalCitiesByContinentOrderedByPopulation(continent, sortOrder);
+
+        System.out.println("Report showing all capital cities in " + continent + " ordered by population " + sortOrder);
+
+        displayCities(cities);
+    }
+
+    /**
      * Displays all cities in a given country, ordered by population
      * @param countryCode The country code
      */
