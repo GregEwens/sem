@@ -62,7 +62,15 @@ public class CityReportViewer {
 
         System.out.println("Report showing all capital cities in " + continent + " ordered by population " + sortOrder);
 
-        displayCities(cities);
+        for (var city: cities) {
+            if (city != null)
+            {
+                System.out.println(
+                                city.name + ", "
+                                + city.country + "\n"
+                                + "Population:" + city.population + "\n");
+            }
+        }
     }
 
     /**

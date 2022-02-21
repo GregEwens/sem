@@ -82,7 +82,7 @@ public class CityRepository {
      * @param sortOrder The sort order.
      * @return Returns a sorted collection of Cities
      */
-    public ArrayList<City> getAllCapitalCitiesByContinentOrderedByPopulation(String continent, SortOrder sortOrder)
+    public ArrayList<CapitalCity> getAllCapitalCitiesByContinentOrderedByPopulation(String continent, SortOrder sortOrder)
     {
         //TODO: the string parameter should be encapsulated to prevent SQL injection.
 
@@ -94,7 +94,7 @@ public class CityRepository {
                         + "' AND ci.ID = c.Capital ORDER BY Population "
                         + buildOrderByStatement(sortOrder);
 
-        return getCityCollection(strSelect);
+        return getCapitalCityCollection(strSelect);
     }
 
     /**
@@ -169,6 +169,48 @@ public class CityRepository {
         }
 
         return citiesInDistrict;
+    }
+
+    /**
+     * Queries the city table using the supplied SQL statement. This input is not validated and must be sanitised
+     * before calling this method.
+     * @param SQLStatement An SQL statement which must return one or more complete City entities
+     * @return A collection of Capital Cities
+     */
+    private ArrayList<CapitalCity> getCapitalCityCollection(String SQLStatement){
+        try
+        {
+            // Create an SQL statement
+            Statement statement = con.createStatement();
+
+            // Execute SQL statement
+            ResultSet resultSet = statement.executeQuery(SQLStatement);
+
+            // create our collection
+            ArrayList<CapitalCity> cities = new ArrayList<>();
+
+            // read the results and map to our entity
+            while (resultSet.next())
+            {
+                CapitalCity city = new CapitalCity();
+
+                city.name = resultSet.getString("Name");
+                city.country = resultSet.getString("Country");
+                city.population = resultSet.getInt("Population");
+
+                cities.add(city);
+            }
+
+            // return our collection
+            return cities;
+        }
+        catch (Exception e)
+        {
+            // log exceptions to the screen
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get city details");
+            return null;
+        }
     }
 
     /**
