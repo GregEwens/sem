@@ -4,56 +4,53 @@
 
 ### Goal in Context
 
-*a longer statement of the goal, if needed*
+As *a member of the organisation* I want to *produce a capital city report showing all capital cities in a region ordered by population (largest first)* so that *I may support the organisation with accurate data*.
 
 ### Scope
 
-*what system is considered black-box under design*
+Company
 
 ### Level
 
-*one of: Summary, Primary task, subfunction*
+Primary task
 
 ### Preconditions
 
-*what we expect is already the state of the world*
+The Database contains all of the current population data of the capital cities in the world, the Region that data is required for should be defined. 
 
 ### Success End Condition
 
-*the state of the world upon successful completion*
+A report is available for the member of the organisation to view and support the organisation with.
 
 ### Failed End Condition
 
-*the state of the world if goal abandoned*
+No report or inaccurate report is produced.
 
 ### Primary Actor
 
-*a role name for the primary actor, or description*
+The user of the system.
 
 ### Trigger
 
-*the action upon the system that starts the use case, may be a time event*
+The organisation requires information that the user of the system supplies.
 
 ## MAIN SUCCESS SCENARIO
 
-*put here the steps of the scenario from trigger to goal delivery, and any cleanup after*
-
-1. action description
+1. A member of the organisation requests data on capital city population in a defined region.
+2. The user of the system takes note of who the member of the organisation is.
+3. The user of the system extracts the population data of capital cities in the defined region, ordered high to low.
+4. The user of the system supplies this report to the member of the organisation.
 
 ## EXTENSIONS
 
-*put here the extensions, one at a time, each referring to the step of the main scenario*
+Region does not exist or is incorrectly entered into the system.
 
-1. **Condition**: action of sub use case
+1. The user of the system informs the member of the organisation that the defined region does not exist or is incorrect. 
 
 ## SUB-VARIATIONS
 
-*put here the sub-variations that will cause eventual branching in the scenario
-
-1. list of sub-variations
+none
 
 ## SCHEDULE
 
-**DUE DATE**: *date or release of deployment*
-
-*any other schedule/staffing information you need*
+**DUE DATE**: Sprint 3
