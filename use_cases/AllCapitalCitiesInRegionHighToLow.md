@@ -16,7 +16,7 @@ Primary task
 
 ### Preconditions
 
-The Database contains all of the current population data of the capital cities in the world, the Region that data is required for should be defined. 
+The Database contains all of the current population data of the capital cities in the Region, the Region that data is required for should be defined. 
 
 ### Success End Condition
 
