@@ -1,3 +1,11 @@
+/**
+ * Project Name: seMethods
+ * Package: com.napier.sem
+ * User: Greg Ewens
+ * Date Created: 19/02/2022 15:28
+ * File Purpose: This class provides methods for viewing Country reports
+ */
+
 package com.napier.sem;
 
 import java.util.ArrayList;

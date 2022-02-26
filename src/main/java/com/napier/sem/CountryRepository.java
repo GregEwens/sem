@@ -1,3 +1,11 @@
+/**
+ * Project Name: seMethods
+ * Package: com.napier.sem
+ * User: Laura Main
+ * Date Created: 19/02/2022
+ * File Purpose: This class provides methods for accessing Country data
+ */
+
 package com.napier.sem;
 
 import java.sql.Connection;
