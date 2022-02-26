@@ -1,3 +1,11 @@
+/**
+ * Project Name: seMethods
+ * Package: com.napier.sem
+ * User: Greg Ewens
+ * Date Created: 09/02/2022 14:42
+ * File Purpose: The entry point of the application
+ */
+
 package com.napier.sem;
 
 import java.sql.*;
@@ -9,6 +17,30 @@ public class App
      */
     private Connection con = null;
 
+    /**
+     * The CityRepository, must be instantiated before use
+     */
+    public CityRepository cityRepo;
+
+    /**
+     * The CityReportViewer, must be instantiated before use
+     */
+    public CityReportViewer cityReports;
+
+    /**
+     * The CountryRepository, must be instantiated before use
+     */
+    public CountryRepository countryRepo;
+
+    /**
+     * The CountryReportViewer, must be instantiated before use
+     */
+    public CountryReportViewer countryReports;
+
+    /**
+     * The entry point for the app
+     * @param args No arguments accepted
+     */
     public static void main(String[] args)
     {
         // Create new Application
@@ -17,11 +49,47 @@ public class App
         // Connect to database
         a.connect();
 
-        // Get Employee
-        City city = a.getCity(5);
+        // construct the CityRepository
+        a.cityRepo = new CityRepository(a.con);
 
-        // Display results
-        a.displayCity(city);
+        // construct the cityReports
+        a.cityReports = new CityReportViewer(a.cityRepo);
+
+        //construct the CountryRepository
+        a.countryRepo = new CountryRepository(a.con);
+
+        //construct the country Reports
+        a.countryReports = new CountryReportViewer(a.countryRepo);
+
+        // show an example city
+        a.cityReports.ShowCityDetails(5);
+
+        // show the cities by population report
+        a.cityReports.ShowCitiesByPopulation();
+
+        // show cities in country by population
+        a.cityReports.ShowCitiesInCountryByPopulation("DEU");
+
+        // show cities in district by population
+        a.cityReports.ShowCitiesInDistrictByPopulation("California");
+
+        //show cities in a continent organised by largest population to smallest.
+        a.cityReports.ShowCitiesInContinentByPopulation("Asia", SortOrder.Descending);
+
+        //show cities in a region organised by largest population to smallest.
+        a.cityReports.ShowCitiesInRegionByPopulation("Southern Europe", SortOrder.Descending);
+
+        //show countries by population high to low
+        a.countryReports.ShowCountriesByPopulation();
+
+        //show countries in region by population high to low
+        a.countryReports.ShowCountriesInARegionByPopulation("Southern Europe");
+
+        //show countries in continent by population high to low
+        a.countryReports.ShowCountriesInAContinentByPopulation("Asia");
+
+        //show capital cities in a continent organised by largest population to smallest.
+        a.cityReports.ShowCapitalCitiesInContinentByPopulation("Europe", SortOrder.Descending);
 
         // Disconnect from database
         a.disconnect();
@@ -84,55 +152,6 @@ public class App
             {
                 System.out.println("Error closing connection to database");
             }
-        }
-    }
-
-    public City getCity(int ID)
-    {
-        try
-        {
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT ID, Name, CountryCode, District, Population "
-                            + "FROM city "
-                            + "WHERE ID = " + ID;
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new city if valid.
-            // Check one is returned
-            if (rset.next())
-            {
-                City cty = new City();
-                cty.id = rset.getInt("ID");
-                cty.name = rset.getString("Name");
-                cty.countryCode = rset.getString("CountryCode");
-                cty.district = rset.getString("district");
-                cty.population = rset.getInt("population");
-                return cty;
-            }
-            else
-                return null;
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get city details");
-            return null;
-        }
-    }
-
-    public void displayCity(City cty)
-    {
-        if (cty != null)
-        {
-            System.out.println(
-                    cty.id + " "
-                            + cty.name + " "
-                            + cty.countryCode + "\n"
-                            + cty.district + "\n"
-                            + "Population:" + cty.population + "\n");
         }
     }
 }
