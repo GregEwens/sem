@@ -34,7 +34,7 @@ The user of the system.
 
 ### Trigger
 
-The organisation requires information that the user of the system supplies.
+The Database contains all the current data of the cities of the world.
 
 ## MAIN SUCCESS SCENARIO
 

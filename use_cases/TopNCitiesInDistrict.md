@@ -18,7 +18,7 @@ Primary task
 
 ### Preconditions
 
-The Database contains all the current population data of the countries in the world.
+The Database contains all the current data of the cities of the world.
 
 ### Success End Condition
 
