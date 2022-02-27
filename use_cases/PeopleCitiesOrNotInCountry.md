@@ -1,4 +1,4 @@
-# USE CASE: <number> <the name should be the goal as a short active verb phrase>
+# USE CASE: #25 The population of people, people living in cities, and people not living in cities in each country.
 
 ## CHARACTERISTIC INFORMATION
 

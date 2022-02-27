@@ -1,4 +1,4 @@
-# USE CASE: <number> <the name should be the goal as a short active verb phrase>
+# USE CASE: #18 All the capital cities in a continent organised by largest population to smallest.
 
 ## CHARACTERISTIC INFORMATION
 
@@ -10,6 +10,7 @@ As *a member of the organisation* I want to *produce a capital city report showi
 
 Company
 
+### Level
 ### Level
 
 Primary task

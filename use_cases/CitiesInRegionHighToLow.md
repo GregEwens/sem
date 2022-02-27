@@ -1,4 +1,4 @@
-# USE CASE: <number> <the name should be the goal as a short active verb phrase>
+# USE CASE: #9 All the cities in a region organised by largest population to smallest.
 
 ## CHARACTERISTIC INFORMATION
 
