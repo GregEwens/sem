@@ -38,7 +38,7 @@ The organisation requires information that the user of the system supplies.
 
 1. A member of the organisation requests data on population location in a defined continent.
 2. The user of the system takes note of who the member of the organisation is.
-3. The user of the system extracts the population location data of countries in the defined continent.
+3. The user of the system extracts the population location data of people in the defined continent.
 4. The user of the system supplies this report to the member of the organisation.
 
 ## EXTENSIONS
