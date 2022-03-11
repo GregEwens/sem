@@ -9,4 +9,11 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CityReportViewerTests {
+
+
+    @Test
+    void TestUnitTest(){
+        assertEquals(5, 5);
+    }
+
 }
