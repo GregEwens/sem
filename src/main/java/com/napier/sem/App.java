@@ -68,7 +68,7 @@ public class App
 
         //construct the country Reports
         a.countryReports = new CountryReportViewer(a.countryService);
-
+/*
         // show an example city
         a.cityReports.ShowCityDetails(5);
 
@@ -97,7 +97,10 @@ public class App
         a.countryReports.ShowCountriesInAContinentByPopulation("Asia");
 
         //show capital cities in a continent organised by largest population to smallest.
-        a.cityReports.ShowCapitalCitiesInContinentByPopulation("Europe", SortOrder.Descending);
+        a.cityReports.ShowCapitalCitiesInContinentByPopulation("Europe", SortOrder.Descending);*/
+
+        // show top N countries by population
+        a.countryReports.ShowTopNCountriesByPopulation(25);
 
         // Disconnect from database
         a.disconnect();

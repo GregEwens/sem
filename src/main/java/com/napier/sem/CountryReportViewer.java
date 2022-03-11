@@ -62,6 +62,19 @@ public class CountryReportViewer {
     }
 
     /**
+     * Displays top n countries ordered by population
+     * @param n The number of countries to show
+     */
+    public void ShowTopNCountriesByPopulation(int n){
+        var countries = _countryService.getTopNCountriesOrderedByPopulation(n);
+
+        System.out.println("Report showing top " + n + " countries ordered by population " +
+                "ascending");
+
+        displayCountries(countries);
+    }
+
+    /**
      * Prints the details of a collection of countries
      * @param countries The collection of countries to display
      */
