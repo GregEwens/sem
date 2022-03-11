@@ -14,7 +14,8 @@ import java.util.ArrayList;
 /**
  * This class provides methods for viewing City reports
  */
-public class CityReportViewer {
+public class
+CityReportViewer {
 
     /**
      * An instance of the City repository class
@@ -62,15 +63,7 @@ public class CityReportViewer {
 
         System.out.println("Report showing all capital cities in " + continent + " ordered by population " + sortOrder);
 
-        for (var city: cities) {
-            if (city != null)
-            {
-                System.out.println(
-                                city.name + ", "
-                                + city.country + "\n"
-                                + "Population:" + city.population + "\n");
-            }
-        }
+        displayCapitalCities(cities);
     }
 
     /**
@@ -137,6 +130,30 @@ public class CityReportViewer {
                             + cty.countryCode + "\n"
                             + cty.district + "\n"
                             + "Population:" + cty.population + "\n");
+        }
+    }
+
+    /**
+     * Prints the details of a collection of capital cities
+     * @param cities The collection of capital cities to display
+     */
+    private void displayCapitalCities(ArrayList<CapitalCity> cities){
+        for (var city: cities) {
+            displayCapitalCity(city);
+        }
+    }
+
+    /**
+     * Prints the details of a single capital city
+     * @param city The capital city to display
+     */
+    private void displayCapitalCity(CapitalCity city){
+        if (city != null)
+        {
+            System.out.println(
+                    city.name + ", "
+                            + city.country + "\n"
+                            + "Population:" + city.population + "\n");
         }
     }
 }
