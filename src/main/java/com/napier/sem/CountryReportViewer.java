@@ -15,23 +15,22 @@ public class CountryReportViewer {
     /**
      * An instance of the Country repository class
      */
-    private final CountryRepository countryRepository;
+    private final CountryService _countryService;
 
     /**
      * The public constructor
-     * @param countryRepo Pass an instance of the Country repository class
+     * @param countryService Pass an instance of the Country service class
      */
-    public CountryReportViewer(CountryRepository countryRepo){
+    public CountryReportViewer(CountryService countryService){
 
-        this.countryRepository = countryRepo;
+        this._countryService = countryService;
     }
-
 
     /**
      * Displays all country ordered by population
      */
     public void ShowCountriesByPopulation(){
-        var countries = countryRepository.getAllCountriesOrderByPopulation();
+        var countries = _countryService.getAllCountriesOrderByPopulation();
 
         System.out.println("Report showing all countries ordered by population ascending");
 
@@ -43,7 +42,7 @@ public class CountryReportViewer {
      * @param regionName The region name
      */
     public void ShowCountriesInARegionByPopulation(String regionName){
-        var countries = countryRepository.getAllCountriesInRegionOrderedByPopulation(regionName);
+        var countries = _countryService.getAllCountriesInRegionOrderedByPopulation(regionName);
 
         System.out.println("Report showing all countries in region " + regionName + " ordered by population ascending");
 
@@ -55,7 +54,7 @@ public class CountryReportViewer {
      * @param continentName The continent name
      */
     public void ShowCountriesInAContinentByPopulation(String continentName){
-        var countries = countryRepository.getAllCountriesInContinentOrderedByPopulation(continentName);
+        var countries = _countryService.getAllCountriesInContinentOrderedByPopulation(continentName);
 
         System.out.println("Report showing all countries in continent " + continentName + " ordered by population ascending");
 

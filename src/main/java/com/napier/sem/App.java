@@ -33,6 +33,11 @@ public class App
     public CountryRepository countryRepo;
 
     /**
+     * The CountryService, must be instantiated before use
+     */
+    public CountryService countryService;
+
+    /**
      * The CountryReportViewer, must be instantiated before use
      */
     public CountryReportViewer countryReports;
@@ -55,11 +60,14 @@ public class App
         // construct the cityReports
         a.cityReports = new CityReportViewer(a.cityRepo);
 
-        //construct the CountryRepository
+        // construct the CountryRepository
         a.countryRepo = new CountryRepository(a.con);
 
+        // construct the country service
+        a.countryService = new CountryService(a.countryRepo);
+
         //construct the country Reports
-        a.countryReports = new CountryReportViewer(a.countryRepo);
+        a.countryReports = new CountryReportViewer(a.countryService);
 
         // show an example city
         a.cityReports.ShowCityDetails(5);

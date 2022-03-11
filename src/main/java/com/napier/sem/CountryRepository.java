@@ -13,7 +13,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class CountryRepository {
+public class CountryRepository implements ICountryRepository {
 
     /**
      * The MySQL database connection
@@ -29,8 +29,7 @@ public class CountryRepository {
     }
 
     /**
-     * Gets all countries.
-     * @return A list of all countries, the collection may be empty should no countries be found.
+     * @inheritDoc
      */
     public ArrayList<Country> getAllCountriesOrderByPopulation()
     {
@@ -45,45 +44,6 @@ public class CountryRepository {
         return getCountryCollection(strSelect);
     }
 
-    /**
-     * Gets all countries in a region, ordered by population high to low.
-     * @return A list of all countries, the collection may be empty should no countries be found.
-     */
-    public ArrayList<Country> getAllCountriesInRegionOrderedByPopulation(String regionName)
-    {
-
-        var countries = getAllCountriesOrderByPopulation();
-
-        var countriesInRegion = new ArrayList<Country>();
-
-        for (var country:countries) {
-            if (country.Region.equalsIgnoreCase(regionName)){
-                countriesInRegion.add(country);
-            }
-        }
-
-        return countriesInRegion;
-    }
-
-    /**
-     * Gets all countries in a continent, ordered by population high to low.
-     * @return A list of all countries, the collection may be empty should no countries be found.
-     */
-    public ArrayList<Country> getAllCountriesInContinentOrderedByPopulation(String continentName)
-    {
-
-        var countries = getAllCountriesOrderByPopulation();
-
-        var countriesInContinent = new ArrayList<Country>();
-
-        for (var country:countries) {
-            if (country.Continent.equalsIgnoreCase(continentName)){
-                countriesInContinent.add(country);
-            }
-        }
-
-        return countriesInContinent;
-    }
 
     /**
      * Queries the country table using the supplied SQL statement. This input is not validated and must be sanitised

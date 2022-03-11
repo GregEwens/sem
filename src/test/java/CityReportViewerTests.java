@@ -8,9 +8,14 @@
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Unit Tests for CityReportViewer
+ */
 public class CityReportViewerTests {
 
-
+    /**
+     * basic proof of concept test
+     */
     @Test
     void TestUnitTest(){
         assertEquals(5, 5);
