@@ -25,11 +25,14 @@ public class CountryRepositoryMock implements ICountryRepository {
             var continent = "Europe";  // 15 europe
             if(i > 15) continent = "Asia"; // 15 Asia
 
+            var region = "North Africa";  // 15 europe
+            if(i > 15) region = "West Africa"; // 15 Asia
+
             // generate values based on index
             country.Continent = continent;
             country.Code = "CD" + i;
             country.Population = (int) Math.pow(2, i);
-            country.Region = "Region" + i;
+            country.Region = region;
             country.Capital = "City" + i;
             country.Name = "Country" + i;
             country.GNP = BigDecimal.valueOf(Math.pow(2, i) + 1000);

@@ -92,7 +92,27 @@ public class CountryService {
         }
 
         return (ArrayList<Country>) countriesInContinent.stream().limit(n).collect(Collectors.toList());
+    }
 
+    /**
+     * Gets the top N countries in a specified region ordered by population where N is specified
+     * @param n The number of countries to return
+     * @param regionName the name of the specified region
+     * @return A collection of countries
+     */
+    public ArrayList<Country> getTopNCountriesInRegionOrderedByPopulation(int n, String regionName){
+
+        var countries = _countryRepoitory.getAllCountriesOrderByPopulation();
+
+        var countriesInRegion = new ArrayList<Country>();
+
+        for (var country:countries) {
+            if (country.Region.equalsIgnoreCase(regionName)){
+                countriesInRegion.add(country);
+            }
+        }
+
+        return (ArrayList<Country>) countriesInRegion.stream().limit(n).collect(Collectors.toList());
     }
 
     /**

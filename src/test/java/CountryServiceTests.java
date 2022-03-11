@@ -116,106 +116,106 @@ public class CountryServiceTests {
     }
 
      /**
-     * getTopNCountriesInContinentOrderedByPopulation tested with correct count
+     * getTopNCountriesInRegionOrderedByPopulation tested with correct count
      */
     @Test
-    void getTopNCountriesInContinentOrderedByPopulationCorrectCountTest(){
+    void getTopNCountriesInRegionOrderedByPopulationCorrectCountTest(){
 
         // Arrange
         var systemUnderTest = new CountryService(countryRepositoryMock);
         var count = 10;
-        var continent = "Europe";
+        var region = "North Africa";
 
         // Act
-        var countries = systemUnderTest.getTopNCountriesInContinentOrderedByPopulation(count, continent);
+        var countries = systemUnderTest.getTopNCountriesInRegionOrderedByPopulation(count, region);
 
         // Assert
         assertEquals(count, countries.size());
     }
 
     /**
-     * getTopNCountriesInContinentOrderedByPopulation tested with 0 count
+     * getTopNCountriesInRegionOrderedByPopulation tested with 0 count
      */
     @Test
-    void getTopNCountriesInContinentOrderedByPopulationZeroCountTest(){
+    void getTopNCountriesInRegionOrderedByPopulationZeroCountTest(){
 
         // Arrange
         var systemUnderTest = new CountryService(countryRepositoryMock);
         var count = 0;
-        var continent = "Europe";
+        var region = "North Africa";
 
         // Act
-        var countries = systemUnderTest.getTopNCountriesInContinentOrderedByPopulation(count, continent);
+        var countries = systemUnderTest.getTopNCountriesInRegionOrderedByPopulation(count, region);
 
         // Assert
         assertEquals(count, countries.size());
     }
 
     /**
-     * getTopNCountriesInContinentOrderedByPopulation tested with 0 count
+     * getTopNCountriesInRegionOrderedByPopulation tested with 0 count
      */
     @Test
-    void getTopNCountriesInContinentOrderedByPopulationContinentNotFoundTest(){
+    void getTopNCountriesInRegionOrderedByPopulationRegionNotFoundTest(){
 
         // Arrange
         var systemUnderTest = new CountryService(countryRepositoryMock);
         var count = 10;
-        var continent = "NotAContinent";
+        var region = "NotARegion";
 
         // Act
-        var countries = systemUnderTest.getTopNCountriesInContinentOrderedByPopulation(count, continent);
+        var countries = systemUnderTest.getTopNCountriesInRegionOrderedByPopulation(count, region);
 
         // Assert
         assertEquals(0, countries.size());
     }
 
     /**
-     * getTopNCountriesInContinentOrderedByPopulation tested with negative count
+     * getTopNCountriesInRegionOrderedByPopulation tested with negative count
      */
     @Test
-    void getTopNCountriesInContinentOrderedByPopulationNegativeCountThrowsIllegalArgumentExceptionTest(){
+    void getTopNCountriesInRegionOrderedByPopulationNegativeCountThrowsIllegalArgumentExceptionTest(){
 
         // Arrange
         var systemUnderTest = new CountryService(countryRepositoryMock);
         var count = -1;
-        var continent = "Europe";
+        var region = "North Africa";
 
         // Assert
         assertThrows(IllegalArgumentException.class,
-                () -> systemUnderTest.getTopNCountriesInContinentOrderedByPopulation(count, continent));
+                () -> systemUnderTest.getTopNCountriesInRegionOrderedByPopulation(count, region));
     }
 
     /**
-     * getTopNCountriesInContinentOrderedByPopulation tested with a count greater than the number of existing countries
+     * getTopNCountriesInRegionOrderedByPopulation tested with a count greater than the number of existing countries
      */
     @Test
-    void getTopNCountriesInContinentOrderedByPopulationMoreThanExistsCountTest(){
+    void getTopNCountriesInRegionOrderedByPopulationMoreThanExistsCountTest(){
 
         // Arrange
         var systemUnderTest = new CountryService(countryRepositoryMock);
         var count = 20;
-        var continent = "Europe";
+        var region = "North Africa";
 
         // Act
-        var countries = systemUnderTest.getTopNCountriesInContinentOrderedByPopulation(count, continent);
+        var countries = systemUnderTest.getTopNCountriesInRegionOrderedByPopulation(count, region);
 
         // Assert
         assertNotEquals(count, countries.size());
     }
 
     /**
-     * getTopNCountriesOrderedByPopulation tested for correct ordering
+     * getTopNCountriesInRegionOrderedByPopulation tested for correct ordering
      */
     @Test
-    void getTopNCountriesInContinentOrderedByPopulationAreOrderedTest(){
+    void getTopNCountriesInRegionOrderedByPopulationAreOrderedTest(){
 
         // Arrange
         var systemUnderTest = new CountryService(countryRepositoryMock);
         var count = 4;
-        var continent = "Europe";
+        var region = "North Africa";
 
         // Act
-        var countries = systemUnderTest.getTopNCountriesInContinentOrderedByPopulation(count, continent);
+        var countries = systemUnderTest.getTopNCountriesInRegionOrderedByPopulation(count, region);
 
         // Assert
         var populationFirst = countries.get(0).Population;
