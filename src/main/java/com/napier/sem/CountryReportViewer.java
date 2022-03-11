@@ -75,6 +75,20 @@ public class CountryReportViewer {
     }
 
     /**
+     * Displays top n countries in a specified continent ordered by population
+     * @param n The number of countries to show
+     * @param continentName The specified continent
+     */
+    public void ShowTopNCountriesInContinentByPopulation(int n, String continentName){
+        var countries = _countryService.getTopNCountriesInContinentOrderedByPopulation(n, continentName);
+
+        System.out.println("Report showing top " + n + " countries in " + continentName + " ordered by population " +
+                "ascending");
+
+        displayCountries(countries);
+    }
+
+    /**
      * Prints the details of a collection of countries
      * @param countries The collection of countries to display
      */

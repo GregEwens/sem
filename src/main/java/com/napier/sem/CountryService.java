@@ -81,12 +81,18 @@ public class CountryService {
      */
     public ArrayList<Country> getTopNCountriesInContinentOrderedByPopulation(int n, String continentName){
 
-        throw new UnsupportedOperationException();
+        var countries = _countryRepoitory.getAllCountriesOrderByPopulation();
 
-       // var countries = _countryRepoitory.getAllCountriesOrderByPopulation();
+        var countriesInContinent = new ArrayList<Country>();
 
-       // return (ArrayList<Country>) countries.stream().filter(c -> c.Continent.toLowerCase() == continentName
-        // .toLowerCase()).limit(n).collect(Collectors.toList());
+        for (var country:countries) {
+            if (country.Continent.equalsIgnoreCase(continentName)){
+                countriesInContinent.add(country);
+            }
+        }
+
+        return (ArrayList<Country>) countriesInContinent.stream().limit(n).collect(Collectors.toList());
+
     }
 
     /**
