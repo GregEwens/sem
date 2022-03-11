@@ -21,6 +21,7 @@ public class CountryService {
 
     /**
      * Gets all countries in a region, ordered by population high to low.
+     * @param regionName the name of the specified region
      * @return A list of all countries, the collection may be empty should no countries be found.
      */
     public ArrayList<Country> getAllCountriesInRegionOrderedByPopulation(String regionName)
@@ -41,7 +42,9 @@ public class CountryService {
 
     /**
      * Gets all countries in a continent, ordered by population high to low.
+     * @param continentName the name of the specified continent
      * @return A list of all countries, the collection may be empty should no countries be found.
+     *
      */
     public ArrayList<Country> getAllCountriesInContinentOrderedByPopulation(String continentName)
     {
@@ -68,6 +71,22 @@ public class CountryService {
         var countries = _countryRepoitory.getAllCountriesOrderByPopulation();
 
         return (ArrayList<Country>) countries.stream().limit(n).collect(Collectors.toList());
+    }
+
+    /**
+     * Gets the top N countries in a specified continent ordered by population where N is specified
+     * @param n The number of countries to return
+     * @param continentName the name of the specified continent
+     * @return A collection of countries
+     */
+    public ArrayList<Country> getTopNCountriesInContinentOrderedByPopulation(int n, String continentName){
+
+        throw new UnsupportedOperationException();
+
+       // var countries = _countryRepoitory.getAllCountriesOrderByPopulation();
+
+       // return (ArrayList<Country>) countries.stream().filter(c -> c.Continent.toLowerCase() == continentName
+        // .toLowerCase()).limit(n).collect(Collectors.toList());
     }
 
     /**
