@@ -54,6 +54,9 @@ public class CityRepositoryMock implements ICityRepository {
             var region = "North Africa";  // 15 europe
             if(i > 15) region = "West Africa"; // 15 Asia
 
+            var name = "Egypt";  // 15 europe
+            if(i > 15) name = "China"; // 15 Asia
+
             // generate values based on index
             city.countryCode = Integer.toString(i);
             city.population = (int) Math.pow(2, i);

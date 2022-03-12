@@ -234,6 +234,121 @@ public class CityServiceTests {
 
 
     /**
+     * getTopNCitiesInCountryOrderedByPopulation tested with correct count
+     */
+    @Test
+    void getTopNCitiesInCountryOrderedByPopulationCorrectCountTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 10;
+        var country = "Egypt";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInCountryOrderedByPopulation(count, country);
+
+        // Assert
+        assertEquals(count, cities.size());
+    }
+
+    /**
+     * getTopNCitiesInCountryOrderedByPopulation tested with 0 count
+     */
+    @Test
+    void getTopNCitiesInCountryOrderedByPopulationZeroCountTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 0;
+        var country = "Egypt";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInCountryOrderedByPopulation(count, country);
+
+        // Assert
+        assertEquals(count, cities.size());
+    }
+
+    /**
+     * getTopNCitiesInCountryOrderedByPopulation tested with 0 count
+     */
+    @Test
+    void getTopNCitiesInCountryOrderedByPopulationCountryNotFoundTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 10;
+        var country = "NotADistrict";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInCountryOrderedByPopulation(count, country);
+
+        // Assert
+        assertEquals(0, cities.size());
+    }
+
+    /**
+     * getTopNCitiesInCountryOrderedByPopulation tested with negative count
+     */
+    @Test
+    void getTopNCitiesInCountryOrderedByPopulationNegativeCountThrowsIllegalArgumentExceptionTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = -1;
+        var country = "Egypt";
+
+        // Assert
+        assertThrows(IllegalArgumentException.class,
+                () -> systemUnderTest.getTopNCitiesInCountryOrderedByPopulation(count, country));
+    }
+
+    /**
+     * getTopNCitiesInCountryOrderedByPopulation tested with a count greater than the number of existing countries
+     */
+    @Test
+    void getTopNCitiesInCountryOrderedByPopulationMoreThanExistsCountTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 20;
+        var country = "Egypt";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInCountryOrderedByPopulation(count, country);
+
+        // Assert
+        assertNotEquals(count, cities.size());
+    }
+
+    /**
+     * getTopNCitiesInCountryOrderedByPopulation tested for correct ordering
+     */
+    @Test
+    void getTopNCitiesInCountryOrderedByPopulationAreOrderedTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 4;
+        var country = "Egypt";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInCountryOrderedByPopulation(count, country);
+
+        // Assert
+        var populationFirst = cities.get(0).population;
+        var populationSecond = cities.get(1).population;
+        var populationThird = cities.get(2).population;
+        var populationFourth = cities.get(3).population;
+
+        assertTrue(populationFirst < populationSecond && populationSecond < populationThird && populationThird < populationFourth);
+    }
+
+
+
+
+
+    /**
      * getTopNCitiesInDistrictOrderedByPopulation tested with correct count
      */
     @Test

@@ -155,6 +155,29 @@ public class CityService {
     }
 
     /**
+     * Gets the top N cities in a specified country ordered by population where N is specified
+     * @param n The number of cities to return
+     * @param countryName the name of the specified country
+     * @return A collection of cities
+     */
+    public ArrayList<City> getTopNCitiesInCountryOrderedByPopulation(int n, String countryName){
+
+        throw new UnsupportedOperationException();
+
+        /*var cities = _cityRepository.getAllCitiesJoinCountryOrderedByPopulation();
+
+        var citiesInCountry = new ArrayList<City>();
+
+        for (var city:cities) {
+            if (city.Region.equalsIgnoreCase(countryName)){
+                citiesInCountry.add(city);
+            }
+        }
+
+        return (ArrayList<City>) citiesInCountry.stream().limit(n).collect(Collectors.toList());*/
+    }
+
+    /**
      * Gets the top N cities in a specified district ordered by population where N is specified
      * @param n The number of cities to return
      * @param districtName the name of the specified district
