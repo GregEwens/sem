@@ -1,3 +1,7 @@
+package com.napier.sem;
+
+import java.util.ArrayList;
+
 /**
  * Project Name: seMethods
  * Package: com.napier.sem
@@ -5,11 +9,6 @@
  * Date Created: 19/02/2022 15:28
  * File Purpose: This class provides methods for viewing Country reports
  */
-
-package com.napier.sem;
-
-import java.util.ArrayList;
-
 public class CountryReportViewer {
 
     /**
@@ -115,5 +114,4 @@ public class CountryReportViewer {
                             ctry.Capital + "\n");
         }
     }
-
 }

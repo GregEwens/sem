@@ -1,11 +1,3 @@
-/**
- * Project Name: seMethods
- * Package: com.napier.sem
- * User: Laura Main
- * Date Created: 19/02/2022
- * File Purpose: This class provides methods for accessing Country data
- */
-
 package com.napier.sem;
 
 import java.sql.Connection;
@@ -13,6 +5,13 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+/**
+ * Project Name: seMethods
+ * Package: com.napier.sem
+ * User: Laura Main
+ * Date Created: 19/02/2022
+ * File Purpose: This class provides methods for accessing Country data
+ */
 public class CountryRepository implements ICountryRepository {
 
     /**
@@ -43,7 +42,6 @@ public class CountryRepository implements ICountryRepository {
 
         return getCountryCollection(strSelect);
     }
-
 
     /**
      * Queries the country table using the supplied SQL statement. This input is not validated and must be sanitised
@@ -98,5 +96,4 @@ public class CountryRepository implements ICountryRepository {
             return null;
         }
     }
-
 }

@@ -1,3 +1,7 @@
+package com.napier.sem;
+
+import java.util.ArrayList;
+
 /**
  * Project Name: seMethods
  * Package: com.napier.sem
@@ -5,29 +9,19 @@
  * Date Created: 19/02/2022 15:59
  * File Purpose: This class provides methods for viewing City reports
  */
-
-
-package com.napier.sem;
-
-import java.util.ArrayList;
-
-/**
- * This class provides methods for viewing City reports
- */
-public class
-CityReportViewer {
+public class CityReportViewer {
 
     /**
      * An instance of the City repository class
      */
-    private final CityRepository cityRepository;
+    private final CityService _cityService;
 
     /**
      * The public constructor
-     * @param cityRepo Pass an instance of the City repository class
+     * @param cityService Pass an instance of the City repository class
      */
-    public CityReportViewer(CityRepository cityRepo){
-        this.cityRepository = cityRepo;
+    public CityReportViewer(CityService cityService){
+        _cityService = cityService;
     }
 
     /**
@@ -35,7 +29,7 @@ CityReportViewer {
      * @param Id The city Id to check
      */
     public void ShowCityDetails(int Id){
-        var city = cityRepository.getCityById(Id);
+        var city = _cityService.getCityById(Id);
 
         System.out.println("Data found for city with Id: " + Id);
 
@@ -46,7 +40,7 @@ CityReportViewer {
      * Displays all cities ordered by population
      */
     public void ShowCitiesByPopulation(){
-        var cities = cityRepository.getAllCitiesOrderedByPopulation();
+        var cities = _cityService.getAllCitiesOrderedByPopulation();
 
         System.out.println("Report showing all cities ordered by population ascending");
 
@@ -54,24 +48,11 @@ CityReportViewer {
     }
 
     /**
-     * Displays all cities in a given continent, ordered by population
-     * @param continent The continent
-     * @param sortOrder The sort order.
-     */
-    public void ShowCapitalCitiesInContinentByPopulation(String continent, SortOrder sortOrder){
-        var cities = cityRepository.getAllCapitalCitiesByContinentOrderedByPopulation(continent, sortOrder);
-
-        System.out.println("Report showing all capital cities in " + continent + " ordered by population " + sortOrder);
-
-        displayCapitalCities(cities);
-    }
-
-    /**
      * Displays all cities in a given country, ordered by population
      * @param countryCode The country code
      */
     public void ShowCitiesInCountryByPopulation(String countryCode){
-        var cities = cityRepository.getAllCitiesByCountryOrderedByPopulation(countryCode);
+        var cities = _cityService.getAllCitiesByCountryOrderedByPopulation(countryCode);
 
         System.out.println("Report showing all cities in " + countryCode + " ordered by population ascending");
 
@@ -83,25 +64,33 @@ CityReportViewer {
      * @param districtName The district name
      */
     public void ShowCitiesInDistrictByPopulation(String districtName){
-        var cities = cityRepository.getAllCitiesByDistrictOrderedByPopulation(districtName);
+        var cities = _cityService.getAllCitiesByDistrictOrderedByPopulation(districtName);
 
         System.out.println("Report showing all cities in " + districtName + " ordered by population ascending");
 
         displayCities(cities);
     }
 
-    public void ShowCitiesInContinentByPopulation(String continent, SortOrder sortOrder) {
-        var cities = cityRepository.getAllCitiesByContinentOrderedByPopulation(continent, sortOrder);
+    /**
+     * Displays all cities in a specified continent, ordered by population
+     * @param continent
+     */
+    public void ShowCitiesInContinentByPopulation(String continent) {
+        var cities = _cityService.getAllCitiesByContinentOrderedByPopulation(continent);
 
-        System.out.println("Report showing all cities in " + continent + " ordered by population sort order " + sortOrder);
+        System.out.println("Report showing all cities in " + continent + " ordered by population");
 
         displayCities(cities);
     }
 
-    public void ShowCitiesInRegionByPopulation(String region, SortOrder sortOrder) {
-        var cities = cityRepository.getAllCitiesByRegionOrderedByPopulation(region, sortOrder);
+    /**
+     * Displays all cities in a specified region, ordered by population
+     * @param region
+     */
+    public void ShowCitiesInRegionByPopulation(String region) {
+        var cities = _cityService.getAllCitiesByRegionOrderedByPopulation(region);
 
-        System.out.println("Report showing all cities in " + region + " ordered by population sort order " + sortOrder);
+        System.out.println("Report showing all cities in " + region + " ordered by population");
 
         displayCities(cities);
     }
@@ -130,30 +119,6 @@ CityReportViewer {
                             + cty.countryCode + "\n"
                             + cty.district + "\n"
                             + "Population:" + cty.population + "\n");
-        }
-    }
-
-    /**
-     * Prints the details of a collection of capital cities
-     * @param cities The collection of capital cities to display
-     */
-    private void displayCapitalCities(ArrayList<CapitalCity> cities){
-        for (var city: cities) {
-            displayCapitalCity(city);
-        }
-    }
-
-    /**
-     * Prints the details of a single capital city
-     * @param city The capital city to display
-     */
-    private void displayCapitalCity(CapitalCity city){
-        if (city != null)
-        {
-            System.out.println(
-                    city.name + ", "
-                            + city.country + "\n"
-                            + "Population:" + city.population + "\n");
         }
     }
 }

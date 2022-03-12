@@ -1,3 +1,5 @@
+package com.napier.sem;
+
 /**
  * Project Name: seMethods
  * Package: com.napier.sem
@@ -6,9 +8,6 @@
  * File Purpose:
  * This class is a report mapping class for a capital City
  */
-
-package com.napier.sem;
-
 public class CapitalCity
 {
     /**
@@ -25,4 +24,10 @@ public class CapitalCity
      * The population of the Capital City
      */
     public int population;
+
+    /**
+     * The continent the country is on.
+     */
+    public String Continent;
+
 }

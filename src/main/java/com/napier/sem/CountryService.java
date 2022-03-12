@@ -12,9 +12,15 @@ import java.util.stream.Collectors;
  */
 public class CountryService {
 
-
+    /**
+     * The country repository
+     */
     private final ICountryRepository _countryRepoitory;
 
+    /**
+     * The public constructor
+     * @param countryRepository The repository for Country data
+     */
     public CountryService(ICountryRepository countryRepository){
         _countryRepoitory = countryRepository;
     }

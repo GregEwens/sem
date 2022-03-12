@@ -23,9 +23,29 @@ public class App
     public CityRepository cityRepo;
 
     /**
+     * The CityService, must be instantiated before use
+     */
+    public CityService cityService;
+
+    /**
      * The CityReportViewer, must be instantiated before use
      */
     public CityReportViewer cityReports;
+
+    /**
+     * The CapitalCityRepository, must be instantiated before use
+     */
+    public CapitalCityRepository capitalCityRepo;
+
+    /**
+     * The CapitalCityService, must be instantiated before use
+     */
+    public CapitalCityService capitalCityService;
+
+    /**
+     * The CapitalCityReportViewer, must be instantiated before use
+     */
+    public CapitalCityReportViewer capitalCityReports;
 
     /**
      * The CountryRepository, must be instantiated before use
@@ -57,8 +77,20 @@ public class App
         // construct the CityRepository
         a.cityRepo = new CityRepository(a.con);
 
+        // construct city service
+        a.cityService = new CityService(a.cityRepo);
+
         // construct the cityReports
-        a.cityReports = new CityReportViewer(a.cityRepo);
+        a.cityReports = new CityReportViewer(a.cityService);
+
+        // construct the CityRepository
+        a.capitalCityRepo = new CapitalCityRepository(a.con);
+
+        // construct city service
+        a.capitalCityService = new CapitalCityService(a.capitalCityRepo);
+
+        // construct the cityReports
+        a.capitalCityReports = new CapitalCityReportViewer(a.capitalCityService);
 
         // construct the CountryRepository
         a.countryRepo = new CountryRepository(a.con);
@@ -82,10 +114,10 @@ public class App
         a.cityReports.ShowCitiesInDistrictByPopulation("California");
 
         //show cities in a continent organised by largest population to smallest.
-        a.cityReports.ShowCitiesInContinentByPopulation("Asia", SortOrder.Descending);
+        a.cityReports.ShowCitiesInContinentByPopulation("Asia");
 
         //show cities in a region organised by largest population to smallest.
-        a.cityReports.ShowCitiesInRegionByPopulation("Southern Europe", SortOrder.Descending);
+        a.cityReports.ShowCitiesInRegionByPopulation("Southern Europe");
 
         //show countries by population high to low
         a.countryReports.ShowCountriesByPopulation();
@@ -97,11 +129,10 @@ public class App
         a.countryReports.ShowCountriesInAContinentByPopulation("Asia");
 
         //show capital cities in a continent organised by largest population to smallest.
-        a.cityReports.ShowCapitalCitiesInContinentByPopulation("Europe", SortOrder.Descending);
+        a.capitalCityReports.ShowCapitalCitiesInContinentByPopulation("Europe");
 
         // show top N countries by population
         a.countryReports.ShowTopNCountriesByPopulation(25);
-
 
         // show top N countries in continent by population
         a.countryReports.ShowTopNCountriesInContinentByPopulation(12, "Africa");
