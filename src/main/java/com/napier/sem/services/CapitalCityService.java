@@ -1,7 +1,7 @@
 package com.napier.sem.services;
 
 import com.napier.sem.entities.CapitalCity;
-import com.napier.sem.repositories.CapitalCityRepository;
+import com.napier.sem.repositories.ICapitalCityRepository;
 
 import java.util.ArrayList;
 
@@ -17,13 +17,13 @@ public class CapitalCityService {
     /**
      * The Capital City Repository
      */
-    private final CapitalCityRepository _capitalCityRepository;
+    private final ICapitalCityRepository _capitalCityRepository;
 
     /**
      * The public constructor
      * @param capitalCityRepository An instance of the CapitalCityRepository
      */
-    public CapitalCityService(CapitalCityRepository capitalCityRepository){
+    public CapitalCityService(ICapitalCityRepository capitalCityRepository){
         _capitalCityRepository = capitalCityRepository;
     }
 

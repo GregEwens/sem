@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * Date Created: 19/02/2022 14:48
  * File Purpose: This class provides methods for accessing City data
  */
-public class CityRepository {
+public class CityRepository implements ICityRepository {
 
     /**
      * The MySQL database connection
@@ -31,9 +31,7 @@ public class CityRepository {
     }
 
     /**
-     * Gets all cities ordered by population ascending.
-     * @return A list of all cities ordered by population ascending, the collection may be empty should no cities be
-     * found.
+     * {@inheritDoc}
      */
     public ArrayList<City> getAllCitiesOrderedByPopulation()
     {
@@ -46,9 +44,7 @@ public class CityRepository {
     }
 
     /**
-     * Gets all cities ordered by population ascending.
-     * @return A list of all cities ordered by population ascending, the collection may be empty should no cities be
-     * found.
+     * {@inheritDoc}
      */
     public ArrayList<CityJoinCountry> getAllCitiesJoinCountryOrderedByPopulation()
     {
@@ -151,43 +147,5 @@ public class CityRepository {
             System.out.println("Failed to get city details");
             return null;
         }
-    }
-
-    /**
-     * Queries the city table using the supplied SQL statement. This input is not validated and must be sanitised
-     * before calling this method.
-     * @param SQLStatement An SQL statement which must return one or more complete City entities
-     * @return An instance of City or null
-     */
-    private City getCity(String SQLStatement){
-        try
-        {
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(SQLStatement);
-            // Return new city if valid.
-
-            // Check one is returned
-            if (rset.next())
-            {
-                City cty = new City();
-                cty.id = rset.getInt("ID");
-                cty.name = rset.getString("Name");
-                cty.countryCode = rset.getString("CountryCode");
-                cty.district = rset.getString("district");
-                cty.population = rset.getInt("population");
-                return cty;
-            }
-            else
-                return null;
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get city details");
-            return null;
-        }
-
     }
 }

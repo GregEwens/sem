@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * Date Created: 12/03/2022 13:37
  * File Purpose:This class provides methods for accessing Capital City data
  */
-public class CapitalCityRepository {
+public class CapitalCityRepository implements ICapitalCityRepository {
 
     /**
      * The MySQL database connection

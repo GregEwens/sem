@@ -1,7 +1,7 @@
 package com.napier.sem.services;
 
 import com.napier.sem.entities.City;
-import com.napier.sem.repositories.CityRepository;
+import com.napier.sem.repositories.ICityRepository;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -18,13 +18,13 @@ public class CityService {
     /**
      * The city repository
      */
-    private final CityRepository _cityRepository;
+    private final ICityRepository _cityRepository;
 
     /**
      * The public constructor
      * @param cityRepository The repository for City data
      */
-    public CityService(CityRepository cityRepository){
+    public CityService(ICityRepository cityRepository){
         _cityRepository = cityRepository;
     }
 
