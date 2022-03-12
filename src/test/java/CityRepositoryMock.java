@@ -44,7 +44,25 @@ public class CityRepositoryMock implements ICityRepository {
      */
     @Override
     public ArrayList<CityJoinCountry> getAllCitiesJoinCountryOrderedByPopulation() {
-        return null;
-    }
+        var cities = new ArrayList<CityJoinCountry>();
+
+        for (int i = 0; i < 30; i++) {
+            var city = new CityJoinCountry();
+
+            var region = "North Africa";  // 15 europe
+            if(i > 15) region = "West Africa"; // 15 Asia
+
+            // generate values based on index
+            city.countryCode = Integer.toString(i);
+            city.population = (int) Math.pow(2, i);
+            city.district = "district" + i;
+            city.id = i;
+            city.name = "name" + i;
+            city.Region = region;
+
+            cities.add(city);
+        }
+
+        return cities;    }
 
 }

@@ -141,9 +141,6 @@ public class CityService {
      */
     public ArrayList<City> getTopNCitiesInRegionOrderedByPopulation(int n, String regionName){
 
-        throw new UnsupportedOperationException();
-
-        /*
         var cities = _cityRepository.getAllCitiesJoinCountryOrderedByPopulation();
 
         var citiesInRegion = new ArrayList<City>();
@@ -155,8 +152,6 @@ public class CityService {
         }
 
         return (ArrayList<City>) citiesInRegion.stream().limit(n).collect(Collectors.toList());
-        */
-
     }
 
 
