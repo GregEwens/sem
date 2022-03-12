@@ -154,6 +154,28 @@ public class CityService {
         return (ArrayList<City>) citiesInRegion.stream().limit(n).collect(Collectors.toList());
     }
 
+    /**
+     * Gets the top N cities in a specified district ordered by population where N is specified
+     * @param n The number of cities to return
+     * @param districtName the name of the specified district
+     * @return A collection of cities
+     */
+    public ArrayList<City> getTopNCitiesInDistrictOrderedByPopulation(int n, String districtName){
+
+        throw new UnsupportedOperationException();
+
+        /*var cities = _cityRepository.getAllCitiesOrderedByPopulation();
+
+        var citiesInDistrict = new ArrayList<City>();
+
+        for (var city:cities) {
+            if (city.district.equalsIgnoreCase(districtName)){
+                citiesInDistrict.add(city);
+            }
+        }
+
+        return (ArrayList<City>) citiesInDistrict.stream().limit(n).collect(Collectors.toList());*/
+    }
 
     /**
      * Gets a collection of all cities

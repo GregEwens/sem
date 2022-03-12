@@ -229,4 +229,118 @@ public class CityServiceTests {
 
         assertTrue(populationFirst < populationSecond && populationSecond < populationThird && populationThird < populationFourth);
     }
+
+
+
+
+    /**
+     * getTopNCitiesInDistrictOrderedByPopulation tested with correct count
+     */
+    @Test
+    void getTopNCitiesInDistrictOrderedByPopulationCorrectCountTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 10;
+        var district = "North Africa";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInDistrictOrderedByPopulation(count, district);
+
+        // Assert
+        assertEquals(count, cities.size());
+    }
+
+    /**
+     * getTopNCitiesInDistrictOrderedByPopulation tested with 0 count
+     */
+    @Test
+    void getTopNCitiesInDistrictOrderedByPopulationZeroCountTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 0;
+        var district = "North Africa";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInDistrictOrderedByPopulation(count, district);
+
+        // Assert
+        assertEquals(count, cities.size());
+    }
+
+    /**
+     * getTopNCitiesInDistrictOrderedByPopulation tested with 0 count
+     */
+    @Test
+    void getTopNCitiesInDistrictOrderedByPopulationDistrictNotFoundTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 10;
+        var district = "NotADistrict";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInDistrictOrderedByPopulation(count, district);
+
+        // Assert
+        assertEquals(0, cities.size());
+    }
+
+    /**
+     * getTopNCitiesInDistrictOrderedByPopulation tested with negative count
+     */
+    @Test
+    void getTopNCitiesInDistrictOrderedByPopulationNegativeCountThrowsIllegalArgumentExceptionTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = -1;
+        var district = "North Africa";
+
+        // Assert
+        assertThrows(IllegalArgumentException.class,
+                () -> systemUnderTest.getTopNCitiesInDistrictOrderedByPopulation(count, district));
+    }
+
+    /**
+     * getTopNCitiesInDistrictOrderedByPopulation tested with a count greater than the number of existing countries
+     */
+    @Test
+    void getTopNCitiesInDistrictOrderedByPopulationMoreThanExistsCountTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 20;
+        var district = "North Africa";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInDistrictOrderedByPopulation(count, district);
+
+        // Assert
+        assertNotEquals(count, cities.size());
+    }
+
+    /**
+     * getTopNCitiesInDistrictOrderedByPopulation tested for correct ordering
+     */
+    @Test
+    void getTopNCitiesInDistrictOrderedByPopulationAreOrderedTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 4;
+        var district = "North Africa";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInDistrictOrderedByPopulation(count, district);
+
+        // Assert
+        var populationFirst = cities.get(0).population;
+        var populationSecond = cities.get(1).population;
+        var populationThird = cities.get(2).population;
+        var populationFourth = cities.get(3).population;
+
+        assertTrue(populationFirst < populationSecond && populationSecond < populationThird && populationThird < populationFourth);
+    }
 }

@@ -25,10 +25,13 @@ public class CityRepositoryMock implements ICityRepository {
         for (int i = 0; i < 30; i++) {
             var city = new City();
 
+            var district = "Victoria";  // 15 victoria
+            if(i > 15) district = "Queensland"; // 15 quee0snland
+
             // generate values based on index
             city.countryCode = Integer.toString(i);
             city.population = (int) Math.pow(2, i);
-            city.district = "district" + i;
+            city.district = district;
             city.id = i;
             city.name = "name" + i;
 
@@ -39,7 +42,6 @@ public class CityRepositoryMock implements ICityRepository {
     }
 
     /**
-     * TODO
      * Mockup of getAllCitiesJoinCountryOrderedByPopulation. This method returns 30 cities with values based on index
      */
     @Override
