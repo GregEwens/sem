@@ -38,7 +38,7 @@ public class CapitalCityRepository {
     {
         // Create string for SQL statement
         String strSelect =
-                "SELECT ci.Name, c.Name as Country, ci.Population ci.Continent"
+                "SELECT ci.Name, c.Name as Country, ci.Population, c.Continent "
                         + "FROM city ci JOIN country c ON c.Code = ci.CountryCode "
                         + "ORDER BY Population DESC";
 
