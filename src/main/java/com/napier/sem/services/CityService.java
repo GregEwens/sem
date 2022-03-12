@@ -162,19 +162,17 @@ public class CityService {
      */
     public ArrayList<City> getTopNCitiesInCountryOrderedByPopulation(int n, String countryName){
 
-        throw new UnsupportedOperationException();
-
-        /*var cities = _cityRepository.getAllCitiesJoinCountryOrderedByPopulation();
+        var cities = _cityRepository.getAllCitiesJoinCountryOrderedByPopulation();
 
         var citiesInCountry = new ArrayList<City>();
 
         for (var city:cities) {
-            if (city.Region.equalsIgnoreCase(countryName)){
+            if (city.countryName.equalsIgnoreCase(countryName)){
                 citiesInCountry.add(city);
             }
         }
 
-        return (ArrayList<City>) citiesInCountry.stream().limit(n).collect(Collectors.toList());*/
+        return (ArrayList<City>) citiesInCountry.stream().limit(n).collect(Collectors.toList());
     }
 
     /**

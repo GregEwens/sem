@@ -20,4 +20,9 @@ public class CityJoinCountry extends City {
      * The region the country is in.
      */
     public String Region;
+
+    /**
+     * The country the city is in
+     */
+    public String countryName;
 }
