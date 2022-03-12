@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class CityRepositoryMock implements ICityRepository {
 
     /**
-     * Mockup of getAllCountriesOrderByPopulation. This method returns 30 countries with values based on index
+     * Mockup of getAllCitiesOrderedByPopulation. This method returns 30 cities with values based on index
      */
     @Override
     public ArrayList<City> getAllCitiesOrderedByPopulation() {
@@ -40,7 +40,7 @@ public class CityRepositoryMock implements ICityRepository {
 
     /**
      * TODO
-     * @return
+     * Mockup of getAllCitiesJoinCountryOrderedByPopulation. This method returns 30 cities with values based on index
      */
     @Override
     public ArrayList<CityJoinCountry> getAllCitiesJoinCountryOrderedByPopulation() {
