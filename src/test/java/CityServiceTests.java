@@ -8,6 +8,7 @@
 
 import com.napier.sem.repositories.ICityRepository;
 import com.napier.sem.services.CityService;
+import com.napier.sem.services.CountryService;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -118,5 +119,114 @@ public class CityServiceTests {
     }
 
 
+    /**
+     * getTopNCitiesInRegionOrderedByPopulation tested with correct count
+     */
+    @Test
+    void getTopNCitiesInRegionOrderedByPopulationCorrectCountTest(){
 
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 10;
+        var region = "North Africa";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInRegionOrderedByPopulation(count, region);
+
+        // Assert
+        assertEquals(count, cities.size());
+    }
+
+    /**
+     * getTopNCitiesInRegionOrderedByPopulation tested with 0 count
+     */
+    @Test
+    void getTopNCitiesInRegionOrderedByPopulationZeroCountTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 0;
+        var region = "North Africa";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInRegionOrderedByPopulation(count, region);
+
+        // Assert
+        assertEquals(count, cities.size());
+    }
+
+    /**
+     * getTopNCitiesInRegionOrderedByPopulation tested with 0 count
+     */
+    @Test
+    void getTopNCitiesInRegionOrderedByPopulationRegionNotFoundTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 10;
+        var region = "NotARegion";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInRegionOrderedByPopulation(count, region);
+
+        // Assert
+        assertEquals(0, cities.size());
+    }
+
+    /**
+     * getTopNCitiesInRegionOrderedByPopulation tested with negative count
+     */
+    @Test
+    void getTopNCitiesInRegionOrderedByPopulationNegativeCountThrowsIllegalArgumentExceptionTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = -1;
+        var region = "North Africa";
+
+        // Assert
+        assertThrows(IllegalArgumentException.class,
+                () -> systemUnderTest.getTopNCitiesInRegionOrderedByPopulation(count, region));
+    }
+
+    /**
+     * getTopNCitiesInRegionOrderedByPopulation tested with a count greater than the number of existing countries
+     */
+    @Test
+    void getTopNCitiesInRegionOrderedByPopulationMoreThanExistsCountTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 20;
+        var region = "North Africa";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInRegionOrderedByPopulation(count, region);
+
+        // Assert
+        assertNotEquals(count, cities.size());
+    }
+
+    /**
+     * getTopNCitiesInRegionOrderedByPopulation tested for correct ordering
+     */
+    @Test
+    void getTopNCitiesInRegionOrderedByPopulationAreOrderedTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 4;
+        var region = "North Africa";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInRegionOrderedByPopulation(count, region);
+
+        // Assert
+        var populationFirst = cities.get(0).population;
+        var populationSecond = cities.get(1).population;
+        var populationThird = cities.get(2).population;
+        var populationFourth = cities.get(3).population;
+
+        assertTrue(populationFirst < populationSecond && populationSecond < populationThird && populationThird < populationFourth);
+    }
 }

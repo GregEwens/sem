@@ -134,6 +134,33 @@ public class CityService {
     }
 
     /**
+     * Gets the top N cities in a specified region ordered by population where N is specified
+     * @param n The number of cities to return
+     * @param regionName the name of the specified region
+     * @return A collection of cities
+     */
+    public ArrayList<City> getTopNCitiesInRegionOrderedByPopulation(int n, String regionName){
+
+        throw new UnsupportedOperationException();
+
+        /*
+        var cities = _cityRepository.getAllCitiesJoinCountryOrderedByPopulation();
+
+        var citiesInRegion = new ArrayList<City>();
+
+        for (var city:cities) {
+            if (city.Region.equalsIgnoreCase(regionName)){
+                citiesInRegion.add(city);
+            }
+        }
+
+        return (ArrayList<City>) citiesInRegion.stream().limit(n).collect(Collectors.toList());
+        */
+
+    }
+
+
+    /**
      * Gets a collection of all cities
      * @return Returns a sorted collection of Cities
      */
