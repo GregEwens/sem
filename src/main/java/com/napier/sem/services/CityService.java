@@ -1,6 +1,7 @@
 package com.napier.sem.services;
 
 import com.napier.sem.entities.City;
+import com.napier.sem.entities.Country;
 import com.napier.sem.repositories.ICityRepository;
 
 import java.util.ArrayList;
@@ -127,7 +128,9 @@ public class CityService {
      * @return Returns a sorted collection of Cities
      */
     public ArrayList<City> getTopNCitiesOrderedByPopulation(int n){
-        throw new UnsupportedOperationException();
+        var cities = _cityRepository.getAllCitiesOrderedByPopulation();
+
+        return (ArrayList<City>) cities.stream().limit(n).collect(Collectors.toList());
     }
 
     /**

@@ -98,6 +98,14 @@ public class CityReportViewer {
         displayCities(cities);
     }
 
+    public void ShowTopNCitiesByPopulation(int n){
+        var cities = _cityService.getTopNCitiesOrderedByPopulation(n);
+
+        System.out.println("Report showing top " + n + " cities in ordered by population");
+
+        displayCities(cities);
+    }
+
     /**
      * Prints the details of a collection of cities
      * @param cities The collection of cities to display

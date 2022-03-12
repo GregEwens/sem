@@ -147,6 +147,9 @@ public class App
         // show top N countries in continent by population
         a.countryReports.ShowTopNCountriesInContinentByPopulation(12, "Africa");
 
+        // show top N cities by population
+        a.cityReports.ShowTopNCitiesByPopulation(5);
+
         // Disconnect from database
         a.disconnect();
     }
