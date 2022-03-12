@@ -11,7 +11,7 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Unit tests for CountryRepository
+ * Unit tests for CountryService
  */
 public class CountryServiceTests {
 

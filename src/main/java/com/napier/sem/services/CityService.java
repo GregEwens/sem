@@ -122,6 +122,15 @@ public class CityService {
     }
 
     /**
+     * Gets the top N cities ordered by population where N is specified
+     * @param n The number of cities to show
+     * @return Returns a sorted collection of Cities
+     */
+    public ArrayList<City> getTopNCitiesOrderedByPopulation(int n){
+        throw new UnsupportedOperationException();
+    }
+
+    /**
      * Gets a collection of all cities
      * @return Returns a sorted collection of Cities
      */
