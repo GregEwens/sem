@@ -1,4 +1,7 @@
-package com.napier.sem;
+package com.napier.sem.reports;
+
+import com.napier.sem.entities.City;
+import com.napier.sem.services.CityService;
 
 import java.util.ArrayList;
 

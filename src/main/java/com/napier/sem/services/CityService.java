@@ -1,4 +1,7 @@
-package com.napier.sem;
+package com.napier.sem.services;
+
+import com.napier.sem.entities.City;
+import com.napier.sem.repositories.CityRepository;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;

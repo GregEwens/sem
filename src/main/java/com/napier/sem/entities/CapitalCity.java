@@ -1,4 +1,4 @@
-package com.napier.sem;
+package com.napier.sem.entities;
 
 /**
  * Project Name: seMethods

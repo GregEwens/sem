@@ -8,6 +8,16 @@
 
 package com.napier.sem;
 
+import com.napier.sem.reports.CapitalCityReportViewer;
+import com.napier.sem.reports.CityReportViewer;
+import com.napier.sem.reports.CountryReportViewer;
+import com.napier.sem.repositories.CapitalCityRepository;
+import com.napier.sem.repositories.CityRepository;
+import com.napier.sem.repositories.CountryRepository;
+import com.napier.sem.services.CapitalCityService;
+import com.napier.sem.services.CityService;
+import com.napier.sem.services.CountryService;
+
 import java.sql.*;
 
 public class App

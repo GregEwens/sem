@@ -1,4 +1,6 @@
-package com.napier.sem;
+package com.napier.sem.entities;
+
+import com.napier.sem.entities.City;
 
 /**
  * Project Name: seMethods
@@ -7,7 +9,7 @@ package com.napier.sem;
  * Date Created: 12/03/2022 13:26
  * File Purpose: DTO entity extends City and used when mapping from City joined to Country
  */
-public class CityJoinCountry extends City{
+public class CityJoinCountry extends City {
 
     /**
      * The continent the country is on.

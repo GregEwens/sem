@@ -1,4 +1,7 @@
-package com.napier.sem;
+package com.napier.sem.services;
+
+import com.napier.sem.entities.Country;
+import com.napier.sem.repositories.ICountryRepository;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;

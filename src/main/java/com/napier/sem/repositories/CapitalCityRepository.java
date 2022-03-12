@@ -1,4 +1,6 @@
-package com.napier.sem;
+package com.napier.sem.repositories;
+
+import com.napier.sem.entities.CapitalCity;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

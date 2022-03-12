@@ -1,5 +1,5 @@
-import com.napier.sem.Country;
-import com.napier.sem.ICountryRepository;
+import com.napier.sem.entities.Country;
+import com.napier.sem.repositories.ICountryRepository;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

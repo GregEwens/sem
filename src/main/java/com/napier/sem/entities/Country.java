@@ -6,7 +6,7 @@
  * File Purpose: This class maps to the Country database entity.
  */
 
-package com.napier.sem;
+package com.napier.sem.entities;
 
 import java.math.BigDecimal;
 
