@@ -98,10 +98,40 @@ public class CityReportViewer {
         displayCities(cities);
     }
 
+    /**
+     * Shows the top N cities in the world where N is specified
+     * @param n
+     */
     public void ShowTopNCitiesByPopulation(int n){
         var cities = _cityService.getTopNCitiesOrderedByPopulation(n);
 
         System.out.println("Report showing top " + n + " cities in ordered by population");
+
+        displayCities(cities);
+    }
+
+    /**
+     * Shows the top N cities in a specified district where N is specified
+     * @param n the number of cities to show
+     * @param districtName the name of the specified district
+     */
+    public void ShowTopNCitiesInDistrictByPopulation(int n, String districtName){
+        var cities = _cityService.getTopNCitiesInDistrictOrderedByPopulation(n, districtName);
+
+        System.out.println("Report showing top " + n + " cities in " + districtName + " ordered by population");
+
+        displayCities(cities);
+    }
+
+    /**
+     * Shows the top N cities in a specified district where N is specified
+     * @param n the number of cities to show
+     * @param countryName the name of the specified country
+     */
+    public void ShowTopNCitiesInCountryByPopulation(int n, String countryName){
+        var cities = _cityService.getTopNCitiesInCountryOrderedByPopulation(n, countryName);
+
+        System.out.println("Report showing top " + n + " cities in " + countryName + " ordered by population");
 
         displayCities(cities);
     }

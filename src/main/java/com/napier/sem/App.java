@@ -150,6 +150,12 @@ public class App
         // show top N cities by population
         a.cityReports.ShowTopNCitiesByPopulation(5);
 
+        // show top N cities in district
+        a.cityReports.ShowTopNCitiesInDistrictByPopulation(14, "Bremen");
+
+        // show top N cities in country
+        a.cityReports.ShowTopNCitiesInCountryByPopulation(35, "France");
+
         // Disconnect from database
         a.disconnect();
     }
