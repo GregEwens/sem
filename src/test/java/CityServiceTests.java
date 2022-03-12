@@ -242,7 +242,7 @@ public class CityServiceTests {
         // Arrange
         var systemUnderTest = new CityService(cityRepositoryMock);
         var count = 10;
-        var district = "North Africa";
+        var district = "Queensland";
 
         // Act
         var cities = systemUnderTest.getTopNCitiesInDistrictOrderedByPopulation(count, district);
@@ -260,7 +260,7 @@ public class CityServiceTests {
         // Arrange
         var systemUnderTest = new CityService(cityRepositoryMock);
         var count = 0;
-        var district = "North Africa";
+        var district = "Queensland";
 
         // Act
         var cities = systemUnderTest.getTopNCitiesInDistrictOrderedByPopulation(count, district);
@@ -296,7 +296,7 @@ public class CityServiceTests {
         // Arrange
         var systemUnderTest = new CityService(cityRepositoryMock);
         var count = -1;
-        var district = "North Africa";
+        var district = "Queensland";
 
         // Assert
         assertThrows(IllegalArgumentException.class,
@@ -312,7 +312,7 @@ public class CityServiceTests {
         // Arrange
         var systemUnderTest = new CityService(cityRepositoryMock);
         var count = 20;
-        var district = "North Africa";
+        var district = "Queensland";
 
         // Act
         var cities = systemUnderTest.getTopNCitiesInDistrictOrderedByPopulation(count, district);
@@ -330,7 +330,7 @@ public class CityServiceTests {
         // Arrange
         var systemUnderTest = new CityService(cityRepositoryMock);
         var count = 4;
-        var district = "North Africa";
+        var district = "Queensland";
 
         // Act
         var cities = systemUnderTest.getTopNCitiesInDistrictOrderedByPopulation(count, district);

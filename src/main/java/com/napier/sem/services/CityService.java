@@ -162,9 +162,7 @@ public class CityService {
      */
     public ArrayList<City> getTopNCitiesInDistrictOrderedByPopulation(int n, String districtName){
 
-        throw new UnsupportedOperationException();
-
-        /*var cities = _cityRepository.getAllCitiesOrderedByPopulation();
+        var cities = _cityRepository.getAllCitiesOrderedByPopulation();
 
         var citiesInDistrict = new ArrayList<City>();
 
@@ -174,7 +172,7 @@ public class CityService {
             }
         }
 
-        return (ArrayList<City>) citiesInDistrict.stream().limit(n).collect(Collectors.toList());*/
+        return (ArrayList<City>) citiesInDistrict.stream().limit(n).collect(Collectors.toList());
     }
 
     /**
