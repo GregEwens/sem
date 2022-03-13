@@ -1,9 +1,10 @@
-package com.napier.sem.integration_tests; /**
+package com.napier.sem.integration_tests;
+/**
  * Project Name: seMethods
  * Package: com.napier.sem.integration_tests
  * User: Laura Main
  * Date Created: 13/03/2022 13:44
- * File Purpose: Integration Tests for application
+ * File Purpose: Integration Tests for city reports
  */
 
 import com.napier.sem.App;
@@ -13,7 +14,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Integration Tests for application
+ * Integration Tests for city reports
  */
 public class CityReportIntegrationTests {
 
