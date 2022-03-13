@@ -57,6 +57,9 @@ public class CityRepositoryMock implements ICityRepository {
             var name = "Egypt";  // 15 europe
             if(i > 15) name = "China"; // 15 Asia
 
+            var continent = "Africa";  // 15 europe
+            if(i > 15) continent = "Asia"; // 15 Asia
+
             // generate values based on index
             city.countryCode = Integer.toString(i);
             city.population = (int) Math.pow(2, i);
@@ -65,10 +68,12 @@ public class CityRepositoryMock implements ICityRepository {
             city.name = "name" + i;
             city.countryName = name;
             city.Region = region;
+            city.Continent = continent;
 
             cities.add(city);
         }
 
-        return cities;    }
+        return cities;
+    }
 
 }
