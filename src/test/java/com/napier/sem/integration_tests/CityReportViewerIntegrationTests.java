@@ -50,4 +50,80 @@ public class CityReportViewerIntegrationTests {
     void testsShowCityDetails(){
         app.cityReports.ShowCityDetails(1); // No testable output - this test ensures that no exceptions are thrown
     }
+
+    /**
+     * Integration test for ShowCitiesByPopulation
+     */
+    @Test
+    void testsShowCitiesByPopulation(){
+        app.cityReports.ShowCitiesByPopulation(); // No testable output - this test ensures that no exceptions are thrown
+    }
+    /**
+     * Integration test for ShowCitiesInContinentByPopulation
+     */
+    @Test
+    void testsShowCitiesInContinentByPopulation(){
+        app.cityReports.ShowCitiesInContinentByPopulation("Europe"); // No testable output - this test ensures that no
+        // exceptions are thrown
+    }
+    /**
+     * Integration test for getAllCitiesByDistrictOrderedByPopulation
+     */
+    @Test
+    void testsShowCitiesInCDistrictByPopulation(){
+        app.cityReports.ShowCitiesInDistrictByPopulation("Tabasco"); // No testable output - this test ensures that no
+        // exceptions are thrown
+    }
+    /**
+     * Integration test for ShowCitiesInCountryByPopulation
+     */
+    @Test
+    void testsShowCitiesInCountryByPopulation(){
+        app.cityReports.ShowCitiesInCountryByPopulation("Germany"); // No testable output - this test ensures that no
+        // exceptions are thrown
+    }
+    /**
+     * Integration test for ShowCitiesInRegionByPopulation
+     */
+    @Test
+    void testsShowCitiesInRegionByPopulation(){
+        app.cityReports.ShowCitiesInRegionByPopulation("Western Africa"); // No testable output - this test ensures that no
+        // exceptions are thrown
+    }
+
+    /**
+     * Integration test for ShowTopNCitiesByPopulation
+     */
+    @Test
+    void testsShowTopNCitiesByPopulation(){
+        app.cityReports.ShowTopNCitiesByPopulation(10); // No testable output - this test ensures that no exceptions
+        // are thrown
+    }
+
+    /**
+     * Integration test for ShowCitiesInCountryByPopulation
+     */
+    @Test
+    void testsShowTopNCitiesInCountryByPopulation(){
+        app.cityReports.ShowTopNCitiesInCountryByPopulation(5, "Germany"); // No testable output - this test ensures
+        // that no exceptions are thrown
+    }
+
+    /**
+     * Integration test for ShowTopNCitiesInContinentByPopulation
+     */
+    @Test
+    void testsShowTopNCitiesInContinentByPopulation(){
+        app.cityReports.ShowTopNCitiesInContinentByPopulation(16, "Asia"); // No testable output - this test ensures
+        // that no exceptions are thrown
+    }
+
+    /**
+     * Integration test for ShowTopNCitiesInDistrictByPopulation
+     */
+    @Test
+    void testsShowTopNCitiesInDistrictByPopulation(){
+        app.cityReports.ShowTopNCitiesInDistrictByPopulation(14, "Tabasco"); // No testable output - this test ensures
+        // that no exceptions are thrown
+    }
 }
