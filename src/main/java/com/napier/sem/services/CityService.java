@@ -183,8 +183,17 @@ public class CityService {
      */
     public ArrayList<City> getTopNCitiesInContinentOrderedByPopulation(int n, String continentName){
 
-        throw new UnsupportedOperationException();
-    }
+        var cities = _cityRepository.getAllCitiesJoinCountryOrderedByPopulation();
+
+        var citiesInContinent = new ArrayList<City>();
+
+        for (var city:cities) {
+            if (city.Continent.equalsIgnoreCase(continentName)){
+                citiesInContinent.add(city);
+            }
+        }
+
+        return (ArrayList<City>) citiesInContinent.stream().limit(n).collect(Collectors.toList());    }
 
     /**
      * Gets the top N cities in a specified district ordered by population where N is specified
