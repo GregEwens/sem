@@ -1,4 +1,6 @@
-package com.napier.sem.unit_tests; /**
+package com.napier.sem.unit_tests;
+
+/**
  * Project Name: seMethods
  * Package: PACKAGE_NAME
  * User: Greg Ewens
