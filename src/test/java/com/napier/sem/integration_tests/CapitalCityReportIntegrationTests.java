@@ -46,10 +46,10 @@ public class CapitalCityReportIntegrationTests {
     }
 
     /**
-     * Integration test for getAllCitiesByContinentOrderedByPopulation
+     * Integration test for getAllCapitalCitiesByContinentOrderedByPopulation
      */
     @Test
-    void testGetAllCitiesByContinentOrderedByPopulation(){
+    void testGetAllCapitalCitiesByContinentOrderedByPopulation(){
         var cities = app.capitalCityService.getAllCapitalCitiesByContinentOrderedByPopulation("North America");
         var city = cities.get(0);
 
