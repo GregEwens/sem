@@ -21,7 +21,7 @@ public class AppIntegrationTests {
     {
         String[] args = new String[2];
         args[0] = "localhost:33060";
-        args[1] = "30000";
+        args[1] = "300";
 
         app = new App();
         app.initialise(app, args);
@@ -79,5 +79,18 @@ public class AppIntegrationTests {
         assertEquals(city.district, "England");
         assertEquals(city.countryCode, "GBR");
         assertEquals(city.name, "London");
+    }
+
+    @Test
+    void testGetAllCitiesByDistrictOrderedByPopulation(){
+        var cities = app.cityService.getAllCitiesByDistrictOrderedByPopulation("Scotland");
+
+        var city = cities.get(0);
+
+        assertEquals(city.id, 458);
+        assertEquals(city.population, 619680);
+        assertEquals(city.district, "Scotland");
+        assertEquals(city.countryCode, "GBR");
+        assertEquals(city.name, "Glasgow");
     }
 }
