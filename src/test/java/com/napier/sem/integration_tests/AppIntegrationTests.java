@@ -46,8 +46,23 @@ public class AppIntegrationTests {
         app.disconnect();
     }
 
+    /**
+     * Tests the runReports method
+     */
     @Test
     void testsRunReports(){
         App.runReports(app);
+    }
+
+    /**
+     * Runs the full app
+     */
+    @Test
+    void testFullApp(){
+        String[] args = new String[2];
+        args[0] = "localhost:33060";
+        args[1] = "300";
+
+        App.main(args);
     }
 }
