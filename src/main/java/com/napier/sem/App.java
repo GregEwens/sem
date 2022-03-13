@@ -83,7 +83,7 @@ public class App
 
         // Connect to database
         if(args.length < 1){
-            a.connect("localhost:3306", 30000);
+            a.connect("db:3306", 30000);
         }else{
             a.connect(args[0], Integer.parseInt(args[1]));
         }
@@ -186,7 +186,7 @@ public class App
         int retries = 10;
         for (int i = 0; i < retries; ++i)
         {
-            System.out.println("Connecting to database...");
+            System.out.println("Connecting to database at location " + location + "...");
             try
             {
                 // Wait a bit for db to start
@@ -194,7 +194,7 @@ public class App
 
                 // Connect to database
                 con = DriverManager.getConnection("jdbc:mysql://" + location
-                                + "/world?useSSL=false", "root", "example");
+                                + "/world?allowPublicKeyRetrieval=true&useSSL=false", "root", "example");
                 System.out.println("Successfully connected");
                 break;
             }
