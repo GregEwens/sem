@@ -140,4 +140,23 @@ public class CountryIntegrationTests {
         assertEquals(country.Population, 0);
         assertEquals(country.Capital, null);
     }
+
+    /**
+     * Integration test for getAllCountriesInRegionOrderedByPopulation
+     */
+    @Test
+    void testGetAllCountriesInRegionOrderedByPopulation()
+    {
+        var countries = app.countryService.getAllCountriesInRegionOrderedByPopulation("Polynesia");
+
+        var country = countries.get(0);
+
+        assertEquals(10, countries.size());
+        assertEquals(country.Code, "PYF");
+        assertEquals(country.Name, "French Polynesia");
+        assertEquals(country.Continent, "Oceania");
+        assertEquals(country.Region, "Polynesia");
+        assertEquals(country.Population, 235000);
+        assertEquals(country.Capital, "Papeete");
+    }
 }
