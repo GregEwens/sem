@@ -439,6 +439,43 @@ public class CityServiceTests {
     }
 
     /**
+     * getTopNCitiesInDistrictOrderedByPopulation tested with correct count
+     */
+    @Test
+    void getTopNCitiesInDistrictOrderedByPopulationCorrectCountAllUpperTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 10;
+        var district = "QUEENSLAND";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInDistrictOrderedByPopulation(count, district);
+
+        // Assert
+        assertEquals(count, cities.size());
+    }
+
+    /**
+     * getTopNCitiesInDistrictOrderedByPopulation tested with correct count
+     */
+    @Test
+    void getTopNCitiesInDistrictOrderedByPopulationCorrectCountAllLowerTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 10;
+        var district = "queensland";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInDistrictOrderedByPopulation(count, district);
+
+        // Assert
+        assertEquals(count, cities.size());
+    }
+
+
+    /**
      * getTopNCitiesInDistrictOrderedByPopulation tested with 0 count
      */
     @Test
@@ -530,4 +567,154 @@ public class CityServiceTests {
 
         assertTrue(populationFirst < populationSecond && populationSecond < populationThird && populationThird < populationFourth);
     }
+
+
+    /**
+     * getTopNCitiesInContinentOrderedByPopulation tested with correct count
+     */
+    @Test
+    void getTopNCitiesInContinentOrderedByPopulationCorrectCountTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 10;
+        var continent = "Asia";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInContinentOrderedByPopulation(count, continent);
+
+        // Assert
+        assertEquals(count, cities.size());
+    }
+
+    /**
+     * getTopNCitiesInContinentOrderedByPopulation tested with correct count
+     */
+    @Test
+    void getTopNCitiesInContinentOrderedByPopulationCorrectCountAllUpperTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 10;
+        var continent = "ASIA";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInContinentOrderedByPopulation(count, continent);
+
+        // Assert
+        assertEquals(count, cities.size());
+    }
+
+    /**
+     * getTopNCitiesInContinentOrderedByPopulation tested with correct count
+     */
+    @Test
+    void getTopNCitiesInContinentOrderedByPopulationCountAllLowerTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 10;
+        var continent = "asia";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInContinentOrderedByPopulation(count, continent);
+
+        // Assert
+        assertEquals(count, cities.size());
+    }
+
+
+    /**
+     * getTopNCitiesInContinentOrderedByPopulation tested with 0 count
+     */
+    @Test
+    void getTopNCitiesInContinentOrderedByPopulationZeroCountTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 0;
+        var continent = "Asia";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInContinentOrderedByPopulation(count, continent);
+
+        // Assert
+        assertEquals(count, cities.size());
+    }
+
+    /**
+     * getTopNCitiesInContinentOrderedByPopulation tested with 0 count
+     */
+    @Test
+    void getTopNCitiesInContinentOrderedByPopulationNotFoundTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 10;
+        var continent = "NotAContinent";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInContinentOrderedByPopulation(count, continent);
+
+        // Assert
+        assertEquals(0, cities.size());
+    }
+
+    /**
+     * getTopNCitiesInContinentOrderedByPopulation tested with negative count
+     */
+    @Test
+    void getTopNCitiesInContinentOrderedByPopulationNegativeCountThrowsIllegalArgumentExceptionTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = -1;
+        var continent = "Asia";
+
+        // Assert
+        assertThrows(IllegalArgumentException.class,
+                () -> systemUnderTest.getTopNCitiesInContinentOrderedByPopulation(count, continent));
+    }
+
+    /**
+     * getTopNCitiesInContinentOrderedByPopulation tested with a count greater than the number of existing countries
+     */
+    @Test
+    void getTopNCitiesInContinentOrderedByPopulationMoreThanExistsCountTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 20;
+        var continent = "Asia";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInContinentOrderedByPopulation(count, continent);
+
+        // Assert
+        assertNotEquals(count, cities.size());
+    }
+
+    /**
+     * getTopNCitiesInContinentOrderedByPopulation tested for correct ordering
+     */
+    @Test
+    void getTopNCitiesInContinentOrderedByPopulationAreOrderedTest(){
+
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var count = 4;
+        var continent = "Asia";
+
+        // Act
+        var cities = systemUnderTest.getTopNCitiesInContinentOrderedByPopulation(count, continent);
+
+        // Assert
+        var populationFirst = cities.get(0).population;
+        var populationSecond = cities.get(1).population;
+        var populationThird = cities.get(2).population;
+        var populationFourth = cities.get(3).population;
+
+        assertTrue(populationFirst < populationSecond && populationSecond < populationThird && populationThird < populationFourth);
+    }
+
 }

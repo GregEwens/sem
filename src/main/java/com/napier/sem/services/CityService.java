@@ -176,6 +176,17 @@ public class CityService {
     }
 
     /**
+     * Gets the top N cities in a specified continent ordered by population where N is specified
+     * @param n The number of cities to return
+     * @param continentName the name of the specified continent
+     * @return A collection of cities
+     */
+    public ArrayList<City> getTopNCitiesInContinentOrderedByPopulation(int n, String continentName){
+
+        throw new UnsupportedOperationException();
+    }
+
+    /**
      * Gets the top N cities in a specified district ordered by population where N is specified
      * @param n The number of cities to return
      * @param districtName the name of the specified district
