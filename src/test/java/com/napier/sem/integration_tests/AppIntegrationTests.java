@@ -121,4 +121,18 @@ public class AppIntegrationTests {
         assertEquals(city.countryCode, "CUB");
         assertEquals(city.name, "La Habana");
     }
+
+    @Test
+    void testGetTopNCitiesInCountryOrderedByPopulation(){
+        var cities = app.cityService.getTopNCitiesInCountryOrderedByPopulation(10, "Germany");
+
+        var city = cities.get(0);
+
+        assertEquals(10, cities.size());
+        assertEquals(city.id, 3068);
+        assertEquals(city.population, 3386667);
+        assertEquals(city.district, "Berliini");
+        assertEquals(city.countryCode, "DEU");
+        assertEquals(city.name, "Berlin");
+    }
 }
