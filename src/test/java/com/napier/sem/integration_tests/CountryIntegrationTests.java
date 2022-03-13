@@ -83,4 +83,23 @@ public class CountryIntegrationTests {
         assertEquals(country.Population, 57680000);
         assertEquals(country.Capital, "Roma");
     }
+
+    /**
+     * Integration test for getAllCountriesOrderByPopulation
+     */
+    @Test
+    void testGetTopNCountriesInContinentOrderedByPopulation()
+    {
+        var countries = app.countryService.getTopNCountriesInContinentOrderedByPopulation(10, "South America");
+
+        var country = countries.get(0);
+
+        assertEquals(10, countries.size());
+        assertEquals(country.Code, "BRA");
+        assertEquals(country.Name, "Brazil");
+        assertEquals(country.Continent, "South America");
+        assertEquals(country.Region, "South America");
+        assertEquals(country.Population, 170115000);
+        assertEquals(country.Capital, "Brasília");
+    }
 }
