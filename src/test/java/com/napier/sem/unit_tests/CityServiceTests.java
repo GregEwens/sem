@@ -1,4 +1,4 @@
-/**
+package com.napier.sem.unit_tests; /**
  * Project Name: seMethods
  * Package: PACKAGE_NAME
  * User: Greg Ewens
@@ -8,7 +8,6 @@
 
 import com.napier.sem.repositories.ICityRepository;
 import com.napier.sem.services.CityService;
-import com.napier.sem.services.CountryService;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 

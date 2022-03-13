@@ -1,3 +1,5 @@
+package com.napier.sem.unit_tests;
+
 import com.napier.sem.entities.Country;
 import com.napier.sem.repositories.ICountryRepository;
 

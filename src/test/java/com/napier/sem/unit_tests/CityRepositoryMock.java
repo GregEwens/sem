@@ -1,3 +1,5 @@
+package com.napier.sem.unit_tests;
+
 import com.napier.sem.entities.City;
 import com.napier.sem.entities.CityJoinCountry;
 import com.napier.sem.entities.Country;
