@@ -43,4 +43,16 @@ public class AppIntegrationTests {
         assertEquals(city.countryCode, "AFG");
         assertEquals(city.name, "Kabul");
     }
+
+    @Test
+    void testGetAllCitiesByContinentOrderedByPopulation(){
+        var cities = app.cityService.getAllCitiesByContinentOrderedByPopulation("Europe");
+        var city = cities.get(0);
+
+        assertEquals(city.id, 3580);
+        assertEquals(city.population, 8389200);
+        assertEquals(city.district, "Moscow (City)");
+        assertEquals(city.countryCode, "RUS");
+        assertEquals(city.name, "Moscow");
+    }
 }
