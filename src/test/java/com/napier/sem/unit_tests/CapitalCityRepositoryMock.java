@@ -15,7 +15,7 @@ public class CapitalCityRepositoryMock implements ICapitalCityRepository {
             var city = new CapitalCity();
 
             var continent = "South America";  // 15 south america
-            if(i > 15) continent = "Oceania"; // 15 oceania
+            if(i >= 15) continent = "Oceania"; // 15 oceania
 
             // generate values based on index
             city.country = Integer.toString(i);
