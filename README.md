@@ -8,3 +8,4 @@ Develop Build Status ![GitHub Workflow Status (branch)](https://img.shields.io/g
 
 [![Releases](https://img.shields.io/github/release/GregEwens/sem/all.svg?style=flat-square)](https://github.com/GregEwens/sem/releases)
 
+[![codecov](https://codecov.io/gh/GregEwens/sem/branch/master/graph/badge.svg?token=FWY2MWCT6T)](https://codecov.io/gh/GregEwens/sem)
