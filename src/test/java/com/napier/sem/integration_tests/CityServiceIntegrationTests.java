@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Integration Tests for city reports
  */
-public class CityReportIntegrationTests {
+public class CityServiceIntegrationTests {
 
     /**
      * The application to test

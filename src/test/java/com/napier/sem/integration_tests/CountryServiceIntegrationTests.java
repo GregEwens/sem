@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Integration Tests for Country reports
  */
-public class CountryIntegrationTests {
+public class CountryServiceIntegrationTests {
 
     /**
      * The application to test
