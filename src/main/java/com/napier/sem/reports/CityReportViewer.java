@@ -124,6 +124,19 @@ public class CityReportViewer {
     }
 
     /**
+     * Shows the top N cities in a specified continent where N is specified
+     * @param n the number of cities to show
+     * @param continentName the name of the specified continent
+     */
+    public void ShowTopNCitiesInContinentByPopulation(int n, String continentName){
+        var cities = _cityService.getTopNCitiesInContinentOrderedByPopulation(n, continentName);
+
+        System.out.println("Report showing top " + n + " cities in " + continentName + " ordered by population");
+
+        displayCities(cities);
+    }
+
+    /**
      * Shows the top N cities in a specified district where N is specified
      * @param n the number of cities to show
      * @param countryName the name of the specified country

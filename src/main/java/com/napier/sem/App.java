@@ -156,6 +156,9 @@ public class App
         // show top N cities in country
         a.cityReports.ShowTopNCitiesInCountryByPopulation(35, "France");
 
+        // show top N cities in continent
+        a.cityReports.ShowTopNCitiesInContinentByPopulation(16, "Europe");
+
         // Disconnect from database
         a.disconnect();
     }
