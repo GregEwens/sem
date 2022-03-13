@@ -1,4 +1,4 @@
-/**
+package com.napier.sem.integration_tests; /**
  * Project Name: seMethods
  * Package: PACKAGE_NAME
  * User: Greg Ewens
