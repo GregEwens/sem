@@ -1,26 +1,20 @@
 package com.napier.sem.integration_tests; /**
  * Project Name: seMethods
- * Package: PACKAGE_NAME
+ * Package: com.napier.sem.integration_tests
  * User: Greg Ewens
  * Date Created: 13/03/2022 13:44
  * File Purpose: Integration Tests for application
  */
 
 import com.napier.sem.App;
-import com.napier.sem.Program;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
-
-import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AppIntegrationTests {
 
     static App app;
-
 
     @BeforeAll
     static void init()
@@ -31,7 +25,6 @@ public class AppIntegrationTests {
 
         app = new App();
         app.initialise(app, args);
-
     }
 
     @AfterAll
@@ -50,5 +43,4 @@ public class AppIntegrationTests {
         assertEquals(city.countryCode, "AFG");
         assertEquals(city.name, "Kabul");
     }
-
 }
