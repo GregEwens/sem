@@ -30,47 +30,47 @@ public class App
     /**
      * The CityRepository, must be instantiated before use
      */
-    public CityRepository cityRepo;
+    public static CityRepository cityRepo;
 
     /**
      * The CityService, must be instantiated before use
      */
-    public CityService cityService;
+    public static CityService cityService;
 
     /**
      * The CityReportViewer, must be instantiated before use
      */
-    public CityReportViewer cityReports;
+    public static CityReportViewer cityReports;
 
     /**
      * The CapitalCityRepository, must be instantiated before use
      */
-    public CapitalCityRepository capitalCityRepo;
+    public static CapitalCityRepository capitalCityRepo;
 
     /**
      * The CapitalCityService, must be instantiated before use
      */
-    public CapitalCityService capitalCityService;
+    public static CapitalCityService capitalCityService;
 
     /**
      * The CapitalCityReportViewer, must be instantiated before use
      */
-    public CapitalCityReportViewer capitalCityReports;
+    public static CapitalCityReportViewer capitalCityReports;
 
     /**
      * The CountryRepository, must be instantiated before use
      */
-    public CountryRepository countryRepo;
+    public static CountryRepository countryRepo;
 
     /**
      * The CountryService, must be instantiated before use
      */
-    public CountryService countryService;
+    public static CountryService countryService;
 
     /**
      * The CountryReportViewer, must be instantiated before use
      */
-    public CountryReportViewer countryReports;
+    public static CountryReportViewer countryReports;
 
     /**
      * The entry point for the app
@@ -80,6 +80,16 @@ public class App
     {
         // Create new Application
         App a = new App();
+
+        initialise(a, args);
+
+        runReports(a);
+
+        // Disconnect from database
+        a.disconnect();
+    }
+
+    public static void initialise(App a, String[] args){
 
         // Connect to database
         if(args.length < 1){
@@ -114,7 +124,9 @@ public class App
 
         //construct the country Reports
         a.countryReports = new CountryReportViewer(a.countryService);
+    }
 
+    public static void runReports(App a){
         // show an example city
         a.cityReports.ShowCityDetails(5);
 
@@ -162,9 +174,6 @@ public class App
 
         // show top N cities in continent
         a.cityReports.ShowTopNCitiesInContinentByPopulation(16, "Europe");
-
-        // Disconnect from database
-        a.disconnect();
     }
 
     /**
