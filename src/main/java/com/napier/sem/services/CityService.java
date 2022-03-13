@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 /**
  * Project Name: seMethods
  * Package: com.napier.sem
- * User: <<Your name here>>
+ * User: Laura Main
  * Date Created: 12/03/2022 13:14
  * File Purpose:
  */
