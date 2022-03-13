@@ -22,7 +22,7 @@ public class CapitalCityReportIntegrationTests {
      * The application to test
      */
     static App app;
-    
+
     /**
      * Set up the database connection by calling initialise method on App
      */
@@ -43,5 +43,18 @@ public class CapitalCityReportIntegrationTests {
     @AfterAll
     static void dispose(){
         app.disconnect();
+    }
+
+    /**
+     * Integration test for getAllCitiesByContinentOrderedByPopulation
+     */
+    @Test
+    void testGetAllCitiesByContinentOrderedByPopulation(){
+        var cities = app.capitalCityService.getAllCapitalCitiesByContinentOrderedByPopulation("North America");
+        var city = cities.get(0);
+
+        assertEquals(city.population, 8591309);
+        assertEquals(city.country, "Mexico");
+        assertEquals(city.name, "Ciudad de México");
     }
 }
