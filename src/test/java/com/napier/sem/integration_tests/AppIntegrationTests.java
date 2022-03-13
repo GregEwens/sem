@@ -149,4 +149,18 @@ public class AppIntegrationTests {
         assertEquals(city.countryCode, "EGY");
         assertEquals(city.name, "Cairo");
     }
+
+    @Test
+    void testGetTopNCitiesInDistrictOrderedByPopulation(){
+        var cities = app.cityService.getTopNCitiesInDistrictOrderedByPopulation(15, "Ontario");
+
+        var city = cities.get(0);
+
+        assertEquals(15, cities.size());
+        assertEquals(city.id, 1812);
+        assertEquals(city.population, 688275);
+        assertEquals(city.district, "Ontario");
+        assertEquals(city.countryCode, "CAN");
+        assertEquals(city.name, "Toronto");
+    }
 }
