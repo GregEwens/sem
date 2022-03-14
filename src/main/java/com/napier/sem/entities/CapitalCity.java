@@ -2,10 +2,14 @@ package com.napier.sem.entities;
 
 /**
  * Project Name: seMethods
- * Package: com.napier.sem
+ * Package: com.napier.sem.entities
  * User: Walter Smart (40457344)
  * Date Created: 21/02/2022 16:30
  * File Purpose:
+ * This class is a report mapping class for a capital City
+ */
+
+/**
  * This class is a report mapping class for a capital City
  */
 public class CapitalCity

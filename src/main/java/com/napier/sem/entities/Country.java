@@ -1,12 +1,12 @@
+package com.napier.sem.entities;
+
 /**
  * Project Name: seMethods
- * Package: com.napier.sem
+ * Package: com.napier.sem.entities
  * User: Laura Main
  * Date Created: 19/02/2022 22:07
  * File Purpose: This class maps to the Country database entity.
  */
-
-package com.napier.sem.entities;
 
 import java.math.BigDecimal;
 
@@ -86,7 +86,7 @@ public class Country
     public String Capital;
 
     /**
-     * ???
+     * CountryCode variant using 2 characters
      */
     public String Code2;
 }

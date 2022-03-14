@@ -1,13 +1,15 @@
 package com.napier.sem.entities;
 
-import com.napier.sem.entities.City;
-
 /**
  * Project Name: seMethods
- * Package: com.napier.sem
+ * Package: com.napier.sem.entities
  * User: Greg Ewens
  * Date Created: 12/03/2022 13:26
  * File Purpose: DTO entity extends City and used when mapping from City joined to Country
+ */
+
+/**
+ * DTO entity extends City and used when mapping from City joined to Country
  */
 public class CityJoinCountry extends City {
 
