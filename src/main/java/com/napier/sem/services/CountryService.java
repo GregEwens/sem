@@ -2,16 +2,15 @@ package com.napier.sem.services;
 
 import com.napier.sem.entities.Country;
 import com.napier.sem.repositories.ICountryRepository;
-
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 /**
  * Project Name: seMethods
- * Package: com.napier.sem
- * User: <<Your name here>>
+ * Package: com.napier.sem.services
+ * User: Laura Main
  * Date Created: 11/03/2022 10:50
- * File Purpose:
+ * File Purpose:Processes business logic for Country reports
  */
 public class CountryService {
 
@@ -35,7 +34,6 @@ public class CountryService {
      */
     public ArrayList<Country> getAllCountriesInRegionOrderedByPopulation(String regionName)
     {
-
         var countries = _countryRepoitory.getAllCountriesOrderByPopulation();
 
         var countriesInRegion = new ArrayList<Country>();
@@ -57,7 +55,6 @@ public class CountryService {
      */
     public ArrayList<Country> getAllCountriesInContinentOrderedByPopulation(String continentName)
     {
-
         var countries = _countryRepoitory.getAllCountriesOrderByPopulation();
 
         var countriesInContinent = new ArrayList<Country>();

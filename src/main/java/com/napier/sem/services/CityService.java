@@ -1,7 +1,6 @@
 package com.napier.sem.services;
 
 import com.napier.sem.entities.City;
-import com.napier.sem.entities.Country;
 import com.napier.sem.repositories.ICityRepository;
 
 import java.util.ArrayList;
@@ -9,10 +8,10 @@ import java.util.stream.Collectors;
 
 /**
  * Project Name: seMethods
- * Package: com.napier.sem
+ * Package: com.napier.sem.services
  * User: Laura Main
  * Date Created: 12/03/2022 13:14
- * File Purpose:
+ * File Purpose:Processes business logic for City reports
  */
 public class CityService {
 

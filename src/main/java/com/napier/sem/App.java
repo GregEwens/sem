@@ -1,11 +1,3 @@
-/**
- * Project Name: seMethods
- * Package: com.napier.sem
- * User: Greg Ewens
- * Date Created: 09/02/2022 14:42
- * File Purpose: The entry point of the application
- */
-
 package com.napier.sem;
 
 import com.napier.sem.reports.CapitalCityReportViewer;
@@ -17,9 +9,15 @@ import com.napier.sem.repositories.CountryRepository;
 import com.napier.sem.services.CapitalCityService;
 import com.napier.sem.services.CityService;
 import com.napier.sem.services.CountryService;
-
 import java.sql.*;
 
+/**
+ * Project Name: seMethods
+ * Package: com.napier.sem
+ * User: Greg Ewens
+ * Date Created: 09/02/2022 14:42
+ * File Purpose: The entry point of the application
+ */
 public class App
 {
     /**

@@ -2,12 +2,11 @@ package com.napier.sem.services;
 
 import com.napier.sem.entities.CapitalCity;
 import com.napier.sem.repositories.ICapitalCityRepository;
-
 import java.util.ArrayList;
 
 /**
  * Project Name: seMethods
- * Package: com.napier.sem
+ * Package: com.napier.sem.services
  * User: Laura Main
  * Date Created: 12/03/2022 13:43
  * File Purpose: Processes business logic for Capital City reports
@@ -34,7 +33,6 @@ public class CapitalCityService {
      */
     public ArrayList<CapitalCity> getAllCapitalCitiesByContinentOrderedByPopulation(String continentName){
         var cities = _capitalCityRepository.getAllCapitalCitiesOrderedByPopulation();
-
 
         var citiesInContinent = new ArrayList<CapitalCity>();
 
