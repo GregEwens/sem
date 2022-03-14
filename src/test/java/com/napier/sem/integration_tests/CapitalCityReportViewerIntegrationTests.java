@@ -32,7 +32,7 @@ public class CapitalCityReportViewerIntegrationTests {
         args[0] = "localhost:33060";
         args[1] = "300";
 
-        // run the initialise method directly 
+        // run the initialise method directly
         app = new App();
         App.initialise(app, args);
     }
