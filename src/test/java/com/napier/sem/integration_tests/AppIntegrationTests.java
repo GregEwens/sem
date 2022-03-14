@@ -47,7 +47,7 @@ public class AppIntegrationTests {
      */
     @Test
     void testsRunReports(){
-        App.runReports(app);
+        App.runReports();
     }
 
     /**

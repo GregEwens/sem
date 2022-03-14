@@ -37,9 +37,7 @@ public class CityService {
     {
         var cities = _cityRepository.getAllCitiesOrderedByPopulation();
 
-        var city = cities.stream().filter(c -> c.id == ID).collect(Collectors.toList()).get(0);
-
-        return city;
+        return cities.stream().filter(c -> c.id == ID).collect(Collectors.toList()).get(0);
     }
 
     /**

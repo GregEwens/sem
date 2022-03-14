@@ -81,7 +81,7 @@ public class App
 
         initialise(a, args);
 
-        runReports(a);
+        runReports();
 
         // Disconnect from database
         a.disconnect();
@@ -97,81 +97,81 @@ public class App
         }
 
         // construct the CityRepository
-        a.cityRepo = new CityRepository(a.con);
+        cityRepo = new CityRepository(a.con);
 
         // construct city service
-        a.cityService = new CityService(a.cityRepo);
+        cityService = new CityService(cityRepo);
 
         // construct the cityReports
-        a.cityReports = new CityReportViewer(a.cityService);
+        cityReports = new CityReportViewer(cityService);
 
         // construct the CityRepository
-        a.capitalCityRepo = new CapitalCityRepository(a.con);
+        capitalCityRepo = new CapitalCityRepository(a.con);
 
         // construct city service
-        a.capitalCityService = new CapitalCityService(a.capitalCityRepo);
+        capitalCityService = new CapitalCityService(capitalCityRepo);
 
         // construct the cityReports
-        a.capitalCityReports = new CapitalCityReportViewer(a.capitalCityService);
+        capitalCityReports = new CapitalCityReportViewer(capitalCityService);
 
         // construct the CountryRepository
-        a.countryRepo = new CountryRepository(a.con);
+        countryRepo = new CountryRepository(a.con);
 
         // construct the country service
-        a.countryService = new CountryService(a.countryRepo);
+        countryService = new CountryService(countryRepo);
 
         //construct the country Reports
-        a.countryReports = new CountryReportViewer(a.countryService);
+        countryReports = new CountryReportViewer(countryService);
     }
 
-    public static void runReports(App a){
+    public static void runReports(){
         // show an example city
-        a.cityReports.ShowCityDetails(5);
+        cityReports.ShowCityDetails(5);
 
         // show the cities by population report
-        a.cityReports.ShowCitiesByPopulation();
+        cityReports.ShowCitiesByPopulation();
 
         // show cities in country by population
-        a.cityReports.ShowCitiesInCountryByPopulation("DEU");
+        cityReports.ShowCitiesInCountryByPopulation("DEU");
 
         // show cities in district by population
-        a.cityReports.ShowCitiesInDistrictByPopulation("California");
+        cityReports.ShowCitiesInDistrictByPopulation("California");
 
         //show cities in a continent organised by largest population to smallest.
-        a.cityReports.ShowCitiesInContinentByPopulation("Asia");
+        cityReports.ShowCitiesInContinentByPopulation("Asia");
 
         //show cities in a region organised by largest population to smallest.
-        a.cityReports.ShowCitiesInRegionByPopulation("Southern Europe");
+        cityReports.ShowCitiesInRegionByPopulation("Southern Europe");
 
         //show countries by population high to low
-        a.countryReports.ShowCountriesByPopulation();
+        countryReports.ShowCountriesByPopulation();
 
         //show countries in region by population high to low
-        a.countryReports.ShowCountriesInARegionByPopulation("Southern Europe");
+        countryReports.ShowCountriesInARegionByPopulation("Southern Europe");
 
         //show countries in continent by population high to low
-        a.countryReports.ShowCountriesInAContinentByPopulation("Asia");
+        countryReports.ShowCountriesInAContinentByPopulation("Asia");
 
         //show capital cities in a continent organised by largest population to smallest.
-        a.capitalCityReports.ShowCapitalCitiesInContinentByPopulation("Europe");
+        capitalCityReports.ShowCapitalCitiesInContinentByPopulation("Europe");
 
         // show top N countries by population
-        a.countryReports.ShowTopNCountriesByPopulation(25);
+        countryReports.ShowTopNCountriesByPopulation(25);
 
         // show top N countries in continent by population
-        a.countryReports.ShowTopNCountriesInContinentByPopulation(12, "Africa");
+        countryReports.ShowTopNCountriesInContinentByPopulation(12, "Africa");
 
         // show top N cities by population
-        a.cityReports.ShowTopNCitiesByPopulation(5);
+        cityReports.ShowTopNCitiesByPopulation(5);
 
         // show top N cities in district
-        a.cityReports.ShowTopNCitiesInDistrictByPopulation(14, "Bremen");
+        cityReports.ShowTopNCitiesInDistrictByPopulation(14, "Bremen");
 
         // show top N cities in country
-        a.cityReports.ShowTopNCitiesInCountryByPopulation(35, "France");
+        cityReports.ShowTopNCitiesInCountryByPopulation(35, "France");
 
         // show top N cities in continent
-        a.cityReports.ShowTopNCitiesInContinentByPopulation(16, "Europe");
+        cityReports.ShowTopNCitiesInContinentByPopulation(16, "Europe");
     }
 
     /**

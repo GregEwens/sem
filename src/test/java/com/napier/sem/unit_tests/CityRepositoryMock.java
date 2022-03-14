@@ -2,10 +2,8 @@ package com.napier.sem.unit_tests;
 
 import com.napier.sem.entities.City;
 import com.napier.sem.entities.CityJoinCountry;
-import com.napier.sem.entities.Country;
 import com.napier.sem.repositories.ICityRepository;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 
 /**
