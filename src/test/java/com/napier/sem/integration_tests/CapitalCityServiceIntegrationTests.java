@@ -1,11 +1,4 @@
 package com.napier.sem.integration_tests;
-/**
- * Project Name: seMethods
- * Package: com.napier.sem.integration_tests
- * User: Laura Main
- * Date Created: 13/03/2022 19:30
- * File Purpose: Integration Tests for capital city reports
- */
 
 import com.napier.sem.App;
 import org.junit.jupiter.api.AfterAll;
@@ -14,7 +7,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Integration Tests for capital city reports
+ * Project Name: seMethods
+ * Package: com.napier.sem.integration_tests
+ * User: Laura Main
+ * Date Created: 13/03/2022 19:30
+ * File Purpose: Integration Tests for capital city reports
  */
 public class CapitalCityServiceIntegrationTests {
 
@@ -34,7 +31,7 @@ public class CapitalCityServiceIntegrationTests {
         args[1] = "300";
 
         app = new App();
-        app.initialise(app, args);
+        App.initialise(app, args);
     }
 
     /**
@@ -50,7 +47,7 @@ public class CapitalCityServiceIntegrationTests {
      */
     @Test
     void testGetAllCapitalCitiesByContinentOrderedByPopulation(){
-        var cities = app.capitalCityService.getAllCapitalCitiesByContinentOrderedByPopulation("North America");
+        var cities = App.capitalCityService.getAllCapitalCitiesByContinentOrderedByPopulation("North America");
         var city = cities.get(0);
 
         assertEquals(city.population, 8591309);

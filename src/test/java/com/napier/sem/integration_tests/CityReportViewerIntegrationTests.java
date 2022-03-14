@@ -4,7 +4,6 @@ import com.napier.sem.App;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Project Name: seMethods
@@ -20,7 +19,6 @@ public class CityReportViewerIntegrationTests {
      */
     static App app;
 
-
     /**
      * Set up the database connection by calling initialise method on App
      */
@@ -32,7 +30,7 @@ public class CityReportViewerIntegrationTests {
         args[1] = "300";
 
         app = new App();
-        app.initialise(app, args);
+        App.initialise(app, args);
     }
 
     /**
@@ -48,7 +46,7 @@ public class CityReportViewerIntegrationTests {
      */
     @Test
     void testsShowCityDetails(){
-        app.cityReports.ShowCityDetails(1); // No testable output - this test ensures that no exceptions are thrown
+        App.cityReports.ShowCityDetails(1); // No testable output - this test ensures that no exceptions are thrown
     }
 
     /**
@@ -56,14 +54,14 @@ public class CityReportViewerIntegrationTests {
      */
     @Test
     void testsShowCitiesByPopulation(){
-        app.cityReports.ShowCitiesByPopulation(); // No testable output - this test ensures that no exceptions are thrown
+        App.cityReports.ShowCitiesByPopulation(); // No testable output - this test ensures that no exceptions are thrown
     }
     /**
      * Integration test for ShowCitiesInContinentByPopulation
      */
     @Test
     void testsShowCitiesInContinentByPopulation(){
-        app.cityReports.ShowCitiesInContinentByPopulation("Europe"); // No testable output - this test ensures that no
+        App.cityReports.ShowCitiesInContinentByPopulation("Europe"); // No testable output - this test ensures that no
         // exceptions are thrown
     }
     /**
@@ -71,7 +69,7 @@ public class CityReportViewerIntegrationTests {
      */
     @Test
     void testsShowCitiesInCDistrictByPopulation(){
-        app.cityReports.ShowCitiesInDistrictByPopulation("Tabasco"); // No testable output - this test ensures that no
+        App.cityReports.ShowCitiesInDistrictByPopulation("Tabasco"); // No testable output - this test ensures that no
         // exceptions are thrown
     }
     /**
@@ -79,7 +77,7 @@ public class CityReportViewerIntegrationTests {
      */
     @Test
     void testsShowCitiesInCountryByPopulation(){
-        app.cityReports.ShowCitiesInCountryByPopulation("Germany"); // No testable output - this test ensures that no
+        App.cityReports.ShowCitiesInCountryByPopulation("Germany"); // No testable output - this test ensures that no
         // exceptions are thrown
     }
     /**
@@ -87,7 +85,7 @@ public class CityReportViewerIntegrationTests {
      */
     @Test
     void testsShowCitiesInRegionByPopulation(){
-        app.cityReports.ShowCitiesInRegionByPopulation("Western Africa"); // No testable output - this test ensures that no
+        App.cityReports.ShowCitiesInRegionByPopulation("Western Africa"); // No testable output - this test ensures that no
         // exceptions are thrown
     }
 
@@ -96,7 +94,7 @@ public class CityReportViewerIntegrationTests {
      */
     @Test
     void testsShowTopNCitiesByPopulation(){
-        app.cityReports.ShowTopNCitiesByPopulation(10); // No testable output - this test ensures that no exceptions
+        App.cityReports.ShowTopNCitiesByPopulation(10); // No testable output - this test ensures that no exceptions
         // are thrown
     }
 
@@ -105,7 +103,7 @@ public class CityReportViewerIntegrationTests {
      */
     @Test
     void testsShowTopNCitiesInCountryByPopulation(){
-        app.cityReports.ShowTopNCitiesInCountryByPopulation(5, "Germany"); // No testable output - this test ensures
+        App.cityReports.ShowTopNCitiesInCountryByPopulation(5, "Germany"); // No testable output - this test ensures
         // that no exceptions are thrown
     }
 
@@ -114,7 +112,7 @@ public class CityReportViewerIntegrationTests {
      */
     @Test
     void testsShowTopNCitiesInContinentByPopulation(){
-        app.cityReports.ShowTopNCitiesInContinentByPopulation(16, "Asia"); // No testable output - this test ensures
+        App.cityReports.ShowTopNCitiesInContinentByPopulation(16, "Asia"); // No testable output - this test ensures
         // that no exceptions are thrown
     }
 
@@ -123,7 +121,7 @@ public class CityReportViewerIntegrationTests {
      */
     @Test
     void testsShowTopNCitiesInDistrictByPopulation(){
-        app.cityReports.ShowTopNCitiesInDistrictByPopulation(14, "Tabasco"); // No testable output - this test ensures
+        App.cityReports.ShowTopNCitiesInDistrictByPopulation(14, "Tabasco"); // No testable output - this test ensures
         // that no exceptions are thrown
     }
 }

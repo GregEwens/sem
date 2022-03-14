@@ -1,20 +1,16 @@
 package com.napier.sem.integration_tests;
 
-/**
- * Project Name: seMethods
- * Package: com.napier.sem.integration_tests
- * User: Greg Ewems
- * Date Created: 13/03/2022 20:37
- * File Purpose: Integration tests for CapitalCityReportViewer
- */
-
 import com.napier.sem.App;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 /**
- * Integration tests for CapitalCityReportViewer
+ * Project Name: seMethods
+ * Package: com.napier.sem.integration_tests
+ * User: Greg Ewems
+ * Date Created: 13/03/2022 20:37
+ * File Purpose: Integration tests for CapitalCityReportViewer
  */
 public class CapitalCityReportViewerIntegrationTests {
 
@@ -36,7 +32,7 @@ public class CapitalCityReportViewerIntegrationTests {
         args[1] = "300";
 
         app = new App();
-        app.initialise(app, args);
+        App.initialise(app, args);
     }
 
     /**
@@ -52,7 +48,7 @@ public class CapitalCityReportViewerIntegrationTests {
      */
     @Test
     void testsShowCapitalCitiesInContinentByPopulation(){
-        app.capitalCityReports.ShowCapitalCitiesInContinentByPopulation("Africa"); // No testable output - this test
+        App.capitalCityReports.ShowCapitalCitiesInContinentByPopulation("Africa"); // No testable output - this test
         // ensures that no exceptions are thrown
     }
 }

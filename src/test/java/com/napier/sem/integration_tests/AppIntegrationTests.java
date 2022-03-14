@@ -1,20 +1,16 @@
 package com.napier.sem.integration_tests;
 
-/**
- * Project Name: seMethods
- * Package: com.napier.sem.integration_tests
- * User: Greg Ewens
- * Date Created: 13/03/2022 20:41
- * File Purpose: Integration Tests for the App class
- */
-
 import com.napier.sem.App;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 /**
- * Integration Tests for the App class
+ * Project Name: seMethods
+ * Package: com.napier.sem.integration_tests
+ * User: Greg Ewens
+ * Date Created: 13/03/2022 20:41
+ * File Purpose: Integration Tests for the App class
  */
 public class AppIntegrationTests {
 
@@ -35,7 +31,7 @@ public class AppIntegrationTests {
         args[1] = "300";
 
         app = new App();
-        app.initialise(app, args);
+        App.initialise(app, args);
     }
 
     /**

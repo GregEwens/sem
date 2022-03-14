@@ -1,11 +1,4 @@
 package com.napier.sem.integration_tests;
-/**
- * Project Name: seMethods
- * Package: com.napier.sem.integration_tests
- * User: Laura Main
- * Date Created: 13/03/2022 19:08
- * File Purpose: Integration Tests for Country reports
- */
 
 import com.napier.sem.App;
 import org.junit.jupiter.api.AfterAll;
@@ -14,7 +7,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Integration Tests for Country reports
+ * Project Name: seMethods
+ * Package: com.napier.sem.integration_tests
+ * User: Laura Main
+ * Date Created: 13/03/2022 19:08
+ * File Purpose: Integration Tests for Country reports
  */
 public class CountryServiceIntegrationTests {
 
@@ -22,7 +19,6 @@ public class CountryServiceIntegrationTests {
      * The application to test
      */
     static App app;
-
 
     /**
      * Set up the database connection by calling initialise method on App
@@ -35,7 +31,7 @@ public class CountryServiceIntegrationTests {
         args[1] = "300";
 
         app = new App();
-        app.initialise(app, args);
+        App.initialise(app, args);
     }
 
     /**
@@ -46,14 +42,13 @@ public class CountryServiceIntegrationTests {
         app.disconnect();
     }
 
-
     /**
      * Integration test for getAllCountriesOrderByPopulation
      */
     @Test
     void testGetAllCountriesOrderByPopulation()
     {
-        var countries = app.countryService.getAllCountriesOrderByPopulation();
+        var countries = App.countryService.getAllCountriesOrderByPopulation();
 
         var country = countries.get(0);
 
@@ -71,7 +66,7 @@ public class CountryServiceIntegrationTests {
     @Test
     void testGetTopNCountriesInRegionOrderedByPopulation()
     {
-        var countries = app.countryService.getTopNCountriesInRegionOrderedByPopulation(10, "Southern Europe");
+        var countries = App.countryService.getTopNCountriesInRegionOrderedByPopulation(10, "Southern Europe");
 
         var country = countries.get(0);
 
@@ -90,7 +85,7 @@ public class CountryServiceIntegrationTests {
     @Test
     void testGetTopNCountriesInContinentOrderedByPopulation()
     {
-        var countries = app.countryService.getTopNCountriesInContinentOrderedByPopulation(10, "South America");
+        var countries = App.countryService.getTopNCountriesInContinentOrderedByPopulation(10, "South America");
 
         var country = countries.get(0);
 
@@ -109,7 +104,7 @@ public class CountryServiceIntegrationTests {
     @Test
     void testGetTopNCountriesOrderedByPopulation()
     {
-        var countries = app.countryService.getTopNCountriesOrderedByPopulation(10);
+        var countries = App.countryService.getTopNCountriesOrderedByPopulation(10);
 
         var country = countries.get(0);
 
@@ -128,7 +123,7 @@ public class CountryServiceIntegrationTests {
     @Test
     void testGetAllCountriesInContinentOrderedByPopulation()
     {
-        var countries = app.countryService.getAllCountriesInContinentOrderedByPopulation("Antarctica");
+        var countries = App.countryService.getAllCountriesInContinentOrderedByPopulation("Antarctica");
 
         var country = countries.get(0);
 
@@ -138,7 +133,7 @@ public class CountryServiceIntegrationTests {
         assertEquals(country.Continent, "Antarctica");
         assertEquals(country.Region, "Antarctica");
         assertEquals(country.Population, 0);
-        assertEquals(country.Capital, null);
+        assertNull(country.Capital);
     }
 
     /**
@@ -147,7 +142,7 @@ public class CountryServiceIntegrationTests {
     @Test
     void testGetAllCountriesInRegionOrderedByPopulation()
     {
-        var countries = app.countryService.getAllCountriesInRegionOrderedByPopulation("Polynesia");
+        var countries = App.countryService.getAllCountriesInRegionOrderedByPopulation("Polynesia");
 
         var country = countries.get(0);
 

@@ -10,15 +10,16 @@ import java.util.ArrayList;
 
 /**
  * Project Name: seMethods
- * Package: PACKAGE_NAME
- * User: <<Your name here>>
+ * Package: com.napier.sem.unit_tests
+ * User: Greg Ewens
  * Date Created: 12/03/2022 14:55
- * File Purpose: Mockup of CityReopsitory
+ * File Purpose: Mockup of CityRepository
  */
 public class CityRepositoryMock implements ICityRepository {
 
     /**
-     * Mockup of getAllCitiesOrderedByPopulation. This method returns 30 cities with values based on index
+     * Mockup of getAllCitiesOrderedByPopulation.
+     * @return This method returns 30 cities with values based on index
      */
     @Override
     public ArrayList<City> getAllCitiesOrderedByPopulation() {
@@ -28,7 +29,7 @@ public class CityRepositoryMock implements ICityRepository {
             var city = new City();
 
             var district = "Victoria";  // 15 victoria
-            if(i > 15) district = "Queensland"; // 15 quee0snland
+            if(i >= 15) district = "Queensland"; // 15 quee0snland
 
             // generate values based on index
             city.countryCode = Integer.toString(i);

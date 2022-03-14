@@ -2,20 +2,21 @@ package com.napier.sem.unit_tests;
 
 import com.napier.sem.entities.Country;
 import com.napier.sem.repositories.ICountryRepository;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
 /**
  * Project Name: seMethods
- * User: <<Your name here>>
+ * Package: com.napier.sem.unit_tests
+ * User: Greg Ewens
  * Date Created: 11/03/2022 11:11
  * File Purpose: Mockup of CountryRepository
  */
 public class CountryRepositoryMock implements ICountryRepository {
 
     /**
-     * Mockup of getAllCountriesOrderByPopulation. This method returns 30 countries with values based on index
+     * Mockup of getAllCountriesOrderByPopulation.
+     * @return This method returns 30 countries with values based on index
      */
     @Override
     public ArrayList<Country> getAllCountriesOrderByPopulation() {

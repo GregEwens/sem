@@ -1,11 +1,4 @@
 package com.napier.sem.integration_tests;
-/**
- * Project Name: seMethods
- * Package: com.napier.sem.integration_tests
- * User: Laura Main
- * Date Created: 13/03/2022 13:44
- * File Purpose: Integration Tests for city reports
- */
 
 import com.napier.sem.App;
 import org.junit.jupiter.api.AfterAll;
@@ -14,7 +7,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Integration Tests for city reports
+ * Project Name: seMethods
+ * Package: com.napier.sem.integration_tests
+ * User: Laura Main
+ * Date Created: 13/03/2022 13:44
+ * File Purpose: Integration Tests for city reports
  */
 public class CityServiceIntegrationTests {
 
@@ -35,7 +32,7 @@ public class CityServiceIntegrationTests {
         args[1] = "300";
 
         app = new App();
-        app.initialise(app, args);
+        App.initialise(app, args);
     }
 
     /**
@@ -52,7 +49,7 @@ public class CityServiceIntegrationTests {
     @Test
     void testGetCity()
     {
-        var city = app.cityService.getCityById(1);
+        var city = App.cityService.getCityById(1);
 
         assertEquals(city.id, 1);
         assertEquals(city.population, 1780000);
@@ -66,7 +63,7 @@ public class CityServiceIntegrationTests {
      */
     @Test
     void testGetAllCitiesByContinentOrderedByPopulation(){
-        var cities = app.cityService.getAllCitiesByContinentOrderedByPopulation("Europe");
+        var cities = App.cityService.getAllCitiesByContinentOrderedByPopulation("Europe");
         var city = cities.get(0);
 
         assertEquals(city.id, 3580);
@@ -81,7 +78,7 @@ public class CityServiceIntegrationTests {
      */
     @Test
     void testGetAllCitiesByRegionOrderedByPopulation(){
-        var cities = app.cityService.getAllCitiesByRegionOrderedByPopulation("British Islands");
+        var cities = App.cityService.getAllCitiesByRegionOrderedByPopulation("British Islands");
         var city = cities.get(0);
 
         assertEquals(city.id, 456);
@@ -96,7 +93,7 @@ public class CityServiceIntegrationTests {
      */
     @Test
     void testGetAllCitiesByCountryOrderedByPopulation(){
-        var cities = app.cityService.getAllCitiesByCountryOrderedByPopulation("GBR");
+        var cities = App.cityService.getAllCitiesByCountryOrderedByPopulation("GBR");
 
         var city = cities.get(0);
 
@@ -112,7 +109,7 @@ public class CityServiceIntegrationTests {
      */
     @Test
     void testGetAllCitiesByDistrictOrderedByPopulation(){
-        var cities = app.cityService.getAllCitiesByDistrictOrderedByPopulation("Scotland");
+        var cities = App.cityService.getAllCitiesByDistrictOrderedByPopulation("Scotland");
 
         var city = cities.get(0);
 
@@ -128,7 +125,7 @@ public class CityServiceIntegrationTests {
      */
     @Test
     void testGetTopNCitiesOrderedByPopulation(){
-        var cities = app.cityService.getTopNCitiesOrderedByPopulation(10);
+        var cities = App.cityService.getTopNCitiesOrderedByPopulation(10);
 
         var city = cities.get(0);
 
@@ -145,7 +142,7 @@ public class CityServiceIntegrationTests {
      */
     @Test
     void testGetTopNCitiesInRegionOrderedByPopulation(){
-        var cities = app.cityService.getTopNCitiesInRegionOrderedByPopulation(10, "Caribbean");
+        var cities = App.cityService.getTopNCitiesInRegionOrderedByPopulation(10, "Caribbean");
 
         var city = cities.get(0);
 
@@ -162,7 +159,7 @@ public class CityServiceIntegrationTests {
      */
     @Test
     void testGetTopNCitiesInCountryOrderedByPopulation(){
-        var cities = app.cityService.getTopNCitiesInCountryOrderedByPopulation(10, "Germany");
+        var cities = App.cityService.getTopNCitiesInCountryOrderedByPopulation(10, "Germany");
 
         var city = cities.get(0);
 
@@ -179,7 +176,7 @@ public class CityServiceIntegrationTests {
      */
     @Test
     void testGetTopNCitiesInContinentOrderedByPopulation(){
-        var cities = app.cityService.getTopNCitiesInContinentOrderedByPopulation(10, "Africa");
+        var cities = App.cityService.getTopNCitiesInContinentOrderedByPopulation(10, "Africa");
 
         var city = cities.get(0);
 
@@ -196,7 +193,7 @@ public class CityServiceIntegrationTests {
      */
     @Test
     void testGetTopNCitiesInDistrictOrderedByPopulation(){
-        var cities = app.cityService.getTopNCitiesInDistrictOrderedByPopulation(15, "Ontario");
+        var cities = App.cityService.getTopNCitiesInDistrictOrderedByPopulation(15, "Ontario");
 
         var city = cities.get(0);
 
@@ -213,7 +210,7 @@ public class CityServiceIntegrationTests {
      */
     @Test
     void testGetAllCitiesOrderedByPopulation(){
-        var cities = app.cityService.getAllCitiesOrderedByPopulation();
+        var cities = App.cityService.getAllCitiesOrderedByPopulation();
 
         var city = cities.get(0);
 

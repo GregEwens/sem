@@ -31,7 +31,7 @@ public class CountryReportViewerIntegrationTests {
         args[1] = "300";
 
         app = new App();
-        app.initialise(app, args);
+        App.initialise(app, args);
     }
 
     /**
@@ -47,7 +47,7 @@ public class CountryReportViewerIntegrationTests {
      */
     @Test
     void testsShowCountriesByPopulation(){
-        app.countryReports.ShowCountriesByPopulation(); // No testable output - this test ensures that no exceptions are thrown
+        App.countryReports.ShowCountriesByPopulation(); // No testable output - this test ensures that no exceptions are thrown
     }
 
     /**
@@ -55,7 +55,7 @@ public class CountryReportViewerIntegrationTests {
      */
     @Test
     void testsShowCountriesInAContinentByPopulation(){
-        app.countryReports.ShowCountriesInAContinentByPopulation("Africa"); // No testable output - this test ensures
+        App.countryReports.ShowCountriesInAContinentByPopulation("Africa"); // No testable output - this test ensures
         // that no exceptions are thrown
     }
 
@@ -64,7 +64,7 @@ public class CountryReportViewerIntegrationTests {
      */
     @Test
     void testsShowCountriesInARegionByPopulation(){
-        app.countryReports.ShowCountriesInARegionByPopulation("Central America"); // No testable output - this test ensures that no exceptions are thrown
+        App.countryReports.ShowCountriesInARegionByPopulation("Central America"); // No testable output - this test ensures that no exceptions are thrown
     }
 
     /**
@@ -72,7 +72,7 @@ public class CountryReportViewerIntegrationTests {
      */
     @Test
     void testsShowTopNCountriesByPopulation(){
-        app.countryReports.ShowTopNCountriesByPopulation(68); // No testable output - this test ensures that no
+        App.countryReports.ShowTopNCountriesByPopulation(68); // No testable output - this test ensures that no
         // exceptions are thrown
     }
 
@@ -81,7 +81,7 @@ public class CountryReportViewerIntegrationTests {
      */
     @Test
     void testsShowTopNCountriesInContinentByPopulation(){
-        app.countryReports.ShowTopNCountriesInContinentByPopulation(3, "North America"); // No testable output - this
+        App.countryReports.ShowTopNCountriesInContinentByPopulation(3, "North America"); // No testable output - this
         // test ensures that no exceptions are thrown
     }
 }

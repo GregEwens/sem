@@ -1,10 +1,4 @@
 package com.napier.sem.unit_tests;
-/**
- * Project Name: seMethods
- * User: Greg Ewens
- * Date Created: 11/03/2022 09:07
- * File Purpose: Unit Tests for CountryRepository
- */
 
 import com.napier.sem.repositories.ICountryRepository;
 import com.napier.sem.services.CountryService;
@@ -12,7 +6,11 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Unit tests for CountryService
+ * Project Name: seMethods
+ * Package: com.napier.sem.unit_tests
+ * User: Greg Ewens
+ * Date Created: 11/03/2022 09:07
+ * File Purpose: Unit Tests for CountryRepository
  */
 public class CountryServiceTests {
 

@@ -1,20 +1,16 @@
 package com.napier.sem.unit_tests;
 
-/**
- * Project Name: seMethods
- * Package: PACKAGE_NAME
- * User: Greg Ewens
- * Date Created: 12/03/2022 14:53
- * File Purpose: Unit Tests for CityService
- */
-
 import com.napier.sem.repositories.ICityRepository;
 import com.napier.sem.services.CityService;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Unit Tests for CityService
+ * Project Name: seMethods
+ * Package: com.napier.sem.unit_tests
+ * User: Greg Ewens
+ * Date Created: 12/03/2022 14:53
+ * File Purpose: Unit Tests for CityService
  */
 public class CityServiceTests {
 
@@ -417,10 +413,6 @@ public class CityServiceTests {
         assertTrue(populationFirst < populationSecond && populationSecond < populationThird && populationThird < populationFourth);
     }
 
-
-
-
-
     /**
      * getTopNCitiesInDistrictOrderedByPopulation tested with correct count
      */
@@ -474,7 +466,6 @@ public class CityServiceTests {
         // Assert
         assertEquals(count, cities.size());
     }
-
 
     /**
      * getTopNCitiesInDistrictOrderedByPopulation tested with 0 count
@@ -569,7 +560,6 @@ public class CityServiceTests {
         assertTrue(populationFirst < populationSecond && populationSecond < populationThird && populationThird < populationFourth);
     }
 
-
     /**
      * getTopNCitiesInContinentOrderedByPopulation tested with correct count
      */
@@ -623,7 +613,6 @@ public class CityServiceTests {
         // Assert
         assertEquals(count, cities.size());
     }
-
 
     /**
      * getTopNCitiesInContinentOrderedByPopulation tested with 0 count
@@ -717,5 +706,4 @@ public class CityServiceTests {
 
         assertTrue(populationFirst < populationSecond && populationSecond < populationThird && populationThird < populationFourth);
     }
-
 }
