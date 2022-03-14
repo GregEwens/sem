@@ -7,10 +7,6 @@ package com.napier.sem.entities;
  * Date Created: 19/02/2022 13:20
  * File Purpose: This class maps to the City database entity.
  */
-
-/**
- * This class maps to the City database entity.
- */
 public class City {
     /**
      * The City ID

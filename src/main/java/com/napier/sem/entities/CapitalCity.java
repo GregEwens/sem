@@ -8,10 +8,6 @@ package com.napier.sem.entities;
  * File Purpose:
  * This class is a report mapping class for a capital City
  */
-
-/**
- * This class is a report mapping class for a capital City
- */
 public class CapitalCity
 {
     /**

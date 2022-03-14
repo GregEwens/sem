@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 /**
  * Project Name: seMethods
- * Package: com.napier.sem
+ * Package: com.napier.sem.reports
  * User: Laura Main
  * Date Created: 12/03/2022 13:40
  * File Purpose: This class provides methods for viewing Capital City reports

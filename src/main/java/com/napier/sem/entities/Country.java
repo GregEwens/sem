@@ -1,17 +1,13 @@
 package com.napier.sem.entities;
 
+import java.math.BigDecimal;
+
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.entities
  * User: Laura Main
  * Date Created: 19/02/2022 22:07
  * File Purpose: This class maps to the Country database entity.
- */
-
-import java.math.BigDecimal;
-
-/**
- * The Country entity represents a single row in the country database table
  */
 public class Country
 {

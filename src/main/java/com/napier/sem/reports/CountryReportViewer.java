@@ -2,12 +2,11 @@ package com.napier.sem.reports;
 
 import com.napier.sem.entities.Country;
 import com.napier.sem.services.CountryService;
-
 import java.util.ArrayList;
 
 /**
  * Project Name: seMethods
- * Package: com.napier.sem
+ * Package: com.napier.sem.reports
  * User: Greg Ewens
  * Date Created: 19/02/2022 15:28
  * File Purpose: This class provides methods for viewing Country reports

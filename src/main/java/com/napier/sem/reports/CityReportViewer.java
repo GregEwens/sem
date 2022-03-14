@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 /**
  * Project Name: seMethods
- * Package: com.napier.sem
+ * Package: com.napier.sem.reports
  * User: Greg Ewens
  * Date Created: 19/02/2022 15:59
  * File Purpose: This class provides methods for viewing City reports
@@ -76,7 +76,7 @@ public class CityReportViewer {
 
     /**
      * Displays all cities in a specified continent, ordered by population
-     * @param continent
+     * @param continent The continent name
      */
     public void ShowCitiesInContinentByPopulation(String continent) {
         var cities = _cityService.getAllCitiesByContinentOrderedByPopulation(continent);
@@ -88,7 +88,7 @@ public class CityReportViewer {
 
     /**
      * Displays all cities in a specified region, ordered by population
-     * @param region
+     * @param region the region name
      */
     public void ShowCitiesInRegionByPopulation(String region) {
         var cities = _cityService.getAllCitiesByRegionOrderedByPopulation(region);
@@ -100,7 +100,7 @@ public class CityReportViewer {
 
     /**
      * Shows the top N cities in the world where N is specified
-     * @param n
+     * @param n the number of cities to display
      */
     public void ShowTopNCitiesByPopulation(int n){
         var cities = _cityService.getTopNCitiesOrderedByPopulation(n);
