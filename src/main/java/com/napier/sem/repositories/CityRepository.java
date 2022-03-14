@@ -2,7 +2,6 @@ package com.napier.sem.repositories;
 
 import com.napier.sem.entities.City;
 import com.napier.sem.entities.CityJoinCountry;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -10,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  * Project Name: seMethods
- * Package: com.napier.sem
+ * Package: com.napier.sem.repositories
  * User: Greg Ewens
  * Date Created: 19/02/2022 14:48
  * File Purpose: This class provides methods for accessing City data
@@ -31,7 +30,7 @@ public class CityRepository implements ICityRepository {
     }
 
     /**
-     * {@inheritDoc}
+     * @inheritDoc
      */
     public ArrayList<City> getAllCitiesOrderedByPopulation()
     {
@@ -44,7 +43,7 @@ public class CityRepository implements ICityRepository {
     }
 
     /**
-     * {@inheritDoc}
+     * @inheritDoc
      */
     public ArrayList<CityJoinCountry> getAllCitiesJoinCountryOrderedByPopulation()
     {

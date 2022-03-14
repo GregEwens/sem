@@ -1,7 +1,6 @@
 package com.napier.sem.repositories;
 
 import com.napier.sem.entities.CapitalCity;
-
 import java.util.ArrayList;
 
 /**

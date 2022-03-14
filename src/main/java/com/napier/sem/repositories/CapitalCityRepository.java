@@ -1,14 +1,13 @@
 package com.napier.sem.repositories;
 
 import com.napier.sem.entities.CapitalCity;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- * Project Name: seMethods
+ * Project Name: seMethods.repositories
  * Package: com.napier.sem
  * User: Laura Main
  * Date Created: 12/03/2022 13:37

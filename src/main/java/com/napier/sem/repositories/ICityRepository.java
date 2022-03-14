@@ -2,7 +2,6 @@ package com.napier.sem.repositories;
 
 import com.napier.sem.entities.City;
 import com.napier.sem.entities.CityJoinCountry;
-
 import java.util.ArrayList;
 
 /**
