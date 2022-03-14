@@ -27,10 +27,12 @@ public class CityServiceIntegrationTests {
     @BeforeAll
     static void init()
     {
+        // create arguments to run the app
         String[] args = new String[2];
         args[0] = "localhost:33060";
         args[1] = "300";
 
+        // run the initialise method directly
         app = new App();
         App.initialise(app, args);
     }
@@ -49,8 +51,10 @@ public class CityServiceIntegrationTests {
     @Test
     void testGetCity()
     {
+        // Arrange & Act
         var city = App.cityService.getCityById(1);
 
+        // Assert
         assertEquals(city.id, 1);
         assertEquals(city.population, 1780000);
         assertEquals(city.district, "Kabol");
@@ -63,9 +67,11 @@ public class CityServiceIntegrationTests {
      */
     @Test
     void testGetAllCitiesByContinentOrderedByPopulation(){
+        // Arrange & Act
         var cities = App.cityService.getAllCitiesByContinentOrderedByPopulation("Europe");
         var city = cities.get(0);
 
+        // Assert
         assertEquals(city.id, 3580);
         assertEquals(city.population, 8389200);
         assertEquals(city.district, "Moscow (City)");
@@ -78,9 +84,11 @@ public class CityServiceIntegrationTests {
      */
     @Test
     void testGetAllCitiesByRegionOrderedByPopulation(){
+        // Arrange & Act
         var cities = App.cityService.getAllCitiesByRegionOrderedByPopulation("British Islands");
         var city = cities.get(0);
 
+        // Assert
         assertEquals(city.id, 456);
         assertEquals(city.population, 7285000);
         assertEquals(city.district, "England");
@@ -93,10 +101,11 @@ public class CityServiceIntegrationTests {
      */
     @Test
     void testGetAllCitiesByCountryOrderedByPopulation(){
+        // Arrange & Act
         var cities = App.cityService.getAllCitiesByCountryOrderedByPopulation("GBR");
-
         var city = cities.get(0);
 
+        // Assert
         assertEquals(city.id, 456);
         assertEquals(city.population, 7285000);
         assertEquals(city.district, "England");
@@ -109,10 +118,11 @@ public class CityServiceIntegrationTests {
      */
     @Test
     void testGetAllCitiesByDistrictOrderedByPopulation(){
+        // Arrange & Act
         var cities = App.cityService.getAllCitiesByDistrictOrderedByPopulation("Scotland");
-
         var city = cities.get(0);
 
+        // Assert
         assertEquals(city.id, 458);
         assertEquals(city.population, 619680);
         assertEquals(city.district, "Scotland");
@@ -125,10 +135,11 @@ public class CityServiceIntegrationTests {
      */
     @Test
     void testGetTopNCitiesOrderedByPopulation(){
+        // Arrange & Act
         var cities = App.cityService.getTopNCitiesOrderedByPopulation(10);
-
         var city = cities.get(0);
 
+        // Assert
         assertEquals(10, cities.size());
         assertEquals(city.id, 1024);
         assertEquals(city.population, 10500000);
@@ -142,10 +153,11 @@ public class CityServiceIntegrationTests {
      */
     @Test
     void testGetTopNCitiesInRegionOrderedByPopulation(){
+        // Arrange & Act
         var cities = App.cityService.getTopNCitiesInRegionOrderedByPopulation(10, "Caribbean");
-
         var city = cities.get(0);
 
+        // Assert
         assertEquals(10, cities.size());
         assertEquals(city.id, 2413);
         assertEquals(city.population, 2256000);
@@ -159,10 +171,11 @@ public class CityServiceIntegrationTests {
      */
     @Test
     void testGetTopNCitiesInCountryOrderedByPopulation(){
+        // Arrange & Act
         var cities = App.cityService.getTopNCitiesInCountryOrderedByPopulation(10, "Germany");
-
         var city = cities.get(0);
 
+        // Assert
         assertEquals(10, cities.size());
         assertEquals(city.id, 3068);
         assertEquals(city.population, 3386667);
@@ -176,10 +189,11 @@ public class CityServiceIntegrationTests {
      */
     @Test
     void testGetTopNCitiesInContinentOrderedByPopulation(){
+        // Arrange & Act
         var cities = App.cityService.getTopNCitiesInContinentOrderedByPopulation(10, "Africa");
-
         var city = cities.get(0);
 
+        // Assert
         assertEquals(10, cities.size());
         assertEquals(city.id, 608);
         assertEquals(city.population, 6789479);
@@ -193,10 +207,11 @@ public class CityServiceIntegrationTests {
      */
     @Test
     void testGetTopNCitiesInDistrictOrderedByPopulation(){
+        // Arrange & Act
         var cities = App.cityService.getTopNCitiesInDistrictOrderedByPopulation(15, "Ontario");
-
         var city = cities.get(0);
 
+        // Assert
         assertEquals(15, cities.size());
         assertEquals(city.id, 1812);
         assertEquals(city.population, 688275);
@@ -210,10 +225,11 @@ public class CityServiceIntegrationTests {
      */
     @Test
     void testGetAllCitiesOrderedByPopulation(){
+        // Arrange & Act
         var cities = App.cityService.getAllCitiesOrderedByPopulation();
-
         var city = cities.get(0);
 
+        // Assert
         assertEquals(city.id, 1024);
         assertEquals(city.population, 10500000);
         assertEquals(city.district, "Maharashtra");

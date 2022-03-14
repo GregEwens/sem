@@ -26,10 +26,12 @@ public class AppIntegrationTests {
     @BeforeAll
     static void init()
     {
+        // create arguments to run the app
         String[] args = new String[2];
         args[0] = "localhost:33060";
         args[1] = "300";
 
+        // run the initialise method directly
         app = new App();
         App.initialise(app, args);
     }
@@ -55,10 +57,13 @@ public class AppIntegrationTests {
      */
     @Test
     void testFullApp(){
+
+        // create arguments to run the app
         String[] args = new String[2];
         args[0] = "localhost:33060";
         args[1] = "300";
 
+        // run the app from the intended entry point
         App.main(args);
     }
 }

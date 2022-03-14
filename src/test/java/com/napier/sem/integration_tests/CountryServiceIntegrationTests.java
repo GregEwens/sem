@@ -26,10 +26,12 @@ public class CountryServiceIntegrationTests {
     @BeforeAll
     static void init()
     {
+        // create arguments to run the app
         String[] args = new String[2];
         args[0] = "localhost:33060";
         args[1] = "300";
 
+        // run the initialise method directly
         app = new App();
         App.initialise(app, args);
     }
@@ -48,10 +50,11 @@ public class CountryServiceIntegrationTests {
     @Test
     void testGetAllCountriesOrderByPopulation()
     {
+        // Arrange & Act
         var countries = App.countryService.getAllCountriesOrderByPopulation();
-
         var country = countries.get(0);
 
+        // Assert
         assertEquals(country.Code, "CHN");
         assertEquals(country.Name, "China");
         assertEquals(country.Continent, "Asia");
@@ -66,10 +69,11 @@ public class CountryServiceIntegrationTests {
     @Test
     void testGetTopNCountriesInRegionOrderedByPopulation()
     {
+        // Arrange & Act
         var countries = App.countryService.getTopNCountriesInRegionOrderedByPopulation(10, "Southern Europe");
-
         var country = countries.get(0);
 
+        // Assert
         assertEquals(10, countries.size());
         assertEquals(country.Code, "ITA");
         assertEquals(country.Name, "Italy");
@@ -85,10 +89,11 @@ public class CountryServiceIntegrationTests {
     @Test
     void testGetTopNCountriesInContinentOrderedByPopulation()
     {
+        // Arrange & Act
         var countries = App.countryService.getTopNCountriesInContinentOrderedByPopulation(10, "South America");
-
         var country = countries.get(0);
 
+        // Assert
         assertEquals(10, countries.size());
         assertEquals(country.Code, "BRA");
         assertEquals(country.Name, "Brazil");
@@ -104,10 +109,11 @@ public class CountryServiceIntegrationTests {
     @Test
     void testGetTopNCountriesOrderedByPopulation()
     {
+        // Arrange & Act
         var countries = App.countryService.getTopNCountriesOrderedByPopulation(10);
-
         var country = countries.get(0);
 
+        // Assert
         assertEquals(10, countries.size());
         assertEquals(country.Code, "CHN");
         assertEquals(country.Name, "China");
@@ -123,10 +129,11 @@ public class CountryServiceIntegrationTests {
     @Test
     void testGetAllCountriesInContinentOrderedByPopulation()
     {
+        // Arrange & Act
         var countries = App.countryService.getAllCountriesInContinentOrderedByPopulation("Antarctica");
-
         var country = countries.get(0);
 
+        // Assert
         assertEquals(5, countries.size());
         assertEquals(country.Code, "ATA");
         assertEquals(country.Name, "Antarctica");
@@ -142,10 +149,11 @@ public class CountryServiceIntegrationTests {
     @Test
     void testGetAllCountriesInRegionOrderedByPopulation()
     {
+        // Arrange & Act
         var countries = App.countryService.getAllCountriesInRegionOrderedByPopulation("Polynesia");
-
         var country = countries.get(0);
 
+        // Assert
         assertEquals(10, countries.size());
         assertEquals(country.Code, "PYF");
         assertEquals(country.Name, "French Polynesia");

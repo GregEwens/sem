@@ -72,7 +72,7 @@ public class App
 
     /**
      * The entry point for the app
-     * @param args No arguments accepted
+     * @param args index0: database location, index1: connection retry delay
      */
     public static void main(String[] args)
     {
@@ -87,6 +87,11 @@ public class App
         a.disconnect();
     }
 
+    /**
+     * Initialise static dependencies including the database connection
+     * @param a The static instance of this class
+     * @param args index0: database location, index1: connection retry delay
+     */
     public static void initialise(App a, String[] args){
 
         // Connect to database
@@ -124,6 +129,9 @@ public class App
         countryReports = new CountryReportViewer(countryService);
     }
 
+    /**
+     * Run the world reports
+     */
     public static void runReports(){
         // show an example city
         cityReports.ShowCityDetails(5);
@@ -176,6 +184,8 @@ public class App
 
     /**
      * Connect to the MySQL database.
+     * @param location the database location
+     * @param delay connection retry delay
      */
     public void connect(String location, int delay)
     {
@@ -186,10 +196,13 @@ public class App
         }
         catch (ClassNotFoundException e)
         {
+            // print error
             System.out.println("Could not load SQL driver");
+            // exit
             System.exit(-1);
         }
 
+        // try to connect to the database up to 10 times
         int retries = 10;
         for (int i = 0; i < retries; ++i)
         {
@@ -207,11 +220,13 @@ public class App
             }
             catch (SQLException sqle)
             {
+                // print error
                 System.out.println("Failed to connect to database attempt " + i);
                 System.out.println(sqle.getMessage());
             }
             catch (InterruptedException ie)
             {
+                // print error
                 System.out.println("Thread interrupted? Should not happen.");
             }
         }
@@ -231,6 +246,7 @@ public class App
             }
             catch (Exception e)
             {
+                // print error
                 System.out.println("Error closing connection to database");
             }
         }

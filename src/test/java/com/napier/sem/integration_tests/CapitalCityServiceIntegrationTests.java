@@ -26,10 +26,12 @@ public class CapitalCityServiceIntegrationTests {
     @BeforeAll
     static void init()
     {
+        // create arguments to run the app
         String[] args = new String[2];
         args[0] = "localhost:33060";
         args[1] = "300";
 
+        // run the initialise method directly
         app = new App();
         App.initialise(app, args);
     }
@@ -47,9 +49,11 @@ public class CapitalCityServiceIntegrationTests {
      */
     @Test
     void testGetAllCapitalCitiesByContinentOrderedByPopulation(){
+        //Arrange and Act
         var cities = App.capitalCityService.getAllCapitalCitiesByContinentOrderedByPopulation("North America");
         var city = cities.get(0);
 
+        // Assert
         assertEquals(city.population, 8591309);
         assertEquals(city.country, "Mexico");
         assertEquals(city.name, "Ciudad de México");
