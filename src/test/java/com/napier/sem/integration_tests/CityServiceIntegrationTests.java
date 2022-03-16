@@ -1,6 +1,7 @@
 package com.napier.sem.integration_tests;
 
 import com.napier.sem.App;
+import com.napier.sem.entities.CityJoinCountry;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -20,6 +21,10 @@ public class CityServiceIntegrationTests {
      */
     static App app;
 
+    /**
+     * Our first city we find in the db, we will use this
+     */
+    private static CityJoinCountry _city;
 
     /**
      * Set up the database connection by calling initialise method on App
@@ -35,6 +40,9 @@ public class CityServiceIntegrationTests {
         // run the initialise method directly
         app = new App();
         App.initialise(app, args);
+
+        //  Get the first capital city from the database and use that for passing parameters in for our tests
+        _city = App.cityRepo.getAllCitiesJoinCountryOrderedByPopulation().get(0);
     }
 
     /**
@@ -46,16 +54,25 @@ public class CityServiceIntegrationTests {
     }
 
     /**
+     * First test is to make sure our reference city is not null or default
+     */
+    @Test
+    void testReferenceData(){
+        assertNotNull(_city);
+        assertTrue(_city.id > 0);
+    }
+
+    /**
      * Integration test for getCityById
      */
     @Test
     void testGetCity()
     {
         // Arrange & Act
-        var city = App.cityService.getCityById(1);
+        var city = App.cityService.getCityById(_city.id);
 
         // Assert
-        assertEquals(city.id, 1);
+        assertEquals(city.id, _city.id);
         assertTrue(city.population > 0);
         assertTrue(city.district.length() > 0);
         assertTrue(city.countryCode.length() > 0);
@@ -69,7 +86,7 @@ public class CityServiceIntegrationTests {
     void testGetAllCitiesByContinentOrderedByPopulation(){
         // Arrange & Act
         var cities = App.cityService
-                .getAllCitiesByContinentOrderedByPopulation("Europe");
+                .getAllCitiesByContinentOrderedByPopulation(_city.Continent);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
         assertFalse(cities.isEmpty());
@@ -91,7 +108,7 @@ public class CityServiceIntegrationTests {
     void testGetAllCitiesByRegionOrderedByPopulation(){
         // Arrange & Act
         var cities = App.cityService
-                .getAllCitiesByRegionOrderedByPopulation("British Islands");
+                .getAllCitiesByRegionOrderedByPopulation(_city.Region);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
         assertFalse(cities.isEmpty());
@@ -113,7 +130,7 @@ public class CityServiceIntegrationTests {
     void testGetAllCitiesByCountryOrderedByPopulation(){
         // Arrange & Act
         var cities = App.cityService
-                .getAllCitiesByCountryOrderedByPopulation("GBR");
+                .getAllCitiesByCountryOrderedByPopulation(_city.countryCode);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
         assertFalse(cities.isEmpty());
@@ -134,7 +151,7 @@ public class CityServiceIntegrationTests {
     void testGetAllCitiesByDistrictOrderedByPopulation(){
         // Arrange & Act
         var cities = App.cityService
-                .getAllCitiesByDistrictOrderedByPopulation("Scotland");
+                .getAllCitiesByDistrictOrderedByPopulation(_city.district);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
         assertFalse(cities.isEmpty());
@@ -155,7 +172,7 @@ public class CityServiceIntegrationTests {
     @Test
     void testGetTopNCitiesOrderedByPopulation(){
         // Arrange & Act
-        var cities = App.cityService.getTopNCitiesOrderedByPopulation(10);
+        var cities = App.cityService.getTopNCitiesOrderedByPopulation(1);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
         assertFalse(cities.isEmpty());
@@ -163,7 +180,7 @@ public class CityServiceIntegrationTests {
         var city = cities.get(0);
 
         // Assert
-        assertTrue(cities.size() <= 10);
+        assertTrue(cities.size() <= 1);
         assertTrue(city.id > 0);
         assertTrue(city.population > 0);
         assertTrue(city.district.length() > 0);
@@ -178,7 +195,7 @@ public class CityServiceIntegrationTests {
     void testGetTopNCitiesInRegionOrderedByPopulation(){
         // Arrange & Act
         var cities = App.cityService
-                .getTopNCitiesInRegionOrderedByPopulation(10, "Caribbean");
+                .getTopNCitiesInRegionOrderedByPopulation(1, _city.Region);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
         assertFalse(cities.isEmpty());
@@ -186,7 +203,7 @@ public class CityServiceIntegrationTests {
         var city = cities.get(0);
 
         // Assert
-        assertTrue(cities.size() <= 10);
+        assertTrue(cities.size() <= 1);
         assertTrue(city.id > 0);
         assertTrue(city.population > 0);
         assertTrue(city.district.length() > 0);
@@ -201,7 +218,7 @@ public class CityServiceIntegrationTests {
     void testGetTopNCitiesInCountryOrderedByPopulation(){
         // Arrange & Act
         var cities = App.cityService
-                .getTopNCitiesInCountryOrderedByPopulation(10, "Germany");
+                .getTopNCitiesInCountryOrderedByPopulation(1, _city.countryName);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
         assertFalse(cities.isEmpty());
@@ -209,7 +226,7 @@ public class CityServiceIntegrationTests {
         var city = cities.get(0);
 
         // Assert
-        assertTrue(cities.size() <= 10);
+        assertTrue(cities.size() <= 1);
         assertTrue(city.id > 0);
         assertTrue(city.population > 0);
         assertTrue(city.district.length() > 0);
@@ -224,7 +241,7 @@ public class CityServiceIntegrationTests {
     void testGetTopNCitiesInContinentOrderedByPopulation(){
         // Arrange & Act
         var cities = App.cityService
-                .getTopNCitiesInContinentOrderedByPopulation(10, "Africa");
+                .getTopNCitiesInContinentOrderedByPopulation(1, _city.Continent);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
         assertFalse(cities.isEmpty());
@@ -232,7 +249,7 @@ public class CityServiceIntegrationTests {
         var city = cities.get(0);
 
         // Assert
-        assertTrue(cities.size() <= 10);
+        assertTrue(cities.size() <= 1);
         assertTrue(city.id > 0);
         assertTrue(city.population > 0);
         assertTrue(city.district.length() > 0);
@@ -248,7 +265,7 @@ public class CityServiceIntegrationTests {
     void testGetTopNCitiesInDistrictOrderedByPopulation(){
         // Arrange & Act
         var cities = App.cityService
-                .getTopNCitiesInDistrictOrderedByPopulation(15, "Ontario");
+                .getTopNCitiesInDistrictOrderedByPopulation(1, _city.district);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
         assertFalse(cities.isEmpty());
@@ -256,7 +273,7 @@ public class CityServiceIntegrationTests {
         var city = cities.get(0);
 
         // Assert
-        assertTrue(cities.size() <= 15);
+        assertTrue(cities.size() <= 1);
         assertTrue(city.id > 0);
         assertTrue(city.population > 0);
         assertTrue(city.district.length() > 0);

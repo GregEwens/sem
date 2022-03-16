@@ -1,9 +1,13 @@
 package com.napier.sem.integration_tests;
 
 import com.napier.sem.App;
+import com.napier.sem.entities.Country;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Project Name: seMethods
@@ -19,6 +23,10 @@ public class CountryReportViewerIntegrationTests {
      */
     static App app;
 
+    /**
+     * Our first city we find in the db, we will use this
+     */
+    private static Country _country;
 
     /**
      * Set up the database connection by calling initialise method on App
@@ -34,6 +42,9 @@ public class CountryReportViewerIntegrationTests {
         // run the initialise method directly
         app = new App();
         App.initialise(app, args);
+
+        //  Get the first capital city from the database and use that for passing parameters in for our tests
+        _country = App.countryRepo.getAllCountriesOrderByPopulation().get(0);
     }
 
     /**
@@ -42,6 +53,15 @@ public class CountryReportViewerIntegrationTests {
     @AfterAll
     static void dispose(){
         app.disconnect();
+    }
+
+    /**
+     * First test is to make sure our reference city is not null or default
+     */
+    @Test
+    void testReferenceData(){
+        assertNotNull(_country);
+        assertTrue(_country.Code.length() > 0);
     }
 
     /**
@@ -57,7 +77,7 @@ public class CountryReportViewerIntegrationTests {
      */
     @Test
     void testsShowCountriesInAContinentByPopulation(){
-        App.countryReports.ShowCountriesInAContinentByPopulation("Africa"); // No testable output - this test ensures
+        App.countryReports.ShowCountriesInAContinentByPopulation(_country.Continent); // No testable output - this test ensures
         // that no exceptions are thrown
     }
 
@@ -66,7 +86,8 @@ public class CountryReportViewerIntegrationTests {
      */
     @Test
     void testsShowCountriesInARegionByPopulation(){
-        App.countryReports.ShowCountriesInARegionByPopulation("Central America"); // No testable output - this test ensures that no exceptions are thrown
+        App.countryReports.ShowCountriesInARegionByPopulation(_country.Region); // No testable output - this test ensures that
+        // no exceptions are thrown
     }
 
     /**
@@ -74,7 +95,7 @@ public class CountryReportViewerIntegrationTests {
      */
     @Test
     void testsShowTopNCountriesByPopulation(){
-        App.countryReports.ShowTopNCountriesByPopulation(68); // No testable output - this test ensures that no
+        App.countryReports.ShowTopNCountriesByPopulation(1); // No testable output - this test ensures that no
         // exceptions are thrown
     }
 
@@ -83,7 +104,7 @@ public class CountryReportViewerIntegrationTests {
      */
     @Test
     void testsShowTopNCountriesInContinentByPopulation(){
-        App.countryReports.ShowTopNCountriesInContinentByPopulation(3, "North America"); // No testable output - this
+        App.countryReports.ShowTopNCountriesInContinentByPopulation(1, _country.Continent); // No testable output - this
         // test ensures that no exceptions are thrown
     }
 }

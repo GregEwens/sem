@@ -1,6 +1,7 @@
 package com.napier.sem.integration_tests;
 
 import com.napier.sem.App;
+import com.napier.sem.entities.Country;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -21,6 +22,11 @@ public class CountryServiceIntegrationTests {
     static App app;
 
     /**
+     * Our first city we find in the db, we will use this
+     */
+    private static Country _country;
+
+    /**
      * Set up the database connection by calling initialise method on App
      */
     @BeforeAll
@@ -34,6 +40,9 @@ public class CountryServiceIntegrationTests {
         // run the initialise method directly
         app = new App();
         App.initialise(app, args);
+
+        //  Get the first capital city from the database and use that for passing parameters in for our tests
+        _country = App.countryRepo.getAllCountriesOrderByPopulation().get(0);
     }
 
     /**
@@ -42,6 +51,15 @@ public class CountryServiceIntegrationTests {
     @AfterAll
     static void dispose(){
         app.disconnect();
+    }
+
+    /**
+     * First test is to make sure our reference city is not null or default
+     */
+    @Test
+    void testReferenceData(){
+        assertNotNull(_country);
+        assertTrue(_country.Code.length() > 0);
     }
 
     /**
@@ -76,7 +94,7 @@ public class CountryServiceIntegrationTests {
     {
         // Arrange & Act
         var countries = App.countryService
-                .getTopNCountriesInRegionOrderedByPopulation(10, "Southern Europe");
+                .getTopNCountriesInRegionOrderedByPopulation(1, _country.Region);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
         assertFalse(countries.isEmpty());
@@ -84,7 +102,7 @@ public class CountryServiceIntegrationTests {
         var country = countries.get(0);
 
         // Assert
-        assertTrue(countries.size() <= 10);
+        assertTrue(countries.size() <= 1);
         assertTrue(country.Code.length() > 0);
         assertTrue(country.Name.length() > 0);
         assertTrue(country.Continent.length() > 0);
@@ -101,7 +119,7 @@ public class CountryServiceIntegrationTests {
     {
         // Arrange & Act
         var countries = App.countryService
-                .getTopNCountriesInContinentOrderedByPopulation(10, "South America");
+                .getTopNCountriesInContinentOrderedByPopulation(1, _country.Continent);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
         assertFalse(countries.isEmpty());
@@ -126,7 +144,7 @@ public class CountryServiceIntegrationTests {
     {
         // Arrange & Act
         var countries = App.countryService
-                .getTopNCountriesOrderedByPopulation(10);
+                .getTopNCountriesOrderedByPopulation(1);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
         assertFalse(countries.isEmpty());
@@ -151,7 +169,7 @@ public class CountryServiceIntegrationTests {
     {
         // Arrange & Act
         var countries = App.countryService
-                .getAllCountriesInContinentOrderedByPopulation("Europe");
+                .getAllCountriesInContinentOrderedByPopulation(_country.Continent);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
         assertFalse(countries.isEmpty());
@@ -175,7 +193,7 @@ public class CountryServiceIntegrationTests {
     {
         // Arrange & Act
         var countries = App.countryService
-                .getAllCountriesInRegionOrderedByPopulation("Polynesia");
+                .getAllCountriesInRegionOrderedByPopulation(_country.Region);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
         assertFalse(countries.isEmpty());

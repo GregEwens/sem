@@ -1,9 +1,13 @@
 package com.napier.sem.integration_tests;
 
 import com.napier.sem.App;
+import com.napier.sem.entities.CapitalCity;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Project Name: seMethods
@@ -20,6 +24,10 @@ public class CapitalCityReportViewerIntegrationTests {
      */
     static App app;
 
+    /**
+     * Our first city we find in the db, we will use this
+     */
+    private static CapitalCity _capitalCity;
 
     /**
      * Set up the database connection by calling initialise method on App
@@ -35,6 +43,9 @@ public class CapitalCityReportViewerIntegrationTests {
         // run the initialise method directly
         app = new App();
         App.initialise(app, args);
+
+        //  Get the first capital city from the database and use that for passing parameters in for our tests
+        _capitalCity = App.capitalCityRepo.getAllCapitalCitiesOrderedByPopulation().get(0);
     }
 
     /**
@@ -46,11 +57,21 @@ public class CapitalCityReportViewerIntegrationTests {
     }
 
     /**
+     * First test is to make sure our reference city is not null or default
+     */
+    @Test
+    void testReferenceData(){
+        assertNotNull(_capitalCity);
+        assertTrue(_capitalCity.name.length() > 0);
+    }
+
+    /**
      * Integration test for ShowCapitalCitiesInContinentByPopulation
      */
     @Test
     void testsShowCapitalCitiesInContinentByPopulation(){
-        App.capitalCityReports.ShowCapitalCitiesInContinentByPopulation("Africa"); // No testable output - this test
+        App.capitalCityReports.ShowCapitalCitiesInContinentByPopulation(_capitalCity.Continent); // No testable output - this
+        // test
         // ensures that no exceptions are thrown
     }
 }

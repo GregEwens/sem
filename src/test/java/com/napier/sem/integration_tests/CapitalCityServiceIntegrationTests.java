@@ -1,6 +1,7 @@
 package com.napier.sem.integration_tests;
 
 import com.napier.sem.App;
+import com.napier.sem.entities.CapitalCity;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -21,6 +22,12 @@ public class CapitalCityServiceIntegrationTests {
     static App app;
 
     /**
+     * Our first city we find in the db, we will use this
+     */
+    private static CapitalCity _capitalCity;
+
+
+    /**
      * Set up the database connection by calling initialise method on App
      */
     @BeforeAll
@@ -34,6 +41,9 @@ public class CapitalCityServiceIntegrationTests {
         // run the initialise method directly
         app = new App();
         App.initialise(app, args);
+
+        //  Get the first capital city from the database and use that for passing parameters in for our tests
+        _capitalCity = App.capitalCityRepo.getAllCapitalCitiesOrderedByPopulation().get(0);
     }
 
     /**
@@ -45,12 +55,22 @@ public class CapitalCityServiceIntegrationTests {
     }
 
     /**
+     * First test is to make sure our reference city is not null or default
+     */
+    @Test
+    void testReferenceData(){
+        assertNotNull(_capitalCity);
+        assertTrue(_capitalCity.name.length() > 0);
+    }
+
+    /**
      * Integration test for getAllCapitalCitiesByContinentOrderedByPopulation
      */
     @Test
     void testGetAllCapitalCitiesByContinentOrderedByPopulation(){
         //Arrange and Act
-        var cities = App.capitalCityService.getAllCapitalCitiesByContinentOrderedByPopulation("North America");
+        var cities = App.capitalCityService
+                .getAllCapitalCitiesByContinentOrderedByPopulation(_capitalCity.Continent);
         var city = cities.get(0);
 
         // Assert
