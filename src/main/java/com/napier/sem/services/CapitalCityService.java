@@ -44,4 +44,13 @@ public class CapitalCityService {
 
         return citiesInContinent;
     }
+
+    /**
+     * Gets a collection of all capital cities
+     * @return Returns a sorted collection of Capital Cities
+     */
+    public ArrayList<CapitalCity> getAllCapitalCitiesOrderedByPopulation(){
+        throw new UnsupportedOperationException();
+    }
+
 }

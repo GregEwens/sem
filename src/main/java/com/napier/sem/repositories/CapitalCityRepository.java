@@ -30,7 +30,7 @@ public class CapitalCityRepository implements ICapitalCityRepository {
 
 
     /**
-     * Gets a collection of capital cities found in the specified continent
+     * Gets a collection of capital cities found in the world
      * @return Returns a sorted collection of Capital Cities
      */
     public ArrayList<CapitalCity> getAllCapitalCitiesOrderedByPopulation()

@@ -118,4 +118,42 @@ public class CapitalCityServiceTests {
         assertTrue(populationFirst < populationSecond && populationSecond < populationThird && populationThird < populationFourth);
     }
 
+    /**
+     *  getAllCapitalCitiesOrderedByPopulation tested for returning all items.
+     *
+     */
+    @Test
+    void getAllCapitalCitiesOrderedByPopulationReturnsAllCititesTest(){
+        //Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+
+        //Act
+        var capitalCities = systemUnderTest.getAllCapitalCitiesOrderedByPopulation();
+
+        //Assert
+        assertEquals(30,capitalCities.size());
+    }
+
+    /**
+     * getTopNCitiesOrderedByPopulation tested for correct ordering
+     */
+    @Test
+    void getAllCapitalCitiesOrderedByPopulationAreOrderedTest(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+
+        // Act
+        var cities = systemUnderTest.getAllCapitalCitiesOrderedByPopulation();
+
+        // Assert
+        var populationFirst = cities.get(0).population;
+        var populationSecond = cities.get(1).population;
+        var populationThird = cities.get(2).population;
+        var populationFourth = cities.get(3).population;
+
+        assertTrue(populationFirst > populationSecond && populationSecond > populationThird && populationThird > populationFourth);
+    }
+
+
 }
