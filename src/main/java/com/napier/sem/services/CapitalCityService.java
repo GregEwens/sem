@@ -50,7 +50,7 @@ public class CapitalCityService {
      * @return Returns a sorted collection of Capital Cities
      */
     public ArrayList<CapitalCity> getAllCapitalCitiesOrderedByPopulation(){
-        throw new UnsupportedOperationException();
+        return _capitalCityRepository.getAllCapitalCitiesOrderedByPopulation();
     }
 
 }

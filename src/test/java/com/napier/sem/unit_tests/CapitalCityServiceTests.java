@@ -115,7 +115,7 @@ public class CapitalCityServiceTests {
         var populationThird = cities.get(2).population;
         var populationFourth = cities.get(3).population;
 
-        assertTrue(populationFirst < populationSecond && populationSecond < populationThird && populationThird < populationFourth);
+        assertTrue(populationFirst > populationSecond && populationSecond > populationThird && populationThird > populationFourth);
     }
 
     /**
