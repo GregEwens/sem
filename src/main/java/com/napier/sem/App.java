@@ -96,7 +96,7 @@ public class App
 
         // Connect to database
         if(args.length < 1){
-            a.connect("localhost:33060", 30000);
+            a.connect("localhost:33060", 3000);
         }else{
             a.connect(args[0], Integer.parseInt(args[1]));
         }
@@ -133,6 +133,7 @@ public class App
      * Run the world reports
      */
     public static void runReports(){
+
         // show an example city
         cityReports.ShowCityDetails(5);
 
@@ -162,6 +163,9 @@ public class App
 
         //show capital cities in a continent organised by largest population to smallest.
         capitalCityReports.ShowCapitalCitiesInContinentByPopulation("Europe");
+
+        //show capital cities in the world organised by largest population to smallest.
+        capitalCityReports.ShowCapitalCitiesByPopulation();
 
         // show top N countries by population
         countryReports.ShowTopNCountriesByPopulation(25);

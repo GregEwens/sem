@@ -123,7 +123,7 @@ public class CapitalCityServiceTests {
      *
      */
     @Test
-    void getAllCapitalCitiesOrderedByPopulationReturnsAllCititesTest(){
+    void getAllCapitalCitiesOrderedByPopulationReturnsAllCitiesTest(){
         //Arrange
         var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
 

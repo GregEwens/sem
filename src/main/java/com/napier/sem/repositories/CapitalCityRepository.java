@@ -38,7 +38,7 @@ public class CapitalCityRepository implements ICapitalCityRepository {
         // Create string for SQL statement
         String strSelect =
                 "SELECT ci.Name, c.Name as Country, ci.Population, c.Continent "
-                        + "FROM city ci JOIN country c ON c.Code = ci.CountryCode "
+                        + "FROM city ci JOIN country c ON c.Capital = ci.id "
                         + "ORDER BY Population DESC";
 
         return getCapitalCityCollection(strSelect);
