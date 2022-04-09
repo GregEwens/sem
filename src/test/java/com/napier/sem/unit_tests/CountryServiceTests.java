@@ -3,6 +3,9 @@ package com.napier.sem.unit_tests;
 import com.napier.sem.repositories.ICountryRepository;
 import com.napier.sem.services.CountryService;
 import org.junit.jupiter.api.*;
+
+import java.util.Locale;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -257,7 +260,7 @@ public class CountryServiceTests {
         var country = systemUnderTest.getCountryByName(countryName);
 
         // Assert
-        assertEquals(countryName, country.Name);
+        assertEquals(countryName, country.Name.toLowerCase());
     }
 
     /**
@@ -274,7 +277,7 @@ public class CountryServiceTests {
         var country = systemUnderTest.getCountryByName(countryName);
 
         // Assert
-        assertEquals(countryName, country.Name);
+        assertEquals(countryName, country.Name.toUpperCase());
     }
 
     /**

@@ -136,6 +136,14 @@ public class CountryService {
      */
     public Country getCountryByName(String countryName) {
 
+        var countries = _countryRepoitory.getAllCountriesOrderByPopulation();
+
+        for (var country:countries) {
+            if (country.Name.equalsIgnoreCase(countryName)){
+                return country;
+            }
+        }
+
         return null;
     }
 }
