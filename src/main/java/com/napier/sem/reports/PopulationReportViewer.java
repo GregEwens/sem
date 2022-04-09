@@ -62,6 +62,65 @@ public class PopulationReportViewer {
     }
 
     /**
+     * Displays the population of the world
+     */
+    public void ShowBasicPopulationReportForWorld(){
+        var population = _populationService.getPopulationOfWorld();
+
+        System.out.println("The population of the world is: " + population);
+    }
+
+    /**
+     * Displays the population of a specified continent
+     * @param continent the continent to show
+     */
+    public void ShowBasicPopulationReportForContinent(String continent){
+        var population = _populationService.getPopulationOfContinent(continent);
+
+        System.out.println("The population of " + continent +  " is: " + population);
+    }
+
+    /**
+     * Displays the population of a specified region
+     * @param region the region to show
+     */
+    public void ShowBasicPopulationReportForRegion(String region){
+        var population = _populationService.getPopulationOfRegion(region);
+
+        System.out.println("The population of " + region +  " is: " + population);
+    }
+
+    /**
+     * Displays the population of a specified country
+     * @param country the country to show
+     */
+    public void ShowBasicPopulationReportForCountry(String country){
+        var population = _populationService.getPopulationOfCountry(country);
+
+        System.out.println("The population of " + country +  " is: " + population);
+    }
+
+    /**
+     * Displays the population of a specified district
+     * @param district the district to show
+     */
+    public void ShowBasicPopulationReportForDistrict(String district){
+        var population = _populationService.getPopulationOfDistrict(district);
+
+        System.out.println("The population of " + district +  " is: " + population);
+    }
+
+    /**
+     * Displays the population of a specified city
+     * @param city the city to show
+     */
+    public void ShowBasicPopulationReportForCity(String city){
+        var population = _populationService.getPopulationOfCity(city);
+
+        System.out.println("The population of " + city +  " is: " + population);
+    }
+
+    /**
      * Prints a population report
      * @param reportData The data to display
      */

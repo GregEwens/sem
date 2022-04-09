@@ -1,6 +1,7 @@
 package com.napier.sem.integration_tests;
 
 import com.napier.sem.App;
+import com.napier.sem.entities.CityJoinCountry;
 import com.napier.sem.entities.Country;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -29,6 +30,11 @@ public class PopulationReportViewerIntegrationTests {
     private static Country _country;
 
     /**
+     * Our first city we find in the db, we will use this as source data for our other tests
+     */
+    private static CityJoinCountry _city;
+
+    /**
      * Set up the database connection by calling initialise method on App
      */
     @BeforeAll
@@ -45,6 +51,9 @@ public class PopulationReportViewerIntegrationTests {
 
         //  Get the first capital city from the database and use that for passing parameters in for our tests
         _country = App.countryRepo.getAllCountriesOrderByPopulation().get(0);
+
+        //  Get the first capital city from the database and use that for passing parameters in for our tests
+        _city = App.cityRepo.getAllCitiesJoinCountryOrderedByPopulation().get(0);
     }
 
     /**
@@ -61,7 +70,10 @@ public class PopulationReportViewerIntegrationTests {
     @Test
     void testReferenceData(){
         assertNotNull(_country);
+        assertNotNull(_city);
+
         assertTrue(_country.Code.length() > 0);
+        assertTrue(_city.id > -1);
     }
 
     /**
@@ -74,7 +86,7 @@ public class PopulationReportViewerIntegrationTests {
     }
 
     /**
-     * Integration test for ShowPopulationReportForCountry
+     * Integration test for ShowPopulationReportForContinent
      */
     @Test
     void testsShowPopulationReportForContinent(){
@@ -84,7 +96,7 @@ public class PopulationReportViewerIntegrationTests {
 
 
     /**
-     * Integration test for ShowPopulationReportForCountry
+     * Integration test for ShowPopulationReportForRegion
      */
     @Test
     void testsShowPopulationReportForRegion(){
@@ -92,4 +104,57 @@ public class PopulationReportViewerIntegrationTests {
         // No testable output - this test ensures that no exceptions are thrown
     }
 
+    /**
+     * Integration test for ShowBasicPopulationReportForWorld
+     */
+    @Test
+    void testsShowBasicPopulationReportForWorld(){
+        App.populationReports.ShowBasicPopulationReportForWorld();
+        // No testable output - this test ensures that no exceptions are thrown
+    }
+
+    /**
+     * Integration test for ShowBasicPopulationReportForContinent
+     */
+    @Test
+    void testsShowBasicPopulationReportForContinent(){
+        App.populationReports.ShowBasicPopulationReportForContinent(_country.Continent);
+        // No testable output - this test ensures that no exceptions are thrown
+    }
+
+    /**
+     * Integration test for ShowBasicPopulationReportForRegion
+     */
+    @Test
+    void testsShowBasicPopulationReportForRegion(){
+        App.populationReports.ShowBasicPopulationReportForRegion(_country.Region);
+        // No testable output - this test ensures that no exceptions are thrown
+    }
+
+    /**
+     * Integration test for ShowBasicPopulationReportForCountry
+     */
+    @Test
+    void testsShowBasicPopulationReportForCountry(){
+        App.populationReports.ShowBasicPopulationReportForCountry(_country.Name);
+        // No testable output - this test ensures that no exceptions are thrown
+    }
+
+    /**
+     * Integration test for ShowBasicPopulationReportForDistrict
+     */
+    @Test
+    void testsShowBasicPopulationReportForDistrict(){
+        App.populationReports.ShowBasicPopulationReportForDistrict(_city.district);
+        // No testable output - this test ensures that no exceptions are thrown
+    }
+
+    /**
+     * Integration test for ShowBasicPopulationReportForCity
+     */
+    @Test
+    void testsShowBasicPopulationReportForCity(){
+        App.populationReports.ShowBasicPopulationReportForCity(_city.name);
+        // No testable output - this test ensures that no exceptions are thrown
+    }
 }
