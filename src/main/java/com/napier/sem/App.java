@@ -215,6 +215,24 @@ public class App
         // show population report for region
         populationReports.ShowPopulationReportForRegion("Southern Europe");
 
+        // show basic population report for the world
+        populationReports.ShowBasicPopulationReportForWorld();
+
+        // show basic population report for the world
+        populationReports.ShowBasicPopulationReportForContinent("Antarctica");
+
+        // show basic population report for the world
+        populationReports.ShowBasicPopulationReportForRegion("Southern and Central Asia");
+
+        // show basic population report for the world
+        populationReports.ShowBasicPopulationReportForCountry("Jamaica");
+
+        // show basic population report for the world
+        populationReports.ShowBasicPopulationReportForDistrict("Lombardia");
+
+        // show basic population report for the world
+        populationReports.ShowBasicPopulationReportForCity("Edinburgh");
+
     }
 
     /**
