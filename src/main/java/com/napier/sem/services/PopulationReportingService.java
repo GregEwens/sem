@@ -41,6 +41,11 @@ public class PopulationReportingService {
         _cityService = cityService;
     }
 
+    /**
+     * Gets a HighLevelPopulationReportModel for a specified continent
+     * @param continentName the Continent name
+     * @return a HighLevelPopulationReportModel
+     */
     public HighLevelPopulationReportModel getHighLevelPopulationDataForContinent(String continentName){
 
         var allCitiesInContinent = _cityService.getAllCitiesByContinentOrderedByPopulation(continentName);
@@ -54,6 +59,40 @@ public class PopulationReportingService {
         return model;
     }
 
+    /**
+     * Gets a HighLevelPopulationReportModel for a specified region
+     * @param regionName the Region name
+     * @return a HighLevelPopulationReportModel
+     */
+    public HighLevelPopulationReportModel getHighLevelPopulationDataForRegion(String regionName){
 
+        var allCitiesInRegion = _cityService.getAllCitiesByRegionOrderedByPopulation(regionName);
+        var allCountriesInRegion = _countryService.getAllCountriesInRegionOrderedByPopulation(regionName);
+
+        var model = new HighLevelPopulationReportModel();
+        model.Name = regionName;
+        model.Population = sumCountryPopulation(allCountriesInRegion);
+        model.CityPopulation = sumCityPopulation(allCitiesInRegion);
+
+        return model;
+    }
+
+    /**
+     * Gets a HighLevelPopulationReportModel for a specified country
+     * @param countryName the Country name
+     * @return a HighLevelPopulationReportModel
+     */
+    public HighLevelPopulationReportModel getHighLevelPopulationDataForCountry(String countryName){
+
+        var allCitiesInCountry = _cityService.getAllCitiesByCountryOrderedByPopulation(countryName);
+        Country country = _countryService.getCountryByName(countryName);
+
+        var model = new HighLevelPopulationReportModel();
+        model.Name = countryName;
+        model.Population = country.Population;
+        model.CityPopulation = sumCityPopulation(allCitiesInCountry);
+
+        return model;
+    }
 
 }

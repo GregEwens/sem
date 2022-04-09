@@ -225,4 +225,72 @@ public class CountryServiceTests {
 
         assertTrue(populationFirst < populationSecond && populationSecond < populationThird && populationThird < populationFourth);
     }
+
+    /**
+     * getCountryByName returns a country correctly
+     */
+    @Test
+    void getCountryByNameReturnsCorrectly(){
+
+        // Arrange
+        var systemUnderTest = new CountryService(countryRepositoryMock);
+        var countryName = "Country0";
+
+        // Act
+        var country = systemUnderTest.getCountryByName(countryName);
+
+        // Assert
+        assertEquals(countryName, country.Name);
+    }
+
+    /**
+     * getCountryByName returns a country correctly with the specified name in all lower case
+     */
+    @Test
+    void getCountryByNameReturnsCorrectlyLowerCase(){
+
+        // Arrange
+        var systemUnderTest = new CountryService(countryRepositoryMock);
+        var countryName = "country0";
+
+        // Act
+        var country = systemUnderTest.getCountryByName(countryName);
+
+        // Assert
+        assertEquals(countryName, country.Name);
+    }
+
+    /**
+     * getCountryByName returns a country correctly with the specified name in all upper case
+     */
+    @Test
+    void getCountryByNameReturnsCorrectlyUpperCase(){
+
+        // Arrange
+        var systemUnderTest = new CountryService(countryRepositoryMock);
+        var countryName = "COUNTRY0";
+
+        // Act
+        var country = systemUnderTest.getCountryByName(countryName);
+
+        // Assert
+        assertEquals(countryName, country.Name);
+    }
+
+    /**
+     * getCountryByName returns a null where the country does not exist
+     */
+    @Test
+    void getCountryByNameReturnsNull(){
+
+        // Arrange
+        var systemUnderTest = new CountryService(countryRepositoryMock);
+        var countryName = "Not a valid country name";
+
+        // Act
+        var country = systemUnderTest.getCountryByName(countryName);
+
+        // Assert
+        assertNull(country);
+    }
 }

@@ -128,4 +128,14 @@ public class CountryService {
     public ArrayList<Country> getAllCountriesOrderByPopulation() {
         return _countryRepoitory.getAllCountriesOrderByPopulation();
     }
+
+    /**
+     * Gets a single country by name
+     * @param countryName the name of the specified country
+     * @return a country or null
+     */
+    public Country getCountryByName(String countryName) {
+
+        return null;
+    }
 }
