@@ -8,14 +8,14 @@ import java.util.ArrayList;
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.helpers
- * User: <<Your name here>>
+ * User: Greg Ewens
  * Date Created: 09/04/2022 14:29
  * File Purpose:
  */
 public class PopulationHelpers {
 
-    public static int sumCityPopulation(ArrayList<City> cities){
-        var population = 0;
+    public static long sumCityPopulation(ArrayList<City> cities){
+        long population = 0;
 
         for (var city:cities) {
             population += city.population;
@@ -24,8 +24,8 @@ public class PopulationHelpers {
         return population;
     }
 
-    public static int sumCountryPopulation(ArrayList<Country> countries){
-        var population = 0;
+    public static long sumCountryPopulation(ArrayList<Country> countries){
+        long population = 0;
 
         for (var country:countries) {
             population += country.Population;

@@ -1,14 +1,6 @@
 package com.napier.sem.services;
 
-import com.napier.sem.entities.City;
-import com.napier.sem.entities.Country;
 import com.napier.sem.models.HighLevelPopulationReportModel;
-import com.napier.sem.repositories.ICityRepository;
-import com.napier.sem.repositories.ICountryRepository;
-
-import javax.lang.model.element.Name;
-import java.util.ArrayList;
-
 import static com.napier.sem.helpers.PopulationHelpers.sumCityPopulation;
 import static com.napier.sem.helpers.PopulationHelpers.sumCountryPopulation;
 
@@ -86,6 +78,8 @@ public class PopulationReportingService {
 
         var allCitiesInCountry = _cityService.getAllCitiesByCountryOrderedByPopulation(countryName);
         var country = _countryService.getCountryByName(countryName);
+
+        if (country == null) return null;
 
         var model = new HighLevelPopulationReportModel();
         model.Name = countryName;

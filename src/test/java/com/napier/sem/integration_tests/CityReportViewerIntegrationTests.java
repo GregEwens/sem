@@ -1,7 +1,6 @@
 package com.napier.sem.integration_tests;
 
 import com.napier.sem.App;
-import com.napier.sem.entities.City;
 import com.napier.sem.entities.CityJoinCountry;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;

@@ -22,7 +22,7 @@ public class CountryServiceIntegrationTests {
     static App app;
 
     /**
-     * Our first city we find in the db, we will use this
+     * Our first country we find in the db, we will use this as source data for our other tests
      */
     private static Country _country;
 
@@ -54,7 +54,7 @@ public class CountryServiceIntegrationTests {
     }
 
     /**
-     * First test is to make sure our reference city is not null or default
+     * First test is to make sure our reference country is not null or default
      */
     @Test
     void testReferenceData(){

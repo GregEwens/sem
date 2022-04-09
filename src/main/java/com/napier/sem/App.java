@@ -3,12 +3,15 @@ package com.napier.sem;
 import com.napier.sem.reports.CapitalCityReportViewer;
 import com.napier.sem.reports.CityReportViewer;
 import com.napier.sem.reports.CountryReportViewer;
+import com.napier.sem.reports.PopulationReportViewer;
 import com.napier.sem.repositories.CapitalCityRepository;
 import com.napier.sem.repositories.CityRepository;
 import com.napier.sem.repositories.CountryRepository;
 import com.napier.sem.services.CapitalCityService;
 import com.napier.sem.services.CityService;
 import com.napier.sem.services.CountryService;
+import com.napier.sem.services.PopulationReportingService;
+
 import java.sql.*;
 
 /**
@@ -71,6 +74,17 @@ public class App
     public static CountryReportViewer countryReports;
 
     /**
+     * The PopulationReportingService, must be instantiated before use
+     */
+    public static PopulationReportingService populationReportingService;
+
+    /**
+     * The PopulationReportingService, must be instantiated before use
+     */
+    public static PopulationReportViewer populationReports;
+
+
+    /**
      * The entry point for the app
      * @param args index0: database location, index1: connection retry delay
      */
@@ -89,6 +103,7 @@ public class App
 
     /**
      * Initialise static dependencies including the database connection
+     * Wouldn't some dependency injection be useful here!!!
      * @param a The static instance of this class
      * @param args index0: database location, index1: connection retry delay
      */
@@ -127,6 +142,12 @@ public class App
 
         //construct the country Reports
         countryReports = new CountryReportViewer(countryService);
+
+        //construct the population service
+        populationReportingService = new PopulationReportingService(countryService, cityService);
+
+        // construct the population report viewer
+        populationReports = new PopulationReportViewer(populationReportingService);
     }
 
     /**
@@ -184,6 +205,16 @@ public class App
 
         // show top N cities in continent
         cityReports.ShowTopNCitiesInContinentByPopulation(16, "Europe");
+
+        // show population report for country
+        populationReports.ShowPopulationReportForCountry("France");
+
+        // show population report for continent
+        populationReports.ShowPopulationReportForContinent("North America");
+
+        // show population report for region
+        populationReports.ShowPopulationReportForRegion("Southern Europe");
+
     }
 
     /**

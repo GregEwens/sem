@@ -22,7 +22,7 @@ public class CityServiceIntegrationTests {
     static App app;
 
     /**
-     * Our first city we find in the db, we will use this
+     * Our first city we find in the db, we will use this as source data for our other tests
      */
     private static CityJoinCountry _city;
 
