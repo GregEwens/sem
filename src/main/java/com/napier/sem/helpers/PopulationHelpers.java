@@ -14,6 +14,11 @@ import java.util.ArrayList;
  */
 public class PopulationHelpers {
 
+    /**
+     * calculates the total population from a collection of cities
+     * @param cities the collection of cities
+     * @return the total population as long
+     */
     public static long sumCityPopulation(ArrayList<City> cities){
         long population = 0;
 
@@ -24,6 +29,11 @@ public class PopulationHelpers {
         return population;
     }
 
+    /**
+     * calculates the total population from a collection of countries
+     * @param countries the collection of countries
+     * @return the total population as long
+     */
     public static long sumCountryPopulation(ArrayList<Country> countries){
         long population = 0;
 

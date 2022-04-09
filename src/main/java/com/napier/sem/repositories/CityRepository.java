@@ -32,6 +32,7 @@ public class CityRepository implements ICityRepository {
     /**
      * @inheritDoc
      */
+    @Override
     public ArrayList<City> getAllCitiesOrderedByPopulation()
     {
         // Create string for SQL statement
@@ -45,6 +46,7 @@ public class CityRepository implements ICityRepository {
     /**
      * @inheritDoc
      */
+    @Override
     public ArrayList<CityJoinCountry> getAllCitiesJoinCountryOrderedByPopulation()
     {
         // Create string for SQL statement

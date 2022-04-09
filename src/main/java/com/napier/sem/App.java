@@ -7,10 +7,8 @@ import com.napier.sem.reports.PopulationReportViewer;
 import com.napier.sem.repositories.CapitalCityRepository;
 import com.napier.sem.repositories.CityRepository;
 import com.napier.sem.repositories.CountryRepository;
-import com.napier.sem.services.CapitalCityService;
-import com.napier.sem.services.CityService;
-import com.napier.sem.services.CountryService;
-import com.napier.sem.services.PopulationReportingService;
+import com.napier.sem.repositories.LanguageRepository;
+import com.napier.sem.services.*;
 
 import java.sql.*;
 
@@ -83,6 +81,15 @@ public class App
      */
     public static PopulationReportViewer populationReports;
 
+    /**
+     * The LanguageRepository, must be instantiated before use
+     */
+    public static LanguageRepository languageRepo;
+
+    /**
+     * The LanguageService, must be instantiated before use
+     */
+    public static LanguageService languageService;
 
     /**
      * The entry point for the app
@@ -148,6 +155,15 @@ public class App
 
         // construct the population report viewer
         populationReports = new PopulationReportViewer(populationReportingService);
+
+        // construct the LanguageRepository
+        languageRepo = new LanguageRepository(a.con);
+
+        // construct the language service
+        languageService = new LanguageService(languageRepo);
+
+
+        var debug = languageService.getAllLanguages();
     }
 
     /**
