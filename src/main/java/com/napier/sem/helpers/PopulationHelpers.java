@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * Date Created: 09/04/2022 14:29
  * File Purpose:
  */
-public class populationHelpers {
+public class PopulationHelpers {
 
     public static int sumCityPopulation(ArrayList<City> cities){
         var population = 0;

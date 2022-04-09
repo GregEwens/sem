@@ -9,8 +9,8 @@ import com.napier.sem.repositories.ICountryRepository;
 import javax.lang.model.element.Name;
 import java.util.ArrayList;
 
-import static com.napier.sem.helpers.populationHelpers.sumCityPopulation;
-import static com.napier.sem.helpers.populationHelpers.sumCountryPopulation;
+import static com.napier.sem.helpers.PopulationHelpers.sumCityPopulation;
+import static com.napier.sem.helpers.PopulationHelpers.sumCountryPopulation;
 
 /**
  * Project Name: seMethods
