@@ -15,11 +15,17 @@ public class HighLevelPopulationReportModel {
 
     public int CityPopulation;
 
-    private double GetPercentCityPopulation(){
+    public double GetPercentCityPopulation(){
+        // return a zero to handle 0 population countries such as Antarctica
+        if (Population == 0 ) return 0;
+
         return ((double) CityPopulation / (double) Population) * 100;
     }
 
-    private double PercentNotCityPopulation(){
+    public double GetPercentNotCityPopulation(){
+        // return a zero to handle 0 population countries such as Antarctica
+        if (Population == 0 ) return 0;
+
         return (100.00 - GetPercentCityPopulation());
     }
 }
