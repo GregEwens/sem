@@ -1,6 +1,7 @@
 package com.napier.sem.integration_tests;
 
 import com.napier.sem.App;
+import com.napier.sem.entities.CityJoinCountry;
 import com.napier.sem.entities.Country;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -26,6 +27,11 @@ public class PopulationReportingServiceIntegrationTests {
      */
     private static Country _country;
 
+    /**
+     * Our first city we find in the db, we will use this as source data for our other tests
+     */
+    private static CityJoinCountry _city;
+
 
     /**
      * Set up the database connection by calling initialise method on App
@@ -44,6 +50,9 @@ public class PopulationReportingServiceIntegrationTests {
 
         //  Get the first country from the database and use that for passing parameters in for our tests
         _country = App.countryRepo.getAllCountriesOrderByPopulation().get(0);
+
+        //  Get the first capital city from the database and use that for passing parameters in for our tests
+        _city = App.cityRepo.getAllCitiesJoinCountryOrderedByPopulation().get(0);
     }
 
     /**
@@ -60,7 +69,10 @@ public class PopulationReportingServiceIntegrationTests {
     @Test
     void testReferenceData(){
         assertNotNull(_country);
+        assertNotNull(_city);
+
         assertTrue(_country.Code.length() > 0);
+        assertTrue(_city.id > -1);
     }
 
     /**
@@ -77,6 +89,19 @@ public class PopulationReportingServiceIntegrationTests {
     }
 
     /**
+     * Integration test for getHighLevelPopulationDataForContinent handles a not found condition
+     */
+    @Test
+    void testGetHighLevelPopulationDataForContinentHandlesNotFound(){
+        var populationCollection = App.populationReportingService
+                .getHighLevelPopulationDataForContinent("Not a continent");
+
+        // Assert
+        assertNull(populationCollection);
+    }
+
+
+    /**
      * Integration test for getHighLevelPopulationDataForRegion
      */
     @Test
@@ -90,6 +115,18 @@ public class PopulationReportingServiceIntegrationTests {
     }
 
     /**
+     * Integration test for getHighLevelPopulationDataForRegion handles a not found condition
+     */
+    @Test
+    void testGetHighLevelPopulationDataForRegionHandlesNotFound(){
+        var populationCollection = App.populationReportingService
+                .getHighLevelPopulationDataForRegion("Not a region");
+
+        // Assert
+        assertNull(populationCollection);
+    }
+
+    /**
      * Integration test for getHighLevelPopulationDataForRegion
      */
     @Test
@@ -100,5 +137,138 @@ public class PopulationReportingServiceIntegrationTests {
         // Assert
         assertNotNull(populationCollection);
         assertTrue(populationCollection.Name.length() > 0);
+    }
+
+    /**
+     * Integration test for getHighLevelPopulationDataForCountry handles a not found condition
+     */
+    @Test
+    void testGetHighLevelPopulationDataForCountryHandlesNotFound(){
+        var populationCollection = App.populationReportingService
+                .getHighLevelPopulationDataForCountry("Not a country");
+
+        // Assert
+        assertNull(populationCollection);
+    }
+
+    /**
+     * Integration test for GetPopulationOfWorld
+     */
+    @Test
+    void testGetPopulationOfWorld(){
+        var population = App.populationReportingService.getPopulationOfWorld();
+
+        // Assert
+        assertTrue(population > 0);
+    }
+
+    /**
+     * Integration test for GetPopulationOfRegion
+     */
+    @Test
+    void testGetPopulationOfRegion(){
+        var population = App.populationReportingService.getPopulationOfRegion(_country.Region);
+
+        // Assert
+        assertTrue(population > 0);
+    }
+
+    /**
+     * Integration test for GetPopulationOfRegion handles a not found condition
+     */
+    @Test
+    void testGetPopulationOfRegionHandlesNotFound(){
+        var population = App.populationReportingService.getPopulationOfRegion("Not a region");
+
+        // Assert
+        assertEquals(0, population);
+    }
+
+    /**
+     * Integration test for GetPopulationOfCountry
+     */
+    @Test
+    void testGetPopulationOfCountry(){
+        var population = App.populationReportingService.getPopulationOfCountry(_country.Name);
+
+        // Assert
+        assertTrue(population > 0);
+    }
+
+    /**
+     * Integration test for GetPopulationOfCountry handles a not found condition
+     */
+    @Test
+    void testGetPopulationOfCountryHandlesNotFound(){
+        var population = App.populationReportingService.getPopulationOfCountry("Not a country");
+
+        // Assert
+        assertEquals(0, population);
+    }
+
+    /**
+     * Integration test for GetPopulationOfContinent
+     */
+    @Test
+    void testGetPopulationOfContinent(){
+        var population = App.populationReportingService.getPopulationOfContinent(_country.Continent);
+
+        // Assert
+        assertTrue(population > 0);
+    }
+
+    /**
+     * Integration test for GetPopulationOfContinent handles a not found condition
+     */
+    @Test
+    void testGetPopulationOfContinentHandlesNotFound(){
+        var population = App.populationReportingService.getPopulationOfContinent("Not a continent");
+
+        // Assert
+        assertEquals(0, population);
+    }
+
+    /**
+     * Integration test for GetPopulationOfDistrict
+     */
+    @Test
+    void testGetPopulationOfDistrict(){
+        var population = App.populationReportingService.getPopulationOfDistrict(_city.district);
+
+        // Assert
+        assertTrue(population > 0);
+    }
+
+    /**
+     * Integration test for GetPopulationOfDistrict handles a not found condition
+     */
+    @Test
+    void testGetPopulationOfDistrictHandlesNotFound(){
+        var population = App.populationReportingService.getPopulationOfDistrict("Not a district");
+
+        // Assert
+        assertEquals(0, population);
+    }
+
+    /**
+     * Integration test for GetPopulationOfCity
+     */
+    @Test
+    void testGetPopulationOfCity(){
+        var population = App.populationReportingService.getPopulationOfCity(_city.name);
+
+        // Assert
+        assertTrue(population > 0);
+    }
+
+    /**
+     * Integration test for GetPopulationOfDistrict handles a not found condition
+     */
+    @Test
+    void testGetPopulationOfCityHandlesNotFound(){
+        var population = App.populationReportingService.getPopulationOfCity("Not a City");
+
+        // Assert
+        assertEquals(0, population);
     }
 }

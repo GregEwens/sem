@@ -1,5 +1,6 @@
 package com.napier.sem.services;
 
+import com.napier.sem.entities.City;
 import com.napier.sem.models.HighLevelPopulationReportModel;
 import static com.napier.sem.helpers.PopulationHelpers.sumCityPopulation;
 import static com.napier.sem.helpers.PopulationHelpers.sumCountryPopulation;
@@ -43,6 +44,8 @@ public class PopulationReportingService {
         var allCitiesInContinent = _cityService.getAllCitiesByContinentOrderedByPopulation(continentName);
         var allCountriesInContinent = _countryService.getAllCountriesInContinentOrderedByPopulation(continentName);
 
+        if (allCountriesInContinent.size() == 0) return null;
+
         var model = new HighLevelPopulationReportModel();
         model.Name = continentName;
         model.Population = sumCountryPopulation(allCountriesInContinent);
@@ -60,6 +63,8 @@ public class PopulationReportingService {
 
         var allCitiesInRegion = _cityService.getAllCitiesByRegionOrderedByPopulation(regionName);
         var allCountriesInRegion = _countryService.getAllCountriesInRegionOrderedByPopulation(regionName);
+
+        if (allCountriesInRegion.size() == 0) return null;
 
         var model = new HighLevelPopulationReportModel();
         model.Name = regionName;
@@ -87,5 +92,74 @@ public class PopulationReportingService {
         model.CityPopulation = sumCityPopulation(allCitiesInCountry);
 
         return model;
+    }
+
+    /**
+     * gets the total population of the world
+     * @return the total population of the world as long
+     */
+    public long getPopulationOfWorld(){
+        var allCountries = _countryService.getAllCountriesOrderByPopulation();
+
+        return sumCountryPopulation(allCountries);
+    }
+
+    /**
+     * gets the total population of a continent
+     * @param continent the continent
+     * @return the total population of the continent as long
+     */
+    public long getPopulationOfContinent(String continent){
+        var allCountries = _countryService.getAllCountriesInContinentOrderedByPopulation(continent);
+
+        return sumCountryPopulation(allCountries);
+    }
+
+    /**
+     * gets the total population of a region
+     * @param region the region
+     * @return the total population of the region as long
+     */
+    public long getPopulationOfRegion(String region){
+        var allCountries = _countryService.getAllCountriesInRegionOrderedByPopulation(region);
+
+        return sumCountryPopulation(allCountries);
+    }
+
+    /**
+     * gets the total population of a country
+     * @param countryName the country name
+     * @return the total population of the country as long
+     */
+    public long getPopulationOfCountry(String countryName){
+        var country = _countryService.getCountryByName(countryName);
+
+        if (country == null) return 0;
+
+        return country.Population;
+    }
+
+    /**
+     * gets the total population of a district
+     * @param districtName the district name
+     * @return the total population of the district as long
+     */
+    public long getPopulationOfDistrict(String districtName){
+        var allCities = _cityService.getAllCitiesByDistrictOrderedByPopulation(districtName);
+
+        return sumCityPopulation(allCities);
+    }
+
+    /**
+     * gets the total population of a city
+     * @param cityName the city name
+     * @return the total population of the district as long
+     */
+    public long getPopulationOfCity(String cityName){
+        City city = _cityService.getCityByName(cityName);
+
+        if (city == null) return 0;
+
+        return city.population;
     }
 }

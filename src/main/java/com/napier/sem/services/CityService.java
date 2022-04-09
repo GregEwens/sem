@@ -220,4 +220,21 @@ public class CityService {
     public ArrayList<City> getAllCitiesOrderedByPopulation() {
         return _cityRepository.getAllCitiesOrderedByPopulation();
     }
+
+    /**
+     * Gets a single city by name
+     * @param cityName the name of the specified city
+     * @return a city or null
+     */
+    public City getCityByName(String cityName) {
+        var cities = _cityRepository.getAllCitiesOrderedByPopulation();
+
+        for (var city:cities) {
+            if (city.name.equalsIgnoreCase(cityName)){
+                return city;
+            }
+        }
+
+        return null;
+    }
 }
