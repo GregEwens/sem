@@ -69,7 +69,7 @@ public class LanguageService {
 
             languageModels.add(new LanguageModel(language, sumLanguageCount(spokenLanguage), worldPopulation));
         }
-        
+
         Collections.sort(languageModels);
 
         return languageModels;
