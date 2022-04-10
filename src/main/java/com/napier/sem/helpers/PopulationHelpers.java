@@ -2,6 +2,7 @@ package com.napier.sem.helpers;
 
 import com.napier.sem.entities.City;
 import com.napier.sem.entities.Country;
+import com.napier.sem.entities.SpokenLanguageJoinCountry;
 
 import java.util.ArrayList;
 
@@ -35,6 +36,21 @@ public class PopulationHelpers {
      * @return the total population as long
      */
     public static long sumCountryPopulation(ArrayList<Country> countries){
+        long population = 0;
+
+        for (var country:countries) {
+            population += country.Population;
+        }
+
+        return population;
+    }
+
+    /**
+     * calculates the total population from a collection of countries
+     * @param countries the collection of countries
+     * @return the total population as long
+     */
+    public static long sumLanguageCount(ArrayList<SpokenLanguageJoinCountry> countries){
         long population = 0;
 
         for (var country:countries) {

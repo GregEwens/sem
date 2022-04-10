@@ -31,5 +31,5 @@ public class City {
     /**
      * The population of the city
      */
-    public int population;
+    public long population;
 }

@@ -1,9 +1,17 @@
 package com.napier.sem.services;
 
 import com.napier.sem.entities.SpokenLanguageJoinCountry;
+import com.napier.sem.models.DemographicReportModel;
+import com.napier.sem.models.LanguageModel;
 import com.napier.sem.repositories.ILanguageRepository;
+import com.sun.source.tree.ArrayAccessTree;
 
+import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Collections;
+
+import static com.napier.sem.helpers.PopulationHelpers.*;
+import static com.napier.sem.helpers.LanguageHelpers.*;
 
 /**
  * Project Name: seMethods
@@ -20,37 +28,50 @@ public class LanguageService {
     private final ILanguageRepository _languageRepository;
 
     /**
+     * The Language Repository
+     */
+    private final PopulationReportingService _populationService;
+
+    /**
+     * The hard coded languages of interest
+     */
+    private final String[] _languagesOfInterest = {"Chinese", "English", "Hindi", "Spanish", "Arabic"};
+
+    /**
      * The public constructor
      * @param languageRepository An instance of the ILanguageRepository
      */
-    public LanguageService(ILanguageRepository languageRepository){
+    public LanguageService(ILanguageRepository languageRepository, PopulationReportingService populationService){
+
         _languageRepository = languageRepository;
+        _populationService = populationService;
     }
 
     /**
      * Gets a collection of all capital cities
-     * @return Returns a sorted collection of Capital Cities
+     * @return Returns a sorted DemographicReportModel
      */
-    public ArrayList<SpokenLanguageJoinCountry> getAllLanguages(){
+    public DemographicReportModel getDemographicReportModel(){
+        var worldPopulation = _populationService.getPopulationOfWorld();
         var allLanguages =  _languageRepository.getAllLanguages();
 
+        var model = new DemographicReportModel();
+        model.languageModels = getLanguageModels(allLanguages, worldPopulation);
 
-
-        return allLanguages;
+        return model;
     }
 
-    private ArrayList<SpokenLanguageJoinCountry> getCountriesWithLanguage(
-            ArrayList<SpokenLanguageJoinCountry> allCountries,
-            String languageName){
+    private ArrayList<LanguageModel> getLanguageModels(ArrayList<SpokenLanguageJoinCountry> allLanguages, long worldPopulation){
+        var languageModels = new ArrayList<LanguageModel>();
 
-        var filteredCountries = new ArrayList<SpokenLanguageJoinCountry>();
+        for (var language: _languagesOfInterest  ) {
+            var spokenLanguage = getCountriesWithLanguage(allLanguages, language);
 
-        for (var language : allCountries) {
-            if(language.Language.equalsIgnoreCase(languageName)){
-                filteredCountries.add(language);
-            }
+            languageModels.add(new LanguageModel(language, sumLanguageCount(spokenLanguage), worldPopulation));
         }
+        
+        Collections.sort(languageModels);
 
-        return filteredCountries;
+        return languageModels;
     }
 }

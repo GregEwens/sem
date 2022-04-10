@@ -44,7 +44,7 @@ public class Country
     /**
      * The population of the country.
      */
-    public int Population;
+    public long Population;
 
     /**
      * The average life expectancy of the country.

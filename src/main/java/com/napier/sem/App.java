@@ -160,10 +160,10 @@ public class App
         languageRepo = new LanguageRepository(a.con);
 
         // construct the language service
-        languageService = new LanguageService(languageRepo);
+        languageService = new LanguageService(languageRepo, populationReportingService);
 
 
-        var debug = languageService.getAllLanguages();
+        var debug = languageService.getDemographicReportModel();
     }
 
     /**

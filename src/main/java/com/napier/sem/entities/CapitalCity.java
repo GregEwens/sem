@@ -23,7 +23,7 @@ public class CapitalCity
     /**
      * The population of the Capital City
      */
-    public int population;
+    public long population;
 
     /**
      * The continent the country is on.
