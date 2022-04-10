@@ -1,9 +1,6 @@
 package com.napier.sem;
 
-import com.napier.sem.reports.CapitalCityReportViewer;
-import com.napier.sem.reports.CityReportViewer;
-import com.napier.sem.reports.CountryReportViewer;
-import com.napier.sem.reports.PopulationReportViewer;
+import com.napier.sem.reports.*;
 import com.napier.sem.repositories.CapitalCityRepository;
 import com.napier.sem.repositories.CityRepository;
 import com.napier.sem.repositories.CountryRepository;
@@ -92,6 +89,11 @@ public class App
     public static LanguageService languageService;
 
     /**
+     * The demographic report viewer
+     */
+    public static DemographicReportViewer demographicReports;
+
+    /**
      * The entry point for the app
      * @param args index0: database location, index1: connection retry delay
      */
@@ -162,8 +164,8 @@ public class App
         // construct the language service
         languageService = new LanguageService(languageRepo, populationReportingService);
 
-
-        var debug = languageService.getDemographicReportModel();
+        // construct the demographic report viewer
+        demographicReports = new DemographicReportViewer(languageService);
     }
 
     /**
@@ -248,6 +250,9 @@ public class App
 
         // show basic population report for the world
         populationReports.ShowBasicPopulationReportForCity("Edinburgh");
+
+        // show the demographics of the world
+        demographicReports.ShowKeyDemographicReport();
 
     }
 

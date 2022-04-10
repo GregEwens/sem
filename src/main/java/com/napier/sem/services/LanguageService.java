@@ -1,16 +1,9 @@
 package com.napier.sem.services;
 
-import com.napier.sem.entities.SpokenLanguageJoinCountry;
-import com.napier.sem.models.DemographicReportModel;
 import com.napier.sem.models.LanguageModel;
 import com.napier.sem.repositories.ILanguageRepository;
-import com.sun.source.tree.ArrayAccessTree;
-
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Collections;
 
-import static com.napier.sem.helpers.PopulationHelpers.*;
 import static com.napier.sem.helpers.LanguageHelpers.*;
 
 /**
@@ -51,27 +44,10 @@ public class LanguageService {
      * Gets a collection of all capital cities
      * @return Returns a sorted DemographicReportModel
      */
-    public DemographicReportModel getDemographicReportModel(){
+    public ArrayList<LanguageModel> getDemographicReportModel(){
         var worldPopulation = _populationService.getPopulationOfWorld();
         var allLanguages =  _languageRepository.getAllLanguages();
 
-        var model = new DemographicReportModel();
-        model.languageModels = getLanguageModels(allLanguages, worldPopulation);
-
-        return model;
-    }
-
-    private ArrayList<LanguageModel> getLanguageModels(ArrayList<SpokenLanguageJoinCountry> allLanguages, long worldPopulation){
-        var languageModels = new ArrayList<LanguageModel>();
-
-        for (var language: _languagesOfInterest  ) {
-            var spokenLanguage = getCountriesWithLanguage(allLanguages, language);
-
-            languageModels.add(new LanguageModel(language, sumLanguageCount(spokenLanguage), worldPopulation));
-        }
-
-        Collections.sort(languageModels);
-
-        return languageModels;
+        return buildLanguageModels(allLanguages, worldPopulation, _languagesOfInterest);
     }
 }
