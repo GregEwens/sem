@@ -1,4 +1,4 @@
-package com.napier.sem.unit_tests;
+package com.napier.sem.unit_tests.models;
 
 import com.napier.sem.models.LanguageModel;
 import org.junit.jupiter.api.Test;

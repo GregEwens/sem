@@ -1,7 +1,8 @@
-package com.napier.sem.unit_tests;
+package com.napier.sem.unit_tests.services;
 
 import com.napier.sem.repositories.ICountryRepository;
 import com.napier.sem.services.CountryService;
+import com.napier.sem.unit_tests.repositories.CountryRepositoryMock;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;

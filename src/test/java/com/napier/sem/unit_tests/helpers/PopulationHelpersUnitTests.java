@@ -1,4 +1,4 @@
-package com.napier.sem.unit_tests;
+package com.napier.sem.unit_tests.helpers;
 
 import com.napier.sem.entities.City;
 import com.napier.sem.entities.Country;

@@ -1,4 +1,4 @@
-package com.napier.sem.unit_tests;
+package com.napier.sem.unit_tests.helpers;
 import com.napier.sem.entities.SpokenLanguageJoinCountry;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

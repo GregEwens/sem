@@ -1,7 +1,8 @@
-package com.napier.sem.unit_tests;
+package com.napier.sem.unit_tests.services;
 
 import com.napier.sem.repositories.ICapitalCityRepository;
 import com.napier.sem.services.CapitalCityService;
+import com.napier.sem.unit_tests.repositories.CapitalCityRepositoryMock;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
