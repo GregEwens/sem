@@ -1,6 +1,5 @@
 package com.napier.sem.repositories;
 
-import com.napier.sem.entities.CapitalCity;
 import com.napier.sem.entities.SpokenLanguageJoinCountry;
 
 import java.sql.Connection;
@@ -30,6 +29,9 @@ public class LanguageRepository implements ILanguageRepository  {
         con = connection;
     }
 
+    /**
+     * @inheritDoc
+     */
     @Override
     public ArrayList<SpokenLanguageJoinCountry> getAllLanguages() {
         // Create string for SQL statement
@@ -40,7 +42,6 @@ public class LanguageRepository implements ILanguageRepository  {
 
         return getSpokenLanguageCollection(strSelect);
     }
-
 
     /**
      * Queries the city table using the supplied SQL statement. This input is not validated and must be sanitised

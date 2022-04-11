@@ -48,12 +48,10 @@ public class LanguageHelpersUnitTests {
     @Test
     void getCountriesWithLanguageReturnsFilteredCollectionTest(){
         // Arrange
-        var collection = SpokenLanguageJoinCountryCollection;
-
         var filteredLanguage = "Language1";
 
         // Act
-        var filteredCollection = getCountriesWithLanguage(collection, filteredLanguage);
+        var filteredCollection = getCountriesWithLanguage(SpokenLanguageJoinCountryCollection, filteredLanguage);
 
         // Assert
         assertEquals(2, filteredCollection.size());
@@ -65,10 +63,8 @@ public class LanguageHelpersUnitTests {
     @Test
     void getCountriesWithLanguageReturnsEmptyCollectionTest(){
         // Arrange
-        var collection = SpokenLanguageJoinCountryCollection;
-
         // Act
-        var filteredCollection = getCountriesWithLanguage(collection, "not a language");
+        var filteredCollection = getCountriesWithLanguage(SpokenLanguageJoinCountryCollection, "not a language");
 
         // Assert
         assertNotNull(filteredCollection);
@@ -81,12 +77,11 @@ public class LanguageHelpersUnitTests {
     @Test
     void buildLanguageModelsBuildsCorrectCountOfModelsTest(){
         // Arrange
-        var languagesCollection = SpokenLanguageJoinCountryCollection;
         var worldPopulation = 10000;
         var languagesOfInterest = new String[] {"Language1", "Language2", "Language3"};
 
         // Act
-        var response = buildLanguageModels(languagesCollection, worldPopulation, languagesOfInterest);
+        var response = buildLanguageModels(SpokenLanguageJoinCountryCollection, worldPopulation, languagesOfInterest);
 
         // Assert
         assertEquals(3, response.size());
@@ -98,12 +93,11 @@ public class LanguageHelpersUnitTests {
     @Test
     void buildLanguageModelsBuildsAccurateModelsTest(){
         // Arrange
-        var languagesCollection = SpokenLanguageJoinCountryCollection;
         var worldPopulation = 10000;
         var languagesOfInterest = new String[] {"Language2"};
 
         // Act
-        var response = buildLanguageModels(languagesCollection, worldPopulation, languagesOfInterest);
+        var response = buildLanguageModels(SpokenLanguageJoinCountryCollection, worldPopulation, languagesOfInterest);
 
         // Assert
         assertEquals("Language2", response.get(0).LanguageName);

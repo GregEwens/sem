@@ -1,7 +1,6 @@
 package com.napier.sem.unit_tests;
 
 import com.napier.sem.models.LanguageModel;
-import com.napier.sem.services.CityService;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -72,6 +71,6 @@ public class LanguageModelUnitTests {
         var systemUnderTest = new LanguageModel("item1", 1000, 0);
 
         // Assert
-        assertThrows(IllegalArgumentException.class, () -> systemUnderTest.GetSpeakersAsPercentageOfWorld());
+        assertThrows(IllegalArgumentException.class, systemUnderTest::GetSpeakersAsPercentageOfWorld);
     }
 }

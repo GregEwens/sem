@@ -7,9 +7,9 @@ import java.util.ArrayList;
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.repositories
- * User: <<Your name here>>
+ * User: Greg Ewens
  * Date Created: 09/04/2022 16:52
- * File Purpose:
+ * File Purpose: This class provides methods for accessing Language data
  */
 public interface ILanguageRepository {
 

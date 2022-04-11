@@ -7,23 +7,22 @@ package com.napier.sem.models;
  * Date Created: 10/04/2022 16:17
  * File Purpose: Models a language as needed by the Demographic report
  */
-public class LanguageModel implements Comparable {
+public class LanguageModel implements Comparable<LanguageModel> {
 
     /**
      * The name of the language in English
      */
-    public String LanguageName;
-
+    public final String LanguageName;
 
     /**
      * The count of individuals who speak the language
      */
-    public long Speakers;
+    public final long Speakers;
 
     /**
      * The total population of the world
      */
-    private float PopulationOfWorld;
+    private final float PopulationOfWorld;
 
     /**
      * The public constructor
@@ -43,13 +42,11 @@ public class LanguageModel implements Comparable {
      * @return An integer which is used to determine sort order
      */
     @Override
-    public int compareTo(Object compareLangModel) {
+    public int compareTo(LanguageModel compareLangModel) {
 
         // use the speaker property to add to the comparator
-        long compareSpeakers = ((LanguageModel)compareLangModel).Speakers;
-
-        // For Descending order
-        return (int) (compareSpeakers - this.Speakers);
+        // For Descending order subtract from the default
+        return (int) ((compareLangModel).Speakers - this.Speakers);
     }
 
     /**

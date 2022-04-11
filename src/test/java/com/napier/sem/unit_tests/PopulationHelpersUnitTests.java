@@ -52,6 +52,8 @@ public class PopulationHelpersUnitTests {
     @Test
     public void sumCityPopulationHandlesEmptyListTest() {
         // Arrange
+        @SuppressWarnings("MismatchedQueryAndUpdateOfCollection") // no need to use cities as we're only testing the
+        // output so we can suppress this warning
         var cities = new ArrayList<City>();
 
         // Act
@@ -94,6 +96,8 @@ public class PopulationHelpersUnitTests {
     @Test
     public void sumCountryPopulationHandlesEmptyListTest() {
         // Arrange
+        @SuppressWarnings("MismatchedQueryAndUpdateOfCollection") // no need to use cities as we're only testing the
+        // output so we can suppress this warning
         var countries = new ArrayList<Country>();
 
         // Act

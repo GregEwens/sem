@@ -1,7 +1,6 @@
 package com.napier.sem.unit_tests;
 
 import com.napier.sem.models.HighLevelPopulationReportModel;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

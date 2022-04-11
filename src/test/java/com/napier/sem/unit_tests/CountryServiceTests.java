@@ -4,8 +4,6 @@ import com.napier.sem.repositories.ICountryRepository;
 import com.napier.sem.services.CountryService;
 import org.junit.jupiter.api.*;
 
-import java.util.Locale;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 /**

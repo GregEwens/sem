@@ -9,6 +9,8 @@ import java.math.BigDecimal;
  * Date Created: 19/02/2022 22:07
  * File Purpose: This class maps to the Country database entity.
  */
+@SuppressWarnings("unused") // This entity maps to the database table. Properties not used should be reviewed
+// periodically
 public class Country
 {
     /**

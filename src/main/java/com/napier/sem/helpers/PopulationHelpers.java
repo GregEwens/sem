@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Package: com.napier.sem.helpers
  * User: Greg Ewens
  * Date Created: 09/04/2022 14:29
- * File Purpose:
+ * File Purpose: Helper methods for population and demographics
  */
 public class PopulationHelpers {
 

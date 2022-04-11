@@ -1,7 +1,5 @@
 package com.napier.sem.entities;
 
-import jdk.jfr.Percentage;
-
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.entities
@@ -9,6 +7,8 @@ import jdk.jfr.Percentage;
  * Date Created: 09/04/2022 16:53
  * File Purpose: DTO entity extends City and used when mapping from SpokenLanguage joined to Country
  */
+@SuppressWarnings("unused")// This entity maps to the database table. Properties not used should be reviewed
+// periodically
 public class SpokenLanguageJoinCountry extends Country {
 
     /**
