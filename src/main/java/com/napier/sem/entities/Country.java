@@ -10,7 +10,7 @@ import java.math.BigDecimal;
  * File Purpose: This class maps to the Country database entity.
  */
 @SuppressWarnings("unused") // This entity maps to the database table. Properties not used should be reviewed
-// periodically
+// periodically and once the app is feature complete
 public class Country
 {
     /**

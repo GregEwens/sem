@@ -8,7 +8,7 @@ package com.napier.sem.entities;
  * File Purpose: DTO entity extends City and used when mapping from SpokenLanguage joined to Country
  */
 @SuppressWarnings("unused")// This entity maps to the database table. Properties not used should be reviewed
-// periodically
+// periodically and once the app is feature complete
 public class SpokenLanguageJoinCountry extends Country {
 
     /**
