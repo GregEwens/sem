@@ -100,9 +100,16 @@ public class CapitalCityService {
         var capitalCities = getAllCapitalCitiesInRegionOrderedByPopulation(regionName);
 
         return (ArrayList<CapitalCity>) capitalCities.stream().limit(n).collect(Collectors.toList());
+    }
 
-
-
+    /**
+     * Gets a collection of all capital cities of number N in a continent specified as continentName
+     * @param n number of capital cities to be returned
+     * @param continentName name of specified continent
+     * @return Returns a sorted collection of Capital Cities of number N filtered by continentName
+     */
+    public ArrayList<CapitalCity> getTopNCapitalCitiesInContinentOrderedByPopulation(int n, String continentName){
+        throw new UnsupportedOperationException();
     }
 
 

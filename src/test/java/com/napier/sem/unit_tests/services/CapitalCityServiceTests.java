@@ -500,4 +500,154 @@ public class CapitalCityServiceTests {
     }
 
 
+
+    /**
+     * getTopNCapitalCitiesInRegionOrderedByPopulation tested with correct count
+     */
+    @Test
+    void getTopNCapitalCitiesInContinentOrderedByPopulationCorrectCountTest(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var count = 10;
+        var continent = "Oceania";
+
+        // Act
+        var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, continent);
+
+        // Assert
+        assertEquals(count, capitalCities.size());
+    }
+
+    /**
+     * getTopNCapitalCitiesInContinentOrderedByPopulation tested with correct count
+     */
+    @Test
+    void getTopNCapitalCitiesInContinentOrderedByPopulationCorrectCountTestAllUpper(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var count = 10;
+        var continent = "OCEANIA";
+
+        // Act
+        var capitalCities = systemUnderTest.getTopNCapitalCitiesInContinentOrderedByPopulation(count, continent);
+
+        // Assert
+        assertEquals(count, capitalCities.size());
+    }
+
+    /**
+     * getTopNCapitalCitiesInContinentOrderedByPopulation tested with correct count
+     */
+    @Test
+    void getTopNCapitalCitiesInContinentOrderedByPopulationCorrectCountTestAllLower(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var count = 10;
+        var continent = "oceania";
+
+        // Act
+        var capitalCities = systemUnderTest.getTopNCapitalCitiesInContinentOrderedByPopulation(count, continent);
+
+        // Assert
+        assertEquals(count, capitalCities.size());
+    }
+
+    /**
+     * getTopNCapitalCitiesInContinentOrderedByPopulation tested with 0 count
+     */
+    @Test
+    void getTopNCaptialCitiesInContinentOrderedByPopulationZeroCountTest(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var count = 0;
+        var continent= "Oceania";
+
+        // Act
+        var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, continent);
+
+        // Assert
+        assertEquals(count, capitalCities.size());
+    }
+
+    /**
+     * getTopNCapitalCitiesInContinentOrderedByPopulation tested with 0 count
+     */
+    @Test
+    void getTopNCapitalCitiesInContinentOrderedByPopulationRegionNotFoundTest(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var count = 10;
+        var continent = "NotAContinent";
+
+        // Act
+        var capitalCities = systemUnderTest.getTopNCapitalCitiesInContinentOrderedByPopulation(count, continent);
+
+        // Assert
+        assertEquals(0, capitalCities.size());
+    }
+
+    /**
+     * getTopNCitiesInContinentOrderedByPopulation tested with negative count
+     */
+    @Test
+    void getTopNCapitalCitiesInContinentOrderedByPopulationNegativeCountThrowsIllegalArgumentExceptionTest(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var count = -1;
+        var continent = "Oceania";
+
+        // Assert
+        assertThrows(IllegalArgumentException.class,
+                () -> systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, continent));
+    }
+
+    /**
+     * getTopNCapitalCitiesInContinentOrderedByPopulation tested with a count greater than the number of existing countries
+     */
+    @Test
+    void getTopNCapitalCitiesInContinentOrderedByPopulationMoreThanExistsCountTest(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var count = 20;
+        var continent = "Oceania";
+
+        // Act
+        var capitalCities = systemUnderTest.getTopNCapitalCitiesInContinentOrderedByPopulation(count, continent);
+
+        // Assert
+        assertNotEquals(count, capitalCities.size());
+    }
+
+    /**
+     * getTopNCapitalCitiesInContinentOrderedByPopulation tested for correct ordering
+     */
+    @Test
+    void getTopNCapitalCitiesInContinentOrderedByPopulationAreOrderedTest(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var count = 4;
+        var continent = "Oceania";
+
+        // Act
+        var capitalCities = systemUnderTest.getTopNCapitalCitiesInContinentOrderedByPopulation(count, continent);
+
+        // Assert
+        var populationFirst = capitalCities.get(0).population;
+        var populationSecond = capitalCities.get(1).population;
+        var populationThird = capitalCities.get(2).population;
+        var populationFourth = capitalCities.get(3).population;
+
+        assertTrue(populationFirst > populationSecond && populationSecond > populationThird && populationThird > populationFourth);
+    }
+
+
+
 }
