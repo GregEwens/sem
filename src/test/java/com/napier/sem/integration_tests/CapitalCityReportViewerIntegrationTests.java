@@ -94,4 +94,13 @@ public class CapitalCityReportViewerIntegrationTests {
         // test
         // ensures that no exceptions are thrown
     }
+
+    /**
+     * Integration test for ShowTopNCapitalCitiesByPopulation
+     */
+    @Test
+    void testsShowTopNCapitalCitiesByPopulation(){
+        App.capitalCityReports.ShowTopNCapitalCitiesByPopulation(1); // No testable output - this test ensures
+        // that no exceptions are thrown
+    }
 }
