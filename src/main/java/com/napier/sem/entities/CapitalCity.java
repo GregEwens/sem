@@ -30,4 +30,10 @@ public class CapitalCity
      */
     public String Continent;
 
+    /**
+     * The region the Capital City is on.
+     */
+    public String region;
+
+
 }

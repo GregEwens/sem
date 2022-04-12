@@ -53,4 +53,13 @@ public class CapitalCityService {
         return _capitalCityRepository.getAllCapitalCitiesOrderedByPopulation();
     }
 
+    /**
+     * Gets a collection of all capital cities in a specified region
+     * @param regionName Region name to filter by
+     * @return Returns a sorted collection of Capital Cities
+     */
+    public ArrayList<CapitalCity> getAllCapitalCitiesInRegionOrderedByPopulation(String regionName){
+        throw new UnsupportedOperationException();
+    }
+
 }

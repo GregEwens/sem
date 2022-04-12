@@ -38,7 +38,7 @@ public class CapitalCityRepository implements ICapitalCityRepository {
     {
         // Create string for SQL statement
         String strSelect =
-                "SELECT ci.Name, c.Name as Country, ci.Population, c.Continent "
+                "SELECT ci.Name, c.Name as Country, ci.Population, c.Continent, c.region "
                         + "FROM city ci JOIN country c ON c.Capital = ci.id "
                         + "ORDER BY Population DESC";
 
@@ -73,6 +73,7 @@ public class CapitalCityRepository implements ICapitalCityRepository {
                 city.country = resultSet.getString("Country");
                 city.population = resultSet.getInt("Population");
                 city.Continent = resultSet.getString("Continent");
+                city.region = resultSet.getString("region");
 
                 cities.add(city);
             }

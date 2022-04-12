@@ -27,11 +27,15 @@ public class CapitalCityRepositoryMock implements ICapitalCityRepository {
             var continent = "South America";  // 15 south america
             if(i >= 15) continent = "Oceania"; // 15 oceania
 
+            var region = "Caribbean"; // 15 Caribbean
+            if(i >= 15) region = "Middle East"; // 15 Middle East
+
             // generate values based on index
             city.country = Integer.toString(i);
             city.population = 10000000-(int) Math.pow(2, i);
             city.Continent = continent;
             city.name = "name" + i;
+            city.region = region;
 
             cities.add(city);
         }

@@ -2,6 +2,7 @@ package com.napier.sem.unit_tests.services;
 
 import com.napier.sem.repositories.ICapitalCityRepository;
 import com.napier.sem.services.CapitalCityService;
+import com.napier.sem.services.CityService;
 import com.napier.sem.unit_tests.repositories.CapitalCityRepositoryMock;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -154,6 +155,112 @@ public class CapitalCityServiceTests {
         var populationFourth = cities.get(3).population;
 
         assertTrue(populationFirst > populationSecond && populationSecond > populationThird && populationThird > populationFourth);
+    }
+
+    /**
+     * getAllCapitalCitiesInRegionOrderedByPopulation tested to check correct count of Capital Cities returned
+     */
+    @Test
+    void getAllCapitalCitiesInRegionOrderedByPopulationReturnsCorrectCountTest(){
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var regionName = "Middle East";
+
+        //Act
+        var capitalCities = systemUnderTest.getAllCapitalCitiesInRegionOrderedByPopulation(regionName);
+
+        //Assert
+        assertEquals(15, capitalCities.size());
+    }
+
+    /**
+     * getAllCapitalCitiesInRegionOrderedByPopulation tested to check correct region returned
+     */
+    @Test
+    void getAllCapitalCitiesInRegionOrderedByPopulationReturnsCorrectRegionTest(){
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var regionName = "Middle East";
+
+        //Act
+        var capitalCities = systemUnderTest.getAllCapitalCitiesInRegionOrderedByPopulation(regionName);
+        var capitalCity = capitalCities.get(0);
+
+        //Assert
+        assertEquals("Middle East", capitalCity.region);
+    }
+
+    /**
+     * getAllCapitalCitiesInRegionOrderedByPopulation tested to check correct order of Capital Cities returned
+     */
+    @Test
+    void getAllCapitalCitiesInRegionOrderedByPopulationReturnsCorrectOrderingTest(){
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var regionName = "Middle East";
+
+        //Act
+        var capitalCities = systemUnderTest.getAllCapitalCitiesInRegionOrderedByPopulation(regionName);
+
+
+        //Assert
+        var populationFirst = capitalCities.get(0).population;
+        var populationSecond = capitalCities.get(1).population;
+        var populationThird = capitalCities.get(2).population;
+        var populationFourth = capitalCities.get(3).population;
+
+        assertTrue(populationFirst > populationSecond && populationSecond > populationThird && populationThird > populationFourth);
+
+    }
+
+    /**
+     * getAllCapitalCitiesInRegionOrderedByPopulation tested to check casing differences returns result
+     */
+    @Test
+    void getAllCapitalCitiesInRegionOrderedByPopulationReturnsCorrectLowerCaseTest(){
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var regionName = "middle east";
+
+        //Act
+        var capitalCities = systemUnderTest.getAllCapitalCitiesInRegionOrderedByPopulation(regionName);
+        var capitalCity = capitalCities.get(0);
+
+        //Assert
+        assertEquals("Middle East", capitalCity.region);
+    }
+
+    /**
+     * getAllCapitalCitiesInRegionOrderedByPopulation tested to check casing differences returns result
+     */
+    @Test
+    void getAllCapitalCitiesInRegionOrderedByPopulationReturnsCorrectUpperCaseTest(){
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var regionName = "MIDDLE EAST";
+
+        //Act
+        var capitalCities = systemUnderTest.getAllCapitalCitiesInRegionOrderedByPopulation(regionName);
+        var capitalCity = capitalCities.get(0);
+
+        //Assert
+        assertEquals("Middle East", capitalCity.region);
+    }
+
+    /**
+     * getAllCapitalCitiesInRegionOrderedByPopulation tested to check not found correctly
+     */
+    @Test
+    void getAllCapitalCitiesInRegionOrderedByPopulationReturnsEmptyListTest(){
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var regionName = "Not a Region";
+
+        //Act
+        var capitalCities = systemUnderTest.getAllCapitalCitiesInRegionOrderedByPopulation(regionName);
+
+        //Assert
+        assertTrue(capitalCities.size() == 0);
     }
 
 
