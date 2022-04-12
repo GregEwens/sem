@@ -59,7 +59,19 @@ public class CapitalCityService {
      * @return Returns a sorted collection of Capital Cities
      */
     public ArrayList<CapitalCity> getAllCapitalCitiesInRegionOrderedByPopulation(String regionName){
-        throw new UnsupportedOperationException();
+
+        var cities = _capitalCityRepository.getAllCapitalCitiesOrderedByPopulation();
+
+        var citiesInRegion = new ArrayList<CapitalCity>();
+
+        for (var city:cities) {
+            if (city.region.equalsIgnoreCase(regionName)){
+                citiesInRegion.add(city);
+            }
+        }
+
+        return citiesInRegion;
+
     }
 
 }
