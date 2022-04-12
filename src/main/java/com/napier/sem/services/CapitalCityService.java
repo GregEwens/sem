@@ -1,8 +1,10 @@
 package com.napier.sem.services;
 
 import com.napier.sem.entities.CapitalCity;
+import com.napier.sem.entities.City;
 import com.napier.sem.repositories.ICapitalCityRepository;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 /**
  * Project Name: seMethods
@@ -80,7 +82,11 @@ public class CapitalCityService {
      * @return Returns a sorted collection of Capital Cities of number N
      */
     public ArrayList<CapitalCity> getTopNCapitalCitiesInWorldOrderedByPopulation(int n){
-        throw new UnsupportedOperationException();
+
+        var capitalCities = _capitalCityRepository.getAllCapitalCitiesOrderedByPopulation();
+
+        return (ArrayList<CapitalCity>) capitalCities.stream().limit(n).collect(Collectors.toList());
+
     }
 
 
