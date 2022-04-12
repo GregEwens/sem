@@ -263,5 +263,92 @@ public class CapitalCityServiceTests {
         assertTrue(capitalCities.size() == 0);
     }
 
+    /**
+     * getTopNCapitalCitiesOrderedByPopulation tested with correct count
+     */
+    @Test
+    void getTopNCapitalCitiesOrderedByPopulationCorrectCountTest(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var count = 10;
+
+        // Act
+        var capitalCities = systemUnderTest.getTopNCapitalCitiesInWorldOrderedByPopulation(count);
+
+        // Assert
+        assertEquals(count, capitalCities.size());
+    }
+
+    /**
+     * getTopNCapitalCitiesOrderedByPopulation tested with 0 count
+     */
+    @Test
+    void getTopNCitiesOrderedByPopulationZeroCountTest(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var count = 0;
+
+        // Act
+        var capitalCities = systemUnderTest.getTopNCapitalCitiesInWorldOrderedByPopulation(count);
+
+        // Assert
+        assertEquals(count, capitalCities.size());
+    }
+
+    /**
+     * getTopNCapitalCitiesOrderedByPopulation tested with negative count
+     */
+    @Test
+    void getTopNCapitalCitiesOrderedByPopulationNegativeCountThrowsIllegalArgumentExceptionTest(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var count = -1;
+
+        // Assert
+        assertThrows(IllegalArgumentException.class, () -> systemUnderTest.getTopNCapitalCitiesInWorldOrderedByPopulation(count));
+    }
+
+    /**
+     * getTopNCapitalCitiesOrderedByPopulation tested with a count greater than the number of existing Capital Cities
+     */
+    @Test
+    void getTopNCapitalCitiesOrderedByPopulationMoreThanExistsCountTest(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var count = 500;
+
+        // Act
+        var capitalCities = systemUnderTest.getTopNCapitalCitiesInWorldOrderedByPopulation(count);
+
+        // Assert
+        assertNotEquals(count, capitalCities.size());
+    }
+
+    /**
+     * getTopNCapitalCitiesOrderedByPopulation tested for correct ordering
+     */
+    @Test
+    void getTopNCapitalCitiesOrderedByPopulationAreOrderedTest(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var count = 4;
+
+        // Act
+        var capitalCities = systemUnderTest.getTopNCapitalCitiesInWorldOrderedByPopulation(count);
+
+        // Assert
+        var populationFirst = capitalCities.get(0).population;
+        var populationSecond = capitalCities.get(1).population;
+        var populationThird = capitalCities.get(2).population;
+        var populationFourth = capitalCities.get(3).population;
+
+        assertTrue(populationFirst < populationSecond && populationSecond < populationThird && populationThird < populationFourth);
+    }
+
 
 }

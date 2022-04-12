@@ -74,4 +74,14 @@ public class CapitalCityService {
 
     }
 
+    /**
+     * Gets a collection of all capital cities of number N
+     * @param n number of capital cities to be returned
+     * @return Returns a sorted collection of Capital Cities of number N
+     */
+    public ArrayList<CapitalCity> getTopNCapitalCitiesInWorldOrderedByPopulation(int n){
+        throw new UnsupportedOperationException();
+    }
+
+
 }
