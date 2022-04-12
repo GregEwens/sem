@@ -351,4 +351,153 @@ public class CapitalCityServiceTests {
     }
 
 
+
+    /**
+     * getTopNCapitalCitiesInRegionOrderedByPopulation tested with correct count
+     */
+    @Test
+    void getTopNCapitalCitiesInRegionOrderedByPopulationCorrectCountTest(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var count = 10;
+        var region = "North Africa";
+
+        // Act
+        var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, region);
+
+        // Assert
+        assertEquals(count, capitalCities.size());
+    }
+
+    /**
+     * getTopNCapitalCitiesInRegionOrderedByPopulation tested with correct count
+     */
+    @Test
+    void getTopNCapitalCitiesInRegionOrderedByPopulationCorrectCountTestAllUpper(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var count = 10;
+        var region = "NORTH AFRICA";
+
+        // Act
+        var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, region);
+
+        // Assert
+        assertEquals(count, capitalCities.size());
+    }
+
+    /**
+     * getTopNCapitalCitiesInRegionOrderedByPopulation tested with correct count
+     */
+    @Test
+    void getTopNCapitalCitiesInRegionOrderedByPopulationCorrectCountTestAllLower(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var count = 10;
+        var region = "north africa";
+
+        // Act
+        var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, region);
+
+        // Assert
+        assertEquals(count, capitalCities.size());
+    }
+
+    /**
+     * getTopNCapitalCitiesInRegionOrderedByPopulation tested with 0 count
+     */
+    @Test
+    void getTopNCaptialCitiesInRegionOrderedByPopulationZeroCountTest(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var count = 0;
+        var region = "North Africa";
+
+        // Act
+        var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, region);
+
+        // Assert
+        assertEquals(count, capitalCities.size());
+    }
+
+    /**
+     * getTopNCapitalCitiesInRegionOrderedByPopulation tested with 0 count
+     */
+    @Test
+    void getTopNCapitalCitiesInRegionOrderedByPopulationRegionNotFoundTest(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var count = 10;
+        var region = "NotARegion";
+
+        // Act
+        var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, region);
+
+        // Assert
+        assertEquals(0, capitalCities.size());
+    }
+
+    /**
+     * getTopNCitiesInRegionOrderedByPopulation tested with negative count
+     */
+    @Test
+    void getTopNCapitalCitiesInRegionOrderedByPopulationNegativeCountThrowsIllegalArgumentExceptionTest(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var count = -1;
+        var region = "North Africa";
+
+        // Assert
+        assertThrows(IllegalArgumentException.class,
+                () -> systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, region));
+    }
+
+    /**
+     * getTopNCapitalCitiesInRegionOrderedByPopulation tested with a count greater than the number of existing countries
+     */
+    @Test
+    void getTopNCapitalCitiesInRegionOrderedByPopulationMoreThanExistsCountTest(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var count = 20;
+        var region = "North Africa";
+
+        // Act
+        var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, region);
+
+        // Assert
+        assertNotEquals(count, capitalCities.size());
+    }
+
+    /**
+     * getTopNCapitalCitiesInRegionOrderedByPopulation tested for correct ordering
+     */
+    @Test
+    void getTopNCapitalCitiesInRegionOrderedByPopulationAreOrderedTest(){
+
+        // Arrange
+        var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
+        var count = 4;
+        var region = "North Africa";
+
+        // Act
+        var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, region);
+
+        // Assert
+        var populationFirst = capitalCities.get(0).population;
+        var populationSecond = capitalCities.get(1).population;
+        var populationThird = capitalCities.get(2).population;
+        var populationFourth = capitalCities.get(3).population;
+
+        assertTrue(populationFirst > populationSecond && populationSecond > populationThird && populationThird > populationFourth);
+    }
+
+
 }

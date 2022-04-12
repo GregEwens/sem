@@ -89,5 +89,16 @@ public class CapitalCityService {
 
     }
 
+    /**
+     * Gets a collection of all capital cities of number N in a region specified as regionName
+     * @param n number of capital cities to be returned
+     * @param regionName name of specified region
+     * @return Returns a sorted collection of Capital Cities of number N filtered by regionName
+     */
+    public ArrayList<CapitalCity> getTopNCapitalCitiesInRegionOrderedByPopulation(int n, String regionName){
+        throw new UnsupportedOperationException();
+
+    }
+
 
 }
