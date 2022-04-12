@@ -361,7 +361,7 @@ public class CapitalCityServiceTests {
         // Arrange
         var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
         var count = 10;
-        var region = "North Africa";
+        var region = "Middle East";
 
         // Act
         var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, region);
@@ -379,7 +379,7 @@ public class CapitalCityServiceTests {
         // Arrange
         var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
         var count = 10;
-        var region = "NORTH AFRICA";
+        var region = "MIDDLE EAST";
 
         // Act
         var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, region);
@@ -397,7 +397,7 @@ public class CapitalCityServiceTests {
         // Arrange
         var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
         var count = 10;
-        var region = "north africa";
+        var region = "middle east";
 
         // Act
         var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, region);
@@ -415,7 +415,7 @@ public class CapitalCityServiceTests {
         // Arrange
         var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
         var count = 0;
-        var region = "North Africa";
+        var region = "Middle East";
 
         // Act
         var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, region);
@@ -451,7 +451,7 @@ public class CapitalCityServiceTests {
         // Arrange
         var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
         var count = -1;
-        var region = "North Africa";
+        var region = "Middle East";
 
         // Assert
         assertThrows(IllegalArgumentException.class,
@@ -467,7 +467,7 @@ public class CapitalCityServiceTests {
         // Arrange
         var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
         var count = 20;
-        var region = "North Africa";
+        var region = "Middle East";
 
         // Act
         var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, region);
@@ -485,7 +485,7 @@ public class CapitalCityServiceTests {
         // Arrange
         var systemUnderTest = new CapitalCityService(capitalCityRepositoryMock);
         var count = 4;
-        var region = "North Africa";
+        var region = "Middle East";
 
         // Act
         var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, region);
