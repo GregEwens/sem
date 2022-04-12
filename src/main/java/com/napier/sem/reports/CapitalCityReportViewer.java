@@ -86,4 +86,16 @@ public class CapitalCityReportViewer {
                             + "Population:" + city.population + "\n");
         }
     }
+
+    /**
+     * Shows the top N capital cities in the world where N is specified
+     * @param n the number of capital cities to display
+     */
+    public void ShowTopNCapitalCitiesByPopulation(int n){
+        var capitalCities = _capitalCityService.getTopNCapitalCitiesInWorldOrderedByPopulation(n);
+
+        System.out.println("Report showing top " + n + "  capital cities in ordered by population");
+
+        displayCapitalCities(capitalCities);
+    }
 }

@@ -256,6 +256,10 @@ public class App
 
         // show the capital cities in a region
         capitalCityReports.ShowCapitalCitiesInRegionByPopulation("Middle East");
+
+        // Show the top N capital cities in the world
+        capitalCityReports.ShowTopNCapitalCitiesByPopulation(12);
+
     }
 
     /**
