@@ -97,4 +97,21 @@ public class CapitalCityServiceIntegrationTests {
         assertTrue(city1.name.length() > 0);
         assertTrue(city1.population > city2.population && city2.population > city3.population);
     }
+
+    /**
+     * Integration test for getAllCapitalCitiesByRegionOrderedByPopulation
+     */
+    @Test
+    void testGetAllCapitalCitiesByRegionOrderedByPopulation(){
+        //Arrange and Act
+        var cities = App.capitalCityService
+                .getAllCapitalCitiesInRegionOrderedByPopulation(_capitalCity.region);
+        var city = cities.get(0);
+
+        // Assert
+        assertTrue(city.population > 0);
+        assertTrue(city.country.length() > 0);
+        assertTrue(city.name.length() > 0);
+    }
+
 }
