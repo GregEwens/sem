@@ -109,7 +109,9 @@ public class CapitalCityService {
      * @return Returns a sorted collection of Capital Cities of number N filtered by continentName
      */
     public ArrayList<CapitalCity> getTopNCapitalCitiesInContinentOrderedByPopulation(int n, String continentName){
-        throw new UnsupportedOperationException();
+        var capitalCities = getAllCapitalCitiesByContinentOrderedByPopulation(continentName);
+
+        return (ArrayList<CapitalCity>) capitalCities.stream().limit(n).collect(Collectors.toList());
     }
 
 

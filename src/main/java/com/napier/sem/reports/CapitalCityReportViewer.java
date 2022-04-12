@@ -112,4 +112,18 @@ public class CapitalCityReportViewer {
         displayCapitalCities(capitalCities);
     }
 
+    /**
+     * Shows the top N capital cities in a continent where N is specified and the continentName is specified
+     * @param n the number of capital cities to display
+     * @param continentName the name of the continent
+     */
+    public void ShowTopNCapitalCitiesInContinentByPopulation(int n, String continentName){
+        var capitalCities = _capitalCityService.getTopNCapitalCitiesInContinentOrderedByPopulation(n, continentName);
+
+        System.out.println("Report showing top " + n + "  capital cities in " + continentName + " ordered by population");
+
+        displayCapitalCities(capitalCities);
+    }
+
+
 }

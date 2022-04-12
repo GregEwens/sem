@@ -513,7 +513,7 @@ public class CapitalCityServiceTests {
         var continent = "Oceania";
 
         // Act
-        var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, continent);
+        var capitalCities = systemUnderTest.getTopNCapitalCitiesInContinentOrderedByPopulation(count, continent);
 
         // Assert
         assertEquals(count, capitalCities.size());
@@ -567,7 +567,7 @@ public class CapitalCityServiceTests {
         var continent= "Oceania";
 
         // Act
-        var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, continent);
+        var capitalCities = systemUnderTest.getTopNCapitalCitiesInContinentOrderedByPopulation(count, continent);
 
         // Assert
         assertEquals(count, capitalCities.size());
@@ -604,7 +604,7 @@ public class CapitalCityServiceTests {
 
         // Assert
         assertThrows(IllegalArgumentException.class,
-                () -> systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, continent));
+                () -> systemUnderTest.getTopNCapitalCitiesInContinentOrderedByPopulation(count, continent));
     }
 
     /**

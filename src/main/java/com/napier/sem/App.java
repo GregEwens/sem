@@ -262,6 +262,9 @@ public class App
 
         // Show the top N capital cities in a region
         capitalCityReports.ShowTopNCapitalCitiesInRegionByPopulation(3, "Middle East");
+
+        // Show the top N capital cities in a Continent
+        capitalCityReports.ShowTopNCapitalCitiesInContinentByPopulation(4, "Oceania");
     }
 
     /**
