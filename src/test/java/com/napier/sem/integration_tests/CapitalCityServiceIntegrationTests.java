@@ -136,5 +136,27 @@ public class CapitalCityServiceIntegrationTests {
         assertTrue(capitalCity.Continent.length() > 0);
     }
 
+    /**
+     * Integration test for getTopNCapitalCitiesInRegionOrderedByPopulation
+     */
+    @Test
+    void testGetTopNCapitalCitiesInRegionOrderedByPopulation(){
+        // Arrange & Act
+        var capitalCities = App.capitalCityService.getTopNCapitalCitiesInRegionOrderedByPopulation(1, _capitalCity.region);
+
+        // Make this assertion here as if it is false we will throw an exception calling .get(0)
+        assertFalse(capitalCities.isEmpty());
+
+        var capitalCity = capitalCities.get(0);
+
+        // Assert
+        assertTrue(capitalCities.size() <= 1);
+        assertTrue(capitalCity.name.length() > 0);
+        assertTrue(capitalCity.population > 0);
+        assertTrue(capitalCity.region.length() > 0);
+        assertTrue(capitalCity.country.length() > 0);
+        assertTrue(capitalCity.Continent.length() > 0);
+    }
+
 
 }
