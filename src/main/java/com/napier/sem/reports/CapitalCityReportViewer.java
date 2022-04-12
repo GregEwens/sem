@@ -41,6 +41,18 @@ public class CapitalCityReportViewer {
     }
 
     /**
+     * Displays all capital cities in a given region, ordered by population
+     * @param region The continent
+     */
+    public void ShowCapitalCitiesInRegionByPopulation(String region){
+        var cities = _capitalCityService.getAllCapitalCitiesInRegionOrderedByPopulation(region);
+
+        System.out.println("Report showing all capital cities in " + region + " ordered by population");
+
+        displayCapitalCities(cities);
+    }
+
+    /**
      * Displays all capital cities in the world ordered by population
      */
     public void ShowCapitalCitiesByPopulation(){

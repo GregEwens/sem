@@ -254,6 +254,8 @@ public class App
         // show the demographics of the world
         demographicReports.ShowKeyDemographicReport();
 
+        // show the capital cities in a region
+        capitalCityReports.ShowCapitalCitiesInRegionByPopulation("Middle East");
     }
 
     /**
