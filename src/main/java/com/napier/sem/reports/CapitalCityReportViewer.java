@@ -98,4 +98,18 @@ public class CapitalCityReportViewer {
 
         displayCapitalCities(capitalCities);
     }
+
+    /**
+     * Shows the top N capital cities in a region where N is specified and the regionName is specified
+     * @param n the number of capital cities to display
+     * @param regionName the name of the region
+     */
+    public void ShowTopNCapitalCitiesInRegionByPopulation(int n, String regionName){
+        var capitalCities = _capitalCityService.getTopNCapitalCitiesInRegionOrderedByPopulation(n, regionName);
+
+        System.out.println("Report showing top " + n + "  capital cities in " + regionName + " ordered by population");
+
+        displayCapitalCities(capitalCities);
+    }
+
 }
