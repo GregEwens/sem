@@ -24,7 +24,7 @@ body:
       label: What happened?
       description: Tell us what you saw?
       placeholder: Describe the issue in detail.
-      value: ""
+      value: "Describe the issue in detail."
     validations:
       required: true
 
@@ -34,7 +34,7 @@ body:
       label: Steps to Reproduce
       description: Steps to reproduce the behaviour
       placeholder: What steps did you take?
-      value: ""
+      value: "What steps did you take?"
     validations:
       required: true
 
@@ -44,7 +44,7 @@ body:
       label: Expected behaviour
       description: Tell us what you expected to see?
       placeholder: Expected behaviour
-      value: ""
+      value: "Expected behaviour"
     validations:
       required: true
 
@@ -54,7 +54,7 @@ body:
       label: Device Type
       description: What Device(s) is the issue on?
       placeholder: iPhone 12, Samsung Galaxy 21, etc
-      value: ""
+      value: "iPhone 12, Samsung Galaxy 21, etc"
     validations:
       required: true
 
