@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.repositories
@@ -14,6 +15,7 @@ import java.util.ArrayList;
  * Date Created: 19/02/2022 14:48
  * File Purpose: This class provides methods for accessing City data
  */
+@SuppressWarnings("PMD.SystemPrintln") // Prototype app using console for logging
 public class CityRepository implements ICityRepository {
 
     /**
@@ -92,6 +94,9 @@ public class CityRepository implements ICityRepository {
                 cities.add(city);
             }
 
+            statement.close();
+            resultSet.close();
+
             // return our collection
             return cities;
         }
@@ -138,6 +143,9 @@ public class CityRepository implements ICityRepository {
 
                 cities.add(city);
             }
+
+            statement.close();
+            resultSet.close();
 
             // return our collection
             return cities;

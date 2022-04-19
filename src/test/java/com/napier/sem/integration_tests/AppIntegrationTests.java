@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
+
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.integration_tests
@@ -14,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
  * Date Created: 13/03/2022 20:41
  * File Purpose: Integration Tests for the App class
  */
+@SuppressWarnings("PMD.JUnitTestContainsTooManyAsserts") // Integration tests may use multiple assertions
 class AppIntegrationTests {
 
     /**
@@ -51,8 +53,7 @@ class AppIntegrationTests {
      */
     @Test
     void testsRunReports(){
-        assertDoesNotThrow(() -> App.runReports(), "Checks the run reports method");
-
+        assertDoesNotThrow(App::runReports, "Checks the run reports method");
     }
 
     /**

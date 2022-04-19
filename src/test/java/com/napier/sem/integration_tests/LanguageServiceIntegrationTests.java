@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.integration_tests
@@ -15,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * Date Created: 11/04/2022 16:23
  * File Purpose: Integration tests for Language reports
  */
+@SuppressWarnings("PMD.JUnitTestContainsTooManyAsserts") // Integration tests may use multiple assertions
 class LanguageServiceIntegrationTests {
 
     /**

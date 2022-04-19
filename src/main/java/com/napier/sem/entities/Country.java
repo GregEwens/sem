@@ -41,7 +41,7 @@ public class Country
     /**
      * The Indep year of the country,
      */
-    public short IndepYear;
+    public int IndepYear;
 
     /**
      * The population of the country.

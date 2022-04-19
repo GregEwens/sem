@@ -17,6 +17,9 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class LanguageHelpersUnitTests {
 
+    /**
+     * Reference data shared between many of the tests
+     */
     private final static ArrayList<SpokenLanguageJoinCountry> SpokenLanguageJoinCountryCollection =
             new ArrayList<>();
 
@@ -67,7 +70,6 @@ class LanguageHelpersUnitTests {
         var filteredCollection = getCountriesWithLanguage(SpokenLanguageJoinCountryCollection, "not a language");
 
         // Assert
-        assertNotNull(filteredCollection, "Checks we have some data");
         assertEquals(0, filteredCollection.size(), "Mockup does not supply this data");
     }
 

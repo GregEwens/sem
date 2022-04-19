@@ -3,6 +3,7 @@ package com.napier.sem.reports;
 import com.napier.sem.models.HighLevelPopulationReportModel;
 import com.napier.sem.services.PopulationReportingService;
 
+
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.reports
@@ -10,6 +11,7 @@ import com.napier.sem.services.PopulationReportingService;
  * Date Created: 09/04/2022 15:17
  * File Purpose: This class provides methods for viewing population reports
  */
+@SuppressWarnings("PMD.SystemPrintln") // Prototype app using console for output
 public class PopulationReportViewer {
 
     /**

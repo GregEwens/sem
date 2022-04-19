@@ -5,6 +5,7 @@ import com.napier.sem.services.LanguageService;
 
 import java.util.ArrayList;
 
+
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.reports
@@ -12,6 +13,7 @@ import java.util.ArrayList;
  * Date Created: 10/04/2022 19:48
  * File Purpose: This class provides methods for viewing Demographic reports
  */
+@SuppressWarnings("PMD.SystemPrintln") // Prototype app using console for output
 public class DemographicReportViewer {
 
     /**

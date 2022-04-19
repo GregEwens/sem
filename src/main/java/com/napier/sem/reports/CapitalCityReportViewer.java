@@ -5,6 +5,7 @@ import com.napier.sem.services.CapitalCityService;
 
 import java.util.ArrayList;
 
+
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.reports
@@ -12,6 +13,7 @@ import java.util.ArrayList;
  * Date Created: 12/03/2022 13:40
  * File Purpose: This class provides methods for viewing Capital City reports
  */
+@SuppressWarnings("PMD.SystemPrintln") // Prototype app using console for output
 public class CapitalCityReportViewer {
 
 

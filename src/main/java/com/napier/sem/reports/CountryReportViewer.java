@@ -4,6 +4,7 @@ import com.napier.sem.entities.Country;
 import com.napier.sem.services.CountryService;
 import java.util.ArrayList;
 
+
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.reports
@@ -11,6 +12,7 @@ import java.util.ArrayList;
  * Date Created: 19/02/2022 15:28
  * File Purpose: This class provides methods for viewing Country reports
  */
+@SuppressWarnings("PMD.SystemPrintln") // Prototype app using console for output
 public class CountryReportViewer {
 
     /**

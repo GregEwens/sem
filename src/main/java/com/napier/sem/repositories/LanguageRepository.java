@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.repositories
@@ -14,6 +15,7 @@ import java.util.ArrayList;
  * Date Created: 09/04/2022 16:51
  * File Purpose:This class provides methods for accessing Language data
  */
+@SuppressWarnings("PMD.SystemPrintln") // Prototype app using console for logging
 public class LanguageRepository implements ILanguageRepository  {
 
     /**
@@ -72,6 +74,9 @@ public class LanguageRepository implements ILanguageRepository  {
 
                 languages.add(language);
             }
+
+            statement.close();
+            resultSet.close();
 
             // return our collection
             return languages;

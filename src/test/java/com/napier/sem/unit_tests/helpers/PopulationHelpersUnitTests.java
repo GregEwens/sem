@@ -23,7 +23,7 @@ class PopulationHelpersUnitTests {
      * Tests a correct count for sumCityPopulation
      */
     @Test
-    public void sumCityPopulationCorrectCountTest() {
+    void sumCityPopulationCorrectCountTest() {
         // Arrange
         var cities = new ArrayList<City>();
 
@@ -50,7 +50,7 @@ class PopulationHelpersUnitTests {
      * Tests sumCityPopulation handles an empty list
      */
     @Test
-    public void sumCityPopulationHandlesEmptyListTest() {
+    void sumCityPopulationHandlesEmptyListTest() {
         // Arrange
         @SuppressWarnings("MismatchedQueryAndUpdateOfCollection") // no need to use cities as we're only testing the
         // output so we can suppress this warning
@@ -67,7 +67,7 @@ class PopulationHelpersUnitTests {
      * Tests a correct count for sumCountryPopulation
      */
     @Test
-    public void sumCountryPopulationCorrectCountTest() {
+    void sumCountryPopulationCorrectCountTest() {
         // Arrange
         var countries = new ArrayList<Country>();
 
@@ -94,7 +94,7 @@ class PopulationHelpersUnitTests {
      * Tests sumCountryPopulation handles an empty list
      */
     @Test
-    public void sumCountryPopulationHandlesEmptyListTest() {
+    void sumCountryPopulationHandlesEmptyListTest() {
         // Arrange
         @SuppressWarnings("MismatchedQueryAndUpdateOfCollection") // no need to use cities as we're only testing the
         // output so we can suppress this warning

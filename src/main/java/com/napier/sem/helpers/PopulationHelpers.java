@@ -13,7 +13,14 @@ import java.util.ArrayList;
  * Date Created: 09/04/2022 14:29
  * File Purpose: Helper methods for population and demographics
  */
-public class PopulationHelpers {
+public final class PopulationHelpers {
+
+    /**
+     * A private constructor because you can't just mark the class as static (c# > Java)
+     */
+    private PopulationHelpers(){
+
+    }
 
     /**
      * calculates the total population from a collection of cities

@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.integration_tests
@@ -16,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Date Created: 09/04/2022 15:07
  * File Purpose: Integration tests for PopulationReportingService
  */
+@SuppressWarnings("PMD.JUnitTestContainsTooManyAsserts") // Integration tests may use multiple assertions
 class PopulationReportingServiceIntegrationTests {
     /**
      * The application to test

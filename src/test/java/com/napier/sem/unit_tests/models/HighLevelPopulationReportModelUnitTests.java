@@ -18,7 +18,7 @@ class HighLevelPopulationReportModelUnitTests {
      * Tests successful population calculation
      */
     @Test
-    public void GetPercentCityPopulationReturnsCorrect(){
+    void GetPercentCityPopulationReturnsCorrect(){
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
@@ -37,7 +37,7 @@ class HighLevelPopulationReportModelUnitTests {
      * Tests successful population calculation with 0 city poulation
      */
     @Test
-    public void GetPercentCityPopulationHandlesZeroCityPop(){
+    void GetPercentCityPopulationHandlesZeroCityPop(){
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
@@ -56,7 +56,7 @@ class HighLevelPopulationReportModelUnitTests {
      * Tests graceful handling of 0 population
      */
     @Test
-    public void GetPercentCityPopulationHandlesZeroCountryPop(){
+    void GetPercentCityPopulationHandlesZeroCountryPop(){
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
@@ -75,7 +75,7 @@ class HighLevelPopulationReportModelUnitTests {
      * Tests successful population calculation
      */
     @Test
-    public void GetPercentNotCityPopulationReturnsCorrect(){
+    void GetPercentNotCityPopulationReturnsCorrect(){
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
@@ -94,7 +94,7 @@ class HighLevelPopulationReportModelUnitTests {
      * Tests successful population calculation with 0 city poulation
      */
     @Test
-    public void GetPercentNotCityPopulationHandlesZeroCityPop(){
+    void GetPercentNotCityPopulationHandlesZeroCityPop(){
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
@@ -113,7 +113,7 @@ class HighLevelPopulationReportModelUnitTests {
      * Tests graceful handling of 0 population
      */
     @Test
-    public void GetPercentNotCityPopulationHandlesZeroCountryPop(){
+    void GetPercentNotCityPopulationHandlesZeroCountryPop(){
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
