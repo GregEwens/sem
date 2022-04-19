@@ -139,7 +139,7 @@ public class CityServiceTests {
      * getTopNCitiesInRegionOrderedByPopulation tested with correct count
      */
     @Test
-    void getTopNCitiesInRegionOrderedByPopulationCorrectCountTestAllUpper(){
+    void getTopNCitiesInRegionOrderedByPopulationCorrectCountTestAllUpperTest(){
 
         // Arrange
         var systemUnderTest = new CityService(cityRepositoryMock);
@@ -157,7 +157,7 @@ public class CityServiceTests {
      * getTopNCitiesInRegionOrderedByPopulation tested with correct count
      */
     @Test
-    void getTopNCitiesInRegionOrderedByPopulationCorrectCountTestAllLower(){
+    void getTopNCitiesInRegionOrderedByPopulationCorrectCountTestAllLowerTest(){
 
         // Arrange
         var systemUnderTest = new CityService(cityRepositoryMock);
@@ -706,5 +706,73 @@ public class CityServiceTests {
         var populationFourth = cities.get(3).population;
 
         assertTrue(populationFirst < populationSecond && populationSecond < populationThird && populationThird < populationFourth);
+    }
+
+    /**
+     * getCityByName tested that a city is returned correctly
+     */
+    @Test
+    void getCityByNameReturnsCityTest(){
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var cityName = "Name1";
+
+        // Act
+        var city = systemUnderTest.getCityByName(cityName);
+
+        // Assert
+
+        assertEquals(cityName, city.name);
+    }
+
+    /**
+     * getCityByName tested that null is returned when no city is found
+     */
+    @Test
+    void getCityByNameReturnsNullTest(){
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var cityName = "not a city name";
+
+        // Act
+        var city = systemUnderTest.getCityByName(cityName);
+
+        // Assert
+
+        assertNull(city);
+    }
+
+    /**
+     * getCityByName tested that a city is returned correctly when an uppercase name is specified
+     */
+    @Test
+    void getCityByNameUpperCaseReturnsCityTest(){
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var cityName = "NAME1";
+
+        // Act
+        var city = systemUnderTest.getCityByName(cityName);
+
+        // Assert
+
+        assertEquals("Name1", city.name);
+    }
+
+    /**
+     * getCityByName tested that a city is returned correctly when an uppercase name is specified
+     */
+    @Test
+    void getCityByNameLowerCaseCaseReturnsCityTest(){
+        // Arrange
+        var systemUnderTest = new CityService(cityRepositoryMock);
+        var cityName = "name1";
+
+        // Act
+        var city = systemUnderTest.getCityByName(cityName);
+
+        // Assert
+
+        assertEquals("Name1", city.name);
     }
 }

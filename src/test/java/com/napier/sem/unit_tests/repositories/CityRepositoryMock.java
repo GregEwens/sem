@@ -34,7 +34,7 @@ public class CityRepositoryMock implements ICityRepository {
             city.population = (int) Math.pow(2, i);
             city.district = district;
             city.id = i;
-            city.name = "name" + i;
+            city.name = "Name" + i;
 
             cities.add(city);
         }

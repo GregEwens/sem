@@ -143,6 +143,17 @@ public class CityReportViewerIntegrationTests {
     }
 
     /**
+     * Integration test for ShowTopNCitiesInRegionByPopulation
+     */
+    @Test
+    void testsShowTopNCitiesInRegionByPopulation(){
+        App.cityReports.ShowTopNCitiesInRegionByPopulation(1, _city.Region); // No testable output - this test
+        // ensures
+        // that no exceptions are thrown
+    }
+
+
+    /**
      * Integration test for ShowTopNCitiesInDistrictByPopulation
      */
     @Test

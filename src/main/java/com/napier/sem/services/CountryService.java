@@ -32,8 +32,7 @@ public class CountryService {
      * @param regionName the name of the specified region
      * @return A list of all countries, the collection may be empty should no countries be found.
      */
-    public ArrayList<Country> getAllCountriesInRegionOrderedByPopulation(String regionName)
-    {
+    public ArrayList<Country> getAllCountriesInRegionOrderedByPopulation(String regionName) {
         var countries = _countryRepoitory.getAllCountriesOrderByPopulation();
 
         var countriesInRegion = new ArrayList<Country>();
@@ -53,8 +52,7 @@ public class CountryService {
      * @return A list of all countries, the collection may be empty should no countries be found.
      *
      */
-    public ArrayList<Country> getAllCountriesInContinentOrderedByPopulation(String continentName)
-    {
+    public ArrayList<Country> getAllCountriesInContinentOrderedByPopulation(String continentName) {
         var countries = _countryRepoitory.getAllCountriesOrderByPopulation();
 
         var countriesInContinent = new ArrayList<Country>();

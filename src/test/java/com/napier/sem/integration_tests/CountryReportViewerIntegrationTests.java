@@ -107,4 +107,14 @@ public class CountryReportViewerIntegrationTests {
         App.countryReports.ShowTopNCountriesInContinentByPopulation(1, _country.Continent); // No testable output - this
         // test ensures that no exceptions are thrown
     }
+
+    /**
+     * Integration test for ShowTopNCountriesInRegionByPopulation
+     */
+    @Test
+    void testsShowTopNCountriesInRegionByPopulation(){
+        App.countryReports.ShowTopNCountriesInRegionByPopulation(1, _country.Region); // No testable output - this
+        // test ensures that no exceptions are thrown
+    }
+
 }

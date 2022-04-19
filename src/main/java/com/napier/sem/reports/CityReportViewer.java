@@ -137,6 +137,19 @@ public class CityReportViewer {
     }
 
     /**
+     * Shows the top N cities in a specified region where N is specified
+     * @param n the number of cities to show
+     * @param regionName the name of the specified region
+     */
+    public void ShowTopNCitiesInRegionByPopulation(int n, String regionName){
+        var cities = _cityService.getTopNCitiesInRegionOrderedByPopulation(n, regionName);
+
+        System.out.println("Report showing top " + n + " cities in " + regionName + " ordered by population");
+
+        displayCities(cities);
+    }
+
+    /**
      * Shows the top N cities in a specified district where N is specified
      * @param n the number of cities to show
      * @param countryName the name of the specified country

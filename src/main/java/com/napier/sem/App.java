@@ -212,6 +212,9 @@ public class App
         // show top N countries in continent by population
         countryReports.ShowTopNCountriesInContinentByPopulation(12, "Africa");
 
+        // show top N countries in continent by population
+        countryReports.ShowTopNCountriesInRegionByPopulation(12, "Northern Europe");
+
         // show top N cities by population
         cityReports.ShowTopNCitiesByPopulation(5);
 
@@ -223,6 +226,9 @@ public class App
 
         // show top N cities in continent
         cityReports.ShowTopNCitiesInContinentByPopulation(16, "Europe");
+
+        // show top N cities in continent
+        cityReports.ShowTopNCitiesInRegionByPopulation(16, "Northern Europe");
 
         // show population report for country
         populationReports.ShowPopulationReportForCountry("France");
