@@ -132,6 +132,7 @@ public class PopulationReportViewer {
                     reportData.Name + "\n"
                             + reportData.Population + "\n"
                             + reportData.CityPopulation + "\n"
+                            + (reportData.Population - reportData.CityPopulation) + "\n"
                             + reportData.GetPercentCityPopulation() + "\n"
                             + reportData.GetPercentNotCityPopulation() + "\n"
                             );

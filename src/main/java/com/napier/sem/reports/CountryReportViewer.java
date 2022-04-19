@@ -109,11 +109,11 @@ public class CountryReportViewer {
         {
             System.out.println(
                     ctry.Code + " "
-                            + ctry.Name + " "
-                            + ctry.Continent + "\n"
-                            + ctry.Region + "\n"
-                            + "Population:" + ctry.Population + "\n" +
-                            ctry.Capital + "\n");
+                    + ctry.Name + " "
+                    + ctry.Continent + "\n"
+                    + ctry.Region + "\n"
+                    + "Population:" + ctry.Population + "\n" +
+                    ctry.Capital + "\n");
         }
     }
 }
