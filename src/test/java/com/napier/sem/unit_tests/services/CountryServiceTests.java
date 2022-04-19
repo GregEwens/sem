@@ -114,7 +114,9 @@ public class CountryServiceTests {
         var populationThird = countries.get(2).Population;
         var populationFourth = countries.get(3).Population;
 
-        assertTrue(populationFirst < populationSecond && populationSecond < populationThird && populationThird < populationFourth);
+        assertTrue(populationFirst > populationSecond
+                && populationSecond > populationThird
+                && populationThird > populationFourth);
     }
 
      /**
@@ -225,7 +227,9 @@ public class CountryServiceTests {
         var populationThird = countries.get(2).Population;
         var populationFourth = countries.get(3).Population;
 
-        assertTrue(populationFirst < populationSecond && populationSecond < populationThird && populationThird < populationFourth);
+        assertTrue(populationFirst > populationSecond
+                && populationSecond > populationThird
+                && populationThird > populationFourth);
     }
 
     /**

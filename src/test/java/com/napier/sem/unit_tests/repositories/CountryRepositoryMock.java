@@ -34,7 +34,7 @@ public class CountryRepositoryMock implements ICountryRepository {
             // generate values based on index
             country.Continent = continent;
             country.Code = "CD" + i;
-            country.Population = (int) Math.pow(2, i);
+            country.Population = Integer.MAX_VALUE - (int) Math.pow(2, i);
             country.Region = region;
             country.Capital = "City" + i;
             country.Name = "Country" + i;
