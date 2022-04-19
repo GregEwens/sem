@@ -176,35 +176,14 @@ public class App
         // show an example city
         cityReports.ShowCityDetails(5);
 
-        // show the cities by population report
-        cityReports.ShowCitiesByPopulation();
-
-        // show cities in country by population
-        cityReports.ShowCitiesInCountryByPopulation("DEU");
-
-        // show cities in district by population
-        cityReports.ShowCitiesInDistrictByPopulation("California");
-
-        //show cities in a continent organised by largest population to smallest.
-        cityReports.ShowCitiesInContinentByPopulation("Asia");
-
-        //show cities in a region organised by largest population to smallest.
-        cityReports.ShowCitiesInRegionByPopulation("Southern Europe");
-
         //show countries by population high to low
         countryReports.ShowCountriesByPopulation();
-
-        //show countries in region by population high to low
-        countryReports.ShowCountriesInARegionByPopulation("Southern Europe");
 
         //show countries in continent by population high to low
         countryReports.ShowCountriesInAContinentByPopulation("Asia");
 
-        //show capital cities in a continent organised by largest population to smallest.
-        capitalCityReports.ShowCapitalCitiesInContinentByPopulation("Europe");
-
-        //show capital cities in the world organised by largest population to smallest.
-        capitalCityReports.ShowCapitalCitiesByPopulation();
+        //show countries in region by population high to low
+        countryReports.ShowCountriesInARegionByPopulation("Southern Europe");
 
         // show top N countries by population
         countryReports.ShowTopNCountriesByPopulation(25);
@@ -215,50 +194,41 @@ public class App
         // show top N countries in continent by population
         countryReports.ShowTopNCountriesInRegionByPopulation(12, "Northern Europe");
 
+        // show the cities by population report
+        cityReports.ShowCitiesByPopulation();
+
+        //show cities in a continent organised by largest population to smallest.
+        cityReports.ShowCitiesInContinentByPopulation("Asia");
+
+        //show cities in a region organised by largest population to smallest.
+        cityReports.ShowCitiesInRegionByPopulation("Southern Europe");
+
+        // show cities in country by population
+        cityReports.ShowCitiesInCountryByPopulation("DEU");
+
+        // show cities in district by population
+        cityReports.ShowCitiesInDistrictByPopulation("California");
+
         // show top N cities by population
         cityReports.ShowTopNCitiesByPopulation(5);
-
-        // show top N cities in district
-        cityReports.ShowTopNCitiesInDistrictByPopulation(14, "Bremen");
-
-        // show top N cities in country
-        cityReports.ShowTopNCitiesInCountryByPopulation(35, "France");
 
         // show top N cities in continent
         cityReports.ShowTopNCitiesInContinentByPopulation(16, "Europe");
 
-        // show top N cities in continent
+        // show top N cities in region
         cityReports.ShowTopNCitiesInRegionByPopulation(16, "Northern Europe");
 
-        // show population report for country
-        populationReports.ShowPopulationReportForCountry("France");
+        // show top N cities in country
+        cityReports.ShowTopNCitiesInCountryByPopulation(35, "France");
 
-        // show population report for continent
-        populationReports.ShowPopulationReportForContinent("North America");
+        // show top N cities in district
+        cityReports.ShowTopNCitiesInDistrictByPopulation(14, "Bremen");
 
-        // show population report for region
-        populationReports.ShowPopulationReportForRegion("Southern Europe");
+        //show capital cities in the world organised by largest population to smallest.
+        capitalCityReports.ShowCapitalCitiesByPopulation();
 
-        // show basic population report for the world
-        populationReports.ShowBasicPopulationReportForWorld();
-
-        // show basic population report for the world
-        populationReports.ShowBasicPopulationReportForContinent("Antarctica");
-
-        // show basic population report for the world
-        populationReports.ShowBasicPopulationReportForRegion("Southern and Central Asia");
-
-        // show basic population report for the world
-        populationReports.ShowBasicPopulationReportForCountry("Jamaica");
-
-        // show basic population report for the world
-        populationReports.ShowBasicPopulationReportForDistrict("Lombardia");
-
-        // show basic population report for the world
-        populationReports.ShowBasicPopulationReportForCity("Edinburgh");
-
-        // show the demographics of the world
-        demographicReports.ShowKeyDemographicReport();
+        //show capital cities in a continent organised by largest population to smallest.
+        capitalCityReports.ShowCapitalCitiesInContinentByPopulation("Europe");
 
         // show the capital cities in a region
         capitalCityReports.ShowCapitalCitiesInRegionByPopulation("Middle East");
@@ -266,11 +236,42 @@ public class App
         // Show the top N capital cities in the world
         capitalCityReports.ShowTopNCapitalCitiesByPopulation(12);
 
+        // Show the top N capital cities in a Continent
+        capitalCityReports.ShowTopNCapitalCitiesInContinentByPopulation(4, "Oceania");
+
         // Show the top N capital cities in a region
         capitalCityReports.ShowTopNCapitalCitiesInRegionByPopulation(3, "Middle East");
 
-        // Show the top N capital cities in a Continent
-        capitalCityReports.ShowTopNCapitalCitiesInContinentByPopulation(4, "Oceania");
+        // show population report for continent
+        populationReports.ShowPopulationReportForContinent("North America");
+
+        // show population report for region
+        populationReports.ShowPopulationReportForRegion("Southern Europe");
+
+        // show population report for country
+        populationReports.ShowPopulationReportForCountry("France");
+
+        // show basic population report for the world
+        populationReports.ShowBasicPopulationReportForWorld();
+
+        // show basic population report for Continent
+        populationReports.ShowBasicPopulationReportForContinent("Antarctica");
+
+        // show basic population report for Region
+        populationReports.ShowBasicPopulationReportForRegion("Southern and Central Asia");
+
+        // show basic population report for country
+        populationReports.ShowBasicPopulationReportForCountry("Jamaica");
+
+        // show basic population report for District
+        populationReports.ShowBasicPopulationReportForDistrict("Lombardia");
+
+        // show basic population report for City
+        populationReports.ShowBasicPopulationReportForCity("Edinburgh");
+
+        // show the demographics of the world
+        demographicReports.ShowKeyDemographicReport();
+
     }
 
     /**
