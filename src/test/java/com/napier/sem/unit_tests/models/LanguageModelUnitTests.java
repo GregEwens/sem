@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Date Created: 10/04/2022 18:56
  * File Purpose: Unit tests for LanguageModel
  */
-public class LanguageModelUnitTests {
+class LanguageModelUnitTests {
 
     /**
      * Test that the override for sorting a collection sorts correctly
@@ -38,9 +38,9 @@ public class LanguageModelUnitTests {
         Collections.sort(systemUnderTest);
 
         // Assert
-        assertEquals(systemUnderTest.get(0).LanguageName, "item3");
-        assertEquals(systemUnderTest.get(1).LanguageName, "item1");
-        assertEquals(systemUnderTest.get(2).LanguageName, "item2");
+        assertEquals(systemUnderTest.get(0).LanguageName, "item3", "Checks item3 is the first item in the list");
+        assertEquals(systemUnderTest.get(1).LanguageName, "item1", "Checks item1 is the second item in the list");
+        assertEquals(systemUnderTest.get(2).LanguageName, "item2", "Checks item2 is the third item in the list");
 
     }
 
@@ -57,7 +57,7 @@ public class LanguageModelUnitTests {
         var response = systemUnderTest.GetSpeakersAsPercentageOfWorld();
 
         // Assert
-        assertEquals(response, 10.00);
+        assertEquals(response, 10.00, "Checks the expected percentage from the supplied values");
 
     }
 

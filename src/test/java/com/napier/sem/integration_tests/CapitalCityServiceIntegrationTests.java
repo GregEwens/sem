@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Date Created: 13/03/2022 19:30
  * File Purpose: Integration Tests for capital city reports
  */
-public class CapitalCityServiceIntegrationTests {
+class CapitalCityServiceIntegrationTests {
 
     /**
      * The application to test
@@ -59,8 +59,9 @@ public class CapitalCityServiceIntegrationTests {
      */
     @Test
     void testReferenceData(){
-        assertNotNull(_capitalCity);
-        assertTrue(_capitalCity.name.length() > 0);
+        assertNotNull(_capitalCity, "Check we have some data");
+        assertTrue(_capitalCity.name.length() > 0, "We don't know what the value is but we can check it's not empty");
+
     }
 
     /**
@@ -74,9 +75,9 @@ public class CapitalCityServiceIntegrationTests {
         var city = cities.get(0);
 
         // Assert
-        assertTrue(city.population > 0);
-        assertTrue(city.country.length() > 0);
-        assertTrue(city.name.length() > 0);
+        assertTrue(city.population > 0, "We don't know what the value is but we can check it's not the default");
+        assertTrue(city.country.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(city.name.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
     /**
@@ -92,10 +93,11 @@ public class CapitalCityServiceIntegrationTests {
         var city3 = cities.get(2);
 
         // Assert
-        assertTrue(city1.population > 0);
-        assertTrue(city1.country.length() > 0);
-        assertTrue(city1.name.length() > 0);
-        assertTrue(city1.population > city2.population && city2.population > city3.population);
+        assertTrue(city1.population > 0, "We don't know what the value is but we can check it's not the default");
+        assertTrue(city1.country.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(city1.name.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(city1.population > city2.population && city2.population > city3.population, "Check that the " +
+                "population of the first city is greater than the population of the second and so-on");
     }
 
     /**
@@ -109,9 +111,9 @@ public class CapitalCityServiceIntegrationTests {
         var city = cities.get(0);
 
         // Assert
-        assertTrue(city.population > 0);
-        assertTrue(city.country.length() > 0);
-        assertTrue(city.name.length() > 0);
+        assertTrue(city.population > 0, "We don't know what the value is but we can check it's not the default");
+        assertTrue(city.country.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(city.name.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
     /**
@@ -123,17 +125,17 @@ public class CapitalCityServiceIntegrationTests {
         var capitalCities = App.capitalCityService.getTopNCapitalCitiesInWorldOrderedByPopulation(1);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
-        assertFalse(capitalCities.isEmpty());
+        assertFalse(capitalCities.isEmpty(), "Check we have some data");
 
         var capitalCity = capitalCities.get(0);
 
         // Assert
-        assertTrue(capitalCities.size() <= 1);
-        assertTrue(capitalCity.name.length() > 0);
-        assertTrue(capitalCity.population > 0);
-        assertTrue(capitalCity.region.length() > 0);
-        assertTrue(capitalCity.country.length() > 0);
-        assertTrue(capitalCity.Continent.length() > 0);
+        assertTrue(capitalCities.size() <= 1, "Check we get at most, one item in the collection");
+        assertTrue(capitalCity.name.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(capitalCity.population > 0, "We don't know what the value is but we can check it's not the default");
+        assertTrue(capitalCity.region.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(capitalCity.country.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(capitalCity.Continent.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
     /**
@@ -145,17 +147,17 @@ public class CapitalCityServiceIntegrationTests {
         var capitalCities = App.capitalCityService.getTopNCapitalCitiesInRegionOrderedByPopulation(1, _capitalCity.region);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
-        assertFalse(capitalCities.isEmpty());
+        assertFalse(capitalCities.isEmpty(), "Check we have some data");
 
         var capitalCity = capitalCities.get(0);
 
         // Assert
-        assertTrue(capitalCities.size() <= 1);
-        assertTrue(capitalCity.name.length() > 0);
-        assertTrue(capitalCity.population > 0);
-        assertTrue(capitalCity.region.length() > 0);
-        assertTrue(capitalCity.country.length() > 0);
-        assertTrue(capitalCity.Continent.length() > 0);
+        assertTrue(capitalCities.size() <= 1, "Check we get at most, one item in the collection");
+        assertTrue(capitalCity.name.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(capitalCity.population > 0, "We don't know what the value is but we can check it's not the default");
+        assertTrue(capitalCity.region.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(capitalCity.country.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(capitalCity.Continent.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
     /**
@@ -167,17 +169,17 @@ public class CapitalCityServiceIntegrationTests {
         var capitalCities = App.capitalCityService.getTopNCapitalCitiesInContinentOrderedByPopulation(1, _capitalCity.Continent);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
-        assertFalse(capitalCities.isEmpty());
+        assertFalse(capitalCities.isEmpty(), "Check we have some data");
 
         var capitalCity = capitalCities.get(0);
 
         // Assert
-        assertTrue(capitalCities.size() <= 1);
-        assertTrue(capitalCity.name.length() > 0);
-        assertTrue(capitalCity.population > 0);
-        assertTrue(capitalCity.region.length() > 0);
-        assertTrue(capitalCity.country.length() > 0);
-        assertTrue(capitalCity.Continent.length() > 0);
+        assertTrue(capitalCities.size() <= 1, "Check we get at most, one item in the collection");
+        assertTrue(capitalCity.name.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(capitalCity.population > 0, "We don't know what the value is but we can check it's not the default");
+        assertTrue(capitalCity.region.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(capitalCity.country.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(capitalCity.Continent.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
 

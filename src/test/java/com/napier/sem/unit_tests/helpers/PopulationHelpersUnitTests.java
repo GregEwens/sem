@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Date Created: 09/04/2022 14:45
  * File Purpose: Unit tests for PopulationHelpers
  */
-public class PopulationHelpersUnitTests {
+class PopulationHelpersUnitTests {
 
     /**
      * Tests a correct count for sumCityPopulation
@@ -43,7 +43,7 @@ public class PopulationHelpersUnitTests {
         var populationCount = sumCityPopulation(cities);
 
         // Assert
-        assertEquals(300, populationCount);
+        assertEquals(300, populationCount, "Checks the summation equals 300");
     }
 
     /**
@@ -60,7 +60,7 @@ public class PopulationHelpersUnitTests {
         var populationCount = sumCityPopulation(cities);
 
         // Assert
-        assertEquals(0, populationCount);
+        assertEquals(0, populationCount, "checks the method handles an empty collection correctly");
     }
 
     /**
@@ -87,7 +87,7 @@ public class PopulationHelpersUnitTests {
         var populationCount = sumCountryPopulation(countries);
 
         // Assert
-        assertEquals(300, populationCount);
+        assertEquals(300, populationCount, "Checks the summation equals 300");
     }
 
     /**
@@ -104,6 +104,6 @@ public class PopulationHelpersUnitTests {
         var populationCount = sumCountryPopulation(countries);
 
         // Assert
-        assertEquals(0, populationCount);
+        assertEquals(0, populationCount, "checks the method handles an empty collection correctly");
     }
 }

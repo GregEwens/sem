@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Date Created: 13/03/2022 19:08
  * File Purpose: Integration Tests for Country reports
  */
-public class CountryServiceIntegrationTests {
+class CountryServiceIntegrationTests {
 
     /**
      * The application to test
@@ -58,8 +58,8 @@ public class CountryServiceIntegrationTests {
      */
     @Test
     void testReferenceData(){
-        assertNotNull(_country);
-        assertTrue(_country.Code.length() > 0);
+        assertNotNull(_country, "Check we have some data");
+        assertTrue(_country.Code.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
     /**
@@ -73,17 +73,17 @@ public class CountryServiceIntegrationTests {
                 .getAllCountriesOrderByPopulation();
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
-        assertFalse(countries.isEmpty());
+        assertFalse(countries.isEmpty(), "Check we have some data");
 
         var country = countries.get(0);
 
         // Assert
-        assertTrue(country.Code.length() > 0);
-        assertTrue(country.Name.length() > 0);
-        assertTrue(country.Continent.length() > 0);
-        assertTrue(country.Region.length() > 0);
-        assertTrue(country.Population > 0);
-        assertTrue(country.Capital.length() > 0);
+        assertTrue(country.Code.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Name.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Continent.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Region.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Population > 0, "We don't know what the value is but we can check it's not the default");
+        assertTrue(country.Capital.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
     /**
@@ -97,18 +97,18 @@ public class CountryServiceIntegrationTests {
                 .getTopNCountriesInRegionOrderedByPopulation(1, _country.Region);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
-        assertFalse(countries.isEmpty());
+        assertFalse(countries.isEmpty(), "Check we have some data");
 
         var country = countries.get(0);
 
         // Assert
-        assertTrue(countries.size() <= 1);
-        assertTrue(country.Code.length() > 0);
-        assertTrue(country.Name.length() > 0);
-        assertTrue(country.Continent.length() > 0);
-        assertTrue(country.Region.length() > 0);
-        assertTrue(country.Population > 0);
-        assertTrue(country.Capital.length() > 0);
+        assertTrue(countries.size() <= 1, "Check we do not exceed the specified count");
+        assertTrue(country.Code.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Name.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Continent.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Region.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Population > 0, "We don't know what the value is but we can check it's not the default");
+        assertTrue(country.Capital.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
     /**
@@ -122,18 +122,18 @@ public class CountryServiceIntegrationTests {
                 .getTopNCountriesInContinentOrderedByPopulation(1, _country.Continent);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
-        assertFalse(countries.isEmpty());
+        assertFalse(countries.isEmpty(), "Check we have some data");
 
         var country = countries.get(0);
 
         // Assert
-        assertTrue(countries.size() <= 10);
-        assertTrue(country.Code.length() > 0);
-        assertTrue(country.Name.length() > 0);
-        assertTrue(country.Continent.length() > 0);
-        assertTrue(country.Region.length() > 0);
-        assertTrue(country.Population > 0);
-        assertTrue(country.Capital.length() > 0);
+        assertTrue(countries.size() <= 1, "Check we do not exceed the specified count");
+        assertTrue(country.Code.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Name.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Continent.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Region.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Population > 0, "We don't know what the value is but we can check it's not the default");
+        assertTrue(country.Capital.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
     /**
@@ -147,18 +147,18 @@ public class CountryServiceIntegrationTests {
                 .getTopNCountriesOrderedByPopulation(1);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
-        assertFalse(countries.isEmpty());
+        assertFalse(countries.isEmpty(), "Check we have some data");
 
         var country = countries.get(0);
 
         // Assert
-        assertTrue(countries.size() <= 10);
-        assertTrue(country.Code.length() > 0);
-        assertTrue(country.Name.length() > 0);
-        assertTrue(country.Continent.length() > 0);
-        assertTrue(country.Region.length() > 0);
-        assertTrue(country.Population > 0);
-        assertTrue(country.Capital.length() > 0);
+        assertTrue(countries.size() <= 1, "Check we do not exceed the specified count");
+        assertTrue(country.Code.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Name.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Continent.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Region.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Population > 0, "We don't know what the value is but we can check it's not the default");
+        assertTrue(country.Capital.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
     /**
@@ -172,17 +172,17 @@ public class CountryServiceIntegrationTests {
                 .getAllCountriesInContinentOrderedByPopulation(_country.Continent);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
-        assertFalse(countries.isEmpty());
+        assertFalse(countries.isEmpty(), "Check we have some data");
 
         var country = countries.get(0);
 
         // Assert
-        assertTrue(country.Code.length() > 0);
-        assertTrue(country.Name.length() > 0);
-        assertTrue(country.Continent.length() > 0);
-        assertTrue(country.Region.length() > 0);
-        assertTrue(country.Population > 0);
-        assertTrue(country.Capital.length() > 0);
+        assertTrue(country.Code.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Name.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Continent.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Region.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Population > 0, "We don't know what the value is but we can check it's not the default");
+        assertTrue(country.Capital.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
     /**
@@ -196,16 +196,16 @@ public class CountryServiceIntegrationTests {
                 .getAllCountriesInRegionOrderedByPopulation(_country.Region);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
-        assertFalse(countries.isEmpty());
+        assertFalse(countries.isEmpty(), "Check we have some data");
 
         var country = countries.get(0);
 
         // Assert
-        assertTrue(country.Code.length() > 0);
-        assertTrue(country.Name.length() > 0);
-        assertTrue(country.Continent.length() > 0);
-        assertTrue(country.Region.length() > 0);
-        assertTrue(country.Population > 0);
-        assertTrue(country.Capital.length() > 0);
+        assertTrue(country.Code.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Name.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Continent.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Region.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.Population > 0, "We don't know what the value is but we can check it's not the default");
+        assertTrue(country.Capital.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 }

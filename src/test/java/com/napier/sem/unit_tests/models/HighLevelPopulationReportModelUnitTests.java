@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Date Created: 09/04/2022 14:32
  * File Purpose: Unit tests for HighLevelPopulationReportModel
  */
-public class HighLevelPopulationReportModelUnitTests {
+class HighLevelPopulationReportModelUnitTests {
 
     /**
      * Tests successful population calculation
@@ -30,7 +30,7 @@ public class HighLevelPopulationReportModelUnitTests {
         var valueTested = systemUnderTest.GetPercentCityPopulation();
 
         // Assert
-        assertEquals(50.00, valueTested);
+        assertEquals(50.00, valueTested, "Checks the expected value of 50%");
     }
 
     /**
@@ -49,7 +49,7 @@ public class HighLevelPopulationReportModelUnitTests {
         var valueTested = systemUnderTest.GetPercentCityPopulation();
 
         // Assert
-        assertEquals(0, valueTested);
+        assertEquals(0, valueTested, "Checks method handles a zero city population");
     }
 
     /**
@@ -68,7 +68,7 @@ public class HighLevelPopulationReportModelUnitTests {
         var valueTested = systemUnderTest.GetPercentCityPopulation();
 
         // Assert
-        assertEquals(0, valueTested);
+        assertEquals(0, valueTested, "Checks method handles a zero population without throwing an exception");
     }
 
     /**
@@ -87,7 +87,7 @@ public class HighLevelPopulationReportModelUnitTests {
         var valueTested = systemUnderTest.GetPercentNotCityPopulation();
 
         // Assert
-        assertEquals(50.00, valueTested);
+        assertEquals(50.00, valueTested, "Checks the expected value of 50%");
     }
 
     /**
@@ -106,7 +106,7 @@ public class HighLevelPopulationReportModelUnitTests {
         var valueTested = systemUnderTest.GetPercentNotCityPopulation();
 
         // Assert
-        assertEquals(100, valueTested);
+        assertEquals(100, valueTested, "Checks method handles a zero city population");
     }
 
     /**
@@ -125,6 +125,6 @@ public class HighLevelPopulationReportModelUnitTests {
         var valueTested = systemUnderTest.GetPercentNotCityPopulation();
 
         // Assert
-        assertEquals(0, valueTested);
+        assertEquals(0, valueTested, "Checks method handles a zero population without throwing an exception");
     }
 }

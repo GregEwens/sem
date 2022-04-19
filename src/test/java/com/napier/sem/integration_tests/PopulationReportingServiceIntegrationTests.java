@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Date Created: 09/04/2022 15:07
  * File Purpose: Integration tests for PopulationReportingService
  */
-public class PopulationReportingServiceIntegrationTests {
+class PopulationReportingServiceIntegrationTests {
     /**
      * The application to test
      */
@@ -68,11 +68,11 @@ public class PopulationReportingServiceIntegrationTests {
      */
     @Test
     void testReferenceData(){
-        assertNotNull(_country);
-        assertNotNull(_city);
+        assertNotNull(_country, "Check we have some data");
+        assertNotNull(_city, "Check we have some data");
 
-        assertTrue(_country.Code.length() > 0);
-        assertTrue(_city.id > -1);
+        assertTrue(_country.Code.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(_city.id > -1, "We don't know what the value is but we can check it's not the default");
     }
 
     /**
@@ -84,8 +84,8 @@ public class PopulationReportingServiceIntegrationTests {
                 .getHighLevelPopulationDataForContinent(_country.Continent);
 
         // Assert
-        assertNotNull(populationCollection);
-        assertTrue(populationCollection.Name.length() > 0);
+        assertNotNull(populationCollection, "Check we have some data");
+        assertTrue(populationCollection.Name.length() > 0, "We don't know what the value is but we can check it's not the default");
     }
 
     /**
@@ -97,7 +97,7 @@ public class PopulationReportingServiceIntegrationTests {
                 .getHighLevelPopulationDataForContinent("Not a continent");
 
         // Assert
-        assertNull(populationCollection);
+        assertNull(populationCollection, "Check we have a proper null response");
     }
 
 
@@ -110,8 +110,8 @@ public class PopulationReportingServiceIntegrationTests {
                 .getHighLevelPopulationDataForRegion(_country.Region);
 
         // Assert
-        assertNotNull(populationCollection);
-        assertTrue(populationCollection.Name.length() > 0);
+        assertNotNull(populationCollection, "Check we have some data");
+        assertTrue(populationCollection.Name.length() > 0, "We don't know what the value is but we can check it's not the default");
     }
 
     /**
@@ -123,7 +123,7 @@ public class PopulationReportingServiceIntegrationTests {
                 .getHighLevelPopulationDataForRegion("Not a region");
 
         // Assert
-        assertNull(populationCollection);
+        assertNull(populationCollection, "Check we have a proper null response");
     }
 
     /**
@@ -135,8 +135,8 @@ public class PopulationReportingServiceIntegrationTests {
                 .getHighLevelPopulationDataForCountry(_country.Name);
 
         // Assert
-        assertNotNull(populationCollection);
-        assertTrue(populationCollection.Name.length() > 0);
+        assertNotNull(populationCollection, "Check we have some data");
+        assertTrue(populationCollection.Name.length() > 0, "We don't know what the value is but we can check it's not the default");
     }
 
     /**
@@ -148,7 +148,7 @@ public class PopulationReportingServiceIntegrationTests {
                 .getHighLevelPopulationDataForCountry("Not a country");
 
         // Assert
-        assertNull(populationCollection);
+        assertNull(populationCollection, "Check we have a proper null response");
     }
 
     /**
@@ -159,7 +159,7 @@ public class PopulationReportingServiceIntegrationTests {
         var population = App.populationReportingService.getPopulationOfWorld();
 
         // Assert
-        assertTrue(population > 0);
+        assertTrue(population > 0, "We don't know what the value is but we can check it's not zero");
     }
 
     /**
@@ -170,7 +170,7 @@ public class PopulationReportingServiceIntegrationTests {
         var population = App.populationReportingService.getPopulationOfRegion(_country.Region);
 
         // Assert
-        assertTrue(population > 0);
+        assertTrue(population > 0, "We don't know what the value is but we can check it's not zero");
     }
 
     /**
@@ -181,7 +181,7 @@ public class PopulationReportingServiceIntegrationTests {
         var population = App.populationReportingService.getPopulationOfRegion("Not a region");
 
         // Assert
-        assertEquals(0, population);
+        assertEquals(0, population, "Check the method returns the expected zero");
     }
 
     /**
@@ -192,7 +192,7 @@ public class PopulationReportingServiceIntegrationTests {
         var population = App.populationReportingService.getPopulationOfCountry(_country.Name);
 
         // Assert
-        assertTrue(population > 0);
+        assertTrue(population > 0, "We don't know what the value is but we can check it's not zero");
     }
 
     /**
@@ -203,7 +203,7 @@ public class PopulationReportingServiceIntegrationTests {
         var population = App.populationReportingService.getPopulationOfCountry("Not a country");
 
         // Assert
-        assertEquals(0, population);
+        assertEquals(0, population, "Check the method returns the expected zero");
     }
 
     /**
@@ -214,7 +214,7 @@ public class PopulationReportingServiceIntegrationTests {
         var population = App.populationReportingService.getPopulationOfContinent(_country.Continent);
 
         // Assert
-        assertTrue(population > 0);
+        assertTrue(population > 0, "We don't know what the value is but we can check it's not zero");
     }
 
     /**
@@ -225,7 +225,7 @@ public class PopulationReportingServiceIntegrationTests {
         var population = App.populationReportingService.getPopulationOfContinent("Not a continent");
 
         // Assert
-        assertEquals(0, population);
+        assertEquals(0, population, "Check the method returns the expected zero");
     }
 
     /**
@@ -236,7 +236,7 @@ public class PopulationReportingServiceIntegrationTests {
         var population = App.populationReportingService.getPopulationOfDistrict(_city.district);
 
         // Assert
-        assertTrue(population > 0);
+        assertTrue(population > 0, "We don't know what the value is but we can check it's not zero");
     }
 
     /**
@@ -247,7 +247,7 @@ public class PopulationReportingServiceIntegrationTests {
         var population = App.populationReportingService.getPopulationOfDistrict("Not a district");
 
         // Assert
-        assertEquals(0, population);
+        assertEquals(0, population, "Check the method returns the expected zero");
     }
 
     /**
@@ -258,7 +258,7 @@ public class PopulationReportingServiceIntegrationTests {
         var population = App.populationReportingService.getPopulationOfCity(_city.name);
 
         // Assert
-        assertTrue(population > 0);
+        assertTrue(population > 0, "We don't know what the value is but we can check it's not zero");
     }
 
     /**
@@ -269,6 +269,6 @@ public class PopulationReportingServiceIntegrationTests {
         var population = App.populationReportingService.getPopulationOfCity("Not a City");
 
         // Assert
-        assertEquals(0, population);
+        assertEquals(0, population, "Check the method returns the expected zero");
     }
 }

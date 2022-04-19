@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Date Created: 10/04/2022 19:21
  * File Purpose: Unit tests for LanguageHelpers
  */
-public class LanguageHelpersUnitTests {
+class LanguageHelpersUnitTests {
 
     private final static ArrayList<SpokenLanguageJoinCountry> SpokenLanguageJoinCountryCollection =
             new ArrayList<>();
@@ -54,7 +54,7 @@ public class LanguageHelpersUnitTests {
         var filteredCollection = getCountriesWithLanguage(SpokenLanguageJoinCountryCollection, filteredLanguage);
 
         // Assert
-        assertEquals(2, filteredCollection.size());
+        assertEquals(2, filteredCollection.size(), "Mockup supplies 2 objects");
     }
 
     /**
@@ -67,8 +67,8 @@ public class LanguageHelpersUnitTests {
         var filteredCollection = getCountriesWithLanguage(SpokenLanguageJoinCountryCollection, "not a language");
 
         // Assert
-        assertNotNull(filteredCollection);
-        assertEquals(0, filteredCollection.size());
+        assertNotNull(filteredCollection, "Checks we have some data");
+        assertEquals(0, filteredCollection.size(), "Mockup does not supply this data");
     }
 
     /**
@@ -84,7 +84,7 @@ public class LanguageHelpersUnitTests {
         var response = buildLanguageModels(SpokenLanguageJoinCountryCollection, worldPopulation, languagesOfInterest);
 
         // Assert
-        assertEquals(3, response.size());
+        assertEquals(3, response.size(), "Mockup supplies 3 objects");
     }
 
     /**
@@ -100,6 +100,6 @@ public class LanguageHelpersUnitTests {
         var response = buildLanguageModels(SpokenLanguageJoinCountryCollection, worldPopulation, languagesOfInterest);
 
         // Assert
-        assertEquals("Language2", response.get(0).LanguageName);
+        assertEquals("Language2", response.get(0).LanguageName, "Mockup supplies this object");
     }
 }

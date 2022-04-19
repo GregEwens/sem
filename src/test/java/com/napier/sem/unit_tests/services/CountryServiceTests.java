@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Date Created: 11/03/2022 09:07
  * File Purpose: Unit Tests for CountryRepository
  */
-public class CountryServiceTests {
+class CountryServiceTests {
 
     /**
      * Mockup of countryRepository
@@ -44,7 +44,7 @@ public class CountryServiceTests {
         var countries = systemUnderTest.getTopNCountriesOrderedByPopulation(count);
 
         // Assert
-        assertEquals(count, countries.size());
+        assertEquals(count, countries.size(), "Mockup supplies this count");
     }
 
     /**
@@ -61,7 +61,7 @@ public class CountryServiceTests {
         var countries = systemUnderTest.getTopNCountriesOrderedByPopulation(count);
 
         // Assert
-        assertEquals(count, countries.size());
+        assertEquals(count, countries.size(), "Mockup supplies this count");
     }
 
     /**
@@ -92,7 +92,7 @@ public class CountryServiceTests {
         var countries = systemUnderTest.getTopNCountriesOrderedByPopulation(count);
 
         // Assert
-        assertNotEquals(count, countries.size());
+        assertNotEquals(count, countries.size(), "Mockup supplies this count");
     }
 
     /**
@@ -116,7 +116,7 @@ public class CountryServiceTests {
 
         assertTrue(populationFirst > populationSecond
                 && populationSecond > populationThird
-                && populationThird > populationFourth);
+                && populationThird > populationFourth, "Ensures the ordering of the items matches requirements");
     }
 
      /**
@@ -134,7 +134,7 @@ public class CountryServiceTests {
         var countries = systemUnderTest.getTopNCountriesInRegionOrderedByPopulation(count, region);
 
         // Assert
-        assertEquals(count, countries.size());
+        assertEquals(count, countries.size(), "Mockup supplies this count");
     }
 
     /**
@@ -152,7 +152,7 @@ public class CountryServiceTests {
         var countries = systemUnderTest.getTopNCountriesInRegionOrderedByPopulation(count, region);
 
         // Assert
-        assertEquals(count, countries.size());
+        assertEquals(count, countries.size(), "Mockup supplies this count");
     }
 
     /**
@@ -170,7 +170,7 @@ public class CountryServiceTests {
         var countries = systemUnderTest.getTopNCountriesInRegionOrderedByPopulation(count, region);
 
         // Assert
-        assertEquals(0, countries.size());
+        assertEquals(0, countries.size(), "Mockup supplies this count");
     }
 
     /**
@@ -204,7 +204,7 @@ public class CountryServiceTests {
         var countries = systemUnderTest.getTopNCountriesInRegionOrderedByPopulation(count, region);
 
         // Assert
-        assertNotEquals(count, countries.size());
+        assertNotEquals(count, countries.size(), "Mockup supplies this count");
     }
 
     /**
@@ -229,7 +229,7 @@ public class CountryServiceTests {
 
         assertTrue(populationFirst > populationSecond
                 && populationSecond > populationThird
-                && populationThird > populationFourth);
+                && populationThird > populationFourth, "Ensures the ordering of the items matches requirements");
     }
 
     /**
@@ -246,7 +246,7 @@ public class CountryServiceTests {
         var country = systemUnderTest.getCountryByName(countryName);
 
         // Assert
-        assertEquals(countryName, country.Name);
+        assertEquals(countryName, country.Name, "Checks value specified matches that which is returned");
     }
 
     /**
@@ -263,7 +263,7 @@ public class CountryServiceTests {
         var country = systemUnderTest.getCountryByName(countryName);
 
         // Assert
-        assertEquals(countryName, country.Name.toLowerCase());
+        assertEquals(countryName, country.Name.toLowerCase(), "Checks value specified matches that which is returned");
     }
 
     /**
@@ -280,7 +280,7 @@ public class CountryServiceTests {
         var country = systemUnderTest.getCountryByName(countryName);
 
         // Assert
-        assertEquals(countryName, country.Name.toUpperCase());
+        assertEquals(countryName, country.Name.toUpperCase(), "Checks value specified matches that which is returned");
     }
 
     /**
@@ -297,6 +297,6 @@ public class CountryServiceTests {
         var country = systemUnderTest.getCountryByName(countryName);
 
         // Assert
-        assertNull(country);
+        assertNull(country, "Checks method returns null when nothing is found");
     }
 }

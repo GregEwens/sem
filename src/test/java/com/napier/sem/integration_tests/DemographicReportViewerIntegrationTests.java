@@ -5,6 +5,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.integration_tests
@@ -12,7 +14,7 @@ import org.junit.jupiter.api.Test;
  * Date Created: 11/04/2022 16:28
  * File Purpose: Integration tests for Demographic Report Viewer
  */
-public class DemographicReportViewerIntegrationTests {
+class DemographicReportViewerIntegrationTests {
     /**
      * The application to test
      */
@@ -47,6 +49,7 @@ public class DemographicReportViewerIntegrationTests {
      */
     @Test
     void testsShowCountriesByPopulation(){
-        App.demographicReports.ShowKeyDemographicReport(); // No testable output - this test ensures that no exceptions are thrown
+        assertDoesNotThrow(() -> App.demographicReports.ShowKeyDemographicReport()); // No testable output - this test
+        // ensures that no exceptions are thrown
     }
 }

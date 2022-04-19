@@ -6,8 +6,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Project Name: seMethods
@@ -16,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * Date Created: 13/03/2022 20:31
  * File Purpose: Integration tests for Country Report Viewer
  */
-public class CountryReportViewerIntegrationTests {
+class CountryReportViewerIntegrationTests {
 
     /**
      * The application to test
@@ -60,8 +59,8 @@ public class CountryReportViewerIntegrationTests {
      */
     @Test
     void testReferenceData(){
-        assertNotNull(_country);
-        assertTrue(_country.Code.length() > 0);
+        assertNotNull(_country, "Check we have some data");
+        assertTrue(_country.Code.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
     /**
@@ -69,7 +68,7 @@ public class CountryReportViewerIntegrationTests {
      */
     @Test
     void testsShowCountriesByPopulation(){
-        App.countryReports.ShowCountriesByPopulation(); // No testable output - this test ensures that no exceptions are thrown
+        assertDoesNotThrow(() -> App.countryReports.ShowCountriesByPopulation()); // No testable output - this test ensures that no exceptions are thrown
     }
 
     /**
@@ -77,7 +76,7 @@ public class CountryReportViewerIntegrationTests {
      */
     @Test
     void testsShowCountriesInAContinentByPopulation(){
-        App.countryReports.ShowCountriesInAContinentByPopulation(_country.Continent); // No testable output - this test ensures
+        assertDoesNotThrow(() -> App.countryReports.ShowCountriesInAContinentByPopulation(_country.Continent)); // No testable output - this test ensures
         // that no exceptions are thrown
     }
 
@@ -86,7 +85,7 @@ public class CountryReportViewerIntegrationTests {
      */
     @Test
     void testsShowCountriesInARegionByPopulation(){
-        App.countryReports.ShowCountriesInARegionByPopulation(_country.Region); // No testable output - this test ensures that
+        assertDoesNotThrow(() -> App.countryReports.ShowCountriesInARegionByPopulation(_country.Region)); // No testable output - this test ensures that
         // no exceptions are thrown
     }
 
@@ -95,7 +94,7 @@ public class CountryReportViewerIntegrationTests {
      */
     @Test
     void testsShowTopNCountriesByPopulation(){
-        App.countryReports.ShowTopNCountriesByPopulation(1); // No testable output - this test ensures that no
+        assertDoesNotThrow(() -> App.countryReports.ShowTopNCountriesByPopulation(1)); // No testable output - this test ensures that no
         // exceptions are thrown
     }
 
@@ -104,7 +103,7 @@ public class CountryReportViewerIntegrationTests {
      */
     @Test
     void testsShowTopNCountriesInContinentByPopulation(){
-        App.countryReports.ShowTopNCountriesInContinentByPopulation(1, _country.Continent); // No testable output - this
+        assertDoesNotThrow(() -> App.countryReports.ShowTopNCountriesInContinentByPopulation(1, _country.Continent)); // No testable output - this
         // test ensures that no exceptions are thrown
     }
 
@@ -113,7 +112,7 @@ public class CountryReportViewerIntegrationTests {
      */
     @Test
     void testsShowTopNCountriesInRegionByPopulation(){
-        App.countryReports.ShowTopNCountriesInRegionByPopulation(1, _country.Region); // No testable output - this
+        assertDoesNotThrow(() -> App.countryReports.ShowTopNCountriesInRegionByPopulation(1, _country.Region)); // No testable output - this
         // test ensures that no exceptions are thrown
     }
 

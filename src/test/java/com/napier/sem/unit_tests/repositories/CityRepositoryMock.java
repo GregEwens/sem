@@ -31,7 +31,7 @@ public class CityRepositoryMock implements ICityRepository {
 
             // generate values based on index
             city.countryCode = Integer.toString(i);
-            city.population = (int) Math.pow(2, i);
+            city.population = Integer.MAX_VALUE - (int) Math.pow(2, i);
             city.district = district;
             city.id = i;
             city.name = "Name" + i;
@@ -63,7 +63,7 @@ public class CityRepositoryMock implements ICityRepository {
 
             // generate values based on index
             city.countryCode = Integer.toString(i);
-            city.population = (int) Math.pow(2, i);
+            city.population = Integer.MAX_VALUE - (int) Math.pow(2, i);
             city.district = "district" + i;
             city.id = i;
             city.name = "name" + i;

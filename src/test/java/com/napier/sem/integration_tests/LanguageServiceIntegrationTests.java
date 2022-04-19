@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * Date Created: 11/04/2022 16:23
  * File Purpose: Integration tests for Language reports
  */
-public class LanguageServiceIntegrationTests {
+class LanguageServiceIntegrationTests {
 
     /**
      * The application to test
@@ -56,11 +56,11 @@ public class LanguageServiceIntegrationTests {
         var languageModels = App.languageService.getDemographicReportModel();
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
-        assertFalse(languageModels.isEmpty());
+        assertFalse(languageModels.isEmpty(), "Check we have some data");
         var languageModel = languageModels.get(0);
 
         // Assert
-        assertTrue(languageModel.LanguageName.length() > 0);
-        assertTrue(languageModel.Speakers > -1);
+        assertTrue(languageModel.LanguageName.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(languageModel.Speakers > -1, "We don't know what the value is but we can check it's not empty");
     }
 }
