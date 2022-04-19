@@ -68,6 +68,9 @@ public class CapitalCityReportViewer {
      * @param cities The collection of capital cities to display
      */
     private void displayCapitalCities(ArrayList<CapitalCity> cities){
+        var header = String.format("%-36s %-53s %-10s", "Name", "Country", "Population");
+        System.out.println(header);
+
         for (var city: cities) {
             displayCapitalCity(city);
         }
@@ -78,12 +81,11 @@ public class CapitalCityReportViewer {
      * @param city The capital city to display
      */
     private void displayCapitalCity(CapitalCity city){
+
         if (city != null)
         {
-            System.out.println(
-                    city.name + ", "
-                            + city.country + "\n"
-                            + "Population:" + city.population + "\n");
+            var row = String.format("%-36s %-53s %-10s", city.name, city.country, city.population);
+            System.out.println(row);
         }
     }
 

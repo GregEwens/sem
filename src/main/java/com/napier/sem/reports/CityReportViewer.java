@@ -36,7 +36,7 @@ public class CityReportViewer {
 
         System.out.println("Data found for city with Id: " + Id);
 
-        displayCity(city);
+        displayCity(city, true);
     }
 
     /**
@@ -167,25 +167,38 @@ public class CityReportViewer {
      * @param cities The collection of cities to display
      */
     private void displayCities(ArrayList<City> cities){
+        displayCityHeader();
+
         for (var city: cities) {
-            displayCity(city);
+            displayCity(city, false);
         }
     }
 
     /**
      * Prints the details of a single city
-     * @param cty The city to display
+     * @param city The city to display
      */
-    private void displayCity(City cty)
+    private void displayCity(City city, boolean showHeader)
     {
-        if (cty != null)
-        {
-            System.out.println(
-                    cty.id + " "
-                            + cty.name + " "
-                            + cty.countryCode + "\n"
-                            + cty.district + "\n"
-                            + "Population:" + cty.population + "\n");
+        if (showHeader){
+            displayCityHeader();
         }
+
+        if (city != null)
+        {
+            var row = String.format("%-6s %-36s %-13s %-20s %-10s",
+                    city.id, city.name, city.countryCode, city.district, city.population);
+            System.out.println(row);
+        }
+    }
+
+    /**
+     * Prints the column headers for city data
+     */
+    private void displayCityHeader(){
+        var row = String.format("%-6s %-36s %-13s %-20s %-10s",
+                "Id", "Name", "Country Code", "District", "Population");
+        System.out.println(row);
+
     }
 }

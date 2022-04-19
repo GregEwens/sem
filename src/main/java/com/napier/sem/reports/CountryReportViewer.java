@@ -108,6 +108,11 @@ public class CountryReportViewer {
      * @param countries The collection of countries to display
      */
     private void displayCountries(ArrayList<Country> countries){
+
+        var header = String.format("%-13s %-53s %-14s %-27s %-10s %-36s",
+                "Country Code", "Name", "Continent", "Region", "Population", "Capital");
+        System.out.println(header);
+
         for (var country: countries) {
             displayCountry(country);
         }
@@ -115,19 +120,15 @@ public class CountryReportViewer {
 
     /**
      * Prints the details of a single country
-     * @param ctry The country to display
+     * @param country The country to display
      */
-    private void displayCountry(Country ctry)
+    private void displayCountry(Country country)
     {
-        if (ctry != null)
+        if (country != null)
         {
-            System.out.println(
-                    ctry.Code + " "
-                    + ctry.Name + " "
-                    + ctry.Continent + "\n"
-                    + ctry.Region + "\n"
-                    + "Population:" + ctry.Population + "\n" +
-                    ctry.Capital + "\n");
+            var row = String.format("%-13s %-53s %-14s %-27s %-10s %-36s",
+                    country.Code, country.Name, country.Continent, country.Region, country.Population, country.Capital);
+            System.out.println(row);
         }
     }
 }

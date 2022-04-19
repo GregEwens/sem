@@ -126,16 +126,19 @@ public class PopulationReportViewer {
      */
     private void displayPopulationReport(HighLevelPopulationReportModel reportData)
     {
+        var header = String.format("%-60s %-11s %-16s %-17s %-20s %-20s" ,
+                "Area", "Population", "City Population",
+                "Rural Population", "Percent In Cities",
+                "Percent Not In Cities");
+        System.out.println(header);
+
         if (reportData != null)
         {
-            System.out.println(
-                    reportData.Name + "\n"
-                            + reportData.Population + "\n"
-                            + reportData.CityPopulation + "\n"
-                            + (reportData.Population - reportData.CityPopulation) + "\n"
-                            + reportData.GetPercentCityPopulation() + "\n"
-                            + reportData.GetPercentNotCityPopulation() + "\n"
-                            );
+            var row = String.format("%-60s %-11s %-16s %-17s %-20s %-20s" ,
+                    reportData.Name, reportData.Population, reportData.CityPopulation,
+                    (reportData.Population - reportData.CityPopulation), reportData.GetPercentCityPopulation(),
+                    reportData.GetPercentNotCityPopulation());
+            System.out.println(row);
         }
     }
 }

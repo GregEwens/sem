@@ -44,6 +44,9 @@ public class DemographicReportViewer {
      * @param model the collection of languages
      */
     private void displayDemographics(ArrayList<LanguageModel> model) {
+        var header = String.format("%-31s %-11s %-20s",
+                "Language Name", "Speakers", "Percentage of World");
+        System.out.println(header);
 
         for (var languageModel:model) {
             displayLanguageDemographic(languageModel);
@@ -57,10 +60,9 @@ public class DemographicReportViewer {
     private void displayLanguageDemographic(LanguageModel model) {
         if (model != null)
         {
-            System.out.println(
-                    model.LanguageName + " "
-                            + "Speakers: " + model.Speakers + " "
-                            + "Percentage of World: " + model.GetSpeakersAsPercentageOfWorld());
+            var row = String.format("%-31s %-11s %-20s",
+                    model.LanguageName, model.Speakers, model.GetSpeakersAsPercentageOfWorld());
+            System.out.println(row);
         }
     }
 }
