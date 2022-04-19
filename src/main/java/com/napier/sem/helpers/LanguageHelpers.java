@@ -15,7 +15,12 @@ import static com.napier.sem.helpers.PopulationHelpers.sumLanguageCount;
  * Date Created: 10/04/2022 16:51
  * File Purpose: Helper methods for Languages
  */
-public class LanguageHelpers {
+public final class LanguageHelpers {
+
+    /**
+     * A private constructor because you can't just mark the class as static (c# > Java)
+     */
+    private LanguageHelpers(){}
 
     /**
      * Filters a collection of SpokenLanguageJoinCountry by a specified language name

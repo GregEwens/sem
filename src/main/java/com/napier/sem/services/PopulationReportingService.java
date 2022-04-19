@@ -44,7 +44,7 @@ public class PopulationReportingService {
         var allCitiesInContinent = _cityService.getAllCitiesByContinentOrderedByPopulation(continentName);
         var allCountriesInContinent = _countryService.getAllCountriesInContinentOrderedByPopulation(continentName);
 
-        if (allCountriesInContinent.size() == 0) return null;
+        if (allCountriesInContinent.isEmpty()) return null;
 
         var model = new HighLevelPopulationReportModel();
         model.Name = continentName;
@@ -64,7 +64,7 @@ public class PopulationReportingService {
         var allCitiesInRegion = _cityService.getAllCitiesByRegionOrderedByPopulation(regionName);
         var allCountriesInRegion = _countryService.getAllCountriesInRegionOrderedByPopulation(regionName);
 
-        if (allCountriesInRegion.size() == 0) return null;
+        if (allCountriesInRegion.isEmpty()) return null;
 
         var model = new HighLevelPopulationReportModel();
         model.Name = regionName;

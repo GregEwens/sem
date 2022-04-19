@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.repositories
@@ -13,6 +14,7 @@ import java.util.ArrayList;
  * Date Created: 19/02/2022
  * File Purpose: This class provides methods for accessing Country data
  */
+@SuppressWarnings("PMD.SystemPrintln") // Prototype app using console for logging
 public class CountryRepository implements ICountryRepository {
 
     /**
@@ -86,6 +88,9 @@ public class CountryRepository implements ICountryRepository {
 
                 countries.add(country);
             }
+
+            statement.close();
+            resultSet.close();
 
             // return our collection
             return countries;

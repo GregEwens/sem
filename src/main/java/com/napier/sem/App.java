@@ -9,6 +9,7 @@ import com.napier.sem.services.*;
 
 import java.sql.*;
 
+
 /**
  * Project Name: seMethods
  * Package: com.napier.sem
@@ -16,6 +17,7 @@ import java.sql.*;
  * Date Created: 09/02/2022 14:42
  * File Purpose: The entry point of the application
  */
+@SuppressWarnings("PMD.SystemPrintln") // Prototype app using console for output
 public class App
 {
     /**

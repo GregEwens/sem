@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -38,10 +39,10 @@ class LanguageModelUnitTests {
         Collections.sort(systemUnderTest);
 
         // Assert
-        assertEquals(systemUnderTest.get(0).LanguageName, "item3", "Checks item3 is the first item in the list");
-        assertEquals(systemUnderTest.get(1).LanguageName, "item1", "Checks item1 is the second item in the list");
-        assertEquals(systemUnderTest.get(2).LanguageName, "item2", "Checks item2 is the third item in the list");
-
+        assertTrue(Objects.equals(systemUnderTest.get(0).LanguageName, "item3")
+                    && Objects.equals(systemUnderTest.get(1).LanguageName, "item1")
+                    && Objects.equals(systemUnderTest.get(2).LanguageName, "item2"),
+                "Checks the items are ordered as specified");
     }
 
     /**

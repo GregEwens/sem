@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+
 /**
  * Project Name: seMethods.repositories
  * Package: com.napier.sem
@@ -13,6 +14,7 @@ import java.util.ArrayList;
  * Date Created: 12/03/2022 13:37
  * File Purpose:This class provides methods for accessing Capital City data
  */
+@SuppressWarnings("PMD.SystemPrintln") // Prototype app using console for logging
 public class CapitalCityRepository implements ICapitalCityRepository {
 
     /**
@@ -77,6 +79,9 @@ public class CapitalCityRepository implements ICapitalCityRepository {
 
                 cities.add(city);
             }
+
+            statement.close();
+            resultSet.close();
 
             // return our collection
             return cities;

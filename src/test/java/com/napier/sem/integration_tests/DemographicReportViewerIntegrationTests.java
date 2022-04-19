@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
  * Date Created: 11/04/2022 16:28
  * File Purpose: Integration tests for Demographic Report Viewer
  */
+@SuppressWarnings("PMD.JUnitTestContainsTooManyAsserts") // Integration tests may use multiple assertions
 class DemographicReportViewerIntegrationTests {
     /**
      * The application to test

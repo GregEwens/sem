@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
+
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.integration_tests
@@ -15,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Date Created: 13/03/2022 20:31
  * File Purpose: Integration tests for Country Report Viewer
  */
+@SuppressWarnings("PMD.JUnitTestContainsTooManyAsserts") // Integration tests may use multiple assertions
 class CountryReportViewerIntegrationTests {
 
     /**
