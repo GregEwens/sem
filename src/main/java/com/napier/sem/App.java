@@ -172,10 +172,7 @@ public class App
      * Run the world reports
      */
     public static void runReports(){
-        populationReports.ShowPopulationReportForRegion("Southern Europe");
 
-
-/*
         // show an example city
         cityReports.ShowCityDetails(5);
 
@@ -274,9 +271,6 @@ public class App
 
         // Show the top N capital cities in a Continent
         capitalCityReports.ShowTopNCapitalCitiesInContinentByPopulation(4, "Oceania");
-
-        */
-
     }
 
     /**
