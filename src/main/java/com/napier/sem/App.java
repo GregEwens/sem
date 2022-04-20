@@ -99,7 +99,8 @@ public class App
      * The entry point for the app
      * @param args index0: database location, index1: connection retry delay
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         // Create new Application
         App a = new App();
 
@@ -117,7 +118,7 @@ public class App
      * @param a The static instance of this class
      * @param args index0: database location, index1: connection retry delay
      */
-    public static void initialise(App a, String... args){
+    public static void initialise(App a, String[] args){
 
         // Connect to database
         if(args.length < 1){
@@ -279,7 +280,8 @@ public class App
      * @param location the database location
      * @param delay connection retry delay
      */
-    public void connect(String location, int delay) {
+    public void connect(String location, int delay)
+    {
         try
         {
             // Load Database driver
@@ -326,7 +328,8 @@ public class App
     /**
      * Disconnect from the MySQL database.
      */
-    public void disconnect() {
+    public void disconnect()
+    {
         if (con != null)
         {
             try
