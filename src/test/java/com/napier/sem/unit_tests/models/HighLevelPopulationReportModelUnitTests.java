@@ -22,12 +22,12 @@ class HighLevelPopulationReportModelUnitTests {
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
-        systemUnderTest.Name = "Test";
-        systemUnderTest.Population = 100;
-        systemUnderTest.CityPopulation = 50;
+        systemUnderTest.name = "Test";
+        systemUnderTest.population = 100;
+        systemUnderTest.cityPopulation = 50;
 
         // Act
-        var valueTested = systemUnderTest.GetPercentCityPopulation();
+        var valueTested = systemUnderTest.getPercentCityPopulation();
 
         // Assert
         assertEquals(50.00, valueTested, "Checks the expected value of 50%");
@@ -41,12 +41,12 @@ class HighLevelPopulationReportModelUnitTests {
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
-        systemUnderTest.Name = "Test";
-        systemUnderTest.Population = 100;
-        systemUnderTest.CityPopulation = 0;
+        systemUnderTest.name = "Test";
+        systemUnderTest.population = 100;
+        systemUnderTest.cityPopulation = 0;
 
         // Act
-        var valueTested = systemUnderTest.GetPercentCityPopulation();
+        var valueTested = systemUnderTest.getPercentCityPopulation();
 
         // Assert
         assertEquals(0, valueTested, "Checks method handles a zero city population");
@@ -60,12 +60,12 @@ class HighLevelPopulationReportModelUnitTests {
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
-        systemUnderTest.Name = "Test";
-        systemUnderTest.Population = 0;
-        systemUnderTest.CityPopulation = 0;
+        systemUnderTest.name = "Test";
+        systemUnderTest.population = 0;
+        systemUnderTest.cityPopulation = 0;
 
         // Act
-        var valueTested = systemUnderTest.GetPercentCityPopulation();
+        var valueTested = systemUnderTest.getPercentCityPopulation();
 
         // Assert
         assertEquals(0, valueTested, "Checks method handles a zero population without throwing an exception");
@@ -79,12 +79,12 @@ class HighLevelPopulationReportModelUnitTests {
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
-        systemUnderTest.Name = "Test";
-        systemUnderTest.Population = 100;
-        systemUnderTest.CityPopulation = 50;
+        systemUnderTest.name = "Test";
+        systemUnderTest.population = 100;
+        systemUnderTest.cityPopulation = 50;
 
         // Act
-        var valueTested = systemUnderTest.GetPercentNotCityPopulation();
+        var valueTested = systemUnderTest.getPercentNotCityPopulation();
 
         // Assert
         assertEquals(50.00, valueTested, "Checks the expected value of 50%");
@@ -98,12 +98,12 @@ class HighLevelPopulationReportModelUnitTests {
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
-        systemUnderTest.Name = "Test";
-        systemUnderTest.Population = 100;
-        systemUnderTest.CityPopulation = 0;
+        systemUnderTest.name = "Test";
+        systemUnderTest.population = 100;
+        systemUnderTest.cityPopulation = 0;
 
         // Act
-        var valueTested = systemUnderTest.GetPercentNotCityPopulation();
+        var valueTested = systemUnderTest.getPercentNotCityPopulation();
 
         // Assert
         assertEquals(100, valueTested, "Checks method handles a zero city population");
@@ -117,12 +117,12 @@ class HighLevelPopulationReportModelUnitTests {
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
-        systemUnderTest.Name = "Test";
-        systemUnderTest.Population = 0;
-        systemUnderTest.CityPopulation = 0;
+        systemUnderTest.name = "Test";
+        systemUnderTest.population = 0;
+        systemUnderTest.cityPopulation = 0;
 
         // Act
-        var valueTested = systemUnderTest.GetPercentNotCityPopulation();
+        var valueTested = systemUnderTest.getPercentNotCityPopulation();
 
         // Assert
         assertEquals(0, valueTested, "Checks method handles a zero population without throwing an exception");

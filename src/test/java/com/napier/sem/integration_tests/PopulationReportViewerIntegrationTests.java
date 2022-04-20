@@ -82,7 +82,7 @@ class PopulationReportViewerIntegrationTests {
      */
     @Test
     void testsShowPopulationReportForCountry(){
-        assertDoesNotThrow(() -> App.populationReports.ShowPopulationReportForCountry(_country.name));
+        assertDoesNotThrow(() -> App.populationReports.showPopulationReportForCountry(_country.name));
         // No testable output - this test ensures that no exceptions are thrown
     }
 
@@ -91,7 +91,7 @@ class PopulationReportViewerIntegrationTests {
      */
     @Test
     void testsShowPopulationReportForContinent(){
-        assertDoesNotThrow(() -> App.populationReports.ShowPopulationReportForContinent(_country.continent));
+        assertDoesNotThrow(() -> App.populationReports.showPopulationReportForContinent(_country.continent));
         // No testable output - this test ensures that no exceptions are thrown
     }
 
@@ -101,7 +101,7 @@ class PopulationReportViewerIntegrationTests {
      */
     @Test
     void testsShowPopulationReportForRegion(){
-        assertDoesNotThrow(() -> App.populationReports.ShowPopulationReportForRegion(_country.region));
+        assertDoesNotThrow(() -> App.populationReports.showPopulationReportForRegion(_country.region));
         // No testable output - this test ensures that no exceptions are thrown
     }
 
@@ -110,7 +110,7 @@ class PopulationReportViewerIntegrationTests {
      */
     @Test
     void testsShowBasicPopulationReportForWorld(){
-        assertDoesNotThrow(() -> App.populationReports.ShowBasicPopulationReportForWorld());
+        assertDoesNotThrow(() -> App.populationReports.showBasicPopulationReportForWorld());
         // No testable output - this test ensures that no exceptions are thrown
     }
 
@@ -119,7 +119,7 @@ class PopulationReportViewerIntegrationTests {
      */
     @Test
     void testsShowBasicPopulationReportForContinent(){
-        assertDoesNotThrow(() -> App.populationReports.ShowBasicPopulationReportForContinent(_country.continent));
+        assertDoesNotThrow(() -> App.populationReports.showBasicPopulationReportForContinent(_country.continent));
         // No testable output - this test ensures that no exceptions are thrown
     }
 
@@ -128,7 +128,7 @@ class PopulationReportViewerIntegrationTests {
      */
     @Test
     void testsShowBasicPopulationReportForRegion(){
-        assertDoesNotThrow(() -> App.populationReports.ShowBasicPopulationReportForRegion(_country.region));
+        assertDoesNotThrow(() -> App.populationReports.showBasicPopulationReportForRegion(_country.region));
         // No testable output - this test ensures that no exceptions are thrown
     }
 
@@ -137,7 +137,7 @@ class PopulationReportViewerIntegrationTests {
      */
     @Test
     void testsShowBasicPopulationReportForCountry(){
-        assertDoesNotThrow(() -> App.populationReports.ShowBasicPopulationReportForCountry(_country.name));
+        assertDoesNotThrow(() -> App.populationReports.showBasicPopulationReportForCountry(_country.name));
         // No testable output - this test ensures that no exceptions are thrown
     }
 
@@ -146,7 +146,7 @@ class PopulationReportViewerIntegrationTests {
      */
     @Test
     void testsShowBasicPopulationReportForDistrict(){
-        assertDoesNotThrow(() -> App.populationReports.ShowBasicPopulationReportForDistrict(_city.district));
+        assertDoesNotThrow(() -> App.populationReports.showBasicPopulationReportForDistrict(_city.district));
         // No testable output - this test ensures that no exceptions are thrown
     }
 
@@ -155,7 +155,7 @@ class PopulationReportViewerIntegrationTests {
      */
     @Test
     void testsShowBasicPopulationReportForCity(){
-        assertDoesNotThrow(() -> App.populationReports.ShowBasicPopulationReportForCity(_city.name));
+        assertDoesNotThrow(() -> App.populationReports.showBasicPopulationReportForCity(_city.name));
         // No testable output - this test ensures that no exceptions are thrown
     }
 }

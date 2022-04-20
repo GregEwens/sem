@@ -47,9 +47,9 @@ public class PopulationReportingService {
         if (allCountriesInContinent.isEmpty()) return null;
 
         var model = new HighLevelPopulationReportModel();
-        model.Name = continentName;
-        model.Population = sumCountryPopulation(allCountriesInContinent);
-        model.CityPopulation = sumCityPopulation(allCitiesInContinent);
+        model.name = continentName;
+        model.population = sumCountryPopulation(allCountriesInContinent);
+        model.cityPopulation = sumCityPopulation(allCitiesInContinent);
 
         return model;
     }
@@ -67,9 +67,9 @@ public class PopulationReportingService {
         if (allCountriesInRegion.isEmpty()) return null;
 
         var model = new HighLevelPopulationReportModel();
-        model.Name = regionName;
-        model.Population = sumCountryPopulation(allCountriesInRegion);
-        model.CityPopulation = sumCityPopulation(allCitiesInRegion);
+        model.name = regionName;
+        model.population = sumCountryPopulation(allCountriesInRegion);
+        model.cityPopulation = sumCityPopulation(allCitiesInRegion);
 
         return model;
     }
@@ -87,9 +87,9 @@ public class PopulationReportingService {
         if (country == null) return null;
 
         var model = new HighLevelPopulationReportModel();
-        model.Name = countryName;
-        model.Population = country.population;
-        model.CityPopulation = sumCityPopulation(allCitiesInCountry);
+        model.name = countryName;
+        model.population = country.population;
+        model.cityPopulation = sumCityPopulation(allCitiesInCountry);
 
         return model;
     }

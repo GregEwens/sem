@@ -12,37 +12,37 @@ public class HighLevelPopulationReportModel {
     /**
      * The name of the geographic area
      */
-    public String Name;
+    public String name;
 
     /**
      * The total population in the geographic area
      */
-    public long Population;
+    public long population;
 
     /**
      * The population of the cities in the geographic area
      */
-    public long CityPopulation;
+    public long cityPopulation;
 
     /**
      * Calculates the percentage of the geographic area who reside in cities
      * @return the percentage value as double
      */
-    public double GetPercentCityPopulation(){
+    public double getPercentCityPopulation(){
         // return a zero to handle 0 population countries such as Antarctica
-        if (Population == 0 ) return 0;
+        if (population == 0 ) return 0;
 
-        return ((double) CityPopulation / (double) Population) * 100;
+        return ((double) cityPopulation / (double) population) * 100;
     }
 
     /**
      * Calculates the percentage of the geographic area who do not reside in cities
      * @return the percentage value as double
      */
-    public double GetPercentNotCityPopulation(){
+    public double getPercentNotCityPopulation(){
         // return a zero to handle 0 population countries such as Antarctica
-        if (Population == 0 ) return 0;
+        if (population == 0 ) return 0;
 
-        return (100.00 - GetPercentCityPopulation());
+        return (100.00 - getPercentCityPopulation());
     }
 }

@@ -50,7 +50,7 @@ class DemographicReportViewerIntegrationTests {
      */
     @Test
     void testsShowCountriesByPopulation(){
-        assertDoesNotThrow(() -> App.demographicReports.ShowKeyDemographicReport()); // No testable output - this test
+        assertDoesNotThrow(() -> App.demographicReports.showKeyDemographicReport()); // No testable output - this test
         // ensures that no exceptions are thrown
     }
 }

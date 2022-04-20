@@ -39,9 +39,9 @@ class LanguageModelUnitTests {
         Collections.sort(systemUnderTest);
 
         // Assert
-        assertTrue(Objects.equals(systemUnderTest.get(0).LanguageName, "item3")
-                    && Objects.equals(systemUnderTest.get(1).LanguageName, "item1")
-                    && Objects.equals(systemUnderTest.get(2).LanguageName, "item2"),
+        assertTrue(Objects.equals(systemUnderTest.get(0).languageName, "item3")
+                    && Objects.equals(systemUnderTest.get(1).languageName, "item1")
+                    && Objects.equals(systemUnderTest.get(2).languageName, "item2"),
                 "Checks the items are ordered as specified");
     }
 
@@ -55,7 +55,7 @@ class LanguageModelUnitTests {
         var systemUnderTest = new LanguageModel("item1", 1000, 10000);
 
         // Act
-        var response = systemUnderTest.GetSpeakersAsPercentageOfWorld();
+        var response = systemUnderTest.getSpeakersAsPercentageOfWorld();
 
         // Assert
         assertEquals(response, 10.00, "Checks the expected percentage from the supplied values");
@@ -72,6 +72,6 @@ class LanguageModelUnitTests {
         var systemUnderTest = new LanguageModel("item1", 1000, 0);
 
         // Assert
-        assertThrows(IllegalArgumentException.class, systemUnderTest::GetSpeakersAsPercentageOfWorld);
+        assertThrows(IllegalArgumentException.class, systemUnderTest::getSpeakersAsPercentageOfWorld);
     }
 }

@@ -87,7 +87,7 @@ class PopulationReportingServiceIntegrationTests {
 
         // Assert
         assertNotNull(populationCollection, "Check we have some data");
-        assertTrue(populationCollection.Name.length() > 0, "We don't know what the value is but we can check it's not the default");
+        assertTrue(populationCollection.name.length() > 0, "We don't know what the value is but we can check it's not the default");
     }
 
     /**
@@ -113,7 +113,7 @@ class PopulationReportingServiceIntegrationTests {
 
         // Assert
         assertNotNull(populationCollection, "Check we have some data");
-        assertTrue(populationCollection.Name.length() > 0, "We don't know what the value is but we can check it's not the default");
+        assertTrue(populationCollection.name.length() > 0, "We don't know what the value is but we can check it's not the default");
     }
 
     /**
@@ -138,7 +138,7 @@ class PopulationReportingServiceIntegrationTests {
 
         // Assert
         assertNotNull(populationCollection, "Check we have some data");
-        assertTrue(populationCollection.Name.length() > 0, "We don't know what the value is but we can check it's not the default");
+        assertTrue(populationCollection.name.length() > 0, "We don't know what the value is but we can check it's not the default");
     }
 
     /**

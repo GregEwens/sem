@@ -15,8 +15,7 @@ import java.util.ArrayList;
  */
 @SuppressWarnings("PMD.SystemPrintln") // Prototype app using console for output
 public class CapitalCityReportViewer {
-
-
+    
     /**
      * An instance of the City service class
      */
@@ -34,7 +33,7 @@ public class CapitalCityReportViewer {
      * Displays all capital cities in a given continent, ordered by population
      * @param continent The continent
      */
-    public void ShowCapitalCitiesInContinentByPopulation(String continent){
+    public void showCapitalCitiesInContinentByPopulation(String continent){
         var cities = _capitalCityService.getAllCapitalCitiesByContinentOrderedByPopulation(continent);
 
         System.out.println("Report showing all capital cities in " + continent + " ordered by population");
@@ -46,7 +45,7 @@ public class CapitalCityReportViewer {
      * Displays all capital cities in a given region, ordered by population
      * @param region The continent
      */
-    public void ShowCapitalCitiesInRegionByPopulation(String region){
+    public void showCapitalCitiesInRegionByPopulation(String region){
         var cities = _capitalCityService.getAllCapitalCitiesInRegionOrderedByPopulation(region);
 
         System.out.println("Report showing all capital cities in " + region + " ordered by population");
@@ -57,12 +56,50 @@ public class CapitalCityReportViewer {
     /**
      * Displays all capital cities in the world ordered by population
      */
-    public void ShowCapitalCitiesByPopulation(){
+    public void showCapitalCitiesByPopulation(){
         var cities = _capitalCityService.getAllCapitalCitiesOrderedByPopulation();
 
         System.out.println("Report showing all capital cities ordered by population");
 
         displayCapitalCities(cities);
+    }
+
+    /**
+     * Shows the top N capital cities in the world where N is specified
+     * @param n the number of capital cities to display
+     */
+    public void showTopNCapitalCitiesByPopulation(int n){
+        var capitalCities = _capitalCityService.getTopNCapitalCitiesInWorldOrderedByPopulation(n);
+
+        System.out.println("Report showing top " + n + "  capital cities in ordered by population");
+
+        displayCapitalCities(capitalCities);
+    }
+
+    /**
+     * Shows the top N capital cities in a region where N is specified and the regionName is specified
+     * @param n the number of capital cities to display
+     * @param regionName the name of the region
+     */
+    public void showTopNCapitalCitiesInRegionByPopulation(int n, String regionName){
+        var capitalCities = _capitalCityService.getTopNCapitalCitiesInRegionOrderedByPopulation(n, regionName);
+
+        System.out.println("Report showing top " + n + "  capital cities in " + regionName + " ordered by population");
+
+        displayCapitalCities(capitalCities);
+    }
+
+    /**
+     * Shows the top N capital cities in a continent where N is specified and the continentName is specified
+     * @param n the number of capital cities to display
+     * @param continentName the name of the continent
+     */
+    public void showTopNCapitalCitiesInContinentByPopulation(int n, String continentName){
+        var capitalCities = _capitalCityService.getTopNCapitalCitiesInContinentOrderedByPopulation(n, continentName);
+
+        System.out.println("Report showing top " + n + "  capital cities in " + continentName + " ordered by population");
+
+        displayCapitalCities(capitalCities);
     }
 
     /**
@@ -90,44 +127,4 @@ public class CapitalCityReportViewer {
             System.out.println(row);
         }
     }
-
-    /**
-     * Shows the top N capital cities in the world where N is specified
-     * @param n the number of capital cities to display
-     */
-    public void ShowTopNCapitalCitiesByPopulation(int n){
-        var capitalCities = _capitalCityService.getTopNCapitalCitiesInWorldOrderedByPopulation(n);
-
-        System.out.println("Report showing top " + n + "  capital cities in ordered by population");
-
-        displayCapitalCities(capitalCities);
-    }
-
-    /**
-     * Shows the top N capital cities in a region where N is specified and the regionName is specified
-     * @param n the number of capital cities to display
-     * @param regionName the name of the region
-     */
-    public void ShowTopNCapitalCitiesInRegionByPopulation(int n, String regionName){
-        var capitalCities = _capitalCityService.getTopNCapitalCitiesInRegionOrderedByPopulation(n, regionName);
-
-        System.out.println("Report showing top " + n + "  capital cities in " + regionName + " ordered by population");
-
-        displayCapitalCities(capitalCities);
-    }
-
-    /**
-     * Shows the top N capital cities in a continent where N is specified and the continentName is specified
-     * @param n the number of capital cities to display
-     * @param continentName the name of the continent
-     */
-    public void ShowTopNCapitalCitiesInContinentByPopulation(int n, String continentName){
-        var capitalCities = _capitalCityService.getTopNCapitalCitiesInContinentOrderedByPopulation(n, continentName);
-
-        System.out.println("Report showing top " + n + "  capital cities in " + continentName + " ordered by population");
-
-        displayCapitalCities(capitalCities);
-    }
-
-
 }

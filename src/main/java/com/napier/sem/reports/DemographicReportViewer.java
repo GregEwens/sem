@@ -5,7 +5,6 @@ import com.napier.sem.services.LanguageService;
 
 import java.util.ArrayList;
 
-
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.reports
@@ -33,7 +32,7 @@ public class DemographicReportViewer {
     /**
      * displays the key demographic report for 6 key languages
      */
-    public void ShowKeyDemographicReport(){
+    public void showKeyDemographicReport(){
         var model = _languageService.getDemographicReportModel();
 
         System.out.println("Key demographic report");
@@ -63,7 +62,7 @@ public class DemographicReportViewer {
         if (model != null)
         {
             var row = String.format("%-31s %-11s %-20s",
-                    model.LanguageName, model.Speakers, model.GetSpeakersAsPercentageOfWorld());
+                    model.languageName, model.speakers, model.getSpeakersAsPercentageOfWorld());
             System.out.println(row);
         }
     }

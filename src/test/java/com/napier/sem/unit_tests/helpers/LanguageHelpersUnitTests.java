@@ -102,6 +102,6 @@ class LanguageHelpersUnitTests {
         var response = buildLanguageModels(SpokenLanguageJoinCountryCollection, worldPopulation, languagesOfInterest);
 
         // Assert
-        assertEquals("Language2", response.get(0).LanguageName, "Mockup supplies this object");
+        assertEquals("Language2", response.get(0).languageName, "Mockup supplies this object");
     }
 }

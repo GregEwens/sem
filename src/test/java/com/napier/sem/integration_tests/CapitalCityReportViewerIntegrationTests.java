@@ -70,7 +70,7 @@ class CapitalCityReportViewerIntegrationTests {
      */
     @Test
     void testsShowCapitalCitiesInContinentByPopulation(){
-        assertDoesNotThrow(() -> App.capitalCityReports.ShowCapitalCitiesInContinentByPopulation(_capitalCity.continent)); // No testable output - this
+        assertDoesNotThrow(() -> App.capitalCityReports.showCapitalCitiesInContinentByPopulation(_capitalCity.continent)); // No testable output - this
         // test
         // ensures that no exceptions are thrown
     }
@@ -80,7 +80,7 @@ class CapitalCityReportViewerIntegrationTests {
      */
     @Test
     void testsShowCapitalCitiesByPopulation(){
-        assertDoesNotThrow(() -> App.capitalCityReports.ShowCapitalCitiesByPopulation()); // No testable output - this
+        assertDoesNotThrow(() -> App.capitalCityReports.showCapitalCitiesByPopulation()); // No testable output - this
         // test
         // ensures that no exceptions are thrown
     }
@@ -90,7 +90,7 @@ class CapitalCityReportViewerIntegrationTests {
      */
     @Test
     void testsShowCapitalCitiesInRegionByPopulation(){
-        assertDoesNotThrow(() -> App.capitalCityReports.ShowCapitalCitiesInRegionByPopulation(_capitalCity.region));
+        assertDoesNotThrow(() -> App.capitalCityReports.showCapitalCitiesInRegionByPopulation(_capitalCity.region));
         // No testable output - this
         // test
         // ensures that no exceptions are thrown
@@ -101,7 +101,7 @@ class CapitalCityReportViewerIntegrationTests {
      */
     @Test
     void testsShowTopNCapitalCitiesByPopulation(){
-        assertDoesNotThrow(() -> App.capitalCityReports.ShowTopNCapitalCitiesByPopulation(1)); // No testable output
+        assertDoesNotThrow(() -> App.capitalCityReports.showTopNCapitalCitiesByPopulation(1)); // No testable output
         // - this test ensures
         // that no exceptions are thrown
     }
@@ -111,7 +111,7 @@ class CapitalCityReportViewerIntegrationTests {
      */
     @Test
     void testsShowTopNCapitalCitiesInRegionByPopulation(){
-        assertDoesNotThrow(() -> App.capitalCityReports.ShowTopNCapitalCitiesInRegionByPopulation(1,
+        assertDoesNotThrow(() -> App.capitalCityReports.showTopNCapitalCitiesInRegionByPopulation(1,
                 _capitalCity.region)); // No testable output - this test ensures
         // that no exceptions are thrown
     }
@@ -121,7 +121,7 @@ class CapitalCityReportViewerIntegrationTests {
      */
     @Test
     void testsShowTopNCapitalCitiesInContinentByPopulation(){
-        assertDoesNotThrow(() -> App.capitalCityReports.ShowTopNCapitalCitiesInContinentByPopulation(1,
+        assertDoesNotThrow(() -> App.capitalCityReports.showTopNCapitalCitiesInContinentByPopulation(1,
                 _capitalCity.continent)); // No testable output - this test ensures
         // that no exceptions are thrown
     }

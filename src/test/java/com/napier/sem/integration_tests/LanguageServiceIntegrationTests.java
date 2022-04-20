@@ -62,7 +62,7 @@ class LanguageServiceIntegrationTests {
         var languageModel = languageModels.get(0);
 
         // Assert
-        assertTrue(languageModel.LanguageName.length() > 0, "We don't know what the value is but we can check it's not empty");
-        assertTrue(languageModel.Speakers > -1, "We don't know what the value is but we can check it's not empty");
+        assertTrue(languageModel.languageName.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(languageModel.speakers > -1, "We don't know what the value is but we can check it's not empty");
     }
 }

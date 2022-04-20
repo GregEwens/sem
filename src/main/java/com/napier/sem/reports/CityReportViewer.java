@@ -5,7 +5,6 @@ import com.napier.sem.services.CityService;
 
 import java.util.ArrayList;
 
-
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.reports
@@ -33,7 +32,7 @@ public class CityReportViewer {
      * Displays the details for a City with the given ID
      * @param Id The city Id to check
      */
-    public void ShowCityDetails(int Id){
+    public void showCityDetails(int Id){
         var city = _cityService.getCityById(Id);
 
         System.out.println("Data found for city with Id: " + Id);
@@ -44,7 +43,7 @@ public class CityReportViewer {
     /**
      * Displays all cities ordered by population
      */
-    public void ShowCitiesByPopulation(){
+    public void showCitiesByPopulation(){
         var cities = _cityService.getAllCitiesOrderedByPopulation();
 
         System.out.println("Report showing all cities ordered by population ascending");
@@ -56,7 +55,7 @@ public class CityReportViewer {
      * Displays all cities in a given country, ordered by population
      * @param countryCode The country code
      */
-    public void ShowCitiesInCountryByPopulation(String countryCode){
+    public void showCitiesInCountryByPopulation(String countryCode){
         var cities = _cityService.getAllCitiesByCountryOrderedByPopulation(countryCode);
 
         System.out.println("Report showing all cities in " + countryCode + " ordered by population ascending");
@@ -68,7 +67,7 @@ public class CityReportViewer {
      * Displays all cities in a given district, ordered by population
      * @param districtName The district name
      */
-    public void ShowCitiesInDistrictByPopulation(String districtName){
+    public void showCitiesInDistrictByPopulation(String districtName){
         var cities = _cityService.getAllCitiesByDistrictOrderedByPopulation(districtName);
 
         System.out.println("Report showing all cities in " + districtName + " ordered by population ascending");
@@ -80,7 +79,7 @@ public class CityReportViewer {
      * Displays all cities in a specified continent, ordered by population
      * @param continent The continent name
      */
-    public void ShowCitiesInContinentByPopulation(String continent) {
+    public void showCitiesInContinentByPopulation(String continent) {
         var cities = _cityService.getAllCitiesByContinentOrderedByPopulation(continent);
 
         System.out.println("Report showing all cities in " + continent + " ordered by population");
@@ -92,7 +91,7 @@ public class CityReportViewer {
      * Displays all cities in a specified region, ordered by population
      * @param region the region name
      */
-    public void ShowCitiesInRegionByPopulation(String region) {
+    public void showCitiesInRegionByPopulation(String region) {
         var cities = _cityService.getAllCitiesByRegionOrderedByPopulation(region);
 
         System.out.println("Report showing all cities in " + region + " ordered by population");
@@ -104,7 +103,7 @@ public class CityReportViewer {
      * Shows the top N cities in the world where N is specified
      * @param n the number of cities to display
      */
-    public void ShowTopNCitiesByPopulation(int n){
+    public void showTopNCitiesByPopulation(int n){
         var cities = _cityService.getTopNCitiesOrderedByPopulation(n);
 
         System.out.println("Report showing top " + n + " cities in ordered by population");
@@ -117,7 +116,7 @@ public class CityReportViewer {
      * @param n the number of cities to show
      * @param districtName the name of the specified district
      */
-    public void ShowTopNCitiesInDistrictByPopulation(int n, String districtName){
+    public void showTopNCitiesInDistrictByPopulation(int n, String districtName){
         var cities = _cityService.getTopNCitiesInDistrictOrderedByPopulation(n, districtName);
 
         System.out.println("Report showing top " + n + " cities in " + districtName + " ordered by population");
@@ -130,7 +129,7 @@ public class CityReportViewer {
      * @param n the number of cities to show
      * @param continentName the name of the specified continent
      */
-    public void ShowTopNCitiesInContinentByPopulation(int n, String continentName){
+    public void showTopNCitiesInContinentByPopulation(int n, String continentName){
         var cities = _cityService.getTopNCitiesInContinentOrderedByPopulation(n, continentName);
 
         System.out.println("Report showing top " + n + " cities in " + continentName + " ordered by population");
@@ -143,7 +142,7 @@ public class CityReportViewer {
      * @param n the number of cities to show
      * @param regionName the name of the specified region
      */
-    public void ShowTopNCitiesInRegionByPopulation(int n, String regionName){
+    public void showTopNCitiesInRegionByPopulation(int n, String regionName){
         var cities = _cityService.getTopNCitiesInRegionOrderedByPopulation(n, regionName);
 
         System.out.println("Report showing top " + n + " cities in " + regionName + " ordered by population");
@@ -156,7 +155,7 @@ public class CityReportViewer {
      * @param n the number of cities to show
      * @param countryName the name of the specified country
      */
-    public void ShowTopNCitiesInCountryByPopulation(int n, String countryName){
+    public void showTopNCitiesInCountryByPopulation(int n, String countryName){
         var cities = _cityService.getTopNCitiesInCountryOrderedByPopulation(n, countryName);
 
         System.out.println("Report showing top " + n + " cities in " + countryName + " ordered by population");
@@ -180,8 +179,7 @@ public class CityReportViewer {
      * Prints the details of a single city
      * @param city The city to display
      */
-    private void displayCity(City city, boolean showHeader)
-    {
+    private void displayCity(City city, boolean showHeader) {
         if (showHeader){
             displayCityHeader();
         }

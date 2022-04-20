@@ -31,7 +31,7 @@ public class PopulationReportViewer {
      * Displays a population report for a specified continent
      * @param continentName the name of the continent to display
      */
-    public void ShowPopulationReportForContinent(String continentName){
+    public void showPopulationReportForContinent(String continentName){
         var reportData = _populationService.getHighLevelPopulationDataForContinent(continentName);
 
         System.out.println("Report showing the population details of " + continentName);
@@ -43,7 +43,7 @@ public class PopulationReportViewer {
      * Displays a population report for a specified region
      * @param regionName the name of the region to display
      */
-    public void ShowPopulationReportForRegion(String regionName){
+    public void showPopulationReportForRegion(String regionName){
         var reportData = _populationService.getHighLevelPopulationDataForRegion(regionName);
 
         System.out.println("Report showing the population details of " + regionName);
@@ -55,7 +55,7 @@ public class PopulationReportViewer {
      * Displays a population report for a specified country
      * @param countryName the name of the country to display
      */
-    public void ShowPopulationReportForCountry(String countryName){
+    public void showPopulationReportForCountry(String countryName){
         var reportData = _populationService.getHighLevelPopulationDataForCountry(countryName);
 
         System.out.println("Report showing the population details of " + countryName);
@@ -66,7 +66,7 @@ public class PopulationReportViewer {
     /**
      * Displays the population of the world
      */
-    public void ShowBasicPopulationReportForWorld(){
+    public void showBasicPopulationReportForWorld(){
         var population = _populationService.getPopulationOfWorld();
 
         System.out.println("The population of the world is: " + population);
@@ -76,7 +76,7 @@ public class PopulationReportViewer {
      * Displays the population of a specified continent
      * @param continent the continent to show
      */
-    public void ShowBasicPopulationReportForContinent(String continent){
+    public void showBasicPopulationReportForContinent(String continent){
         var population = _populationService.getPopulationOfContinent(continent);
 
         System.out.println("The population of " + continent +  " is: " + population);
@@ -86,7 +86,7 @@ public class PopulationReportViewer {
      * Displays the population of a specified region
      * @param region the region to show
      */
-    public void ShowBasicPopulationReportForRegion(String region){
+    public void showBasicPopulationReportForRegion(String region){
         var population = _populationService.getPopulationOfRegion(region);
 
         System.out.println("The population of " + region +  " is: " + population);
@@ -96,7 +96,7 @@ public class PopulationReportViewer {
      * Displays the population of a specified country
      * @param country the country to show
      */
-    public void ShowBasicPopulationReportForCountry(String country){
+    public void showBasicPopulationReportForCountry(String country){
         var population = _populationService.getPopulationOfCountry(country);
 
         System.out.println("The population of " + country +  " is: " + population);
@@ -106,7 +106,7 @@ public class PopulationReportViewer {
      * Displays the population of a specified district
      * @param district the district to show
      */
-    public void ShowBasicPopulationReportForDistrict(String district){
+    public void showBasicPopulationReportForDistrict(String district){
         var population = _populationService.getPopulationOfDistrict(district);
 
         System.out.println("The population of " + district +  " is: " + population);
@@ -116,7 +116,7 @@ public class PopulationReportViewer {
      * Displays the population of a specified city
      * @param city the city to show
      */
-    public void ShowBasicPopulationReportForCity(String city){
+    public void showBasicPopulationReportForCity(String city){
         var population = _populationService.getPopulationOfCity(city);
 
         System.out.println("The population of " + city +  " is: " + population);
@@ -137,9 +137,9 @@ public class PopulationReportViewer {
         if (reportData != null)
         {
             var row = String.format("%-60s %-11s %-16s %-17s %-20s %-20s" ,
-                    reportData.Name, reportData.Population, reportData.CityPopulation,
-                    (reportData.Population - reportData.CityPopulation), reportData.GetPercentCityPopulation(),
-                    reportData.GetPercentNotCityPopulation());
+                    reportData.name, reportData.population, reportData.cityPopulation,
+                    (reportData.population - reportData.cityPopulation), reportData.getPercentCityPopulation(),
+                    reportData.getPercentNotCityPopulation());
             System.out.println(row);
         }
     }

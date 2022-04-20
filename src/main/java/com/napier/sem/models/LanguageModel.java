@@ -12,17 +12,17 @@ public class LanguageModel implements Comparable<LanguageModel> {
     /**
      * The name of the language in English
      */
-    public final String LanguageName;
+    public final String languageName;
 
     /**
      * The count of individuals who speak the language
      */
-    public final long Speakers;
+    public final long speakers;
 
     /**
      * The total population of the world
      */
-    private final float PopulationOfWorld;
+    private final float populationOfWorld;
 
     /**
      * The public constructor
@@ -31,9 +31,9 @@ public class LanguageModel implements Comparable<LanguageModel> {
      * @param worldPopulation The total population of the world
      */
     public LanguageModel(String languageName, long speakers, long worldPopulation){
-        LanguageName = languageName;
-        Speakers = speakers;
-        PopulationOfWorld = worldPopulation;
+        this.languageName = languageName;
+        this.speakers = speakers;
+        populationOfWorld = worldPopulation;
     }
 
     /**
@@ -46,18 +46,18 @@ public class LanguageModel implements Comparable<LanguageModel> {
 
         // use the speaker property to add to the comparator
         // For Descending order subtract from the default
-        return (int) ((compareLangModel).Speakers - this.Speakers);
+        return (int) ((compareLangModel).speakers - this.speakers);
     }
 
     /**
      * calculates the percentage of the world speak this language
      * @return The percentage as float
      */
-    public float GetSpeakersAsPercentageOfWorld(){
+    public float getSpeakersAsPercentageOfWorld(){
 
         // so turns out Java just returns infinity rather than throwing an exception - very odd
-        if(PopulationOfWorld == 0.00) throw new IllegalArgumentException();
+        if(populationOfWorld == 0.00) throw new IllegalArgumentException();
 
-        return (Speakers / PopulationOfWorld) * 100;
+        return (speakers / populationOfWorld) * 100;
     }
 }
