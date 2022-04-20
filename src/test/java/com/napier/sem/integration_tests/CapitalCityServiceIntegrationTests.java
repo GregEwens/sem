@@ -73,7 +73,7 @@ class CapitalCityServiceIntegrationTests {
     void testGetAllCapitalCitiesByContinentOrderedByPopulation(){
         //Arrange and Act
         var cities = App.capitalCityService
-                .getAllCapitalCitiesByContinentOrderedByPopulation(_capitalCity.Continent);
+                .getAllCapitalCitiesByContinentOrderedByPopulation(_capitalCity.continent);
         var city = cities.get(0);
 
         // Assert
@@ -137,7 +137,7 @@ class CapitalCityServiceIntegrationTests {
         assertTrue(capitalCity.population > 0, "We don't know what the value is but we can check it's not the default");
         assertTrue(capitalCity.region.length() > 0, "We don't know what the value is but we can check it's not empty");
         assertTrue(capitalCity.country.length() > 0, "We don't know what the value is but we can check it's not empty");
-        assertTrue(capitalCity.Continent.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(capitalCity.continent.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
     /**
@@ -159,7 +159,7 @@ class CapitalCityServiceIntegrationTests {
         assertTrue(capitalCity.population > 0, "We don't know what the value is but we can check it's not the default");
         assertTrue(capitalCity.region.length() > 0, "We don't know what the value is but we can check it's not empty");
         assertTrue(capitalCity.country.length() > 0, "We don't know what the value is but we can check it's not empty");
-        assertTrue(capitalCity.Continent.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(capitalCity.continent.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
     /**
@@ -168,7 +168,7 @@ class CapitalCityServiceIntegrationTests {
     @Test
     void testGetTopNCapitalCitiesInContinentOrderedByPopulation(){
         // Arrange & Act
-        var capitalCities = App.capitalCityService.getTopNCapitalCitiesInContinentOrderedByPopulation(1, _capitalCity.Continent);
+        var capitalCities = App.capitalCityService.getTopNCapitalCitiesInContinentOrderedByPopulation(1, _capitalCity.continent);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
         assertFalse(capitalCities.isEmpty(), "Check we have some data");
@@ -181,7 +181,7 @@ class CapitalCityServiceIntegrationTests {
         assertTrue(capitalCity.population > 0, "We don't know what the value is but we can check it's not the default");
         assertTrue(capitalCity.region.length() > 0, "We don't know what the value is but we can check it's not empty");
         assertTrue(capitalCity.country.length() > 0, "We don't know what the value is but we can check it's not empty");
-        assertTrue(capitalCity.Continent.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(capitalCity.continent.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
 

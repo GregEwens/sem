@@ -70,21 +70,21 @@ public class CountryRepository implements ICountryRepository {
             {
                 Country country = new Country();
 
-                country.Code = resultSet.getString("Code");
-                country.Name = resultSet.getString("Name");
-                country.Continent = resultSet.getString("Continent");
-                country.Region = resultSet.getString("Region");
-                country.SurfaceArea = resultSet.getBigDecimal("SurfaceArea");
-                country.IndepYear = resultSet.getShort("IndepYear");
-                country.Population = resultSet.getInt("Population");
-                country.LifeExpectancy = resultSet.getBigDecimal("LifeExpectancy");
-                country.GNP = resultSet.getBigDecimal("GNP");
-                country.GNPOld = resultSet.getBigDecimal("GNPOld");
-                country.LocalName = resultSet.getString("LocalName");
-                country.GovernmentForm = resultSet.getString("GovernmentForm");
-                country.HeadOfState = resultSet.getString("HeadOfState");
-                country.Capital = resultSet.getString("Capital");
-                country.Code2 = resultSet.getString("Code2");
+                country.code = resultSet.getString("Code");
+                country.name = resultSet.getString("Name");
+                country.continent = resultSet.getString("Continent");
+                country.region = resultSet.getString("Region");
+                country.surfaceArea = resultSet.getBigDecimal("SurfaceArea");
+                country.indepYear = resultSet.getShort("IndepYear");
+                country.population = resultSet.getInt("Population");
+                country.lifeExpectancy = resultSet.getBigDecimal("LifeExpectancy");
+                country.gnp = resultSet.getBigDecimal("GNP");
+                country.gnpOld = resultSet.getBigDecimal("GNPOld");
+                country.localName = resultSet.getString("LocalName");
+                country.governmentForm = resultSet.getString("GovernmentForm");
+                country.headOfState = resultSet.getString("HeadOfState");
+                country.capital = resultSet.getString("Capital");
+                country.code2 = resultSet.getString("Code2");
 
                 countries.add(country);
             }

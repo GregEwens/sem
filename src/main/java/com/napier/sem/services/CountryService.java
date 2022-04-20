@@ -38,7 +38,7 @@ public class CountryService {
         var countriesInRegion = new ArrayList<Country>();
 
         for (var country:countries) {
-            if (country.Region.equalsIgnoreCase(regionName)){
+            if (country.region.equalsIgnoreCase(regionName)){
                 countriesInRegion.add(country);
             }
         }
@@ -58,7 +58,7 @@ public class CountryService {
         var countriesInContinent = new ArrayList<Country>();
 
         for (var country:countries) {
-            if (country.Continent.equalsIgnoreCase(continentName)){
+            if (country.continent.equalsIgnoreCase(continentName)){
                 countriesInContinent.add(country);
             }
         }
@@ -90,7 +90,7 @@ public class CountryService {
         var countriesInContinent = new ArrayList<Country>();
 
         for (var country:countries) {
-            if (country.Continent.equalsIgnoreCase(continentName)){
+            if (country.continent.equalsIgnoreCase(continentName)){
                 countriesInContinent.add(country);
             }
         }
@@ -111,7 +111,7 @@ public class CountryService {
         var countriesInRegion = new ArrayList<Country>();
 
         for (var country:countries) {
-            if (country.Region.equalsIgnoreCase(regionName)){
+            if (country.region.equalsIgnoreCase(regionName)){
                 countriesInRegion.add(country);
             }
         }
@@ -137,7 +137,7 @@ public class CountryService {
         var countries = _countryRepoitory.getAllCountriesOrderByPopulation();
 
         for (var country:countries) {
-            if (country.Name.equalsIgnoreCase(countryName)){
+            if (country.name.equalsIgnoreCase(countryName)){
                 return country;
             }
         }

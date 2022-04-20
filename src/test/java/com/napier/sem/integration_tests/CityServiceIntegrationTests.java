@@ -88,7 +88,7 @@ class CityServiceIntegrationTests {
     void testGetAllCitiesByContinentOrderedByPopulation(){
         // Arrange & Act
         var cities = App.cityService
-                .getAllCitiesByContinentOrderedByPopulation(_city.Continent);
+                .getAllCitiesByContinentOrderedByPopulation(_city.continent);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
         assertFalse(cities.isEmpty(), "Check we have some data");
@@ -110,7 +110,7 @@ class CityServiceIntegrationTests {
     void testGetAllCitiesByRegionOrderedByPopulation(){
         // Arrange & Act
         var cities = App.cityService
-                .getAllCitiesByRegionOrderedByPopulation(_city.Region);
+                .getAllCitiesByRegionOrderedByPopulation(_city.region);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
         assertFalse(cities.isEmpty(), "Check we have some data");
@@ -198,7 +198,7 @@ class CityServiceIntegrationTests {
     void testGetTopNCitiesInRegionOrderedByPopulation(){
         // Arrange & Act
         var cities = App.cityService
-                .getTopNCitiesInRegionOrderedByPopulation(1, _city.Region);
+                .getTopNCitiesInRegionOrderedByPopulation(1, _city.region);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
         assertFalse(cities.isEmpty(), "Check we have some data");
@@ -244,7 +244,7 @@ class CityServiceIntegrationTests {
     void testGetTopNCitiesInContinentOrderedByPopulation(){
         // Arrange & Act
         var cities = App.cityService
-                .getTopNCitiesInContinentOrderedByPopulation(1, _city.Continent);
+                .getTopNCitiesInContinentOrderedByPopulation(1, _city.continent);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
         assertFalse(cities.isEmpty(), "Check we have some data");

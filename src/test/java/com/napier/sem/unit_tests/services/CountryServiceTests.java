@@ -109,10 +109,10 @@ class CountryServiceTests {
         var countries = systemUnderTest.getTopNCountriesOrderedByPopulation(count);
 
         // Assert
-        var populationFirst = countries.get(0).Population;
-        var populationSecond = countries.get(1).Population;
-        var populationThird = countries.get(2).Population;
-        var populationFourth = countries.get(3).Population;
+        var populationFirst = countries.get(0).population;
+        var populationSecond = countries.get(1).population;
+        var populationThird = countries.get(2).population;
+        var populationFourth = countries.get(3).population;
 
         assertTrue(populationFirst > populationSecond
                 && populationSecond > populationThird
@@ -222,10 +222,10 @@ class CountryServiceTests {
         var countries = systemUnderTest.getTopNCountriesInRegionOrderedByPopulation(count, region);
 
         // Assert
-        var populationFirst = countries.get(0).Population;
-        var populationSecond = countries.get(1).Population;
-        var populationThird = countries.get(2).Population;
-        var populationFourth = countries.get(3).Population;
+        var populationFirst = countries.get(0).population;
+        var populationSecond = countries.get(1).population;
+        var populationThird = countries.get(2).population;
+        var populationFourth = countries.get(3).population;
 
         assertTrue(populationFirst > populationSecond
                 && populationSecond > populationThird
@@ -246,7 +246,7 @@ class CountryServiceTests {
         var country = systemUnderTest.getCountryByName(countryName);
 
         // Assert
-        assertEquals(countryName, country.Name, "Checks value specified matches that which is returned");
+        assertEquals(countryName, country.name, "Checks value specified matches that which is returned");
     }
 
     /**
@@ -263,7 +263,7 @@ class CountryServiceTests {
         var country = systemUnderTest.getCountryByName(countryName);
 
         // Assert
-        assertEquals(countryName, country.Name.toLowerCase(), "Checks value specified matches that which is returned");
+        assertEquals(countryName, country.name.toLowerCase(), "Checks value specified matches that which is returned");
     }
 
     /**
@@ -280,7 +280,7 @@ class CountryServiceTests {
         var country = systemUnderTest.getCountryByName(countryName);
 
         // Assert
-        assertEquals(countryName, country.Name.toUpperCase(), "Checks value specified matches that which is returned");
+        assertEquals(countryName, country.name.toUpperCase(), "Checks value specified matches that which is returned");
     }
 
     /**

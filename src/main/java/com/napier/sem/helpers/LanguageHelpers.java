@@ -35,7 +35,7 @@ public final class LanguageHelpers {
         var filteredCountries = new ArrayList<SpokenLanguageJoinCountry>();
 
         for (var language : allCountries) {
-            if(language.Language.equalsIgnoreCase(languageName)){
+            if(language.language.equalsIgnoreCase(languageName)){
                 filteredCountries.add(language);
             }
         }

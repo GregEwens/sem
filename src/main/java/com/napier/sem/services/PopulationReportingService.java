@@ -88,7 +88,7 @@ public class PopulationReportingService {
 
         var model = new HighLevelPopulationReportModel();
         model.Name = countryName;
-        model.Population = country.Population;
+        model.Population = country.population;
         model.CityPopulation = sumCityPopulation(allCitiesInCountry);
 
         return model;
@@ -136,7 +136,7 @@ public class PopulationReportingService {
 
         if (country == null) return 0;
 
-        return country.Population;
+        return country.population;
     }
 
     /**

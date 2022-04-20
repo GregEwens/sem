@@ -63,7 +63,7 @@ class CountryReportViewerIntegrationTests {
     @Test
     void testReferenceData(){
         assertNotNull(_country, "Check we have some data");
-        assertTrue(_country.Code.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(_country.code.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
     /**
@@ -79,7 +79,7 @@ class CountryReportViewerIntegrationTests {
      */
     @Test
     void testsShowCountriesInAContinentByPopulation(){
-        assertDoesNotThrow(() -> App.countryReports.ShowCountriesInAContinentByPopulation(_country.Continent)); // No testable output - this test ensures
+        assertDoesNotThrow(() -> App.countryReports.ShowCountriesInAContinentByPopulation(_country.continent)); // No testable output - this test ensures
         // that no exceptions are thrown
     }
 
@@ -88,7 +88,7 @@ class CountryReportViewerIntegrationTests {
      */
     @Test
     void testsShowCountriesInARegionByPopulation(){
-        assertDoesNotThrow(() -> App.countryReports.ShowCountriesInARegionByPopulation(_country.Region)); // No testable output - this test ensures that
+        assertDoesNotThrow(() -> App.countryReports.ShowCountriesInARegionByPopulation(_country.region)); // No testable output - this test ensures that
         // no exceptions are thrown
     }
 
@@ -106,7 +106,7 @@ class CountryReportViewerIntegrationTests {
      */
     @Test
     void testsShowTopNCountriesInContinentByPopulation(){
-        assertDoesNotThrow(() -> App.countryReports.ShowTopNCountriesInContinentByPopulation(1, _country.Continent)); // No testable output - this
+        assertDoesNotThrow(() -> App.countryReports.ShowTopNCountriesInContinentByPopulation(1, _country.continent)); // No testable output - this
         // test ensures that no exceptions are thrown
     }
 
@@ -115,7 +115,7 @@ class CountryReportViewerIntegrationTests {
      */
     @Test
     void testsShowTopNCountriesInRegionByPopulation(){
-        assertDoesNotThrow(() -> App.countryReports.ShowTopNCountriesInRegionByPopulation(1, _country.Region)); // No testable output - this
+        assertDoesNotThrow(() -> App.countryReports.ShowTopNCountriesInRegionByPopulation(1, _country.region)); // No testable output - this
         // test ensures that no exceptions are thrown
     }
 

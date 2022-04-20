@@ -33,7 +33,7 @@ public class CapitalCityRepositoryMock implements ICapitalCityRepository {
             // generate values based on index
             city.country = Integer.toString(i);
             city.population = Integer.MAX_VALUE - (int) Math.pow(2, i);
-            city.Continent = continent;
+            city.continent = continent;
             city.name = "name" + i;
             city.region = region;
 

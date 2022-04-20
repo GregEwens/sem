@@ -129,7 +129,7 @@ public class CountryReportViewer {
         if (country != null)
         {
             var row = String.format("%-13s %-53s %-14s %-27s %-10s %-36s",
-                    country.Code, country.Name, country.Continent, country.Region, country.Population, country.Capital);
+                    country.code, country.name, country.continent, country.region, country.population, country.capital);
             System.out.println(row);
         }
     }

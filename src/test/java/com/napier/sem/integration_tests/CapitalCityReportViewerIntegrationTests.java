@@ -70,7 +70,7 @@ class CapitalCityReportViewerIntegrationTests {
      */
     @Test
     void testsShowCapitalCitiesInContinentByPopulation(){
-        assertDoesNotThrow(() -> App.capitalCityReports.ShowCapitalCitiesInContinentByPopulation(_capitalCity.Continent)); // No testable output - this
+        assertDoesNotThrow(() -> App.capitalCityReports.ShowCapitalCitiesInContinentByPopulation(_capitalCity.continent)); // No testable output - this
         // test
         // ensures that no exceptions are thrown
     }
@@ -122,7 +122,7 @@ class CapitalCityReportViewerIntegrationTests {
     @Test
     void testsShowTopNCapitalCitiesInContinentByPopulation(){
         assertDoesNotThrow(() -> App.capitalCityReports.ShowTopNCapitalCitiesInContinentByPopulation(1,
-                _capitalCity.Continent)); // No testable output - this test ensures
+                _capitalCity.continent)); // No testable output - this test ensures
         // that no exceptions are thrown
     }
 

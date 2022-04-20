@@ -38,7 +38,7 @@ public class CapitalCityService {
         var citiesInContinent = new ArrayList<CapitalCity>();
 
         for (var city:cities) {
-            if (city.Continent.equalsIgnoreCase(continentName)){
+            if (city.continent.equalsIgnoreCase(continentName)){
                 citiesInContinent.add(city);
             }
         }

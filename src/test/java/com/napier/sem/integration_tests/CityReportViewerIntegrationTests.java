@@ -89,7 +89,7 @@ class CityReportViewerIntegrationTests {
      */
     @Test
     void testsShowCitiesInContinentByPopulation(){
-        assertDoesNotThrow(() -> App.cityReports.ShowCitiesInContinentByPopulation(_city.Continent)); // No testable
+        assertDoesNotThrow(() -> App.cityReports.ShowCitiesInContinentByPopulation(_city.continent)); // No testable
         // output - this test ensures that no
         // exceptions are thrown
     }
@@ -114,7 +114,7 @@ class CityReportViewerIntegrationTests {
      */
     @Test
     void testsShowCitiesInRegionByPopulation(){
-        assertDoesNotThrow(() -> App.cityReports.ShowCitiesInRegionByPopulation(_city.Region)); // No testable output - this test ensures that no
+        assertDoesNotThrow(() -> App.cityReports.ShowCitiesInRegionByPopulation(_city.region)); // No testable output - this test ensures that no
         // exceptions are thrown
     }
 
@@ -142,7 +142,7 @@ class CityReportViewerIntegrationTests {
      */
     @Test
     void testsShowTopNCitiesInContinentByPopulation(){
-        assertDoesNotThrow(() -> App.cityReports.ShowTopNCitiesInContinentByPopulation(1, _city.Continent)); // No testable output - this test ensures
+        assertDoesNotThrow(() -> App.cityReports.ShowTopNCitiesInContinentByPopulation(1, _city.continent)); // No testable output - this test ensures
         // that no exceptions are thrown
     }
 
@@ -151,7 +151,7 @@ class CityReportViewerIntegrationTests {
      */
     @Test
     void testsShowTopNCitiesInRegionByPopulation(){
-        assertDoesNotThrow(() -> App.cityReports.ShowTopNCitiesInRegionByPopulation(1, _city.Region)); // No testable output - this test
+        assertDoesNotThrow(() -> App.cityReports.ShowTopNCitiesInRegionByPopulation(1, _city.region)); // No testable output - this test
         // ensures
         // that no exceptions are thrown
     }

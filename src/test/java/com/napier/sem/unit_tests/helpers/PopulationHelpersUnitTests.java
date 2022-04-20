@@ -72,15 +72,15 @@ class PopulationHelpersUnitTests {
         var countries = new ArrayList<Country>();
 
         var country1 = new Country();
-        country1.Population = 100;
+        country1.population = 100;
         countries.add(country1);
 
         var country2 = new Country();
-        country2.Population = 100;
+        country2.population = 100;
         countries.add(country2);
 
         var country3 = new Country();
-        country3.Population = 100;
+        country3.population = 100;
         countries.add(country3);
 
         // Act

@@ -16,75 +16,75 @@ public class Country
     /**
      * The unique country code to be used as a link identifier.
      */
-    public String Code;
+    public String code;
 
     /**
      * The name of the country.
      */
-    public String Name;
+    public String name;
 
     /**
      * The continent the country is on.
      */
-    public String Continent;
+    public String continent;
 
     /**
      * The region the country is in.
      */
-    public String Region;
+    public String region;
 
     /**
      * The surface area of the country.
      */
-    public BigDecimal SurfaceArea;
+    public BigDecimal surfaceArea;
 
     /**
      * The Indep year of the country,
      */
-    public int IndepYear;
+    public int indepYear;
 
     /**
      * The population of the country.
      */
-    public long Population;
+    public long population;
 
     /**
      * The average life expectancy of the country.
      */
-    public BigDecimal LifeExpectancy;
+    public BigDecimal lifeExpectancy;
 
     /**
      * The Gross national Product of the country.
      */
-    public BigDecimal GNP;
+    public BigDecimal gnp;
 
     /**
      * The old Gross national Product of the country.
      */
-    public BigDecimal GNPOld;
+    public BigDecimal gnpOld;
 
     /**
      * The name of the country in its native language.
      */
-    public String LocalName;
+    public String localName;
 
     /**
      * The form of the countries' government.
      */
-    public String GovernmentForm;
+    public String governmentForm;
 
     /**
      * The name of the head of state for the country.
      */
-    public String HeadOfState;
+    public String headOfState;
 
     /**
      * The name of the capital city of the country.
      */
-    public String Capital;
+    public String capital;
 
     /**
      * CountryCode variant using 2 characters
      */
-    public String Code2;
+    public String code2;
 }

@@ -29,19 +29,19 @@ class LanguageHelpersUnitTests {
         var filteredLanguage = "Language1";
 
         var item1 = new SpokenLanguageJoinCountry();
-        item1.Language = filteredLanguage;
+        item1.language = filteredLanguage;
         SpokenLanguageJoinCountryCollection.add(item1);
 
         var item2 = new SpokenLanguageJoinCountry();
-        item2.Language = filteredLanguage;
+        item2.language = filteredLanguage;
         SpokenLanguageJoinCountryCollection.add(item2);
 
         var item3 = new SpokenLanguageJoinCountry();
-        item3.Language = "language2";
+        item3.language = "language2";
         SpokenLanguageJoinCountryCollection.add(item3);
 
         var item4 = new SpokenLanguageJoinCountry();
-        item4.Language = "Another language";
+        item4.language = "Another language";
         SpokenLanguageJoinCountryCollection.add(item4);
     }
 

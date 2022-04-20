@@ -137,8 +137,8 @@ public class CityRepository implements ICityRepository {
                 city.countryCode = resultSet.getString("CountryCode");
                 city.district = resultSet.getString("district");
                 city.population = resultSet.getInt("population");
-                city.Continent = resultSet.getString("continent");
-                city.Region = resultSet.getString("region");
+                city.continent = resultSet.getString("continent");
+                city.region = resultSet.getString("region");
                 city.countryName = resultSet.getString("Country");
 
                 cities.add(city);

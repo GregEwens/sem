@@ -68,9 +68,9 @@ public class LanguageRepository implements ILanguageRepository  {
             {
                 SpokenLanguageJoinCountry language = new SpokenLanguageJoinCountry();
 
-                language.Language = resultSet.getString("Language");
-                language.Population = resultSet.getInt("Population");
-                language.Percentage = resultSet.getFloat("Percentage");
+                language.language = resultSet.getString("Language");
+                language.population = resultSet.getInt("Population");
+                language.percentage = resultSet.getFloat("Percentage");
 
                 languages.add(language);
             }

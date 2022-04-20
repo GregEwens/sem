@@ -46,7 +46,7 @@ public final class PopulationHelpers {
         long population = 0;
 
         for (var country:countries) {
-            population += country.Population;
+            population += country.population;
         }
 
         return population;
@@ -61,7 +61,7 @@ public final class PopulationHelpers {
         long population = 0;
 
         for (var country:countries) {
-            population += country.Population;
+            population += country.population;
         }
 
         return population;

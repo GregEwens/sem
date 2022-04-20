@@ -32,20 +32,20 @@ public class CountryRepositoryMock implements ICountryRepository {
             if(i > 15) region = "West Africa"; // 15 Asia
 
             // generate values based on index
-            country.Continent = continent;
-            country.Code = "CD" + i;
-            country.Population = Integer.MAX_VALUE - (int) Math.pow(2, i);
-            country.Region = region;
-            country.Capital = "City" + i;
-            country.Name = "Country" + i;
-            country.GNP = BigDecimal.valueOf(Math.pow(2, i) + 1000);
-            country.GNPOld = BigDecimal.valueOf(Math.pow(2, i) + 2000);
-            country.GovernmentForm = "GovernmentForm" + i;
-            country.HeadOfState = "Head of State" + i;
-            country.IndepYear = (short) (1000 + (i * 3));
-            country.LifeExpectancy = new BigDecimal(100 - i);
-            country.LocalName = "Local Name" + i;
-            country.SurfaceArea = BigDecimal.valueOf(Math.pow(2, i) - 10000);
+            country.continent = continent;
+            country.code = "CD" + i;
+            country.population = Integer.MAX_VALUE - (int) Math.pow(2, i);
+            country.region = region;
+            country.capital = "City" + i;
+            country.name = "Country" + i;
+            country.gnp = BigDecimal.valueOf(Math.pow(2, i) + 1000);
+            country.gnpOld = BigDecimal.valueOf(Math.pow(2, i) + 2000);
+            country.governmentForm = "GovernmentForm" + i;
+            country.headOfState = "Head of State" + i;
+            country.indepYear = (short) (1000 + (i * 3));
+            country.lifeExpectancy = new BigDecimal(100 - i);
+            country.localName = "Local Name" + i;
+            country.surfaceArea = BigDecimal.valueOf(Math.pow(2, i) - 10000);
 
             countries.add(country);
         }

@@ -74,7 +74,7 @@ public class CapitalCityRepository implements ICapitalCityRepository {
                 city.name = resultSet.getString("Name");
                 city.country = resultSet.getString("Country");
                 city.population = resultSet.getInt("Population");
-                city.Continent = resultSet.getString("Continent");
+                city.continent = resultSet.getString("Continent");
                 city.region = resultSet.getString("region");
 
                 cities.add(city);

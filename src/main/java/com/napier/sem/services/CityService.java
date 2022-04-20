@@ -53,7 +53,7 @@ public class CityService {
         var citiesInContinent = new ArrayList<City>();
 
         for (var city:cities) {
-            if (city.Continent.equalsIgnoreCase(continentName)){
+            if (city.continent.equalsIgnoreCase(continentName)){
                 citiesInContinent.add(city);
             }
         }
@@ -73,7 +73,7 @@ public class CityService {
         var citiesInRegion = new ArrayList<City>();
 
         for (var city:cities) {
-            if (city.Region.equalsIgnoreCase(regionName)){
+            if (city.region.equalsIgnoreCase(regionName)){
                 citiesInRegion.add(city);
             }
         }
@@ -143,7 +143,7 @@ public class CityService {
         var citiesInRegion = new ArrayList<City>();
 
         for (var city:cities) {
-            if (city.Region.equalsIgnoreCase(regionName)){
+            if (city.region.equalsIgnoreCase(regionName)){
                 citiesInRegion.add(city);
             }
         }
@@ -185,7 +185,7 @@ public class CityService {
         var citiesInContinent = new ArrayList<City>();
 
         for (var city:cities) {
-            if (city.Continent.equalsIgnoreCase(continentName)){
+            if (city.continent.equalsIgnoreCase(continentName)){
                 citiesInContinent.add(city);
             }
         }

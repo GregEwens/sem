@@ -68,8 +68,8 @@ public class CityRepositoryMock implements ICityRepository {
             city.id = i;
             city.name = "name" + i;
             city.countryName = name;
-            city.Region = region;
-            city.Continent = continent;
+            city.region = region;
+            city.continent = continent;
 
             cities.add(city);
         }
