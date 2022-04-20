@@ -54,7 +54,7 @@ public class CapitalCityRepository implements ICapitalCityRepository {
      * @return A collection of Capital Cities
      */
     private List<CapitalCity> getCapitalCityCollection(String SQLStatement){
-        
+
         try
         {
             // Create an SQL statement
