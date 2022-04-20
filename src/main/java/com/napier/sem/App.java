@@ -128,7 +128,7 @@ public class App
         }
 
         // construct the CityRepository
-        cityRepo = new CityRepository(con);
+        cityRepo = new CityRepository(a.con);
 
         // construct city service
         cityService = new CityService(cityRepo);
@@ -137,7 +137,7 @@ public class App
         cityReports = new CityReportViewer(cityService);
 
         // construct the CityRepository
-        capitalCityRepo = new CapitalCityRepository(con);
+        capitalCityRepo = new CapitalCityRepository(a.con);
 
         // construct city service
         capitalCityService = new CapitalCityService(capitalCityRepo);
@@ -146,7 +146,7 @@ public class App
         capitalCityReports = new CapitalCityReportViewer(capitalCityService);
 
         // construct the CountryRepository
-        countryRepo = new CountryRepository(con);
+        countryRepo = new CountryRepository(a.con);
 
         // construct the country service
         countryService = new CountryService(countryRepo);
@@ -161,7 +161,7 @@ public class App
         populationReports = new PopulationReportViewer(populationReportingService);
 
         // construct the LanguageRepository
-        languageRepo = new LanguageRepository(con);
+        languageRepo = new LanguageRepository(a.con);
 
         // construct the language service
         languageService = new LanguageService(languageRepo, populationReportingService);
@@ -176,103 +176,103 @@ public class App
     public static void runReports(){
 
         // show an example city
-        cityReports.showCityDetails(5);
+        cityReports.ShowCityDetails(5);
 
         // show the cities by population report
-        cityReports.showCitiesByPopulation();
+        cityReports.ShowCitiesByPopulation();
 
         // show cities in country by population
-        cityReports.showCitiesInCountryByPopulation("DEU");
+        cityReports.ShowCitiesInCountryByPopulation("DEU");
 
         // show cities in district by population
-        cityReports.showCitiesInDistrictByPopulation("California");
+        cityReports.ShowCitiesInDistrictByPopulation("California");
 
         //show cities in a continent organised by largest population to smallest.
-        cityReports.showCitiesInContinentByPopulation("Asia");
+        cityReports.ShowCitiesInContinentByPopulation("Asia");
 
         //show cities in a region organised by largest population to smallest.
-        cityReports.showCitiesInRegionByPopulation("Southern Europe");
+        cityReports.ShowCitiesInRegionByPopulation("Southern Europe");
 
         //show countries by population high to low
-        countryReports.showCountriesByPopulation();
+        countryReports.ShowCountriesByPopulation();
 
         //show countries in region by population high to low
-        countryReports.showCountriesInARegionByPopulation("Southern Europe");
+        countryReports.ShowCountriesInARegionByPopulation("Southern Europe");
 
         //show countries in continent by population high to low
-        countryReports.showCountriesInAContinentByPopulation("Asia");
+        countryReports.ShowCountriesInAContinentByPopulation("Asia");
 
         //show capital cities in a continent organised by largest population to smallest.
-        capitalCityReports.showCapitalCitiesInContinentByPopulation("Europe");
+        capitalCityReports.ShowCapitalCitiesInContinentByPopulation("Europe");
 
         //show capital cities in the world organised by largest population to smallest.
-        capitalCityReports.showCapitalCitiesByPopulation();
+        capitalCityReports.ShowCapitalCitiesByPopulation();
 
         // show top N countries by population
-        countryReports.showTopNCountriesByPopulation(25);
+        countryReports.ShowTopNCountriesByPopulation(25);
 
         // show top N countries in continent by population
-        countryReports.showTopNCountriesInContinentByPopulation(12, "Africa");
+        countryReports.ShowTopNCountriesInContinentByPopulation(12, "Africa");
 
         // show top N countries in continent by population
-        countryReports.showTopNCountriesInRegionByPopulation(12, "Northern Europe");
+        countryReports.ShowTopNCountriesInRegionByPopulation(12, "Northern Europe");
 
         // show top N cities by population
-        cityReports.showTopNCitiesByPopulation(5);
+        cityReports.ShowTopNCitiesByPopulation(5);
 
         // show top N cities in district
-        cityReports.showTopNCitiesInDistrictByPopulation(14, "Bremen");
+        cityReports.ShowTopNCitiesInDistrictByPopulation(14, "Bremen");
 
         // show top N cities in country
-        cityReports.showTopNCitiesInCountryByPopulation(35, "France");
+        cityReports.ShowTopNCitiesInCountryByPopulation(35, "France");
 
         // show top N cities in continent
-        cityReports.showTopNCitiesInContinentByPopulation(16, "Europe");
+        cityReports.ShowTopNCitiesInContinentByPopulation(16, "Europe");
 
         // show top N cities in continent
-        cityReports.showTopNCitiesInRegionByPopulation(16, "Northern Europe");
+        cityReports.ShowTopNCitiesInRegionByPopulation(16, "Northern Europe");
 
         // show population report for country
-        populationReports.showPopulationReportForCountry("France");
+        populationReports.ShowPopulationReportForCountry("France");
 
         // show population report for continent
-        populationReports.showPopulationReportForContinent("North America");
+        populationReports.ShowPopulationReportForContinent("North America");
 
         // show population report for region
-        populationReports.showPopulationReportForRegion("Southern Europe");
+        populationReports.ShowPopulationReportForRegion("Southern Europe");
 
         // show basic population report for the world
-        populationReports.showBasicPopulationReportForWorld();
+        populationReports.ShowBasicPopulationReportForWorld();
 
         // show basic population report for the world
-        populationReports.showBasicPopulationReportForContinent("Antarctica");
+        populationReports.ShowBasicPopulationReportForContinent("Antarctica");
 
         // show basic population report for the world
-        populationReports.showBasicPopulationReportForRegion("Southern and Central Asia");
+        populationReports.ShowBasicPopulationReportForRegion("Southern and Central Asia");
 
         // show basic population report for the world
-        populationReports.showBasicPopulationReportForCountry("Jamaica");
+        populationReports.ShowBasicPopulationReportForCountry("Jamaica");
 
         // show basic population report for the world
-        populationReports.showBasicPopulationReportForDistrict("Lombardia");
+        populationReports.ShowBasicPopulationReportForDistrict("Lombardia");
 
         // show basic population report for the world
-        populationReports.showBasicPopulationReportForCity("Edinburgh");
+        populationReports.ShowBasicPopulationReportForCity("Edinburgh");
 
         // show the demographics of the world
-        demographicReports.showKeyDemographicReport();
+        demographicReports.ShowKeyDemographicReport();
 
         // show the capital cities in a region
-        capitalCityReports.showCapitalCitiesInRegionByPopulation("Middle East");
+        capitalCityReports.ShowCapitalCitiesInRegionByPopulation("Middle East");
 
         // Show the top N capital cities in the world
-        capitalCityReports.showTopNCapitalCitiesByPopulation(12);
+        capitalCityReports.ShowTopNCapitalCitiesByPopulation(12);
 
         // Show the top N capital cities in a region
-        capitalCityReports.showTopNCapitalCitiesInRegionByPopulation(3, "Middle East");
+        capitalCityReports.ShowTopNCapitalCitiesInRegionByPopulation(3, "Middle East");
 
         // Show the top N capital cities in a Continent
-        capitalCityReports.showTopNCapitalCitiesInContinentByPopulation(4, "Oceania");
+        capitalCityReports.ShowTopNCapitalCitiesInContinentByPopulation(4, "Oceania");
     }
 
     /**
