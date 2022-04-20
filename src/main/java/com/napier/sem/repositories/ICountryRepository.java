@@ -17,5 +17,4 @@ public interface ICountryRepository {
      * @return A list of all countries, the collection may be empty should no countries be found.
      */
     ArrayList<Country> getAllCountriesOrderByPopulation();
-
 }

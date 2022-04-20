@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.repositories
@@ -20,22 +19,21 @@ public class CountryRepository implements ICountryRepository {
     /**
      * The MySQL database connection
      */
-    private final Connection con;
+    private final Connection _con;
 
     /**
      * Creates a new instance of the CountryRepository.
      * @param connection The database we will query
      */
     public CountryRepository (Connection connection){
-        con = connection;
+        _con = connection;
     }
 
     /**
      * @inheritDoc
      */
     @Override
-    public ArrayList<Country> getAllCountriesOrderByPopulation()
-    {
+    public ArrayList<Country> getAllCountriesOrderByPopulation() {
         // Create string for SQL statement
         String strSelect =
                 "SELECT Code, country.Name, Continent, Region, SurfaceArea, IndepYear, country.Population, LifeExpectancy, GNP, " +
@@ -57,7 +55,7 @@ public class CountryRepository implements ICountryRepository {
         try
         {
             // Create an SQL statement
-            Statement statement = con.createStatement();
+            Statement statement = _con.createStatement();
 
             // Execute SQL statement
             ResultSet resultSet = statement.executeQuery(SQLStatement);

@@ -33,8 +33,7 @@ public class CityService {
      * @param ID The city ID
      * @return The instance of city found or null
      */
-    public City getCityById(int ID)
-    {
+    public City getCityById(int ID) {
         var cities = _cityRepository.getAllCitiesOrderedByPopulation();
 
         return cities.stream().filter(c -> c.id == ID).collect(Collectors.toList()).get(0);
@@ -45,8 +44,7 @@ public class CityService {
      * @param continentName The continent to search, casing is unimportant
      * @return Returns a sorted collection of Cities
      */
-    public ArrayList<City> getAllCitiesByContinentOrderedByPopulation(String continentName)
-    {
+    public ArrayList<City> getAllCitiesByContinentOrderedByPopulation(String continentName) {
 
         var cities = _cityRepository.getAllCitiesJoinCountryOrderedByPopulation();
 
@@ -66,8 +64,7 @@ public class CityService {
      * @param regionName The region to search, casing is unimportant
      * @return Returns a sorted collection of Cities
      */
-    public ArrayList<City> getAllCitiesByRegionOrderedByPopulation(String regionName)
-    {
+    public ArrayList<City> getAllCitiesByRegionOrderedByPopulation(String regionName) {
         var cities = _cityRepository.getAllCitiesJoinCountryOrderedByPopulation();
 
         var citiesInRegion = new ArrayList<City>();

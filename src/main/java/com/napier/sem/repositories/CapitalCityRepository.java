@@ -20,24 +20,22 @@ public class CapitalCityRepository implements ICapitalCityRepository {
     /**
      * The MySQL database connection
      */
-    private final Connection con;
+    private final Connection _con;
 
     /**
      * Creates a new instance of the CityRepository.
      * @param connection The database we will query
      */
     public CapitalCityRepository (Connection connection){
-        con = connection;
+        _con = connection;
     }
-
 
     /**
      * Gets a collection of capital cities found in the world
      * @return Returns a sorted collection of Capital Cities
      */
     @Override
-    public ArrayList<CapitalCity> getAllCapitalCitiesOrderedByPopulation()
-    {
+    public ArrayList<CapitalCity> getAllCapitalCitiesOrderedByPopulation() {
         // Create string for SQL statement
         String strSelect =
                 "SELECT ci.Name, c.Name as Country, ci.Population, c.Continent, c.region "
@@ -46,7 +44,6 @@ public class CapitalCityRepository implements ICapitalCityRepository {
 
         return getCapitalCityCollection(strSelect);
     }
-
 
     /**
      * Queries the city table using the supplied SQL statement. This input is not validated and must be sanitised
@@ -58,7 +55,7 @@ public class CapitalCityRepository implements ICapitalCityRepository {
         try
         {
             // Create an SQL statement
-            Statement statement = con.createStatement();
+            Statement statement = _con.createStatement();
 
             // Execute SQL statement
             ResultSet resultSet = statement.executeQuery(SQLStatement);

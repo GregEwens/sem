@@ -17,5 +17,4 @@ public interface ICapitalCityRepository {
      * @return Returns a sorted collection of Capital Cities
      */
     ArrayList<CapitalCity> getAllCapitalCitiesOrderedByPopulation();
-
 }

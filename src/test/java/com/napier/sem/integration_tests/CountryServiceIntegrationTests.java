@@ -7,7 +7,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.integration_tests
@@ -32,8 +31,7 @@ class CountryServiceIntegrationTests {
      * Set up the database connection by calling initialise method on App
      */
     @BeforeAll
-    static void init()
-    {
+    static void init() {
         // create arguments to run the app
         String[] args = new String[2];
         args[0] = "localhost:33060";
@@ -68,8 +66,7 @@ class CountryServiceIntegrationTests {
      * Integration test for getAllCountriesOrderByPopulation
      */
     @Test
-    void testGetAllCountriesOrderByPopulation()
-    {
+    void testGetAllCountriesOrderByPopulation() {
         // Arrange & Act
         var countries = App.countryService
                 .getAllCountriesOrderByPopulation();
@@ -92,8 +89,7 @@ class CountryServiceIntegrationTests {
      * Integration test for getAllCountriesOrderByPopulation
      */
     @Test
-    void testGetTopNCountriesInRegionOrderedByPopulation()
-    {
+    void testGetTopNCountriesInRegionOrderedByPopulation() {
         // Arrange & Act
         var countries = App.countryService
                 .getTopNCountriesInRegionOrderedByPopulation(1, _country.region);
@@ -117,8 +113,7 @@ class CountryServiceIntegrationTests {
      * Integration test for getTopNCountriesInContinentOrderedByPopulation
      */
     @Test
-    void testGetTopNCountriesInContinentOrderedByPopulation()
-    {
+    void testGetTopNCountriesInContinentOrderedByPopulation() {
         // Arrange & Act
         var countries = App.countryService
                 .getTopNCountriesInContinentOrderedByPopulation(1, _country.continent);
@@ -142,8 +137,7 @@ class CountryServiceIntegrationTests {
      * Integration test for getTopNCountriesOrderedByPopulation
      */
     @Test
-    void testGetTopNCountriesOrderedByPopulation()
-    {
+    void testGetTopNCountriesOrderedByPopulation() {
         // Arrange & Act
         var countries = App.countryService
                 .getTopNCountriesOrderedByPopulation(1);
@@ -167,8 +161,7 @@ class CountryServiceIntegrationTests {
      * Integration test for getTopNCountriesOrderedByPopulation
      */
     @Test
-    void testGetAllCountriesInContinentOrderedByPopulation()
-    {
+    void testGetAllCountriesInContinentOrderedByPopulation() {
         // Arrange & Act
         var countries = App.countryService
                 .getAllCountriesInContinentOrderedByPopulation(_country.continent);
@@ -191,8 +184,7 @@ class CountryServiceIntegrationTests {
      * Integration test for getAllCountriesInRegionOrderedByPopulation
      */
     @Test
-    void testGetAllCountriesInRegionOrderedByPopulation()
-    {
+    void testGetAllCountriesInRegionOrderedByPopulation() {
         // Arrange & Act
         var countries = App.countryService
                 .getAllCountriesInRegionOrderedByPopulation(_country.region);

@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.repositories
@@ -21,22 +20,21 @@ public class CityRepository implements ICityRepository {
     /**
      * The MySQL database connection
      */
-    private final Connection con;
+    private final Connection _con;
 
     /**
      * Creates a new instance of the CityRepository.
      * @param connection The database we will query
      */
     public CityRepository (Connection connection){
-        con = connection;
+        _con = connection;
     }
 
     /**
      * @inheritDoc
      */
     @Override
-    public ArrayList<City> getAllCitiesOrderedByPopulation()
-    {
+    public ArrayList<City> getAllCitiesOrderedByPopulation() {
         // Create string for SQL statement
         String strSelect =
                 "SELECT ID, Name, CountryCode, District, Population "
@@ -49,8 +47,7 @@ public class CityRepository implements ICityRepository {
      * @inheritDoc
      */
     @Override
-    public ArrayList<CityJoinCountry> getAllCitiesJoinCountryOrderedByPopulation()
-    {
+    public ArrayList<CityJoinCountry> getAllCitiesJoinCountryOrderedByPopulation() {
         // Create string for SQL statement
         String strSelect =
                 "SELECT ci.Id, ci.Name, c.Name as Country, ci.CountryCode, ci.District, ci.Population," +
@@ -72,7 +69,7 @@ public class CityRepository implements ICityRepository {
         try
         {
             // Create an SQL statement
-            Statement statement = con.createStatement();
+            Statement statement = _con.createStatement();
 
             // Execute SQL statement
             ResultSet resultSet = statement.executeQuery(SQLStatement);
@@ -119,7 +116,7 @@ public class CityRepository implements ICityRepository {
         try
         {
             // Create an SQL statement
-            Statement statement = con.createStatement();
+            Statement statement = _con.createStatement();
 
             // Execute SQL statement
             ResultSet resultSet = statement.executeQuery(SQLStatement);

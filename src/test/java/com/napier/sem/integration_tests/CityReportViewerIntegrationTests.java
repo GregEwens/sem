@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.integration_tests
@@ -33,8 +32,7 @@ class CityReportViewerIntegrationTests {
      * Set up the database connection by calling initialise method on App
      */
     @BeforeAll
-    static void init()
-    {
+    static void init() {
         // create arguments to run the app
         String[] args = new String[2];
         args[0] = "localhost:33060";
@@ -66,7 +64,6 @@ class CityReportViewerIntegrationTests {
         assertTrue(_city.id > 0, "We don't know what the value is but we can check it's not the default value");
     }
 
-
     /**
      * Integration test for ShowCityDetails
      */
@@ -84,6 +81,7 @@ class CityReportViewerIntegrationTests {
         assertDoesNotThrow(() -> App.cityReports.showCitiesByPopulation()); // No testable output - this test ensures
         // that no exceptions are thrown
     }
+
     /**
      * Integration test for ShowCitiesInContinentByPopulation
      */
@@ -93,6 +91,7 @@ class CityReportViewerIntegrationTests {
         // output - this test ensures that no
         // exceptions are thrown
     }
+
     /**
      * Integration test for getAllCitiesByDistrictOrderedByPopulation
      */
@@ -101,6 +100,7 @@ class CityReportViewerIntegrationTests {
         assertDoesNotThrow(() -> App.cityReports.showCitiesInDistrictByPopulation(_city.district)); // No testable output - this test ensures that no
         // exceptions are thrown
     }
+
     /**
      * Integration test for ShowCitiesInCountryByPopulation
      */
@@ -109,6 +109,7 @@ class CityReportViewerIntegrationTests {
         assertDoesNotThrow(() -> App.cityReports.showCitiesInCountryByPopulation(_city.countryCode)); // No testable output - this test ensures that no
         // exceptions are thrown
     }
+
     /**
      * Integration test for ShowCitiesInRegionByPopulation
      */
@@ -155,7 +156,6 @@ class CityReportViewerIntegrationTests {
         // ensures
         // that no exceptions are thrown
     }
-
 
     /**
      * Integration test for ShowTopNCitiesInDistrictByPopulation

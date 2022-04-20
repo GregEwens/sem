@@ -25,8 +25,7 @@ class DemographicReportViewerIntegrationTests {
      * Set up the database connection by calling initialise method on App
      */
     @BeforeAll
-    static void init()
-    {
+    static void init() {
         // create arguments to run the app
         String[] args = new String[2];
         args[0] = "localhost:33060";

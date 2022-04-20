@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.integration_tests
@@ -28,8 +27,7 @@ class LanguageServiceIntegrationTests {
      * Set up the database connection by calling initialise method on App
      */
     @BeforeAll
-    static void init()
-    {
+    static void init() {
         // create arguments to run the app
         String[] args = new String[2];
         args[0] = "localhost:33060";
@@ -52,8 +50,7 @@ class LanguageServiceIntegrationTests {
      * Integration test for getAllCountriesOrderByPopulation
      */
     @Test
-    void testGetAllCountriesOrderByPopulation()
-    {
+    void testGetAllCountriesOrderByPopulation() {
         // Arrange & Act
         var languageModels = App.languageService.getDemographicReportModel();
 

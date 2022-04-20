@@ -7,7 +7,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.integration_tests
@@ -28,13 +27,11 @@ class CapitalCityServiceIntegrationTests {
      */
     private static CapitalCity _capitalCity;
 
-
     /**
      * Set up the database connection by calling initialise method on App
      */
     @BeforeAll
-    static void init()
-    {
+    static void init() {
         // create arguments to run the app
         String[] args = new String[2];
         args[0] = "localhost:33060";
@@ -183,6 +180,4 @@ class CapitalCityServiceIntegrationTests {
         assertTrue(capitalCity.country.length() > 0, "We don't know what the value is but we can check it's not empty");
         assertTrue(capitalCity.continent.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
-
-
 }
