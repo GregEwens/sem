@@ -23,7 +23,7 @@ public class App
     /**
      * Connection to MySQL database.
      */
-    private static Connection con = null;
+    private static Connection con;
 
     /**
      * The CityRepository, must be instantiated before use
@@ -127,7 +127,7 @@ public class App
         }
 
         // construct the CityRepository
-        cityRepo = new CityRepository(a.con);
+        cityRepo = new CityRepository(con);
 
         // construct city service
         cityService = new CityService(cityRepo);
@@ -136,7 +136,7 @@ public class App
         cityReports = new CityReportViewer(cityService);
 
         // construct the CityRepository
-        capitalCityRepo = new CapitalCityRepository(a.con);
+        capitalCityRepo = new CapitalCityRepository(con);
 
         // construct city service
         capitalCityService = new CapitalCityService(capitalCityRepo);
@@ -145,7 +145,7 @@ public class App
         capitalCityReports = new CapitalCityReportViewer(capitalCityService);
 
         // construct the CountryRepository
-        countryRepo = new CountryRepository(a.con);
+        countryRepo = new CountryRepository(con);
 
         // construct the country service
         countryService = new CountryService(countryRepo);
@@ -160,7 +160,7 @@ public class App
         populationReports = new PopulationReportViewer(populationReportingService);
 
         // construct the LanguageRepository
-        languageRepo = new LanguageRepository(a.con);
+        languageRepo = new LanguageRepository(con);
 
         // construct the language service
         languageService = new LanguageService(languageRepo, populationReportingService);

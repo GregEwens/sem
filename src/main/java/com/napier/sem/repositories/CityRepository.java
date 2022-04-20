@@ -4,6 +4,7 @@ import com.napier.sem.entities.City;
 import com.napier.sem.entities.CityJoinCountry;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -81,15 +82,7 @@ public class CityRepository implements ICityRepository {
             // read the results and map to our entity
             while (resultSet.next())
             {
-                City city = new City();
-
-                city.id = resultSet.getInt("ID");
-                city.name = resultSet.getString("Name");
-                city.countryCode = resultSet.getString("CountryCode");
-                city.district = resultSet.getString("district");
-                city.population = resultSet.getInt("population");
-
-                cities.add(city);
+                cities.add(buildCity(resultSet));
             }
 
             statement.close();
@@ -97,6 +90,7 @@ public class CityRepository implements ICityRepository {
 
             // return our collection
             return cities;
+
         }
         catch (Exception e)
         {
@@ -128,16 +122,7 @@ public class CityRepository implements ICityRepository {
             // read the results and map to our entity
             while (resultSet.next())
             {
-                CityJoinCountry city = new CityJoinCountry();
-
-                city.id = resultSet.getInt("ID");
-                city.name = resultSet.getString("Name");
-                city.countryCode = resultSet.getString("CountryCode");
-                city.district = resultSet.getString("district");
-                city.population = resultSet.getInt("population");
-                city.continent = resultSet.getString("continent");
-                city.region = resultSet.getString("region");
-                city.countryName = resultSet.getString("Country");
+                CityJoinCountry city = buildCityJoinCountry(resultSet);
 
                 cities.add(city);
             }
@@ -152,8 +137,46 @@ public class CityRepository implements ICityRepository {
         {
             // log exceptions to the screen
             System.out.println(e.getMessage());
+
             System.out.println("Failed to get city details");
             return null;
         }
+    }
+
+    /**
+     * Maps a CityJoinCountry object from a Sql results set
+     * @param resultSet the Sql Results set
+     * @return a mapped CityJoinCountry object
+     * @throws SQLException Can throw a SQLException
+     */
+    private CityJoinCountry buildCityJoinCountry(ResultSet resultSet) throws SQLException {
+        CityJoinCountry city = new CityJoinCountry();
+
+        city.id = resultSet.getInt("ID");
+        city.name = resultSet.getString("Name");
+        city.countryCode = resultSet.getString("CountryCode");
+        city.district = resultSet.getString("district");
+        city.population = resultSet.getInt("population");
+        city.continent = resultSet.getString("continent");
+        city.region = resultSet.getString("region");
+        city.countryName = resultSet.getString("Country");
+        return city;
+    }
+
+    /**
+     * Maps a City object from a Sql results set
+     * @param resultSet the Sql Results set
+     * @return a mapped City object
+     * @throws SQLException Can throw a SQLException
+     */
+    private City buildCity(ResultSet resultSet) throws SQLException {
+        City city = new City();
+
+        city.id = resultSet.getInt("ID");
+        city.name = resultSet.getString("Name");
+        city.countryCode = resultSet.getString("CountryCode");
+        city.district = resultSet.getString("district");
+        city.population = resultSet.getInt("population");
+        return city;
     }
 }

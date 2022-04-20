@@ -23,33 +23,44 @@ public class CountryRepositoryMock implements ICountryRepository {
         var countries = new ArrayList<Country>();
 
         for (int i = 0; i < 30; i++) {
-            var country = new Country();
-
-            var continent = "Europe";  // 15 europe
-            if(i > 15) continent = "Asia"; // 15 Asia
-
-            var region = "North Africa";  // 15 europe
-            if(i > 15) region = "West Africa"; // 15 Asia
-
-            // generate values based on index
-            country.continent = continent;
-            country.code = "CD" + i;
-            country.population = Integer.MAX_VALUE - (int) Math.pow(2, i);
-            country.region = region;
-            country.capital = "City" + i;
-            country.name = "Country" + i;
-            country.gnp = BigDecimal.valueOf(Math.pow(2, i) + 1000);
-            country.gnpOld = BigDecimal.valueOf(Math.pow(2, i) + 2000);
-            country.governmentForm = "GovernmentForm" + i;
-            country.headOfState = "Head of State" + i;
-            country.indepYear = (short) (1000 + (i * 3));
-            country.lifeExpectancy = new BigDecimal(100 - i);
-            country.localName = "Local Name" + i;
-            country.surfaceArea = BigDecimal.valueOf(Math.pow(2, i) - 10000);
+            Country country = buildCountry(i);
 
             countries.add(country);
         }
 
         return countries;
+
+    }
+
+    /**
+     * builds a Country with values based on a specified index
+     * @param i the index
+     * @return a Country object
+     */
+    private Country buildCountry(int i) {
+        var country = new Country();
+
+        var continent = "Europe";  // 15 europe
+        if(i > 15) continent = "Asia"; // 15 Asia
+
+        var region = "North Africa";  // 15 europe
+        if(i > 15) region = "West Africa"; // 15 Asia
+
+        // generate values based on index
+        country.continent = continent;
+        country.code = "CD" + i;
+        country.population = Integer.MAX_VALUE - (int) Math.pow(2, i);
+        country.region = region;
+        country.capital = "City" + i;
+        country.name = "Country" + i;
+        country.gnp = BigDecimal.valueOf(Math.pow(2, i) + 1000);
+        country.gnpOld = BigDecimal.valueOf(Math.pow(2, i) + 2000);
+        country.governmentForm = "GovernmentForm" + i;
+        country.headOfState = "Head of State" + i;
+        country.indepYear = (short) (1000 + (i * 3));
+        country.lifeExpectancy = new BigDecimal(100 - i);
+        country.localName = "Local Name" + i;
+        country.surfaceArea = BigDecimal.valueOf(Math.pow(2, i) - 10000);
+        return country;
     }
 }

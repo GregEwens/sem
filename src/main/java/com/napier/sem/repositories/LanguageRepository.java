@@ -4,6 +4,7 @@ import com.napier.sem.entities.SpokenLanguageJoinCountry;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -67,13 +68,7 @@ public class LanguageRepository implements ILanguageRepository  {
             // read the results and map to our entity
             while (resultSet.next())
             {
-                SpokenLanguageJoinCountry language = new SpokenLanguageJoinCountry();
-
-                language.language = resultSet.getString("Language");
-                language.population = resultSet.getInt("Population");
-                language.percentage = resultSet.getFloat("Percentage");
-
-                languages.add(language);
+                languages.add(buildSpokenLanguageJoinCountry(resultSet));
             }
 
             statement.close();
@@ -89,5 +84,20 @@ public class LanguageRepository implements ILanguageRepository  {
             System.out.println("Failed to get city details");
             return null;
         }
+    }
+
+    /**
+     * Maps a SpokenLanguageJoinCountry object from a Sql results set
+     * @param resultSet the Sql Results set
+     * @return a mapped SpokenLanguageJoinCountry object
+     * @throws SQLException Can throw a SQLException
+     */
+    private SpokenLanguageJoinCountry buildSpokenLanguageJoinCountry(ResultSet resultSet) throws SQLException {
+        SpokenLanguageJoinCountry language = new SpokenLanguageJoinCountry();
+
+        language.language = resultSet.getString("Language");
+        language.population = resultSet.getInt("Population");
+        language.percentage = resultSet.getFloat("Percentage");
+        return language;
     }
 }

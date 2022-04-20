@@ -5,6 +5,8 @@ import com.napier.sem.services.CountryService;
 import com.napier.sem.unit_tests.repositories.CountryRepositoryMock;
 import org.junit.jupiter.api.*;
 
+import java.util.Locale;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -263,7 +265,8 @@ class CountryServiceTests {
         var country = systemUnderTest.getCountryByName(countryName);
 
         // Assert
-        assertEquals(countryName, country.name.toLowerCase(), "Checks value specified matches that which is returned");
+        assertEquals(countryName, country.name.toLowerCase(Locale.getDefault()), "Checks value specified matches that which is " +
+                "returned");
     }
 
     /**
@@ -280,7 +283,7 @@ class CountryServiceTests {
         var country = systemUnderTest.getCountryByName(countryName);
 
         // Assert
-        assertEquals(countryName, country.name.toUpperCase(), "Checks value specified matches that which is returned");
+        assertEquals(countryName, country.name.toUpperCase(Locale.getDefault()), "Checks value specified matches that which is returned");
     }
 
     /**

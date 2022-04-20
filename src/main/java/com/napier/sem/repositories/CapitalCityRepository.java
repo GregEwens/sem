@@ -3,6 +3,7 @@ package com.napier.sem.repositories;
 import com.napier.sem.entities.CapitalCity;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +54,7 @@ public class CapitalCityRepository implements ICapitalCityRepository {
      * @return A collection of Capital Cities
      */
     private List<CapitalCity> getCapitalCityCollection(String SQLStatement){
+        
         try
         {
             // Create an SQL statement
@@ -67,15 +69,7 @@ public class CapitalCityRepository implements ICapitalCityRepository {
             // read the results and map to our entity
             while (resultSet.next())
             {
-                CapitalCity city = new CapitalCity();
-
-                city.name = resultSet.getString("Name");
-                city.country = resultSet.getString("Country");
-                city.population = resultSet.getInt("Population");
-                city.continent = resultSet.getString("Continent");
-                city.region = resultSet.getString("region");
-
-                cities.add(city);
+                cities.add(buildCapitalCity(resultSet));
             }
 
             statement.close();
@@ -91,5 +85,23 @@ public class CapitalCityRepository implements ICapitalCityRepository {
             System.out.println("Failed to get city details");
             return null;
         }
+    }
+
+    /**
+     * Maps a CapitalCity object from a Sql results set
+     * @param resultSet the Sql Results set
+     * @return a mapped CapitalCity object
+     * @throws SQLException Can throw a SQLException
+     */
+    private CapitalCity buildCapitalCity(ResultSet resultSet) throws SQLException {
+
+        CapitalCity city = new CapitalCity();
+
+        city.name = resultSet.getString("Name");
+        city.country = resultSet.getString("Country");
+        city.population = resultSet.getInt("Population");
+        city.continent = resultSet.getString("Continent");
+        city.region = resultSet.getString("region");
+        return city;
     }
 }

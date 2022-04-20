@@ -3,6 +3,7 @@ package com.napier.sem.repositories;
 import com.napier.sem.entities.Country;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -67,25 +68,7 @@ public class CountryRepository implements ICountryRepository {
             // read the results and map to our entity
             while (resultSet.next())
             {
-                Country country = new Country();
-
-                country.code = resultSet.getString("Code");
-                country.name = resultSet.getString("Name");
-                country.continent = resultSet.getString("Continent");
-                country.region = resultSet.getString("Region");
-                country.surfaceArea = resultSet.getBigDecimal("SurfaceArea");
-                country.indepYear = resultSet.getShort("IndepYear");
-                country.population = resultSet.getInt("Population");
-                country.lifeExpectancy = resultSet.getBigDecimal("LifeExpectancy");
-                country.gnp = resultSet.getBigDecimal("GNP");
-                country.gnpOld = resultSet.getBigDecimal("GNPOld");
-                country.localName = resultSet.getString("LocalName");
-                country.governmentForm = resultSet.getString("GovernmentForm");
-                country.headOfState = resultSet.getString("HeadOfState");
-                country.capital = resultSet.getString("Capital");
-                country.code2 = resultSet.getString("Code2");
-
-                countries.add(country);
+                countries.add( buildCountry(resultSet));
             }
 
             statement.close();
@@ -101,5 +84,32 @@ public class CountryRepository implements ICountryRepository {
             System.out.println("Failed to get country details");
             return null;
         }
+    }
+
+    /**
+     * Maps a Country object from a Sql results set
+     * @param resultSet the Sql Results set
+     * @return a mapped Country object
+     * @throws SQLException Can throw a SQLException
+     */
+    private Country buildCountry(ResultSet resultSet) throws SQLException {
+        Country country = new Country();
+
+        country.code = resultSet.getString("Code");
+        country.name = resultSet.getString("Name");
+        country.continent = resultSet.getString("Continent");
+        country.region = resultSet.getString("Region");
+        country.surfaceArea = resultSet.getBigDecimal("SurfaceArea");
+        country.indepYear = resultSet.getShort("IndepYear");
+        country.population = resultSet.getInt("Population");
+        country.lifeExpectancy = resultSet.getBigDecimal("LifeExpectancy");
+        country.gnp = resultSet.getBigDecimal("GNP");
+        country.gnpOld = resultSet.getBigDecimal("GNPOld");
+        country.localName = resultSet.getString("LocalName");
+        country.governmentForm = resultSet.getString("GovernmentForm");
+        country.headOfState = resultSet.getString("HeadOfState");
+        country.capital = resultSet.getString("Capital");
+        country.code2 = resultSet.getString("Code2");
+        return country;
     }
 }
