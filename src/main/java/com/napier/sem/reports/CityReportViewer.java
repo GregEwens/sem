@@ -3,7 +3,7 @@ package com.napier.sem.reports;
 import com.napier.sem.entities.City;
 import com.napier.sem.services.CityService;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Project Name: seMethods
@@ -167,7 +167,7 @@ public class CityReportViewer {
      * Prints the details of a collection of cities
      * @param cities The collection of cities to display
      */
-    private void displayCities(ArrayList<City> cities){
+    private void displayCities(List<City> cities){
         displayCityHeader();
 
         for (var city: cities) {

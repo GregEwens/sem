@@ -2,7 +2,7 @@ package com.napier.sem.repositories;
 
 import com.napier.sem.entities.City;
 import com.napier.sem.entities.CityJoinCountry;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Project Name: seMethods
@@ -18,12 +18,12 @@ public interface ICityRepository {
      * @return A list of all cities ordered by population ascending, the collection may be empty should no cities be
      * found.
      */
-    ArrayList<City> getAllCitiesOrderedByPopulation();
+    List<City> getAllCitiesOrderedByPopulation();
 
     /**
      * Gets all cities ordered by population ascending.
      * @return A list of all cities ordered by population ascending, the collection may be empty should no cities be
      * found.
      */
-    ArrayList<CityJoinCountry> getAllCitiesJoinCountryOrderedByPopulation();
+    List<CityJoinCountry> getAllCitiesJoinCountryOrderedByPopulation();
 }

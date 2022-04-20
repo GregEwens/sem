@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Project Name: seMethods
@@ -33,7 +34,7 @@ public class CountryRepository implements ICountryRepository {
      * @inheritDoc
      */
     @Override
-    public ArrayList<Country> getAllCountriesOrderByPopulation() {
+    public List<Country> getAllCountriesOrderByPopulation() {
         // Create string for SQL statement
         String strSelect =
                 "SELECT Code, country.Name, Continent, Region, SurfaceArea, IndepYear, country.Population, LifeExpectancy, GNP, " +
@@ -51,7 +52,7 @@ public class CountryRepository implements ICountryRepository {
      * @param SQLStatement An SQL statement which must return one or more complete Countries entities
      * @return A collection of Countries
      */
-    private ArrayList<Country> getCountryCollection(String SQLStatement){
+    private List<Country> getCountryCollection(String SQLStatement){
         try
         {
             // Create an SQL statement

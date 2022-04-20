@@ -2,7 +2,7 @@ package com.napier.sem.reports;
 
 import com.napier.sem.entities.Country;
 import com.napier.sem.services.CountryService;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Project Name: seMethods
@@ -108,7 +108,7 @@ public class CountryReportViewer {
      * Prints the details of a collection of countries
      * @param countries The collection of countries to display
      */
-    private void displayCountries(ArrayList<Country> countries){
+    private void displayCountries(List<Country> countries){
 
         var header = String.format("%-13s %-53s %-14s %-27s %-10s %-36s",
                 "Country Code", "Name", "Continent", "Region", "Population", "Capital");

@@ -5,6 +5,7 @@ import com.napier.sem.models.LanguageModel;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import static com.napier.sem.helpers.PopulationHelpers.sumLanguageCount;
 
@@ -28,8 +29,8 @@ public final class LanguageHelpers {
      * @param languageName the language name to filter on
      * @return the filtered collection
      */
-    public static ArrayList<SpokenLanguageJoinCountry> getCountriesWithLanguage(
-            ArrayList<SpokenLanguageJoinCountry> allCountries,
+    public static List<SpokenLanguageJoinCountry> getCountriesWithLanguage(
+            List<SpokenLanguageJoinCountry> allCountries,
             String languageName){
 
         var filteredCountries = new ArrayList<SpokenLanguageJoinCountry>();
@@ -50,8 +51,8 @@ public final class LanguageHelpers {
      * @param languagesOfInterest The languages to include in the models
      * @return a collection of constructed language models
      */
-    public static ArrayList<LanguageModel> buildLanguageModels(ArrayList<SpokenLanguageJoinCountry> allLanguages,
-                                                         long worldPopulation, String[] languagesOfInterest){
+    public static List<LanguageModel> buildLanguageModels(List<SpokenLanguageJoinCountry> allLanguages,
+                                                         long worldPopulation, String... languagesOfInterest){
         var languageModels = new ArrayList<LanguageModel>();
 
         for (var language: languagesOfInterest  ) {

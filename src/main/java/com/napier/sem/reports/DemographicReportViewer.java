@@ -3,7 +3,7 @@ package com.napier.sem.reports;
 import com.napier.sem.models.LanguageModel;
 import com.napier.sem.services.LanguageService;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Project Name: seMethods
@@ -44,7 +44,7 @@ public class DemographicReportViewer {
      * prints the details of a collection of languages
      * @param model the collection of languages
      */
-    private void displayDemographics(ArrayList<LanguageModel> model) {
+    private void displayDemographics(List<LanguageModel> model) {
         var header = String.format("%-31s %-11s %-20s",
                 "Language Name", "Speakers", "Percentage of World");
         System.out.println(header);

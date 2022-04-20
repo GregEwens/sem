@@ -1,7 +1,7 @@
 package com.napier.sem.repositories;
 
 import com.napier.sem.entities.Country;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Project Name: seMethods
@@ -16,5 +16,5 @@ public interface ICountryRepository {
      * Gets all countries.
      * @return A list of all countries, the collection may be empty should no countries be found.
      */
-    ArrayList<Country> getAllCountriesOrderByPopulation();
+    List<Country> getAllCountriesOrderByPopulation();
 }

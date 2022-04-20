@@ -3,7 +3,7 @@ package com.napier.sem.reports;
 import com.napier.sem.entities.CapitalCity;
 import com.napier.sem.services.CapitalCityService;
 
-import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -106,7 +106,7 @@ public class CapitalCityReportViewer {
      * Prints the details of a collection of capital cities
      * @param cities The collection of capital cities to display
      */
-    private void displayCapitalCities(ArrayList<CapitalCity> cities){
+    private void displayCapitalCities(List<CapitalCity> cities){
         var header = String.format("%-36s %-53s %-10s", "Name", "Country", "Population");
         System.out.println(header);
 

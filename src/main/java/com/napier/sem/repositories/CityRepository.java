@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Project Name: seMethods
@@ -34,7 +35,7 @@ public class CityRepository implements ICityRepository {
      * @inheritDoc
      */
     @Override
-    public ArrayList<City> getAllCitiesOrderedByPopulation() {
+    public List<City> getAllCitiesOrderedByPopulation() {
         // Create string for SQL statement
         String strSelect =
                 "SELECT ID, Name, CountryCode, District, Population "
@@ -47,7 +48,7 @@ public class CityRepository implements ICityRepository {
      * @inheritDoc
      */
     @Override
-    public ArrayList<CityJoinCountry> getAllCitiesJoinCountryOrderedByPopulation() {
+    public List<CityJoinCountry> getAllCitiesJoinCountryOrderedByPopulation() {
         // Create string for SQL statement
         String strSelect =
                 "SELECT ci.Id, ci.Name, c.Name as Country, ci.CountryCode, ci.District, ci.Population," +
@@ -65,7 +66,7 @@ public class CityRepository implements ICityRepository {
      * @param SQLStatement An SQL statement which must return one or more complete City entities
      * @return A collection of Cities
      */
-    private ArrayList<City> getCityCollection(String SQLStatement){
+    private List<City> getCityCollection(String SQLStatement){
         try
         {
             // Create an SQL statement
@@ -112,7 +113,7 @@ public class CityRepository implements ICityRepository {
      * @param SQLStatement An SQL statement which must return one or more complete City entities
      * @return A collection of Cities
      */
-    private ArrayList<CityJoinCountry> getCityJoinCountryCollection(String SQLStatement){
+    private List<CityJoinCountry> getCityJoinCountryCollection(String SQLStatement){
         try
         {
             // Create an SQL statement

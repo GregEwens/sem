@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -35,7 +36,7 @@ public class CapitalCityRepository implements ICapitalCityRepository {
      * @return Returns a sorted collection of Capital Cities
      */
     @Override
-    public ArrayList<CapitalCity> getAllCapitalCitiesOrderedByPopulation() {
+    public List<CapitalCity> getAllCapitalCitiesOrderedByPopulation() {
         // Create string for SQL statement
         String strSelect =
                 "SELECT ci.Name, c.Name as Country, ci.Population, c.Continent, c.region "
@@ -51,7 +52,7 @@ public class CapitalCityRepository implements ICapitalCityRepository {
      * @param SQLStatement An SQL statement which must return one or more complete City entities
      * @return A collection of Capital Cities
      */
-    private ArrayList<CapitalCity> getCapitalCityCollection(String SQLStatement){
+    private List<CapitalCity> getCapitalCityCollection(String SQLStatement){
         try
         {
             // Create an SQL statement

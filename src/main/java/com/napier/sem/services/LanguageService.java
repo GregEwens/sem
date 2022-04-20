@@ -2,7 +2,7 @@ package com.napier.sem.services;
 
 import com.napier.sem.models.LanguageModel;
 import com.napier.sem.repositories.ILanguageRepository;
-import java.util.ArrayList;
+import java.util.List;
 
 import static com.napier.sem.helpers.LanguageHelpers.*;
 
@@ -44,7 +44,7 @@ public class LanguageService {
      * Gets a collection of all capital cities
      * @return Returns a sorted DemographicReportModel
      */
-    public ArrayList<LanguageModel> getDemographicReportModel(){
+    public List<LanguageModel> getDemographicReportModel(){
         var worldPopulation = _populationService.getPopulationOfWorld();
         var allLanguages =  _languageRepository.getAllLanguages();
 

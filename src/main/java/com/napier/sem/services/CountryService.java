@@ -3,6 +3,7 @@ package com.napier.sem.services;
 import com.napier.sem.entities.Country;
 import com.napier.sem.repositories.ICountryRepository;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -32,7 +33,7 @@ public class CountryService {
      * @param regionName the name of the specified region
      * @return A list of all countries, the collection may be empty should no countries be found.
      */
-    public ArrayList<Country> getAllCountriesInRegionOrderedByPopulation(String regionName) {
+    public List<Country> getAllCountriesInRegionOrderedByPopulation(String regionName) {
         var countries = _countryRepoitory.getAllCountriesOrderByPopulation();
 
         var countriesInRegion = new ArrayList<Country>();
@@ -52,7 +53,7 @@ public class CountryService {
      * @return A list of all countries, the collection may be empty should no countries be found.
      *
      */
-    public ArrayList<Country> getAllCountriesInContinentOrderedByPopulation(String continentName) {
+    public List<Country> getAllCountriesInContinentOrderedByPopulation(String continentName) {
         var countries = _countryRepoitory.getAllCountriesOrderByPopulation();
 
         var countriesInContinent = new ArrayList<Country>();
@@ -71,7 +72,7 @@ public class CountryService {
      * @param n The number of countries to return
      * @return A collection of countries
      */
-    public ArrayList<Country> getTopNCountriesOrderedByPopulation(int n){
+    public List<Country> getTopNCountriesOrderedByPopulation(int n){
         var countries = _countryRepoitory.getAllCountriesOrderByPopulation();
 
         return (ArrayList<Country>) countries.stream().limit(n).collect(Collectors.toList());
@@ -83,7 +84,7 @@ public class CountryService {
      * @param continentName the name of the specified continent
      * @return A collection of countries
      */
-    public ArrayList<Country> getTopNCountriesInContinentOrderedByPopulation(int n, String continentName){
+    public List<Country> getTopNCountriesInContinentOrderedByPopulation(int n, String continentName){
 
         var countries = _countryRepoitory.getAllCountriesOrderByPopulation();
 
@@ -104,7 +105,7 @@ public class CountryService {
      * @param regionName the name of the specified region
      * @return A collection of countries
      */
-    public ArrayList<Country> getTopNCountriesInRegionOrderedByPopulation(int n, String regionName){
+    public List<Country> getTopNCountriesInRegionOrderedByPopulation(int n, String regionName){
 
         var countries = _countryRepoitory.getAllCountriesOrderByPopulation();
 
@@ -123,7 +124,7 @@ public class CountryService {
      * Gets all countries, ordered by population high to low.
      * @return A list of all countries, the collection may be empty should no countries be found.
      */
-    public ArrayList<Country> getAllCountriesOrderByPopulation() {
+    public List<Country> getAllCountriesOrderByPopulation() {
         return _countryRepoitory.getAllCountriesOrderByPopulation();
     }
 

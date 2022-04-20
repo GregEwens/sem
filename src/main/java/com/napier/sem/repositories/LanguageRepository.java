@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -35,7 +36,7 @@ public class LanguageRepository implements ILanguageRepository  {
      * @inheritDoc
      */
     @Override
-    public ArrayList<SpokenLanguageJoinCountry> getAllLanguages() {
+    public List<SpokenLanguageJoinCountry> getAllLanguages() {
         // Create string for SQL statement
         String strSelect =
                 "SELECT c.Name, c.Population, cl.Language, cl.Percentage "
@@ -51,7 +52,7 @@ public class LanguageRepository implements ILanguageRepository  {
      * @param SQLStatement An SQL statement which must return one or more complete City entities
      * @return A collection of Capital Cities
      */
-    private ArrayList<SpokenLanguageJoinCountry> getSpokenLanguageCollection(String SQLStatement){
+    private List<SpokenLanguageJoinCountry> getSpokenLanguageCollection(String SQLStatement){
         try
         {
             // Create an SQL statement

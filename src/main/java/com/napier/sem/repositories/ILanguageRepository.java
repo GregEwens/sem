@@ -2,7 +2,7 @@ package com.napier.sem.repositories;
 
 import com.napier.sem.entities.SpokenLanguageJoinCountry;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Project Name: seMethods
@@ -17,5 +17,5 @@ public interface ILanguageRepository {
      * Gets all countries.
      * @return A list of all countries, the collection may be empty should no countries be found.
      */
-    ArrayList<SpokenLanguageJoinCountry> getAllLanguages();
+    List<SpokenLanguageJoinCountry> getAllLanguages();
 }

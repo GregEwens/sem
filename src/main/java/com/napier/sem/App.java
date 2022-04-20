@@ -23,7 +23,7 @@ public class App
     /**
      * Connection to MySQL database.
      */
-    private Connection con = null;
+    private static Connection con = null;
 
     /**
      * The CityRepository, must be instantiated before use
@@ -117,7 +117,7 @@ public class App
      * @param a The static instance of this class
      * @param args index0: database location, index1: connection retry delay
      */
-    public static void initialise(App a, String[] args){
+    public static void initialise(App a, String... args){
 
         // Connect to database
         if(args.length < 1){

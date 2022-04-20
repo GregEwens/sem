@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.napier.sem.helpers.LanguageHelpers.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,7 +21,7 @@ class LanguageHelpersUnitTests {
     /**
      * Reference data shared between many of the tests
      */
-    private final static ArrayList<SpokenLanguageJoinCountry> SpokenLanguageJoinCountryCollection =
+    private final static List<SpokenLanguageJoinCountry> SpokenLanguageJoinCountryCollection =
             new ArrayList<>();
 
     @BeforeAll
