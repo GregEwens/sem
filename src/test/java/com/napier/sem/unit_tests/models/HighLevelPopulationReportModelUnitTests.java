@@ -18,7 +18,7 @@ class HighLevelPopulationReportModelUnitTests {
      * Tests successful population calculation
      */
     @Test
-    void GetPercentCityPopulationReturnsCorrect(){
+    void getPercentCityPopulationReturnsCorrect(){
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
@@ -37,7 +37,7 @@ class HighLevelPopulationReportModelUnitTests {
      * Tests successful population calculation with 0 city poulation
      */
     @Test
-    void GetPercentCityPopulationHandlesZeroCityPop(){
+    void getPercentCityPopulationHandlesZeroCityPop(){
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
@@ -56,7 +56,7 @@ class HighLevelPopulationReportModelUnitTests {
      * Tests graceful handling of 0 population
      */
     @Test
-    void GetPercentCityPopulationHandlesZeroCountryPop(){
+    void getPercentCityPopulationHandlesZeroCountryPop(){
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
@@ -75,7 +75,7 @@ class HighLevelPopulationReportModelUnitTests {
      * Tests successful population calculation
      */
     @Test
-    void GetPercentNotCityPopulationReturnsCorrect(){
+    void getPercentNotCityPopulationReturnsCorrect(){
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
@@ -94,7 +94,7 @@ class HighLevelPopulationReportModelUnitTests {
      * Tests successful population calculation with 0 city poulation
      */
     @Test
-    void GetPercentNotCityPopulationHandlesZeroCityPop(){
+    void getPercentNotCityPopulationHandlesZeroCityPop(){
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
@@ -113,7 +113,7 @@ class HighLevelPopulationReportModelUnitTests {
      * Tests graceful handling of 0 population
      */
     @Test
-    void GetPercentNotCityPopulationHandlesZeroCountryPop(){
+    void getPercentNotCityPopulationHandlesZeroCountryPop(){
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 

@@ -357,8 +357,6 @@ class CapitalCityServiceTests {
                 && populationThird > populationFourth, "Ensures the ordering of the items matches requirements");
     }
 
-
-
     /**
      * getTopNCapitalCitiesInRegionOrderedByPopulation tested with correct count
      */
@@ -508,8 +506,6 @@ class CapitalCityServiceTests {
                 && populationThird > populationFourth, "Ensures the ordering of the items matches requirements");
     }
 
-
-
     /**
      * getTopNCapitalCitiesInRegionOrderedByPopulation tested with correct count
      */
@@ -658,7 +654,4 @@ class CapitalCityServiceTests {
                 && populationSecond > populationThird
                 && populationThird > populationFourth, "Ensures the ordering of the items matches requirements");
     }
-
-
-
 }

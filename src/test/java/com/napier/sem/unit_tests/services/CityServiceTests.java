@@ -118,7 +118,6 @@ class CityServiceTests {
                 && populationThird > populationFourth, "Ensures the ordering of the items matches requirements");
     }
 
-
     /**
      * getTopNCitiesInRegionOrderedByPopulation tested with correct count
      */
@@ -267,9 +266,6 @@ class CityServiceTests {
                 && populationSecond > populationThird
                 && populationThird > populationFourth, "Ensures the ordering of the items matches requirements");
     }
-
-
-
 
     /**
      * getTopNCitiesInCountryOrderedByPopulation tested with correct count

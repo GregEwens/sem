@@ -22,7 +22,7 @@ class LanguageModelUnitTests {
      * Test that the override for sorting a collection sorts correctly
      */
     @Test
-    void IComparableCompareToOverrideSortsCorrectly(){
+    void iComparableCompareToOverrideSortsCorrectly(){
 
         // Arrange
         var systemUnderTest = new ArrayList<LanguageModel>();
@@ -49,7 +49,7 @@ class LanguageModelUnitTests {
      * GetSpeakersAsPercentageOfWorld returns the correct value
      */
     @Test
-    void GetSpeakersAsPercentageOfWorldReturnsCorrectValueTest(){
+    void getSpeakersAsPercentageOfWorldReturnsCorrectValueTest(){
 
         // Arrange
         var systemUnderTest = new LanguageModel("item1", 1000, 10000);
@@ -66,7 +66,7 @@ class LanguageModelUnitTests {
      * GetSpeakersAsPercentageOfWorld tested with 0 world population count
      */
     @Test
-    void GetSpeakersAsPercentageOfWorldThrowsIllegalArgumentExceptionTest(){
+    void getSpeakersAsPercentageOfWorldThrowsIllegalArgumentExceptionTest(){
 
         // Arrange
         var systemUnderTest = new LanguageModel("item1", 1000, 0);
