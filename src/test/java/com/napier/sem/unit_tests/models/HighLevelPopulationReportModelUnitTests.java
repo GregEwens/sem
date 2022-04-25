@@ -12,119 +12,119 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Date Created: 09/04/2022 14:32
  * File Purpose: Unit tests for HighLevelPopulationReportModel
  */
-public class HighLevelPopulationReportModelUnitTests {
+class HighLevelPopulationReportModelUnitTests {
 
     /**
      * Tests successful population calculation
      */
     @Test
-    public void GetPercentCityPopulationReturnsCorrect(){
+    void getPercentCityPopulationReturnsCorrect(){
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
-        systemUnderTest.Name = "Test";
-        systemUnderTest.Population = 100;
-        systemUnderTest.CityPopulation = 50;
+        systemUnderTest.name = "Test";
+        systemUnderTest.population = 100;
+        systemUnderTest.cityPopulation = 50;
 
         // Act
-        var valueTested = systemUnderTest.GetPercentCityPopulation();
+        var valueTested = systemUnderTest.getPercentCityPopulation();
 
         // Assert
-        assertEquals(50.00, valueTested);
+        assertEquals(50.00, valueTested, "Checks the expected value of 50%");
     }
 
     /**
      * Tests successful population calculation with 0 city poulation
      */
     @Test
-    public void GetPercentCityPopulationHandlesZeroCityPop(){
+    void getPercentCityPopulationHandlesZeroCityPop(){
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
-        systemUnderTest.Name = "Test";
-        systemUnderTest.Population = 100;
-        systemUnderTest.CityPopulation = 0;
+        systemUnderTest.name = "Test";
+        systemUnderTest.population = 100;
+        systemUnderTest.cityPopulation = 0;
 
         // Act
-        var valueTested = systemUnderTest.GetPercentCityPopulation();
+        var valueTested = systemUnderTest.getPercentCityPopulation();
 
         // Assert
-        assertEquals(0, valueTested);
+        assertEquals(0, valueTested, "Checks method handles a zero city population");
     }
 
     /**
      * Tests graceful handling of 0 population
      */
     @Test
-    public void GetPercentCityPopulationHandlesZeroCountryPop(){
+    void getPercentCityPopulationHandlesZeroCountryPop(){
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
-        systemUnderTest.Name = "Test";
-        systemUnderTest.Population = 0;
-        systemUnderTest.CityPopulation = 0;
+        systemUnderTest.name = "Test";
+        systemUnderTest.population = 0;
+        systemUnderTest.cityPopulation = 0;
 
         // Act
-        var valueTested = systemUnderTest.GetPercentCityPopulation();
+        var valueTested = systemUnderTest.getPercentCityPopulation();
 
         // Assert
-        assertEquals(0, valueTested);
+        assertEquals(0, valueTested, "Checks method handles a zero population without throwing an exception");
     }
 
     /**
      * Tests successful population calculation
      */
     @Test
-    public void GetPercentNotCityPopulationReturnsCorrect(){
+    void getPercentNotCityPopulationReturnsCorrect(){
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
-        systemUnderTest.Name = "Test";
-        systemUnderTest.Population = 100;
-        systemUnderTest.CityPopulation = 50;
+        systemUnderTest.name = "Test";
+        systemUnderTest.population = 100;
+        systemUnderTest.cityPopulation = 50;
 
         // Act
-        var valueTested = systemUnderTest.GetPercentNotCityPopulation();
+        var valueTested = systemUnderTest.getPercentNotCityPopulation();
 
         // Assert
-        assertEquals(50.00, valueTested);
+        assertEquals(50.00, valueTested, "Checks the expected value of 50%");
     }
 
     /**
      * Tests successful population calculation with 0 city poulation
      */
     @Test
-    public void GetPercentNotCityPopulationHandlesZeroCityPop(){
+    void getPercentNotCityPopulationHandlesZeroCityPop(){
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
-        systemUnderTest.Name = "Test";
-        systemUnderTest.Population = 100;
-        systemUnderTest.CityPopulation = 0;
+        systemUnderTest.name = "Test";
+        systemUnderTest.population = 100;
+        systemUnderTest.cityPopulation = 0;
 
         // Act
-        var valueTested = systemUnderTest.GetPercentNotCityPopulation();
+        var valueTested = systemUnderTest.getPercentNotCityPopulation();
 
         // Assert
-        assertEquals(100, valueTested);
+        assertEquals(100, valueTested, "Checks method handles a zero city population");
     }
 
     /**
      * Tests graceful handling of 0 population
      */
     @Test
-    public void GetPercentNotCityPopulationHandlesZeroCountryPop(){
+    void getPercentNotCityPopulationHandlesZeroCountryPop(){
         // Arrange
         var systemUnderTest = new HighLevelPopulationReportModel();
 
-        systemUnderTest.Name = "Test";
-        systemUnderTest.Population = 0;
-        systemUnderTest.CityPopulation = 0;
+        systemUnderTest.name = "Test";
+        systemUnderTest.population = 0;
+        systemUnderTest.cityPopulation = 0;
 
         // Act
-        var valueTested = systemUnderTest.GetPercentNotCityPopulation();
+        var valueTested = systemUnderTest.getPercentNotCityPopulation();
 
         // Assert
-        assertEquals(0, valueTested);
+        assertEquals(0, valueTested, "Checks method handles a zero population without throwing an exception");
     }
 }

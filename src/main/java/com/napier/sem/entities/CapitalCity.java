@@ -28,7 +28,7 @@ public class CapitalCity
     /**
      * The continent the country is on.
      */
-    public String Continent;
+    public String continent;
 
     /**
      * The region the Capital City is on.

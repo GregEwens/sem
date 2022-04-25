@@ -4,8 +4,10 @@ import com.napier.sem.entities.City;
 import com.napier.sem.entities.CityJoinCountry;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Project Name: seMethods
@@ -14,27 +16,27 @@ import java.util.ArrayList;
  * Date Created: 19/02/2022 14:48
  * File Purpose: This class provides methods for accessing City data
  */
+@SuppressWarnings("PMD.SystemPrintln") // Prototype app using console for logging
 public class CityRepository implements ICityRepository {
 
     /**
      * The MySQL database connection
      */
-    private final Connection con;
+    private final Connection _con;
 
     /**
      * Creates a new instance of the CityRepository.
      * @param connection The database we will query
      */
     public CityRepository (Connection connection){
-        con = connection;
+        _con = connection;
     }
 
     /**
      * @inheritDoc
      */
     @Override
-    public ArrayList<City> getAllCitiesOrderedByPopulation()
-    {
+    public List<City> getAllCitiesOrderedByPopulation() {
         // Create string for SQL statement
         String strSelect =
                 "SELECT ID, Name, CountryCode, District, Population "
@@ -47,8 +49,7 @@ public class CityRepository implements ICityRepository {
      * @inheritDoc
      */
     @Override
-    public ArrayList<CityJoinCountry> getAllCitiesJoinCountryOrderedByPopulation()
-    {
+    public List<CityJoinCountry> getAllCitiesJoinCountryOrderedByPopulation() {
         // Create string for SQL statement
         String strSelect =
                 "SELECT ci.Id, ci.Name, c.Name as Country, ci.CountryCode, ci.District, ci.Population," +
@@ -66,11 +67,11 @@ public class CityRepository implements ICityRepository {
      * @param SQLStatement An SQL statement which must return one or more complete City entities
      * @return A collection of Cities
      */
-    private ArrayList<City> getCityCollection(String SQLStatement){
+    private List<City> getCityCollection(String SQLStatement){
         try
         {
             // Create an SQL statement
-            Statement statement = con.createStatement();
+            Statement statement = _con.createStatement();
 
             // Execute SQL statement
             ResultSet resultSet = statement.executeQuery(SQLStatement);
@@ -81,19 +82,15 @@ public class CityRepository implements ICityRepository {
             // read the results and map to our entity
             while (resultSet.next())
             {
-                City city = new City();
-
-                city.id = resultSet.getInt("ID");
-                city.name = resultSet.getString("Name");
-                city.countryCode = resultSet.getString("CountryCode");
-                city.district = resultSet.getString("district");
-                city.population = resultSet.getInt("population");
-
-                cities.add(city);
+                cities.add(buildCity(resultSet));
             }
+
+            statement.close();
+            resultSet.close();
 
             // return our collection
             return cities;
+
         }
         catch (Exception e)
         {
@@ -110,11 +107,11 @@ public class CityRepository implements ICityRepository {
      * @param SQLStatement An SQL statement which must return one or more complete City entities
      * @return A collection of Cities
      */
-    private ArrayList<CityJoinCountry> getCityJoinCountryCollection(String SQLStatement){
+    private List<CityJoinCountry> getCityJoinCountryCollection(String SQLStatement){
         try
         {
             // Create an SQL statement
-            Statement statement = con.createStatement();
+            Statement statement = _con.createStatement();
 
             // Execute SQL statement
             ResultSet resultSet = statement.executeQuery(SQLStatement);
@@ -125,19 +122,13 @@ public class CityRepository implements ICityRepository {
             // read the results and map to our entity
             while (resultSet.next())
             {
-                CityJoinCountry city = new CityJoinCountry();
-
-                city.id = resultSet.getInt("ID");
-                city.name = resultSet.getString("Name");
-                city.countryCode = resultSet.getString("CountryCode");
-                city.district = resultSet.getString("district");
-                city.population = resultSet.getInt("population");
-                city.Continent = resultSet.getString("continent");
-                city.Region = resultSet.getString("region");
-                city.countryName = resultSet.getString("Country");
+                CityJoinCountry city = buildCityJoinCountry(resultSet);
 
                 cities.add(city);
             }
+
+            statement.close();
+            resultSet.close();
 
             // return our collection
             return cities;
@@ -146,8 +137,46 @@ public class CityRepository implements ICityRepository {
         {
             // log exceptions to the screen
             System.out.println(e.getMessage());
+
             System.out.println("Failed to get city details");
             return null;
         }
+    }
+
+    /**
+     * Maps a CityJoinCountry object from a Sql results set
+     * @param resultSet the Sql Results set
+     * @return a mapped CityJoinCountry object
+     * @throws SQLException Can throw a SQLException
+     */
+    private CityJoinCountry buildCityJoinCountry(ResultSet resultSet) throws SQLException {
+        CityJoinCountry city = new CityJoinCountry();
+
+        city.id = resultSet.getInt("ID");
+        city.name = resultSet.getString("Name");
+        city.countryCode = resultSet.getString("CountryCode");
+        city.district = resultSet.getString("district");
+        city.population = resultSet.getInt("population");
+        city.continent = resultSet.getString("continent");
+        city.region = resultSet.getString("region");
+        city.countryName = resultSet.getString("Country");
+        return city;
+    }
+
+    /**
+     * Maps a City object from a Sql results set
+     * @param resultSet the Sql Results set
+     * @return a mapped City object
+     * @throws SQLException Can throw a SQLException
+     */
+    private City buildCity(ResultSet resultSet) throws SQLException {
+        City city = new City();
+
+        city.id = resultSet.getInt("ID");
+        city.name = resultSet.getString("Name");
+        city.countryCode = resultSet.getString("CountryCode");
+        city.district = resultSet.getString("district");
+        city.population = resultSet.getInt("population");
+        return city;
     }
 }

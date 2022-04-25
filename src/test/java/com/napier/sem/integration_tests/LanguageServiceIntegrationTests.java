@@ -15,7 +15,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * Date Created: 11/04/2022 16:23
  * File Purpose: Integration tests for Language reports
  */
-public class LanguageServiceIntegrationTests {
+@SuppressWarnings("PMD.JUnitTestContainsTooManyAsserts") // Integration tests may use multiple assertions
+class LanguageServiceIntegrationTests {
 
     /**
      * The application to test
@@ -26,8 +27,7 @@ public class LanguageServiceIntegrationTests {
      * Set up the database connection by calling initialise method on App
      */
     @BeforeAll
-    static void init()
-    {
+    static void init() {
         // create arguments to run the app
         String[] args = new String[2];
         args[0] = "localhost:33060";
@@ -50,17 +50,16 @@ public class LanguageServiceIntegrationTests {
      * Integration test for getAllCountriesOrderByPopulation
      */
     @Test
-    void testGetAllCountriesOrderByPopulation()
-    {
+    void testGetAllCountriesOrderByPopulation() {
         // Arrange & Act
         var languageModels = App.languageService.getDemographicReportModel();
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
-        assertFalse(languageModels.isEmpty());
+        assertFalse(languageModels.isEmpty(), "Check we have some data");
         var languageModel = languageModels.get(0);
 
         // Assert
-        assertTrue(languageModel.LanguageName.length() > 0);
-        assertTrue(languageModel.Speakers > -1);
+        assertTrue(languageModel.languageName.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(languageModel.speakers > -1, "We don't know what the value is but we can check it's not empty");
     }
 }

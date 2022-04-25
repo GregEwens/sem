@@ -1,9 +1,9 @@
 package com.napier.sem.services;
 
 import com.napier.sem.entities.CapitalCity;
-import com.napier.sem.entities.City;
 import com.napier.sem.repositories.ICapitalCityRepository;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -33,13 +33,13 @@ public class CapitalCityService {
      * @param continentName The continent to search, casing is unimportant
      * @return Returns a sorted collection of Cities
      */
-    public ArrayList<CapitalCity> getAllCapitalCitiesByContinentOrderedByPopulation(String continentName){
+    public List<CapitalCity> getAllCapitalCitiesByContinentOrderedByPopulation(String continentName){
         var cities = _capitalCityRepository.getAllCapitalCitiesOrderedByPopulation();
 
         var citiesInContinent = new ArrayList<CapitalCity>();
 
         for (var city:cities) {
-            if (city.Continent.equalsIgnoreCase(continentName)){
+            if (city.continent.equalsIgnoreCase(continentName)){
                 citiesInContinent.add(city);
             }
         }
@@ -51,7 +51,7 @@ public class CapitalCityService {
      * Gets a collection of all capital cities
      * @return Returns a sorted collection of Capital Cities
      */
-    public ArrayList<CapitalCity> getAllCapitalCitiesOrderedByPopulation(){
+    public List<CapitalCity> getAllCapitalCitiesOrderedByPopulation(){
         return _capitalCityRepository.getAllCapitalCitiesOrderedByPopulation();
     }
 
@@ -60,7 +60,7 @@ public class CapitalCityService {
      * @param regionName Region name to filter by
      * @return Returns a sorted collection of Capital Cities
      */
-    public ArrayList<CapitalCity> getAllCapitalCitiesInRegionOrderedByPopulation(String regionName){
+    public List<CapitalCity> getAllCapitalCitiesInRegionOrderedByPopulation(String regionName){
 
         var cities = _capitalCityRepository.getAllCapitalCitiesOrderedByPopulation();
 
@@ -81,7 +81,7 @@ public class CapitalCityService {
      * @param n number of capital cities to be returned
      * @return Returns a sorted collection of Capital Cities of number N
      */
-    public ArrayList<CapitalCity> getTopNCapitalCitiesInWorldOrderedByPopulation(int n){
+    public List<CapitalCity> getTopNCapitalCitiesInWorldOrderedByPopulation(int n){
 
         var capitalCities = _capitalCityRepository.getAllCapitalCitiesOrderedByPopulation();
 
@@ -95,7 +95,7 @@ public class CapitalCityService {
      * @param regionName name of specified region
      * @return Returns a sorted collection of Capital Cities of number N filtered by regionName
      */
-    public ArrayList<CapitalCity> getTopNCapitalCitiesInRegionOrderedByPopulation(int n, String regionName){
+    public List<CapitalCity> getTopNCapitalCitiesInRegionOrderedByPopulation(int n, String regionName){
 
         var capitalCities = getAllCapitalCitiesInRegionOrderedByPopulation(regionName);
 
@@ -108,7 +108,7 @@ public class CapitalCityService {
      * @param continentName name of specified continent
      * @return Returns a sorted collection of Capital Cities of number N filtered by continentName
      */
-    public ArrayList<CapitalCity> getTopNCapitalCitiesInContinentOrderedByPopulation(int n, String continentName){
+    public List<CapitalCity> getTopNCapitalCitiesInContinentOrderedByPopulation(int n, String continentName){
         var capitalCities = getAllCapitalCitiesByContinentOrderedByPopulation(continentName);
 
         return (ArrayList<CapitalCity>) capitalCities.stream().limit(n).collect(Collectors.toList());

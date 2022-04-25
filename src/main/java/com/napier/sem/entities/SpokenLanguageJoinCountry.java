@@ -14,15 +14,15 @@ public class SpokenLanguageJoinCountry extends Country {
     /**
      * The name of the language
      */
-    public String Language;
+    public String language;
 
     /**
      * If the language is officially recognised by the country
      */
-    public boolean IsOfficial;
+    public boolean isOfficial;
 
     /**
      * The percentage of the country's population that speaks the language
      */
-    public float Percentage;
+    public float percentage;
 }

@@ -3,8 +3,10 @@ package com.napier.sem.repositories;
 import com.napier.sem.entities.Country;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Project Name: seMethods
@@ -13,27 +15,27 @@ import java.util.ArrayList;
  * Date Created: 19/02/2022
  * File Purpose: This class provides methods for accessing Country data
  */
+@SuppressWarnings("PMD.SystemPrintln") // Prototype app using console for logging
 public class CountryRepository implements ICountryRepository {
 
     /**
      * The MySQL database connection
      */
-    private final Connection con;
+    private final Connection _con;
 
     /**
      * Creates a new instance of the CountryRepository.
      * @param connection The database we will query
      */
     public CountryRepository (Connection connection){
-        con = connection;
+        _con = connection;
     }
 
     /**
      * @inheritDoc
      */
     @Override
-    public ArrayList<Country> getAllCountriesOrderByPopulation()
-    {
+    public List<Country> getAllCountriesOrderByPopulation() {
         // Create string for SQL statement
         String strSelect =
                 "SELECT Code, country.Name, Continent, Region, SurfaceArea, IndepYear, country.Population, LifeExpectancy, GNP, " +
@@ -51,11 +53,11 @@ public class CountryRepository implements ICountryRepository {
      * @param SQLStatement An SQL statement which must return one or more complete Countries entities
      * @return A collection of Countries
      */
-    private ArrayList<Country> getCountryCollection(String SQLStatement){
+    private List<Country> getCountryCollection(String SQLStatement){
         try
         {
             // Create an SQL statement
-            Statement statement = con.createStatement();
+            Statement statement = _con.createStatement();
 
             // Execute SQL statement
             ResultSet resultSet = statement.executeQuery(SQLStatement);
@@ -66,26 +68,11 @@ public class CountryRepository implements ICountryRepository {
             // read the results and map to our entity
             while (resultSet.next())
             {
-                Country country = new Country();
-
-                country.Code = resultSet.getString("Code");
-                country.Name = resultSet.getString("Name");
-                country.Continent = resultSet.getString("Continent");
-                country.Region = resultSet.getString("Region");
-                country.SurfaceArea = resultSet.getBigDecimal("SurfaceArea");
-                country.IndepYear = resultSet.getShort("IndepYear");
-                country.Population = resultSet.getInt("Population");
-                country.LifeExpectancy = resultSet.getBigDecimal("LifeExpectancy");
-                country.GNP = resultSet.getBigDecimal("GNP");
-                country.GNPOld = resultSet.getBigDecimal("GNPOld");
-                country.LocalName = resultSet.getString("LocalName");
-                country.GovernmentForm = resultSet.getString("GovernmentForm");
-                country.HeadOfState = resultSet.getString("HeadOfState");
-                country.Capital = resultSet.getString("Capital");
-                country.Code2 = resultSet.getString("Code2");
-
-                countries.add(country);
+                countries.add( buildCountry(resultSet));
             }
+
+            statement.close();
+            resultSet.close();
 
             // return our collection
             return countries;
@@ -97,5 +84,32 @@ public class CountryRepository implements ICountryRepository {
             System.out.println("Failed to get country details");
             return null;
         }
+    }
+
+    /**
+     * Maps a Country object from a Sql results set
+     * @param resultSet the Sql Results set
+     * @return a mapped Country object
+     * @throws SQLException Can throw a SQLException
+     */
+    private Country buildCountry(ResultSet resultSet) throws SQLException {
+        Country country = new Country();
+
+        country.code = resultSet.getString("Code");
+        country.name = resultSet.getString("Name");
+        country.continent = resultSet.getString("Continent");
+        country.region = resultSet.getString("Region");
+        country.surfaceArea = resultSet.getBigDecimal("SurfaceArea");
+        country.indepYear = resultSet.getShort("IndepYear");
+        country.population = resultSet.getInt("Population");
+        country.lifeExpectancy = resultSet.getBigDecimal("LifeExpectancy");
+        country.gnp = resultSet.getBigDecimal("GNP");
+        country.gnpOld = resultSet.getBigDecimal("GNPOld");
+        country.localName = resultSet.getString("LocalName");
+        country.governmentForm = resultSet.getString("GovernmentForm");
+        country.headOfState = resultSet.getString("HeadOfState");
+        country.capital = resultSet.getString("Capital");
+        country.code2 = resultSet.getString("Code2");
+        return country;
     }
 }

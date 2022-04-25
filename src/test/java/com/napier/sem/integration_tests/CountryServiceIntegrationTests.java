@@ -14,7 +14,8 @@ import static org.junit.jupiter.api.Assertions.*;
  * Date Created: 13/03/2022 19:08
  * File Purpose: Integration Tests for Country reports
  */
-public class CountryServiceIntegrationTests {
+@SuppressWarnings("PMD.JUnitTestContainsTooManyAsserts") // Integration tests may use multiple assertions
+class CountryServiceIntegrationTests {
 
     /**
      * The application to test
@@ -30,8 +31,7 @@ public class CountryServiceIntegrationTests {
      * Set up the database connection by calling initialise method on App
      */
     @BeforeAll
-    static void init()
-    {
+    static void init() {
         // create arguments to run the app
         String[] args = new String[2];
         args[0] = "localhost:33060";
@@ -58,154 +58,148 @@ public class CountryServiceIntegrationTests {
      */
     @Test
     void testReferenceData(){
-        assertNotNull(_country);
-        assertTrue(_country.Code.length() > 0);
+        assertNotNull(_country, "Check we have some data");
+        assertTrue(_country.code.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
     /**
      * Integration test for getAllCountriesOrderByPopulation
      */
     @Test
-    void testGetAllCountriesOrderByPopulation()
-    {
+    void testGetAllCountriesOrderByPopulation() {
         // Arrange & Act
         var countries = App.countryService
                 .getAllCountriesOrderByPopulation();
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
-        assertFalse(countries.isEmpty());
+        assertFalse(countries.isEmpty(), "Check we have some data");
 
         var country = countries.get(0);
 
         // Assert
-        assertTrue(country.Code.length() > 0);
-        assertTrue(country.Name.length() > 0);
-        assertTrue(country.Continent.length() > 0);
-        assertTrue(country.Region.length() > 0);
-        assertTrue(country.Population > 0);
-        assertTrue(country.Capital.length() > 0);
+        assertTrue(country.code.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.name.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.continent.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.region.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.population > 0, "We don't know what the value is but we can check it's not the default");
+        assertTrue(country.capital.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
     /**
      * Integration test for getAllCountriesOrderByPopulation
      */
     @Test
-    void testGetTopNCountriesInRegionOrderedByPopulation()
-    {
+    void testGetTopNCountriesInRegionOrderedByPopulation() {
         // Arrange & Act
         var countries = App.countryService
-                .getTopNCountriesInRegionOrderedByPopulation(1, _country.Region);
+                .getTopNCountriesInRegionOrderedByPopulation(1, _country.region);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
-        assertFalse(countries.isEmpty());
+        assertFalse(countries.isEmpty(), "Check we have some data");
 
         var country = countries.get(0);
 
         // Assert
-        assertTrue(countries.size() <= 1);
-        assertTrue(country.Code.length() > 0);
-        assertTrue(country.Name.length() > 0);
-        assertTrue(country.Continent.length() > 0);
-        assertTrue(country.Region.length() > 0);
-        assertTrue(country.Population > 0);
-        assertTrue(country.Capital.length() > 0);
+        assertTrue(countries.size() <= 1, "Check we do not exceed the specified count");
+        assertTrue(country.code.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.name.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.continent.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.region.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.population > 0, "We don't know what the value is but we can check it's not the default");
+        assertTrue(country.capital.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
     /**
      * Integration test for getTopNCountriesInContinentOrderedByPopulation
      */
     @Test
-    void testGetTopNCountriesInContinentOrderedByPopulation()
-    {
+    void testGetTopNCountriesInContinentOrderedByPopulation() {
         // Arrange & Act
         var countries = App.countryService
-                .getTopNCountriesInContinentOrderedByPopulation(1, _country.Continent);
+                .getTopNCountriesInContinentOrderedByPopulation(1, _country.continent);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
-        assertFalse(countries.isEmpty());
+        assertFalse(countries.isEmpty(), "Check we have some data");
 
         var country = countries.get(0);
 
         // Assert
-        assertTrue(countries.size() <= 10);
-        assertTrue(country.Code.length() > 0);
-        assertTrue(country.Name.length() > 0);
-        assertTrue(country.Continent.length() > 0);
-        assertTrue(country.Region.length() > 0);
-        assertTrue(country.Population > 0);
-        assertTrue(country.Capital.length() > 0);
+        assertTrue(countries.size() <= 1, "Check we do not exceed the specified count");
+        assertTrue(country.code.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.name.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.continent.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.region.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.population > 0, "We don't know what the value is but we can check it's not the default");
+        assertTrue(country.capital.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
     /**
      * Integration test for getTopNCountriesOrderedByPopulation
      */
     @Test
-    void testGetTopNCountriesOrderedByPopulation()
-    {
+    void testGetTopNCountriesOrderedByPopulation() {
         // Arrange & Act
         var countries = App.countryService
                 .getTopNCountriesOrderedByPopulation(1);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
-        assertFalse(countries.isEmpty());
+        assertFalse(countries.isEmpty(), "Check we have some data");
 
         var country = countries.get(0);
 
         // Assert
-        assertTrue(countries.size() <= 10);
-        assertTrue(country.Code.length() > 0);
-        assertTrue(country.Name.length() > 0);
-        assertTrue(country.Continent.length() > 0);
-        assertTrue(country.Region.length() > 0);
-        assertTrue(country.Population > 0);
-        assertTrue(country.Capital.length() > 0);
+        assertTrue(countries.size() <= 1, "Check we do not exceed the specified count");
+        assertTrue(country.code.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.name.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.continent.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.region.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.population > 0, "We don't know what the value is but we can check it's not the default");
+        assertTrue(country.capital.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
     /**
      * Integration test for getTopNCountriesOrderedByPopulation
      */
     @Test
-    void testGetAllCountriesInContinentOrderedByPopulation()
-    {
+    void testGetAllCountriesInContinentOrderedByPopulation() {
         // Arrange & Act
         var countries = App.countryService
-                .getAllCountriesInContinentOrderedByPopulation(_country.Continent);
+                .getAllCountriesInContinentOrderedByPopulation(_country.continent);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
-        assertFalse(countries.isEmpty());
+        assertFalse(countries.isEmpty(), "Check we have some data");
 
         var country = countries.get(0);
 
         // Assert
-        assertTrue(country.Code.length() > 0);
-        assertTrue(country.Name.length() > 0);
-        assertTrue(country.Continent.length() > 0);
-        assertTrue(country.Region.length() > 0);
-        assertTrue(country.Population > 0);
-        assertTrue(country.Capital.length() > 0);
+        assertTrue(country.code.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.name.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.continent.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.region.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.population > 0, "We don't know what the value is but we can check it's not the default");
+        assertTrue(country.capital.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 
     /**
      * Integration test for getAllCountriesInRegionOrderedByPopulation
      */
     @Test
-    void testGetAllCountriesInRegionOrderedByPopulation()
-    {
+    void testGetAllCountriesInRegionOrderedByPopulation() {
         // Arrange & Act
         var countries = App.countryService
-                .getAllCountriesInRegionOrderedByPopulation(_country.Region);
+                .getAllCountriesInRegionOrderedByPopulation(_country.region);
 
         // Make this assertion here as if it is false we will throw an exception calling .get(0)
-        assertFalse(countries.isEmpty());
+        assertFalse(countries.isEmpty(), "Check we have some data");
 
         var country = countries.get(0);
 
         // Assert
-        assertTrue(country.Code.length() > 0);
-        assertTrue(country.Name.length() > 0);
-        assertTrue(country.Continent.length() > 0);
-        assertTrue(country.Region.length() > 0);
-        assertTrue(country.Population > 0);
-        assertTrue(country.Capital.length() > 0);
+        assertTrue(country.code.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.name.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.continent.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.region.length() > 0, "We don't know what the value is but we can check it's not empty");
+        assertTrue(country.population > 0, "We don't know what the value is but we can check it's not the default");
+        assertTrue(country.capital.length() > 0, "We don't know what the value is but we can check it's not empty");
     }
 }

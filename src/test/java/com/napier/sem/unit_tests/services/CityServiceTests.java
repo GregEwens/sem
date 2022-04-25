@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Date Created: 12/03/2022 14:53
  * File Purpose: Unit Tests for CityService
  */
-public class CityServiceTests {
+class CityServiceTests {
 
     /**
      * Mockup of countryRepository
@@ -43,7 +43,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesOrderedByPopulation(count);
 
         // Assert
-        assertEquals(count, cities.size());
+        assertEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -60,7 +60,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesOrderedByPopulation(count);
 
         // Assert
-        assertEquals(count, cities.size());
+        assertEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -91,7 +91,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesOrderedByPopulation(count);
 
         // Assert
-        assertNotEquals(count, cities.size());
+        assertNotEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -113,9 +113,10 @@ public class CityServiceTests {
         var populationThird = cities.get(2).population;
         var populationFourth = cities.get(3).population;
 
-        assertTrue(populationFirst < populationSecond && populationSecond < populationThird && populationThird < populationFourth);
+        assertTrue(populationFirst > populationSecond
+                && populationSecond > populationThird
+                && populationThird > populationFourth, "Ensures the ordering of the items matches requirements");
     }
-
 
     /**
      * getTopNCitiesInRegionOrderedByPopulation tested with correct count
@@ -132,7 +133,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInRegionOrderedByPopulation(count, region);
 
         // Assert
-        assertEquals(count, cities.size());
+        assertEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -150,7 +151,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInRegionOrderedByPopulation(count, region);
 
         // Assert
-        assertEquals(count, cities.size());
+        assertEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -168,7 +169,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInRegionOrderedByPopulation(count, region);
 
         // Assert
-        assertEquals(count, cities.size());
+        assertEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -186,7 +187,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInRegionOrderedByPopulation(count, region);
 
         // Assert
-        assertEquals(count, cities.size());
+        assertEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -204,7 +205,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInRegionOrderedByPopulation(count, region);
 
         // Assert
-        assertEquals(0, cities.size());
+        assertEquals(0, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -238,7 +239,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInRegionOrderedByPopulation(count, region);
 
         // Assert
-        assertNotEquals(count, cities.size());
+        assertNotEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -261,11 +262,10 @@ public class CityServiceTests {
         var populationThird = cities.get(2).population;
         var populationFourth = cities.get(3).population;
 
-        assertTrue(populationFirst < populationSecond && populationSecond < populationThird && populationThird < populationFourth);
+        assertTrue(populationFirst > populationSecond
+                && populationSecond > populationThird
+                && populationThird > populationFourth, "Ensures the ordering of the items matches requirements");
     }
-
-
-
 
     /**
      * getTopNCitiesInCountryOrderedByPopulation tested with correct count
@@ -282,7 +282,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInCountryOrderedByPopulation(count, country);
 
         // Assert
-        assertEquals(count, cities.size());
+        assertEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -300,7 +300,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInCountryOrderedByPopulation(count, country);
 
         // Assert
-        assertEquals(count, cities.size());
+        assertEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -318,7 +318,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInCountryOrderedByPopulation(count, country);
 
         // Assert
-        assertEquals(count, cities.size());
+        assertEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -336,7 +336,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInCountryOrderedByPopulation(count, country);
 
         // Assert
-        assertEquals(count, cities.size());
+        assertEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -354,7 +354,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInCountryOrderedByPopulation(count, country);
 
         // Assert
-        assertEquals(0, cities.size());
+        assertEquals(0, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -388,7 +388,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInCountryOrderedByPopulation(count, country);
 
         // Assert
-        assertNotEquals(count, cities.size());
+        assertNotEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -411,7 +411,9 @@ public class CityServiceTests {
         var populationThird = cities.get(2).population;
         var populationFourth = cities.get(3).population;
 
-        assertTrue(populationFirst < populationSecond && populationSecond < populationThird && populationThird < populationFourth);
+        assertTrue(populationFirst > populationSecond
+                && populationSecond > populationThird
+                && populationThird > populationFourth, "Ensures the ordering of the items matches requirements");
     }
 
     /**
@@ -429,7 +431,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInDistrictOrderedByPopulation(count, district);
 
         // Assert
-        assertEquals(count, cities.size());
+        assertEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -447,7 +449,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInDistrictOrderedByPopulation(count, district);
 
         // Assert
-        assertEquals(count, cities.size());
+        assertEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -465,7 +467,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInDistrictOrderedByPopulation(count, district);
 
         // Assert
-        assertEquals(count, cities.size());
+        assertEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -483,7 +485,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInDistrictOrderedByPopulation(count, district);
 
         // Assert
-        assertEquals(count, cities.size());
+        assertEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -501,7 +503,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInDistrictOrderedByPopulation(count, district);
 
         // Assert
-        assertEquals(0, cities.size());
+        assertEquals(0, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -535,7 +537,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInDistrictOrderedByPopulation(count, district);
 
         // Assert
-        assertNotEquals(count, cities.size());
+        assertNotEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -558,7 +560,9 @@ public class CityServiceTests {
         var populationThird = cities.get(2).population;
         var populationFourth = cities.get(3).population;
 
-        assertTrue(populationFirst < populationSecond && populationSecond < populationThird && populationThird < populationFourth);
+        assertTrue(populationFirst > populationSecond
+                && populationSecond > populationThird
+                && populationThird > populationFourth, "Ensures the ordering of the items matches requirements");
     }
 
     /**
@@ -576,7 +580,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInContinentOrderedByPopulation(count, continent);
 
         // Assert
-        assertEquals(count, cities.size());
+        assertEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -594,7 +598,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInContinentOrderedByPopulation(count, continent);
 
         // Assert
-        assertEquals(count, cities.size());
+        assertEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -612,7 +616,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInContinentOrderedByPopulation(count, continent);
 
         // Assert
-        assertEquals(count, cities.size());
+        assertEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -630,7 +634,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInContinentOrderedByPopulation(count, continent);
 
         // Assert
-        assertEquals(count, cities.size());
+        assertEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -648,7 +652,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInContinentOrderedByPopulation(count, continent);
 
         // Assert
-        assertEquals(0, cities.size());
+        assertEquals(0, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -682,7 +686,7 @@ public class CityServiceTests {
         var cities = systemUnderTest.getTopNCitiesInContinentOrderedByPopulation(count, continent);
 
         // Assert
-        assertNotEquals(count, cities.size());
+        assertNotEquals(count, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -705,7 +709,9 @@ public class CityServiceTests {
         var populationThird = cities.get(2).population;
         var populationFourth = cities.get(3).population;
 
-        assertTrue(populationFirst < populationSecond && populationSecond < populationThird && populationThird < populationFourth);
+        assertTrue(populationFirst > populationSecond
+                && populationSecond > populationThird
+                && populationThird > populationFourth, "Ensures the ordering of the items matches requirements");
     }
 
     /**
@@ -722,7 +728,7 @@ public class CityServiceTests {
 
         // Assert
 
-        assertEquals(cityName, city.name);
+        assertEquals(cityName, city.name, "Checks value specified matches that which is returned");
     }
 
     /**
@@ -739,7 +745,7 @@ public class CityServiceTests {
 
         // Assert
 
-        assertNull(city);
+        assertNull(city, "Checks method returns null when nothing is found");
     }
 
     /**
@@ -756,7 +762,7 @@ public class CityServiceTests {
 
         // Assert
 
-        assertEquals("Name1", city.name);
+        assertEquals("Name1", city.name, "Checks value specified matches that which is returned");
     }
 
     /**
@@ -773,6 +779,6 @@ public class CityServiceTests {
 
         // Assert
 
-        assertEquals("Name1", city.name);
+        assertEquals("Name1", city.name, "Checks value specified matches that which is returned");
     }
 }

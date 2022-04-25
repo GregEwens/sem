@@ -12,12 +12,12 @@ public class CityJoinCountry extends City {
     /**
      * The continent the country is on.
      */
-    public String Continent;
+    public String continent;
 
     /**
      * The region the country is in.
      */
-    public String Region;
+    public String region;
 
     /**
      * The country the city is in

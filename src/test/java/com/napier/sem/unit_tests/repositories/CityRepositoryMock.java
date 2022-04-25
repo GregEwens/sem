@@ -24,22 +24,32 @@ public class CityRepositoryMock implements ICityRepository {
         var cities = new ArrayList<City>();
 
         for (int i = 0; i < 30; i++) {
-            var city = new City();
-
-            var district = "Victoria";  // 15 victoria
-            if(i >= 15) district = "Queensland"; // 15 quee0snland
-
-            // generate values based on index
-            city.countryCode = Integer.toString(i);
-            city.population = (int) Math.pow(2, i);
-            city.district = district;
-            city.id = i;
-            city.name = "Name" + i;
+            City city = buildCity(i);
 
             cities.add(city);
         }
 
         return cities;
+    }
+
+    /**
+     * builds a City with values based on a specified index
+     * @param i the index
+     * @return a City object
+     */
+    private City buildCity(int i) {
+        var city = new City();
+
+        var district = "Victoria";  // 15 victoria
+        if(i >= 15) district = "Queensland"; // 15 quee0snland
+
+        // generate values based on index
+        city.countryCode = Integer.toString(i);
+        city.population = Integer.MAX_VALUE - (int) Math.pow(2, i);
+        city.district = district;
+        city.id = i;
+        city.name = "Name" + i;
+        return city;
     }
 
     /**
@@ -50,31 +60,41 @@ public class CityRepositoryMock implements ICityRepository {
         var cities = new ArrayList<CityJoinCountry>();
 
         for (int i = 0; i < 30; i++) {
-            var city = new CityJoinCountry();
-
-            var region = "North Africa";  // 15 europe
-            if(i > 15) region = "West Africa"; // 15 Asia
-
-            var name = "Egypt";  // 15 europe
-            if(i > 15) name = "China"; // 15 Asia
-
-            var continent = "Africa";  // 15 europe
-            if(i > 15) continent = "Asia"; // 15 Asia
-
-            // generate values based on index
-            city.countryCode = Integer.toString(i);
-            city.population = (int) Math.pow(2, i);
-            city.district = "district" + i;
-            city.id = i;
-            city.name = "name" + i;
-            city.countryName = name;
-            city.Region = region;
-            city.Continent = continent;
+            CityJoinCountry city = buildCityJoinCountry(i);
 
             cities.add(city);
         }
 
         return cities;
+    }
+
+    /**
+     * builds a CityJoinCountry with values based on a specified index
+     * @param i the index
+     * @return a CityJoinCountry object
+     */
+    private CityJoinCountry buildCityJoinCountry(int i) {
+        var city = new CityJoinCountry();
+
+        var region = "North Africa";  // 15 europe
+        if(i > 15) region = "West Africa"; // 15 Asia
+
+        var name = "Egypt";  // 15 europe
+        if(i > 15) name = "China"; // 15 Asia
+
+        var continent = "Africa";  // 15 europe
+        if(i > 15) continent = "Asia"; // 15 Asia
+
+        // generate values based on index
+        city.countryCode = Integer.toString(i);
+        city.population = Integer.MAX_VALUE - (int) Math.pow(2, i);
+        city.district = "district" + i;
+        city.id = i;
+        city.name = "name" + i;
+        city.countryName = name;
+        city.region = region;
+        city.continent = continent;
+        return city;
     }
 
 }

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,13 +16,13 @@ import static org.junit.jupiter.api.Assertions.*;
  * Date Created: 10/04/2022 18:56
  * File Purpose: Unit tests for LanguageModel
  */
-public class LanguageModelUnitTests {
+class LanguageModelUnitTests {
 
     /**
      * Test that the override for sorting a collection sorts correctly
      */
     @Test
-    void IComparableCompareToOverrideSortsCorrectly(){
+    void iComparableCompareToOverrideSortsCorrectly(){
 
         // Arrange
         var systemUnderTest = new ArrayList<LanguageModel>();
@@ -38,26 +39,26 @@ public class LanguageModelUnitTests {
         Collections.sort(systemUnderTest);
 
         // Assert
-        assertEquals(systemUnderTest.get(0).LanguageName, "item3");
-        assertEquals(systemUnderTest.get(1).LanguageName, "item1");
-        assertEquals(systemUnderTest.get(2).LanguageName, "item2");
-
+        assertTrue(Objects.equals(systemUnderTest.get(0).languageName, "item3")
+                    && Objects.equals(systemUnderTest.get(1).languageName, "item1")
+                    && Objects.equals(systemUnderTest.get(2).languageName, "item2"),
+                "Checks the items are ordered as specified");
     }
 
     /**
      * GetSpeakersAsPercentageOfWorld returns the correct value
      */
     @Test
-    void GetSpeakersAsPercentageOfWorldReturnsCorrectValueTest(){
+    void getSpeakersAsPercentageOfWorldReturnsCorrectValueTest(){
 
         // Arrange
         var systemUnderTest = new LanguageModel("item1", 1000, 10000);
 
         // Act
-        var response = systemUnderTest.GetSpeakersAsPercentageOfWorld();
+        var response = systemUnderTest.getSpeakersAsPercentageOfWorld();
 
         // Assert
-        assertEquals(response, 10.00);
+        assertEquals(response, 10.00, "Checks the expected percentage from the supplied values");
 
     }
 
@@ -65,12 +66,12 @@ public class LanguageModelUnitTests {
      * GetSpeakersAsPercentageOfWorld tested with 0 world population count
      */
     @Test
-    void GetSpeakersAsPercentageOfWorldThrowsIllegalArgumentExceptionTest(){
+    void getSpeakersAsPercentageOfWorldThrowsIllegalArgumentExceptionTest(){
 
         // Arrange
         var systemUnderTest = new LanguageModel("item1", 1000, 0);
 
         // Assert
-        assertThrows(IllegalArgumentException.class, systemUnderTest::GetSpeakersAsPercentageOfWorld);
+        assertThrows(IllegalArgumentException.class, systemUnderTest::getSpeakersAsPercentageOfWorld);
     }
 }

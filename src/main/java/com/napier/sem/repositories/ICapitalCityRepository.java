@@ -1,7 +1,7 @@
 package com.napier.sem.repositories;
 
 import com.napier.sem.entities.CapitalCity;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Project Name: seMethods
@@ -16,6 +16,5 @@ public interface ICapitalCityRepository {
      * Gets a collection of capital cities found in the specified continent
      * @return Returns a sorted collection of Capital Cities
      */
-    ArrayList<CapitalCity> getAllCapitalCitiesOrderedByPopulation();
-
+    List<CapitalCity> getAllCapitalCitiesOrderedByPopulation();
 }

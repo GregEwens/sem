@@ -5,6 +5,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 /**
  * Project Name: seMethods
  * Package: com.napier.sem.integration_tests
@@ -12,20 +14,19 @@ import org.junit.jupiter.api.Test;
  * Date Created: 13/03/2022 20:41
  * File Purpose: Integration Tests for the App class
  */
-public class AppIntegrationTests {
+@SuppressWarnings("PMD.JUnitTestContainsTooManyAsserts") // Integration tests may use multiple assertions
+class AppIntegrationTests {
 
     /**
      * The application to test
      */
     static App app;
 
-
     /**
      * Set up the database connection by calling initialise method on App
      */
     @BeforeAll
-    static void init()
-    {
+    static void init() {
         // create arguments to run the app
         String[] args = new String[2];
         args[0] = "localhost:33060";
@@ -49,7 +50,7 @@ public class AppIntegrationTests {
      */
     @Test
     void testsRunReports(){
-        App.runReports();
+        assertDoesNotThrow(App::runReports, "Checks the run reports method");
     }
 
     /**
@@ -64,6 +65,6 @@ public class AppIntegrationTests {
         args[1] = "300";
 
         // run the app from the intended entry point
-        App.main(args);
+        assertDoesNotThrow(() -> App.main(args));
     }
 }

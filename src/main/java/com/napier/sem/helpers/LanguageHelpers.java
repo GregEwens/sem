@@ -5,6 +5,7 @@ import com.napier.sem.models.LanguageModel;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import static com.napier.sem.helpers.PopulationHelpers.sumLanguageCount;
 
@@ -15,7 +16,12 @@ import static com.napier.sem.helpers.PopulationHelpers.sumLanguageCount;
  * Date Created: 10/04/2022 16:51
  * File Purpose: Helper methods for Languages
  */
-public class LanguageHelpers {
+public final class LanguageHelpers {
+
+    /**
+     * A private constructor because you can't just mark the class as static (c# > Java)
+     */
+    private LanguageHelpers(){}
 
     /**
      * Filters a collection of SpokenLanguageJoinCountry by a specified language name
@@ -23,14 +29,14 @@ public class LanguageHelpers {
      * @param languageName the language name to filter on
      * @return the filtered collection
      */
-    public static ArrayList<SpokenLanguageJoinCountry> getCountriesWithLanguage(
-            ArrayList<SpokenLanguageJoinCountry> allCountries,
+    public static List<SpokenLanguageJoinCountry> getCountriesWithLanguage(
+            List<SpokenLanguageJoinCountry> allCountries,
             String languageName){
 
         var filteredCountries = new ArrayList<SpokenLanguageJoinCountry>();
 
         for (var language : allCountries) {
-            if(language.Language.equalsIgnoreCase(languageName)){
+            if(language.language.equalsIgnoreCase(languageName)){
                 filteredCountries.add(language);
             }
         }
@@ -45,8 +51,8 @@ public class LanguageHelpers {
      * @param languagesOfInterest The languages to include in the models
      * @return a collection of constructed language models
      */
-    public static ArrayList<LanguageModel> buildLanguageModels(ArrayList<SpokenLanguageJoinCountry> allLanguages,
-                                                         long worldPopulation, String[] languagesOfInterest){
+    public static List<LanguageModel> buildLanguageModels(List<SpokenLanguageJoinCountry> allLanguages,
+                                                         long worldPopulation, String... languagesOfInterest){
         var languageModels = new ArrayList<LanguageModel>();
 
         for (var language: languagesOfInterest  ) {

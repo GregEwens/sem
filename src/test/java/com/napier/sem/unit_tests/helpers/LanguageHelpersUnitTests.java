@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.napier.sem.helpers.LanguageHelpers.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,9 +16,12 @@ import static org.junit.jupiter.api.Assertions.*;
  * Date Created: 10/04/2022 19:21
  * File Purpose: Unit tests for LanguageHelpers
  */
-public class LanguageHelpersUnitTests {
+class LanguageHelpersUnitTests {
 
-    private final static ArrayList<SpokenLanguageJoinCountry> SpokenLanguageJoinCountryCollection =
+    /**
+     * Reference data shared between many of the tests
+     */
+    private final static List<SpokenLanguageJoinCountry> SpokenLanguageJoinCountryCollection =
             new ArrayList<>();
 
     @BeforeAll
@@ -26,19 +30,19 @@ public class LanguageHelpersUnitTests {
         var filteredLanguage = "Language1";
 
         var item1 = new SpokenLanguageJoinCountry();
-        item1.Language = filteredLanguage;
+        item1.language = filteredLanguage;
         SpokenLanguageJoinCountryCollection.add(item1);
 
         var item2 = new SpokenLanguageJoinCountry();
-        item2.Language = filteredLanguage;
+        item2.language = filteredLanguage;
         SpokenLanguageJoinCountryCollection.add(item2);
 
         var item3 = new SpokenLanguageJoinCountry();
-        item3.Language = "language2";
+        item3.language = "language2";
         SpokenLanguageJoinCountryCollection.add(item3);
 
         var item4 = new SpokenLanguageJoinCountry();
-        item4.Language = "Another language";
+        item4.language = "Another language";
         SpokenLanguageJoinCountryCollection.add(item4);
     }
 
@@ -54,7 +58,7 @@ public class LanguageHelpersUnitTests {
         var filteredCollection = getCountriesWithLanguage(SpokenLanguageJoinCountryCollection, filteredLanguage);
 
         // Assert
-        assertEquals(2, filteredCollection.size());
+        assertEquals(2, filteredCollection.size(), "Mockup supplies 2 objects");
     }
 
     /**
@@ -67,8 +71,7 @@ public class LanguageHelpersUnitTests {
         var filteredCollection = getCountriesWithLanguage(SpokenLanguageJoinCountryCollection, "not a language");
 
         // Assert
-        assertNotNull(filteredCollection);
-        assertEquals(0, filteredCollection.size());
+        assertEquals(0, filteredCollection.size(), "Mockup does not supply this data");
     }
 
     /**
@@ -84,7 +87,7 @@ public class LanguageHelpersUnitTests {
         var response = buildLanguageModels(SpokenLanguageJoinCountryCollection, worldPopulation, languagesOfInterest);
 
         // Assert
-        assertEquals(3, response.size());
+        assertEquals(3, response.size(), "Mockup supplies 3 objects");
     }
 
     /**
@@ -100,6 +103,6 @@ public class LanguageHelpersUnitTests {
         var response = buildLanguageModels(SpokenLanguageJoinCountryCollection, worldPopulation, languagesOfInterest);
 
         // Assert
-        assertEquals("Language2", response.get(0).LanguageName);
+        assertEquals("Language2", response.get(0).languageName, "Mockup supplies this object");
     }
 }

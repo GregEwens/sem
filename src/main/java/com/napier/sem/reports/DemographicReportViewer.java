@@ -3,7 +3,7 @@ package com.napier.sem.reports;
 import com.napier.sem.models.LanguageModel;
 import com.napier.sem.services.LanguageService;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Project Name: seMethods
@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * Date Created: 10/04/2022 19:48
  * File Purpose: This class provides methods for viewing Demographic reports
  */
+@SuppressWarnings("PMD.SystemPrintln") // Prototype app using console for output
 public class DemographicReportViewer {
 
     /**
@@ -31,7 +32,7 @@ public class DemographicReportViewer {
     /**
      * displays the key demographic report for 6 key languages
      */
-    public void ShowKeyDemographicReport(){
+    public void showKeyDemographicReport(){
         var model = _languageService.getDemographicReportModel();
 
         System.out.println("Key demographic report");
@@ -43,7 +44,10 @@ public class DemographicReportViewer {
      * prints the details of a collection of languages
      * @param model the collection of languages
      */
-    private void displayDemographics(ArrayList<LanguageModel> model) {
+    private void displayDemographics(List<LanguageModel> model) {
+        var header = String.format("%-31s %-11s %-20s",
+                "Language Name", "Speakers", "Percentage of World");
+        System.out.println(header);
 
         for (var languageModel:model) {
             displayLanguageDemographic(languageModel);
@@ -57,10 +61,9 @@ public class DemographicReportViewer {
     private void displayLanguageDemographic(LanguageModel model) {
         if (model != null)
         {
-            System.out.println(
-                    model.LanguageName + " "
-                            + "Speakers: " + model.Speakers + " "
-                            + "Percentage of World: " + model.GetSpeakersAsPercentageOfWorld());
+            var row = String.format("%-31s %-11s %-20s",
+                    model.languageName, model.speakers, model.getSpeakersAsPercentageOfWorld());
+            System.out.println(row);
         }
     }
 }

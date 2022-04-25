@@ -44,12 +44,12 @@ public class PopulationReportingService {
         var allCitiesInContinent = _cityService.getAllCitiesByContinentOrderedByPopulation(continentName);
         var allCountriesInContinent = _countryService.getAllCountriesInContinentOrderedByPopulation(continentName);
 
-        if (allCountriesInContinent.size() == 0) return null;
+        if (allCountriesInContinent.isEmpty()) return null;
 
         var model = new HighLevelPopulationReportModel();
-        model.Name = continentName;
-        model.Population = sumCountryPopulation(allCountriesInContinent);
-        model.CityPopulation = sumCityPopulation(allCitiesInContinent);
+        model.name = continentName;
+        model.population = sumCountryPopulation(allCountriesInContinent);
+        model.cityPopulation = sumCityPopulation(allCitiesInContinent);
 
         return model;
     }
@@ -64,12 +64,12 @@ public class PopulationReportingService {
         var allCitiesInRegion = _cityService.getAllCitiesByRegionOrderedByPopulation(regionName);
         var allCountriesInRegion = _countryService.getAllCountriesInRegionOrderedByPopulation(regionName);
 
-        if (allCountriesInRegion.size() == 0) return null;
+        if (allCountriesInRegion.isEmpty()) return null;
 
         var model = new HighLevelPopulationReportModel();
-        model.Name = regionName;
-        model.Population = sumCountryPopulation(allCountriesInRegion);
-        model.CityPopulation = sumCityPopulation(allCitiesInRegion);
+        model.name = regionName;
+        model.population = sumCountryPopulation(allCountriesInRegion);
+        model.cityPopulation = sumCityPopulation(allCitiesInRegion);
 
         return model;
     }
@@ -87,9 +87,9 @@ public class PopulationReportingService {
         if (country == null) return null;
 
         var model = new HighLevelPopulationReportModel();
-        model.Name = countryName;
-        model.Population = country.Population;
-        model.CityPopulation = sumCityPopulation(allCitiesInCountry);
+        model.name = countryName;
+        model.population = country.population;
+        model.cityPopulation = sumCityPopulation(allCitiesInCountry);
 
         return model;
     }
@@ -136,7 +136,7 @@ public class PopulationReportingService {
 
         if (country == null) return 0;
 
-        return country.Population;
+        return country.population;
     }
 
     /**

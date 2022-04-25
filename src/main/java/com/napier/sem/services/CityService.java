@@ -4,6 +4,7 @@ import com.napier.sem.entities.City;
 import com.napier.sem.repositories.ICityRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -33,8 +34,7 @@ public class CityService {
      * @param ID The city ID
      * @return The instance of city found or null
      */
-    public City getCityById(int ID)
-    {
+    public City getCityById(int ID) {
         var cities = _cityRepository.getAllCitiesOrderedByPopulation();
 
         return cities.stream().filter(c -> c.id == ID).collect(Collectors.toList()).get(0);
@@ -45,15 +45,14 @@ public class CityService {
      * @param continentName The continent to search, casing is unimportant
      * @return Returns a sorted collection of Cities
      */
-    public ArrayList<City> getAllCitiesByContinentOrderedByPopulation(String continentName)
-    {
+    public List<City> getAllCitiesByContinentOrderedByPopulation(String continentName) {
 
         var cities = _cityRepository.getAllCitiesJoinCountryOrderedByPopulation();
 
         var citiesInContinent = new ArrayList<City>();
 
         for (var city:cities) {
-            if (city.Continent.equalsIgnoreCase(continentName)){
+            if (city.continent.equalsIgnoreCase(continentName)){
                 citiesInContinent.add(city);
             }
         }
@@ -66,14 +65,13 @@ public class CityService {
      * @param regionName The region to search, casing is unimportant
      * @return Returns a sorted collection of Cities
      */
-    public ArrayList<City> getAllCitiesByRegionOrderedByPopulation(String regionName)
-    {
+    public List<City> getAllCitiesByRegionOrderedByPopulation(String regionName) {
         var cities = _cityRepository.getAllCitiesJoinCountryOrderedByPopulation();
 
         var citiesInRegion = new ArrayList<City>();
 
         for (var city:cities) {
-            if (city.Region.equalsIgnoreCase(regionName)){
+            if (city.region.equalsIgnoreCase(regionName)){
                 citiesInRegion.add(city);
             }
         }
@@ -86,7 +84,7 @@ public class CityService {
      * @param countryCode The countryCode to search, casing is unimportant
      * @return Returns a sorted collection of Cities
      */
-    public ArrayList<City> getAllCitiesByCountryOrderedByPopulation(String countryCode){
+    public List<City> getAllCitiesByCountryOrderedByPopulation(String countryCode){
         var cities = _cityRepository.getAllCitiesOrderedByPopulation();
 
         var citiesInCountry = new ArrayList<City>();
@@ -105,7 +103,7 @@ public class CityService {
      * @param districtName The region name to search, casing is unimportant
      * @return Returns a sorted collection of Cities
      */
-    public ArrayList<City> getAllCitiesByDistrictOrderedByPopulation(String districtName){
+    public List<City> getAllCitiesByDistrictOrderedByPopulation(String districtName){
         var cities = _cityRepository.getAllCitiesOrderedByPopulation();
 
         var citiesInDistrict = new ArrayList<City>();
@@ -124,7 +122,7 @@ public class CityService {
      * @param n The number of cities to show
      * @return Returns a sorted collection of Cities
      */
-    public ArrayList<City> getTopNCitiesOrderedByPopulation(int n){
+    public List<City> getTopNCitiesOrderedByPopulation(int n){
         var cities = _cityRepository.getAllCitiesOrderedByPopulation();
 
         return (ArrayList<City>) cities.stream().limit(n).collect(Collectors.toList());
@@ -136,14 +134,14 @@ public class CityService {
      * @param regionName the name of the specified region
      * @return A collection of cities
      */
-    public ArrayList<City> getTopNCitiesInRegionOrderedByPopulation(int n, String regionName){
+    public List<City> getTopNCitiesInRegionOrderedByPopulation(int n, String regionName){
 
         var cities = _cityRepository.getAllCitiesJoinCountryOrderedByPopulation();
 
         var citiesInRegion = new ArrayList<City>();
 
         for (var city:cities) {
-            if (city.Region.equalsIgnoreCase(regionName)){
+            if (city.region.equalsIgnoreCase(regionName)){
                 citiesInRegion.add(city);
             }
         }
@@ -157,7 +155,7 @@ public class CityService {
      * @param countryName the name of the specified country
      * @return A collection of cities
      */
-    public ArrayList<City> getTopNCitiesInCountryOrderedByPopulation(int n, String countryName){
+    public List<City> getTopNCitiesInCountryOrderedByPopulation(int n, String countryName){
 
         var cities = _cityRepository.getAllCitiesJoinCountryOrderedByPopulation();
 
@@ -178,14 +176,14 @@ public class CityService {
      * @param continentName the name of the specified continent
      * @return A collection of cities
      */
-    public ArrayList<City> getTopNCitiesInContinentOrderedByPopulation(int n, String continentName){
+    public List<City> getTopNCitiesInContinentOrderedByPopulation(int n, String continentName){
 
         var cities = _cityRepository.getAllCitiesJoinCountryOrderedByPopulation();
 
         var citiesInContinent = new ArrayList<City>();
 
         for (var city:cities) {
-            if (city.Continent.equalsIgnoreCase(continentName)){
+            if (city.continent.equalsIgnoreCase(continentName)){
                 citiesInContinent.add(city);
             }
         }
@@ -198,7 +196,7 @@ public class CityService {
      * @param districtName the name of the specified district
      * @return A collection of cities
      */
-    public ArrayList<City> getTopNCitiesInDistrictOrderedByPopulation(int n, String districtName){
+    public List<City> getTopNCitiesInDistrictOrderedByPopulation(int n, String districtName){
 
         var cities = _cityRepository.getAllCitiesOrderedByPopulation();
 
@@ -217,7 +215,7 @@ public class CityService {
      * Gets a collection of all cities
      * @return Returns a sorted collection of Cities
      */
-    public ArrayList<City> getAllCitiesOrderedByPopulation() {
+    public List<City> getAllCitiesOrderedByPopulation() {
         return _cityRepository.getAllCitiesOrderedByPopulation();
     }
 

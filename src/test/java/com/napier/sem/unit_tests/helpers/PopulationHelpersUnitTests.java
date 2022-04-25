@@ -17,13 +17,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Date Created: 09/04/2022 14:45
  * File Purpose: Unit tests for PopulationHelpers
  */
-public class PopulationHelpersUnitTests {
+class PopulationHelpersUnitTests {
 
     /**
      * Tests a correct count for sumCityPopulation
      */
     @Test
-    public void sumCityPopulationCorrectCountTest() {
+    void sumCityPopulationCorrectCountTest() {
         // Arrange
         var cities = new ArrayList<City>();
 
@@ -43,14 +43,14 @@ public class PopulationHelpersUnitTests {
         var populationCount = sumCityPopulation(cities);
 
         // Assert
-        assertEquals(300, populationCount);
+        assertEquals(300, populationCount, "Checks the summation equals 300");
     }
 
     /**
      * Tests sumCityPopulation handles an empty list
      */
     @Test
-    public void sumCityPopulationHandlesEmptyListTest() {
+    void sumCityPopulationHandlesEmptyListTest() {
         // Arrange
         @SuppressWarnings("MismatchedQueryAndUpdateOfCollection") // no need to use cities as we're only testing the
         // output so we can suppress this warning
@@ -60,41 +60,41 @@ public class PopulationHelpersUnitTests {
         var populationCount = sumCityPopulation(cities);
 
         // Assert
-        assertEquals(0, populationCount);
+        assertEquals(0, populationCount, "checks the method handles an empty collection correctly");
     }
 
     /**
      * Tests a correct count for sumCountryPopulation
      */
     @Test
-    public void sumCountryPopulationCorrectCountTest() {
+    void sumCountryPopulationCorrectCountTest() {
         // Arrange
         var countries = new ArrayList<Country>();
 
         var country1 = new Country();
-        country1.Population = 100;
+        country1.population = 100;
         countries.add(country1);
 
         var country2 = new Country();
-        country2.Population = 100;
+        country2.population = 100;
         countries.add(country2);
 
         var country3 = new Country();
-        country3.Population = 100;
+        country3.population = 100;
         countries.add(country3);
 
         // Act
         var populationCount = sumCountryPopulation(countries);
 
         // Assert
-        assertEquals(300, populationCount);
+        assertEquals(300, populationCount, "Checks the summation equals 300");
     }
 
     /**
      * Tests sumCountryPopulation handles an empty list
      */
     @Test
-    public void sumCountryPopulationHandlesEmptyListTest() {
+    void sumCountryPopulationHandlesEmptyListTest() {
         // Arrange
         @SuppressWarnings("MismatchedQueryAndUpdateOfCollection") // no need to use cities as we're only testing the
         // output so we can suppress this warning
@@ -104,6 +104,6 @@ public class PopulationHelpersUnitTests {
         var populationCount = sumCountryPopulation(countries);
 
         // Assert
-        assertEquals(0, populationCount);
+        assertEquals(0, populationCount, "checks the method handles an empty collection correctly");
     }
 }

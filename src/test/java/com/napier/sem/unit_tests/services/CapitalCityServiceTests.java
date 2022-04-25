@@ -2,7 +2,6 @@ package com.napier.sem.unit_tests.services;
 
 import com.napier.sem.repositories.ICapitalCityRepository;
 import com.napier.sem.services.CapitalCityService;
-import com.napier.sem.services.CityService;
 import com.napier.sem.unit_tests.repositories.CapitalCityRepositoryMock;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Date Created: 13/03/2022 19:46
  * File Purpose: Unit Tests for Capital City Service
  */
-public class CapitalCityServiceTests {
+class CapitalCityServiceTests {
 
     /**
      * Mockup of countryRepository
@@ -44,7 +43,7 @@ public class CapitalCityServiceTests {
         var cities = systemUnderTest.getAllCapitalCitiesByContinentOrderedByPopulation(continent);
 
         // Assert
-        assertEquals(cities.size(), 15);
+        assertEquals(cities.size(), 15, "Mockup supplies this count");
     }
 
     /**
@@ -61,7 +60,7 @@ public class CapitalCityServiceTests {
         var cities = systemUnderTest.getAllCapitalCitiesByContinentOrderedByPopulation(continent);
 
         // Assert
-        assertEquals(cities.size(), 15);
+        assertEquals(cities.size(), 15, "Mockup supplies this count");
     }
 
     /**
@@ -78,7 +77,7 @@ public class CapitalCityServiceTests {
         var cities = systemUnderTest.getAllCapitalCitiesByContinentOrderedByPopulation(continent);
 
         // Assert
-        assertEquals(cities.size(), 15);
+        assertEquals(cities.size(), 15, "Mockup supplies this count");
     }
 
     /**
@@ -95,7 +94,7 @@ public class CapitalCityServiceTests {
         var cities = systemUnderTest.getAllCapitalCitiesByContinentOrderedByPopulation(continent);
 
         // Assert
-        assertEquals(0, cities.size());
+        assertEquals(0, cities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -117,7 +116,9 @@ public class CapitalCityServiceTests {
         var populationThird = cities.get(2).population;
         var populationFourth = cities.get(3).population;
 
-        assertTrue(populationFirst > populationSecond && populationSecond > populationThird && populationThird > populationFourth);
+        assertTrue(populationFirst > populationSecond
+                && populationSecond > populationThird
+                && populationThird > populationFourth, "Ensures the ordering of the items matches requirements");
     }
 
     /**
@@ -133,7 +134,7 @@ public class CapitalCityServiceTests {
         var capitalCities = systemUnderTest.getAllCapitalCitiesOrderedByPopulation();
 
         //Assert
-        assertEquals(30,capitalCities.size());
+        assertEquals(30,capitalCities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -154,7 +155,9 @@ public class CapitalCityServiceTests {
         var populationThird = cities.get(2).population;
         var populationFourth = cities.get(3).population;
 
-        assertTrue(populationFirst > populationSecond && populationSecond > populationThird && populationThird > populationFourth);
+        assertTrue(populationFirst > populationSecond
+                && populationSecond > populationThird
+                && populationThird > populationFourth, "Ensures the ordering of the items matches requirements");
     }
 
     /**
@@ -170,7 +173,7 @@ public class CapitalCityServiceTests {
         var capitalCities = systemUnderTest.getAllCapitalCitiesInRegionOrderedByPopulation(regionName);
 
         //Assert
-        assertEquals(15, capitalCities.size());
+        assertEquals(15, capitalCities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -187,7 +190,7 @@ public class CapitalCityServiceTests {
         var capitalCity = capitalCities.get(0);
 
         //Assert
-        assertEquals("Middle East", capitalCity.region);
+        assertEquals("Middle East", capitalCity.region, "Checks value specified matches that which is returned");
     }
 
     /**
@@ -209,7 +212,9 @@ public class CapitalCityServiceTests {
         var populationThird = capitalCities.get(2).population;
         var populationFourth = capitalCities.get(3).population;
 
-        assertTrue(populationFirst > populationSecond && populationSecond > populationThird && populationThird > populationFourth);
+        assertTrue(populationFirst > populationSecond
+                && populationSecond > populationThird
+                && populationThird > populationFourth, "Ensures the ordering of the items matches requirements");
 
     }
 
@@ -227,7 +232,7 @@ public class CapitalCityServiceTests {
         var capitalCity = capitalCities.get(0);
 
         //Assert
-        assertEquals("Middle East", capitalCity.region);
+        assertEquals("Middle East", capitalCity.region, "Checks value specified matches that which is returned");
     }
 
     /**
@@ -244,7 +249,7 @@ public class CapitalCityServiceTests {
         var capitalCity = capitalCities.get(0);
 
         //Assert
-        assertEquals("Middle East", capitalCity.region);
+        assertEquals("Middle East", capitalCity.region, "Checks value specified matches that which is returned");
     }
 
     /**
@@ -260,7 +265,7 @@ public class CapitalCityServiceTests {
         var capitalCities = systemUnderTest.getAllCapitalCitiesInRegionOrderedByPopulation(regionName);
 
         //Assert
-        assertTrue(capitalCities.size() == 0);
+        assertEquals(0, capitalCities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -277,7 +282,7 @@ public class CapitalCityServiceTests {
         var capitalCities = systemUnderTest.getTopNCapitalCitiesInWorldOrderedByPopulation(count);
 
         // Assert
-        assertEquals(count, capitalCities.size());
+        assertEquals(count, capitalCities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -294,7 +299,7 @@ public class CapitalCityServiceTests {
         var capitalCities = systemUnderTest.getTopNCapitalCitiesInWorldOrderedByPopulation(count);
 
         // Assert
-        assertEquals(count, capitalCities.size());
+        assertEquals(count, capitalCities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -325,7 +330,7 @@ public class CapitalCityServiceTests {
         var capitalCities = systemUnderTest.getTopNCapitalCitiesInWorldOrderedByPopulation(count);
 
         // Assert
-        assertNotEquals(count, capitalCities.size());
+        assertNotEquals(count, capitalCities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -347,10 +352,10 @@ public class CapitalCityServiceTests {
         var populationThird = capitalCities.get(2).population;
         var populationFourth = capitalCities.get(3).population;
 
-        assertTrue(populationFirst > populationSecond && populationSecond > populationThird && populationThird > populationFourth);
+        assertTrue(populationFirst > populationSecond
+                && populationSecond > populationThird
+                && populationThird > populationFourth, "Ensures the ordering of the items matches requirements");
     }
-
-
 
     /**
      * getTopNCapitalCitiesInRegionOrderedByPopulation tested with correct count
@@ -367,7 +372,7 @@ public class CapitalCityServiceTests {
         var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, region);
 
         // Assert
-        assertEquals(count, capitalCities.size());
+        assertEquals(count, capitalCities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -385,7 +390,7 @@ public class CapitalCityServiceTests {
         var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, region);
 
         // Assert
-        assertEquals(count, capitalCities.size());
+        assertEquals(count, capitalCities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -403,7 +408,7 @@ public class CapitalCityServiceTests {
         var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, region);
 
         // Assert
-        assertEquals(count, capitalCities.size());
+        assertEquals(count, capitalCities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -421,7 +426,7 @@ public class CapitalCityServiceTests {
         var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, region);
 
         // Assert
-        assertEquals(count, capitalCities.size());
+        assertEquals(count, capitalCities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -439,7 +444,7 @@ public class CapitalCityServiceTests {
         var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, region);
 
         // Assert
-        assertEquals(0, capitalCities.size());
+        assertEquals(0, capitalCities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -473,7 +478,7 @@ public class CapitalCityServiceTests {
         var capitalCities = systemUnderTest.getTopNCapitalCitiesInRegionOrderedByPopulation(count, region);
 
         // Assert
-        assertNotEquals(count, capitalCities.size());
+        assertNotEquals(count, capitalCities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -496,10 +501,10 @@ public class CapitalCityServiceTests {
         var populationThird = capitalCities.get(2).population;
         var populationFourth = capitalCities.get(3).population;
 
-        assertTrue(populationFirst > populationSecond && populationSecond > populationThird && populationThird > populationFourth);
+        assertTrue(populationFirst > populationSecond
+                && populationSecond > populationThird
+                && populationThird > populationFourth, "Ensures the ordering of the items matches requirements");
     }
-
-
 
     /**
      * getTopNCapitalCitiesInRegionOrderedByPopulation tested with correct count
@@ -516,7 +521,7 @@ public class CapitalCityServiceTests {
         var capitalCities = systemUnderTest.getTopNCapitalCitiesInContinentOrderedByPopulation(count, continent);
 
         // Assert
-        assertEquals(count, capitalCities.size());
+        assertEquals(count, capitalCities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -534,7 +539,7 @@ public class CapitalCityServiceTests {
         var capitalCities = systemUnderTest.getTopNCapitalCitiesInContinentOrderedByPopulation(count, continent);
 
         // Assert
-        assertEquals(count, capitalCities.size());
+        assertEquals(count, capitalCities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -552,7 +557,7 @@ public class CapitalCityServiceTests {
         var capitalCities = systemUnderTest.getTopNCapitalCitiesInContinentOrderedByPopulation(count, continent);
 
         // Assert
-        assertEquals(count, capitalCities.size());
+        assertEquals(count, capitalCities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -570,7 +575,7 @@ public class CapitalCityServiceTests {
         var capitalCities = systemUnderTest.getTopNCapitalCitiesInContinentOrderedByPopulation(count, continent);
 
         // Assert
-        assertEquals(count, capitalCities.size());
+        assertEquals(count, capitalCities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -588,7 +593,7 @@ public class CapitalCityServiceTests {
         var capitalCities = systemUnderTest.getTopNCapitalCitiesInContinentOrderedByPopulation(count, continent);
 
         // Assert
-        assertEquals(0, capitalCities.size());
+        assertEquals(0, capitalCities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -622,7 +627,7 @@ public class CapitalCityServiceTests {
         var capitalCities = systemUnderTest.getTopNCapitalCitiesInContinentOrderedByPopulation(count, continent);
 
         // Assert
-        assertNotEquals(count, capitalCities.size());
+        assertNotEquals(count, capitalCities.size(), "Mockup supplies this count");
     }
 
     /**
@@ -645,9 +650,8 @@ public class CapitalCityServiceTests {
         var populationThird = capitalCities.get(2).population;
         var populationFourth = capitalCities.get(3).population;
 
-        assertTrue(populationFirst > populationSecond && populationSecond > populationThird && populationThird > populationFourth);
+        assertTrue(populationFirst > populationSecond
+                && populationSecond > populationThird
+                && populationThird > populationFourth, "Ensures the ordering of the items matches requirements");
     }
-
-
-
 }
