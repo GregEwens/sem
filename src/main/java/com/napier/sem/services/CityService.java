@@ -99,6 +99,25 @@ public class CityService {
     }
 
     /**
+     * Gets a collection of cities found in the specified country name
+     * @param countryName The country name to search, casing is unimportant
+     * @return Returns a sorted collection of Cities
+     */
+    public List<City> getAllCitiesByCountryNameOrderedByPopulation(String countryName){
+        var cities = _cityRepository.getAllCitiesJoinCountryOrderedByPopulation();
+
+        var citiesInCountry = new ArrayList<City>();
+
+        for (var city:cities) {
+            if (city.countryName.equalsIgnoreCase(countryName)){
+                citiesInCountry.add(city);
+            }
+        }
+
+        return citiesInCountry;
+    }
+
+    /**
      * Gets a collection of cities found in a given region
      * @param districtName The region name to search, casing is unimportant
      * @return Returns a sorted collection of Cities

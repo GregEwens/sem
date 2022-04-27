@@ -81,7 +81,7 @@ public class PopulationReportingService {
      */
     public HighLevelPopulationReportModel getHighLevelPopulationDataForCountry(String countryName){
 
-        var allCitiesInCountry = _cityService.getAllCitiesByCountryOrderedByPopulation(countryName);
+        var allCitiesInCountry = _cityService.getAllCitiesByCountryNameOrderedByPopulation(countryName);
         var country = _countryService.getCountryByName(countryName);
 
         if (country == null) return null;
