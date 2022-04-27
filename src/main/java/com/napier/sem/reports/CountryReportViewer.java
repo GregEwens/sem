@@ -96,7 +96,7 @@ public class CountryReportViewer {
      * @param regionName The specified region
      */
     public void showTopNCountriesInRegionByPopulation(int n, String regionName){
-        var countries = _countryService.getTopNCountriesInContinentOrderedByPopulation(n, regionName);
+        var countries = _countryService.getTopNCountriesInRegionOrderedByPopulation(n, regionName);
 
         System.out.println("Report showing top " + n + " countries in " + regionName + " ordered by population " +
                 "ascending");

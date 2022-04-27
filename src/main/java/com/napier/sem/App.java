@@ -174,7 +174,7 @@ public class App
      * Run the world reports
      */
     public static void runReports(){
-
+/*
         // show an example city
         cityReports.showCityDetails(5);
 
@@ -215,7 +215,7 @@ public class App
         countryReports.showTopNCountriesInContinentByPopulation(12, "Africa");
 
         // show top N countries in continent by population
-        countryReports.showTopNCountriesInRegionByPopulation(12, "Northern Europe");
+        countryReports.showTopNCountriesInRegionByPopulation(12, "Southern Europe");
 
         // show top N cities by population
         cityReports.showTopNCitiesByPopulation(5);
@@ -230,8 +230,8 @@ public class App
         cityReports.showTopNCitiesInContinentByPopulation(16, "Europe");
 
         // show top N cities in continent
-        cityReports.showTopNCitiesInRegionByPopulation(16, "Northern Europe");
-
+        cityReports.showTopNCitiesInRegionByPopulation(16, "Southern Europe");
+*/
         // show population report for country
         populationReports.showPopulationReportForCountry("France");
 
