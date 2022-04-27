@@ -11,6 +11,8 @@ Develop Build Status ![GitHub Workflow Status (branch)](https://img.shields.io/g
 [![codecov](https://codecov.io/gh/GregEwens/sem/branch/master/graph/badge.svg?token=FWY2MWCT6T)](https://codecov.io/gh/GregEwens/sem)
 
 
+32 requirements of 32 have been implemented, which is 100%.
+
 | ID  | Name                                                                                                                                                    | Met | Screenshot                                          |
 |-----|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----|-----------------------------------------------------|
 | 1   | All the countries in the world organised by largest population to smallest.                                                                             | Yes | ![img_10.png](img_10.png) ![img_11.png](img_11.png) |
